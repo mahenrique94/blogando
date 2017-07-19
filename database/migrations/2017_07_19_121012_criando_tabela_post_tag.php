@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriandoTabelaCadRedesocial extends Migration
+class CriandoTabelaPostTag extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CriandoTabelaCadRedesocial extends Migration
      */
     public function up()
     {
-        Schema::create('bg_cad_redesocial', function (Blueprint $table) {
+        Schema::create('bg_post_tag', function (Blueprint $table) {
             $table->increments('id');
-            $table->string("descricao", 120)->unique();
-            $table->string("icone", 120);
-            $table->string("slug", 255)->unique();
+            $table->bigInteger("idpost")->unsigned();
+            $table->integer("idtag")->unsigned();
+            $table->foreign("idpost")->references("id")->on("bg_post");
+            $table->foreign("idtag")->references("id")->on("bg_cad_tag");
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CriandoTabelaCadRedesocial extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bg_cad_redesocial');
+        Schema::dropIfExists('bg_post_tag');
     }
 }

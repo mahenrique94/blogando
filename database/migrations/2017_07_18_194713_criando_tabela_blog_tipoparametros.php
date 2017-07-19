@@ -16,7 +16,7 @@ class CriandoTabelaBlogTipoparametros extends Migration
         Schema::create('bg_blog_tipoparametros', function (Blueprint $table) {
             $table->increments('id');
             $table->string("descricao", 60)->unique();
-            $table->string("slug", 255);
+            $table->string("slug", 120)->unique();
             $table->timestamps();
         });
     }

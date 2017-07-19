@@ -17,7 +17,7 @@ class CriandoTabelaCadFormato extends Migration
             $table->increments('id');
             $table->integer("idtipoformato")->unsigned();
             $table->string("formato", 120)->unique();
-            $table->string("slug", 255);
+            $table->string("slug", 255)->unique();
             $table->foreign("idtipoformato")->references("id")->on("bg_cad_tipoformato");
             $table->timestamps();
         });

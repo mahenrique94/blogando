@@ -16,8 +16,8 @@ class CriandoTabelaBlog extends Migration
         Schema::create('bg_blog', function (Blueprint $table) {
             $table->increments("id");
             $table->string("titulo", 120)->unique();
-            $table->string("slug", 255);
-            $table->string("url", 255);
+            $table->string("slug", 255)->unique();
+            $table->string("url", 255)->unique();
             $table->string("descricao", 255);
             $table->timestamps();
         });

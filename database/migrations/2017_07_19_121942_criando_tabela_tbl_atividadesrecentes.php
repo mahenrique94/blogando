@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriandoTabelaCadRedesocial extends Migration
+class CriandoTabelaTblAtividadesrecentes extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CriandoTabelaCadRedesocial extends Migration
      */
     public function up()
     {
-        Schema::create('bg_cad_redesocial', function (Blueprint $table) {
+        Schema::create('bg_tbl_atividadesrecentes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string("descricao", 120)->unique();
-            $table->string("icone", 120);
-            $table->string("slug", 255)->unique();
+            $table->integer("idautor")->unsigned();
+            $table->string("descricao", 255);
+            $table->foreign("idautor")->references("id")->on("bg_post_autor");
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CriandoTabelaCadRedesocial extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bg_cad_redesocial');
+        Schema::dropIfExists('bg_tbl_atividadesrecentes');
     }
 }

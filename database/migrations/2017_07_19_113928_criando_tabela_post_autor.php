@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriandoTabelaBlogNewsletter extends Migration
+class CriandoTabelaPostAutor extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,20 @@ class CriandoTabelaBlogNewsletter extends Migration
      */
     public function up()
     {
-        Schema::create('bg_blog_newsletter', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('bg_post_autor', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer("idblog")->unsigned();
-            $table->string("nome", 120)->nullable();
+            $table->integer("idgrupo")->unsigned();
+            $table->string("nome", 120)->unique();
+            $table->string("slug", 255)->unique();
             $table->string("email", 255)->unique();
+            $table->string("senha", 255);
+            $table->string("imagem", 255)->nullable();
+            $table->string("apelido", 60)->nullable();
+            $table->text("perfil")->nullable();
             $table->boolean("inativo")->default(false);
-            $table->boolean("acompanharposts")->default(false);
-            $table->boolean("acompanharcomentarios")->default(false);
-            $table->boolean("acompanharrespostas")->default(false);
             $table->foreign("idblog")->references("id")->on("bg_blog");
+            $table->foreign("idgrupo")->references("id")->on("bg_adm_grupo");
             $table->timestamps();
         });
     }
@@ -34,6 +38,6 @@ class CriandoTabelaBlogNewsletter extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bg_blog_newsletter');
+        Schema::dropIfExists('bg_post_autor');
     }
 }
