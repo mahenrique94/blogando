@@ -14,8 +14,6 @@
             @include("config.aside")
         </header>
         <section class="u-content">
-
-        </section>
-    </main>
-</body>
-</html>
+            <section class="bg-dashboard">
+                @include("config.menu")
+                <section class="bg-dashboard__conteudo">

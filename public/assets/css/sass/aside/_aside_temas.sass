@@ -1,0 +1,13 @@
+@each $tema in $temas
+    .bg-aside--#{$tema}
+        @extend .bg-aside
+        background: map_get($temas-colors, $tema)
+        color: map_get($temas-texts, $tema)
+        .bg-aside__link
+            background: map_get($temas-texts, $tema)
+            color: map_get($temas-colors, $tema)
+            &:hover
+                background: darken(map_get($temas-texts, $tema), 10%)
+        .bg-aside__navegacao
+            &:hover
+                background: map_get($temas-texts-hover, $tema)
