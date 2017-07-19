@@ -16,6 +16,7 @@ class CriandoTabelaBlogParametros extends Migration
         Schema::create('bg_blog_parametros', function (Blueprint $table) {
             $table->increments('id');
             $table->integer("idblog")->unsigned()->unique();
+            $table->integer("idtema")->unsigned()->unique();
             $table->integer("idtipoparametro")->unsigned();
             $table->integer("idformatodata")->unsigned();
             $table->integer("idformatohora")->unsigned();
@@ -31,6 +32,7 @@ class CriandoTabelaBlogParametros extends Migration
             $table->boolean("comentariosdevemseraprovados")->default(false);
             $table->boolean("permitircompartilhamentos")->default(true);
             $table->foreign("idblog")->references("id")->on("bg_blog");
+            $table->foreign("idtema")->references("id")->on("bg_blog_tema");
             $table->foreign("idtipoparametro")->references("id")->on("bg_blog_tipoparametros");
             $table->foreign("idformatodata")->references("id")->on("bg_cad_formato");
             $table->foreign("idformatohora")->references("id")->on("bg_cad_formato");

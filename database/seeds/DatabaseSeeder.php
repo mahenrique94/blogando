@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PopulandoTabelaAdmGrupo::class);
         $this->call(PopulandoTabelaBlog::class);
         $this->call(PopulandoTabelaBlogNewsletterparametros::class);
+        $this->call(PopulandoTabelaBlogTema::class);
         $this->call(PopulandoTabelaBlogTipoParametros::class);
         $this->call(PopulandoTabelaCadCategoria::class);
         $this->call(PopulandoTabelaCadTipoFormato::class);

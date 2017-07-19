@@ -18,7 +18,9 @@ class PopulandoTabelaAdmPermissao extends Seeder
             "editar" => true,
             "listar" => true,
             "deletar" => true,
-            "visualizar" => true
+            "visualizar" => true,
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
         ]);
         DB::table("bg_adm_permissao")->insert([
             "id" => 2,
@@ -27,7 +29,9 @@ class PopulandoTabelaAdmPermissao extends Seeder
             "editar" => true,
             "listar" => true,
             "deletar" => false,
-            "visualizar" => true
+            "visualizar" => true,
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
         ]);
         DB::table("bg_adm_permissao")->insert([
             "id" => 3,
@@ -36,7 +40,9 @@ class PopulandoTabelaAdmPermissao extends Seeder
             "editar" => false,
             "listar" => true,
             "deletar" => false,
-            "visualizar" => true
+            "visualizar" => true,
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
         ]);
         DB::table("bg_adm_permissao")->insert([
             "id" => 4,
@@ -45,7 +51,9 @@ class PopulandoTabelaAdmPermissao extends Seeder
             "editar" => false,
             "listar" => true,
             "deletar" => false,
-            "visualizar" => false
+            "visualizar" => false,
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
         ]);
         DB::table("bg_adm_permissao")->insert([
             "id" => 5,
@@ -54,7 +62,9 @@ class PopulandoTabelaAdmPermissao extends Seeder
             "editar" => false,
             "listar" => false,
             "deletar" => false,
-            "visualizar" => true
+            "visualizar" => true,
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
         ]);
         DB::table("bg_adm_permissao")->insert([
             "id" => 6,
@@ -63,7 +73,9 @@ class PopulandoTabelaAdmPermissao extends Seeder
             "editar" => false,
             "listar" => true,
             "deletar" => false,
-            "visualizar" => true
+            "visualizar" => true,
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
         ]);
     }
 }

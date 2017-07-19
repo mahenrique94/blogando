@@ -14,27 +14,37 @@ class PopulandoTabelaBlogTipoParametros extends Seeder
         DB::table("bg_blog_tipoparametros")->insert([
             "id" => 1,
             "descricao" => "Geral",
-            "slug" => "geral"
+            "slug" => "geral",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
         ]);
         DB::table("bg_blog_tipoparametros")->insert([
             "id" => 2,
             "descricao" => "Escrita",
-            "slug" => "escrita"
+            "slug" => "escrita",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
         ]);
         DB::table("bg_blog_tipoparametros")->insert([
             "id" => 3,
             "descricao" => "Leitura",
-            "slug" => "leitura"
+            "slug" => "leitura",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
         ]);
         DB::table("bg_blog_tipoparametros")->insert([
             "id" => 4,
             "descricao" => "Discussão",
-            "slug" => "discussao"
+            "slug" => "discussao",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
         ]);
         DB::table("bg_blog_tipoparametros")->insert([
             "id" => 5,
             "descricao" => "Compartilhamento",
-            "slug" => "compartilhamento"
+            "slug" => "compartilhamento",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
         ]);
     }
 }

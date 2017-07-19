@@ -13,7 +13,9 @@ class PopulandoTabelaPostAutorParametros extends Seeder
     {
         DB::table("bg_post_autorparametros")->insert([
             "id" => 1,
-            "idautor" => 1
+            "idautor" => 1,
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
         ]);
     }
 }

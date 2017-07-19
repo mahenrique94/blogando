@@ -14,7 +14,9 @@ class PopulandoTabelaCadCategoria extends Seeder
         DB::table("bg_cad_categoria")->insert([
             "id" => 1,
             "descricao" => "Sem categoria",
-            "slug" => "sem-categoria"
+            "slug" => "sem-categoria",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
         ]);
     }
 }

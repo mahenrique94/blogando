@@ -15,31 +15,41 @@ class PopulandoTabelaAdmGrupo extends Seeder
             "id" => 1,
             "idtipoacesso" => 1,
             "descricao" => "Administrador",
-            "slug" => "administrador"
+            "slug" => "administrador",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
         ]);
         DB::table("bg_adm_grupo")->insert([
             "id" => 2,
             "idtipoacesso" => 2,
             "descricao" => "Editor",
-            "slug" => "editor"
+            "slug" => "editor",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
         ]);
         DB::table("bg_adm_grupo")->insert([
             "id" => 3,
             "idtipoacesso" => 2,
             "descricao" => "Autor",
-            "slug" => "autor"
+            "slug" => "autor",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
         ]);
         DB::table("bg_adm_grupo")->insert([
             "id" => 4,
             "idtipoacesso" => 6,
             "descricao" => "Colaborador",
-            "slug" => "colaborador"
+            "slug" => "colaborador",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
         ]);
         DB::table("bg_adm_grupo")->insert([
             "id" => 5,
             "idtipoacesso" => 2,
             "descricao" => "Revisor",
-            "slug" => "revisor"
+            "slug" => "revisor",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
         ]);
     }
 }

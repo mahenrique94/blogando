@@ -14,17 +14,23 @@ class PopulandoTabelaCadTipoFormato extends Seeder
         DB::table("bg_cad_tipoformato")->insert([
             "id" => 1,
             "descricao" => "Data",
-            "slug" => "data"
+            "slug" => "data",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
         ]);
         DB::table("bg_cad_tipoformato")->insert([
             "id" => 2,
             "descricao" => "Hora",
-            "slug" => "hora"
+            "slug" => "hora",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
         ]);
         DB::table("bg_cad_tipoformato")->insert([
             "id" => 3,
             "descricao" => "Data / Hora",
-            "slug" => "data-hora"
+            "slug" => "data-hora",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
         ]);
     }
 }

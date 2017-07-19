@@ -14,32 +14,44 @@ class PopulandoTabelaPostTipoVisualizacao extends Seeder
         DB::table("bg_post_tipovisualizacao")->insert([
             "id" => 1,
             "descricao" => "Visualização completa",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp')
         ]);
         DB::table("bg_post_tipovisualizacao")->insert([
             "id" => 2,
             "descricao" => "Visualização completa sem legenda",
-            "mostrarlegendarelacionado" => false
+            "mostrarlegendarelacionado" => false,
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp')
         ]);
         DB::table("bg_post_tipovisualizacao")->insert([
             "id" => 3,
             "descricao" => "Visualização completa sem legenda e imagem",
             "mostrarlegendarelacionado" => false,
-            "mostrarimagem" => false
+            "mostrarimagem" => false,
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp')
         ]);
         DB::table("bg_post_tipovisualizacao")->insert([
             "id" => 4,
             "descricao" => "Visualização completa sem imagem",
-            "mostrarimagem" => false
+            "mostrarimagem" => false,
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp')
         ]);
         DB::table("bg_post_tipovisualizacao")->insert([
             "id" => 5,
             "descricao" => "Visualização completa sem categoria",
-            "mostrarcategoria" => false
+            "mostrarcategoria" => false,
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp')
         ]);
         DB::table("bg_post_tipovisualizacao")->insert([
             "id" => 6,
             "descricao" => "Visualização completa sem data",
-            "mostrardatapostagem" => false
+            "mostrardatapostagem" => false,
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp')
         ]);
     }
 }

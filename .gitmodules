@@ -1,0 +1,12 @@
+[submodule "public/assets/css/jlib"]
+	path = public/assets/css/jlib
+	url = https://github.com/mahenrique94/jlib.git
+	branch = master
+[submodule "public/assets/css/stilize"]
+	path = public/assets/css/stilize
+	url = https://github.com/mahenrique94/stilize.git
+	branch = master
+[submodule "public/assets/js/jlib"]
+	path = public/assets/js/jlib
+	url = https://github.com/mahenrique94/jlib.git
+	branch = master
