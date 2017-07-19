@@ -15,7 +15,7 @@ class CriandoTabelaPostTipocompartilhamento extends Migration
     {
         Schema::create('bg_post_tipocompartilhamento', function (Blueprint $table) {
             $table->increments('id');
-            $table->string("descricao", 10)->unique();
+            $table->string("descricao", 120)->unique();
             $table->boolean("permitircompartilharblog")->default(true);
             $table->boolean("permitircompartilharposts")->default(true);
             $table->timestamps();

@@ -15,7 +15,7 @@ class CriandoTabelaPostTipovisualizacao extends Migration
     {
         Schema::create('bg_post_tipovisualizacao', function (Blueprint $table) {
             $table->increments('id');
-            $table->string("descricao", 10)->unique();
+            $table->string("descricao", 120)->unique();
             $table->boolean("mostrarlegendarelacionado")->default(true);
             $table->boolean("mostrarimagem")->default(true);
             $table->boolean("mostrardatapostagem")->default(true);

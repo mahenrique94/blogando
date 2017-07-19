@@ -20,7 +20,7 @@ class CriandoTabelaBlogParametros extends Migration
             $table->integer("idformatodata")->unsigned();
             $table->integer("idformatohora")->unsigned();
             $table->integer("idcategoriapadrao")->unsigned();
-            $table->integer("idtipovisualizacaoposts")->unsigned();
+            $table->integer("idtipovisualizacaopostsrelacionados")->unsigned();
             $table->integer("idtipocompartilhamento")->unsigned();
             $table->boolean("usarmarkdown")->default(false);
             $table->integer("quantidadepostsporpagina");
@@ -35,7 +35,7 @@ class CriandoTabelaBlogParametros extends Migration
             $table->foreign("idformatodata")->references("id")->on("bg_cad_formato");
             $table->foreign("idformatohora")->references("id")->on("bg_cad_formato");
             $table->foreign("idcategoriapadrao")->references("id")->on("bg_cad_categoria");
-            $table->foreign("idtipovisualizacaoposts")->references("id")->on("bg_post_tipovisualizacao");
+            $table->foreign("idtipovisualizacaopostsrelacionados")->references("id")->on("bg_post_tipovisualizacao");
             $table->foreign("idtipocompartilhamento")->references("id")->on("bg_post_tipocompartilhamento");
             $table->timestamps();
         });
