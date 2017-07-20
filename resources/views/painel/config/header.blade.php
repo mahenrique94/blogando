@@ -8,12 +8,12 @@
     <title>@lang("messages.titulo.pagina")&nbsp;|&nbsp;@yield("pagina")</title>
     <link rel="icon" href="/assets/img/favicon.ico">
 </head>
-<body>
-    <main class="u-wrap" role="main">
+<body class="bg-p-body">
+    <main class="bg-p-wrap u-wrap" role="main">
         <header class="bg-p-header" role="banner">
             @include("painel.config.aside")
         </header>
-        <section class="u-content">
+        <section class="bg-p-conteudo u-content">
             <section class="bg-p-dashboard">
                 @include("painel.config.menu")
                 <section class="bg-p-dashboard__conteudo">

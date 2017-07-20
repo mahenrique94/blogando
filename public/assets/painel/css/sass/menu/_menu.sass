@@ -2,6 +2,40 @@ $link-seta-height: 25px
 
 .bg-p-menu
     margin-top: $aside-height
+    &__lista
+        &--segundo
+            @include transform("translateX(-500px)")
+            @include transition("all .3s ease-in-out")
+            opacity: 0
+            left: $menu-width
+            position: absolute
+            top: 0
+            width: $menu-width
+            z-index: -1            
+    &__item
+        position: relative
+        &.is-ativo > .bg-p-menu__lista--segundo
+            @include transform("translateX(0)")
+            opacity: 1
+            position: initial
+            z-index: initial
+            &::before
+                display: none
+        &:hover > .bg-p-menu__lista--segundo
+            @include transform("translateX(0)")
+            opacity: 1
+            z-index: initial
+        &--segundo
+            &:first-child
+                .bg-p-menu__link
+                    &:first-child::before
+                        @include transform("rotate(45deg)")
+                        content:  ""
+                        height: $link-seta-height
+                        position: absolute
+                        left: -$link-seta-height / 2
+                        width: $link-seta-height
+                        top: 7px
     &__link
         display: block
         font-weight: 100
@@ -11,7 +45,7 @@ $link-seta-height: 25px
         &.is-ativo
             &::after
                 @include transform("rotate(45deg)")
-                background: #FFFFFF
+                background: $background
                 content:  ""
                 height: $link-seta-height
                 position: absolute

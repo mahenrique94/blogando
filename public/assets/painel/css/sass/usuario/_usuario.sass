@@ -1,6 +1,8 @@
 .bg-p-usuario
     @include transform("translateX(500px)")
     background: #E6E6E6
+    border-left: 1px solid #DCDCDC
+    box-shadow: -1px 0 5px rgba(0, 0, 0, .35)
     color: #595959
     min-height: 100vh
     opacity: 0
@@ -38,10 +40,14 @@
     &__opcoes
         text-align: left
         &___link
+            display: block
             line-height: 1.5
             &--primeiro
                 font :
                     size: 1.2rem
                     weight: 500
+            &:not(&--primeiro):hover
+                @include transform("scale(1.1)")
+                font-weight: bold
 
 @import usuario_temas

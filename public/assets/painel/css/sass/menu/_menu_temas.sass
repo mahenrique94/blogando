@@ -3,9 +3,17 @@
         @extend .bg-p-menu
         background: map_get($temas-colors, $tema)
         color: map_get($temas-texts, $tema)
+        .bg-p-menu__lista
+            &--segundo
+                background: lighten(map_get($temas-colors, $tema), 10%)
         .bg-p-menu__link
+            &--segundo
+                &::before
+                    background: lighten(map_get($temas-colors, $tema), 10%)
+                &:hover::before
+                    background: map_get($temas-colors-hover, $tema)    
             &.is-ativo
-                background: map_get($temas-colors-ativo, $tema)
+                background: map_get($temas-colors-ativo, $tema)                
             &:hover
                 background: map_get($temas-colors-hover, $tema)
                 color: map_get($temas-texts-hover, $tema)
