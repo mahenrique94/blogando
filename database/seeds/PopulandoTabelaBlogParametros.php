@@ -14,7 +14,6 @@ class PopulandoTabelaBlogParametros extends Seeder
         DB::table("bg_blog_parametros")->insert([
             "id" => 1,
             "idblog" => 1,
-            "idtema" => 1,
             "idtipoparametro" => 1,
             "idformatodata" => 1,
             "idformatohora" => 4,

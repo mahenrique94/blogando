@@ -1,0 +1,40 @@
+$navegacao-seta-height: 25px
+
+.bg-p-navegacao
+    @include transition("all .2s linear")
+    border: 1px solid #DCDCDC
+    box-shadow: 0 0 7px rgba(0, 0, 0, .25)
+    opacity: 0
+    position: absolute
+    right: 5px
+    top: $aside-height + 5px
+    width: 400px
+    z-index: -1
+    &::before
+        @include transform("rotate(45deg)")
+        content:  ""
+        height: $navegacao-seta-height
+        position: absolute
+        right: $navegacao-seta-height
+        width: $navegacao-seta-height
+        top: -$navegacao-seta-height / 2
+        z-index: -1
+    &__lista
+        @include display-flex
+        flex-wrap: wrap
+    &__item
+        text-align: center
+        width: 33.33%
+    &__link
+        background: #FFFFFF
+        border-bottom: 1px solid #DCDCDC
+        border-right: 1px solid #DCDCDC
+        display: block
+        padding: 1rem
+        &:hover
+            background: darken(#FFFFFF, 5%)
+    &__icone
+        display: block
+        font-size: 2rem
+
+@import navegacao_temas

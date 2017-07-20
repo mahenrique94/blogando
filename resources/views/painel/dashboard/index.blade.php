@@ -1,4 +1,4 @@
-@extends("config.pagina")
+@extends("painel.config.pagina")
 @section("pagina", "Dashboard")
 @section("conteudo")
 

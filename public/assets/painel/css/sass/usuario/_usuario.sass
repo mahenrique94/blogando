@@ -1,0 +1,47 @@
+.bg-p-usuario
+    @include transform("translateX(500px)")
+    background: #E6E6E6
+    color: #595959
+    min-height: 100vh
+    opacity: 0
+    padding: 1rem
+    position: fixed
+    right: 0
+    text-align: center
+    top: $aside-height
+    width: 300px
+    &__info
+        margin-bottom: 1rem
+    &__foto
+        @include border-radius(100%)
+        border: 2px solid #DCDCDC
+        box-shadow: 0 0 5px rgba(#595959, .5)
+        display: inline-block
+        margin-bottom: 1rem
+        width: 100px
+    &__nome
+        display: block
+        font :
+            size: 1.5rem
+            weight: 500
+    &__usuario
+        display: block
+        font-size: 1.2rem
+    &__sair
+        @include border-radius(5px)
+        background: #FFFFFF
+        display: inline-block
+        margin-bottom: 3rem
+        padding: .5rem 2rem
+        &:hover
+            background: darken(#FFFFFF, 3%)
+    &__opcoes
+        text-align: left
+        &___link
+            line-height: 1.5
+            &--primeiro
+                font :
+                    size: 1.2rem
+                    weight: 500
+
+@import usuario_temas

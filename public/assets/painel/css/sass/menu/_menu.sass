@@ -1,0 +1,22 @@
+$link-seta-height: 25px
+
+.bg-p-menu
+    margin-top: $aside-height
+    &__link
+        display: block
+        font-weight: 100
+        line-height: 2.5
+        padding: 0 1rem
+        position: relative
+        &.is-ativo
+            &::after
+                @include transform("rotate(45deg)")
+                background: #FFFFFF
+                content:  ""
+                height: $link-seta-height
+                position: absolute
+                right: -$link-seta-height / 2
+                width: $link-seta-height
+                top: 7px
+
+@import menu_temas
