@@ -14,4 +14,7 @@
 Route::prefix("painel")->group(function() {
     Route::get("", "PainelController@index");
     Route::get("dashboard", "DashboardController@index");
+    Route::get("posts", "PostController@index");
+    Route::get("posts/categorias", "CadCategoriaController@listar");
+    Route::get("posts/categorias/formulario", "CadCategoriaController@formulario");
 });

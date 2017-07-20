@@ -2,8 +2,12 @@
 
 return [
     ######################################## BOTAO ########################################
+    "botao.deletar"                                             => "Deletar",
     "botao.escrever"                                            => "Escrever",
+    "botao.novo"                                                => "Adicionar novo",
+    "botao.pesquisar"                                           => "Pesquisar",
     "botao.sair"                                                => "Sair",
+    "botao.salvar"                                              => "Salvar",
 
     ######################################## MENU ########################################
     "menu.administrador"                                        => "Administrador",
@@ -28,6 +32,7 @@ return [
     "menu.ferramentas.excluir"                                  => "Excluir blog",
     "menu.ferramentas.exportar"                                 => "Exportar",
     "menu.ferramentas.importar"                                 => "Importar",
+    "menu.formulario"                                           => "Formulário",
     "menu.midia"                                                => "Mídias",
     "menu.midia.biblioteca"                                     => "Biblioteca",
     "menu.midia.nova"                                           => "Adicicionar nova",

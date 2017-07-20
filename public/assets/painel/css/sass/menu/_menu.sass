@@ -24,7 +24,7 @@ $link-seta-height: 25px
         &:hover > .bg-p-menu__lista--segundo
             @include transform("translateX(0)")
             opacity: 1
-            z-index: initial
+            z-index: 1
         &--segundo
             &:first-child
                 .bg-p-menu__link
@@ -52,5 +52,13 @@ $link-seta-height: 25px
                 right: -$link-seta-height / 2
                 width: $link-seta-height
                 top: 7px
+        &--segundo
+            &.is-ativo
+                background: inherit !important
+                font :
+                    size: 1.1rem
+                    weight: 500
+                &::after
+                    display: none
 
 @import menu_temas

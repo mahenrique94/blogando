@@ -3,3 +3,9 @@
         min-height: 100vh
         position: fixed
         width: $menu-width
+    &__conteudo
+        @include calc(width, "100% - #{$menu-width}")
+        display: inline-block
+        margin-left: $menu-width
+        margin-top: $aside-height
+        padding: 1rem
