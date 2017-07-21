@@ -1,14 +1,14 @@
 @extends("painel.config.pagina")
-@section("pagina", "Categorias")
+@section("pagina", "Tags")
 @section("conteudo")
     <div class="bg-p-dashboard__header">
         <div class="o-breadcrumb--arrow">
             <span class="o-breadcrumb__link"><a href="/painel/dashboard" role="link" title="@lang("messages.menu.dashboard")">@lang("messages.menu.dashboard")</a></span>
             <span class="o-breadcrumb__link"><a href="/painel/posts" role="link" title="@lang("messages.menu.posts")">@lang("messages.menu.posts")</a></span>
-            <span class="o-breadcrumb__link"><a class="is-inactive" href="/painel/posts/categorias" role="link" title="@lang("messages.menu.posts.categorias")">@lang("messages.menu.posts.categorias")</a></span>
+            <span class="o-breadcrumb__link"><a class="is-inactive" href="/painel/posts/tags" role="link" title="@lang("messages.menu.posts.tags")">@lang("messages.menu.posts.tags")</a></span>
         </div>
-        <a class="o-button--tie o-button--medium" href="/painel/posts/categorias/formulario"><i class="icon-plus"></i>@lang("messages.botao.novo")</a>
-        <form action="/painel/posts/categorias" class="o-form" id="formcadcategorialistar" method="get" name="formcadcategorialistar" role="search">
+        <a class="o-button--tie o-button--medium" href="/painel/posts/tags/formulario"><i class="icon-plus"></i>@lang("messages.botao.novo")</a>
+        <form action="/painel/posts/tags" class="o-form" id="formcadtaglistar" method="get" name="formcadtaglistar" role="search">
             <div class="l-row" role="row">
                 <div class="u-grid--2" role="grid">
                     <select class="o-form__data" name="campo">
@@ -35,16 +35,16 @@
             </tr>
         </thead>
         <tbody>
-            @if(count($categorias) == 0)
+            @if(count($tags) == 0)
                 <tr>
                     <td colspan="3">@lang("messages.mensagem.tabelavazia")</td>
                 </tr>                
             @else
-                @foreach ($categorias as $categoria)
+                @foreach ($tags as $tag)
                     <tr>
-                        <td>{{$categoria->descricao}}</td>
-                        <td style="font-size: 1.1rem;text-align: center;width: 50px;"><a href="/painel/posts/categorias/{{$categoria->id}}" role="link" title="@lang("messages.botao.editar")"><i class="icon-pencil"></i></a></td>
-                        <td style="font-size: 1.1rem;text-align: center;width: 50px;"><button formaction="/painel/posts/categorias/{{$categoria->id}}" onclick="DialogController.build(event, this, requestDelete, 'Deseja confirmar a exclusao', 'icon-trash');" role="button" type="button" style="background: transparent;border: none;" title="@lang("messages.botao.deletar")"><i class="icon-trash"></i></button></td>
+                        <td>{{$tag->descricao}}</td>
+                        <td style="font-size: 1.1rem;text-align: center;width: 50px;"><a href="/painel/posts/tags/{{$tag->id}}" role="link" title="@lang("messages.botao.editar")"><i class="icon-pencil"></i></a></td>
+                        <td style="font-size: 1.1rem;text-align: center;width: 50px;"><button formaction="/painel/posts/tags/{{$tag->id}}" onclick="DialogController.build(event, this, requestDelete, 'Deseja confirmar a exclusao', 'icon-trash');" role="button" type="button" style="background: transparent;border: none;" title="@lang("messages.botao.deletar")"><i class="icon-trash"></i></button></td>
                     </tr>
                 @endforeach
             @endif

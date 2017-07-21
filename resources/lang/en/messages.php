@@ -14,6 +14,9 @@ return [
     "label.id"                                                  => "Id",
     "label.descricao"                                           => "Descrição",
 
+    ######################################## MENSAGEM ########################################
+    "mensagem.tabelavazia"                                      => "Não possui registros",
+
     ######################################## MENU ########################################
     "menu.administrador"                                        => "Administrador",
     "menu.administrador.grupos"                                 => "Grupos",
