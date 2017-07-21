@@ -14,7 +14,14 @@
 Route::prefix("painel")->group(function() {
     Route::get("", "PainelController@index");
     Route::get("dashboard", "DashboardController@index");
+
     Route::get("posts", "PostController@index");
+
+    Route::delete("posts/categorias/{id}", "CadCategoriaController@deletar");
     Route::get("posts/categorias", "CadCategoriaController@listar");
     Route::get("posts/categorias/formulario", "CadCategoriaController@formulario");
+    Route::get("posts/categorias/json", "CadCategoriaController@json");
+    Route::get("posts/categorias/{id}", "CadCategoriaController@editar");
+    Route::post("posts/categorias", "CadCategoriaController@salvar")->middleware(["csrf"]);
+    Route::put("posts/categorias", "CadCategoriaController@atualizar")->middleware(["csrf"]);
 });

@@ -3,11 +3,16 @@
 return [
     ######################################## BOTAO ########################################
     "botao.deletar"                                             => "Deletar",
+    "botao.editar"                                              => "Editar",
     "botao.escrever"                                            => "Escrever",
     "botao.novo"                                                => "Adicionar novo",
     "botao.pesquisar"                                           => "Pesquisar",
     "botao.sair"                                                => "Sair",
     "botao.salvar"                                              => "Salvar",
+
+    ######################################## LABEL ########################################
+    "label.id"                                                  => "Id",
+    "label.descricao"                                           => "Descrição",
 
     ######################################## MENU ########################################
     "menu.administrador"                                        => "Administrador",
@@ -56,6 +61,9 @@ return [
     "menu.usuarios.convidar"                                    => "Convidar novo",
     "menu.usuarios.perfil"                                      => "Meu perfil",
     "menu.usuarios.todos"                                       => "Listar todos",
+
+    ######################################## PLACEHOLDER ########################################
+    "placeholder.filtro"                                        => "Digite aqui sua pesquisa",
 
     ######################################## TITULO ########################################
     "titulo.pagina"                                             => "Blogando"

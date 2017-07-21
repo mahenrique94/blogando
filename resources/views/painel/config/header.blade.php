@@ -9,6 +9,7 @@
     <link rel="icon" href="/assets/img/favicon.ico">
 </head>
 <body class="bg-p-body">
+    @include("painel.config.mensagens")
     <main class="bg-p-wrap u-wrap" role="main">
         <header class="bg-p-header" role="banner">
             @include("painel.config.aside")

@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 interface GenericoController {
 
-    public function deletar();
-    public function editar();
+    public function atualizar(Request $request);
+    public function deletar($id);
+    public function editar($id);
     public function formulario();
-    public function listar();
+    public function json();
+    public function listar(Request $request);
+    public function salvar(Request $request);
 
 }
