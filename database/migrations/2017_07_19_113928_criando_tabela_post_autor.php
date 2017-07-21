@@ -17,6 +17,7 @@ class CriandoTabelaPostAutor extends Migration
             $table->increments('id');
             $table->integer("idblog")->unsigned();
             $table->integer("idgrupo")->unsigned();
+            $table->bigInteger("idnotificacaoatual")->unsigned();
             $table->string("nome", 120)->unique();
             $table->string("slug", 255)->unique();
             $table->string("email", 255)->unique();
@@ -27,6 +28,7 @@ class CriandoTabelaPostAutor extends Migration
             $table->boolean("inativo")->default(false);
             $table->foreign("idblog")->references("id")->on("bg_blog");
             $table->foreign("idgrupo")->references("id")->on("bg_adm_grupo");
+            $table->foreign("idnotificacaoatual")->references("id")->on("bg_blog_notificacao");
             $table->timestamps();
         });
     }
