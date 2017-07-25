@@ -1,6 +1,6 @@
 $navegacao-seta-height: 25px
 
-.bg-p-navegacao
+.#{$prefix}-navegacao
     @include transition("all .2s linear")
     background: #FFFFFF
     border: 1px solid #DCDCDC
@@ -22,6 +22,7 @@ $navegacao-seta-height: 25px
         z-index: -1
     &__lista
         @include display-flex
+        background: #FFFFFF
         flex-wrap: wrap
     &__item
         text-align: center

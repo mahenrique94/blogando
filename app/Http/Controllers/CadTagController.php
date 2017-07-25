@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\CadTag;
-use App\Helpers\StringHelper;
 
 class CadTagController extends Controller implements GenericoController
 {
     public function atualizar(Request $request) {
-        CadTag::where("id", $request->input("id"))->update(["descricao" => $request->input("descricao"), "slug" => str_slug($request->input("descricao")), "updated_at" => date("Y-m-d H:i:s")]);
+        CadTag::where("id", $request->input("id"))
+            ->update([
+                "descricao" => $request->descricao, 
+                "slug" => str_slug($request->descricao), 
+                "updated_at" => date("Y-m-d H:i:s"),
+            ]);
         return redirect()->action("CadTagController@listar")->withInput(["sucesso" => "Tag atualizada com sucesso"]);;
     }
 
@@ -19,11 +23,11 @@ class CadTagController extends Controller implements GenericoController
     }
 
     public function editar($id) {
-        return view("painel.cadtag.formulario", ["pagina" => "posts", "subpagina" => "tags"])->with("tag", CadTag::find($id));
+        return view("painel.cadTag.formulario", ["pagina" => "posts", "subpagina" => "tags"])->with("tag", CadTag::find($id));
     }
 
     public function formulario() {
-        return view("painel.cadtag.formulario", ["pagina" => "posts", "subpagina" => "tags"])->with("tag", new CadTag());
+        return view("painel.cadTag.formulario", ["pagina" => "posts", "subpagina" => "tags"])->with("tag", new CadTag());
     }
 
     public function json() {
@@ -39,7 +43,12 @@ class CadTagController extends Controller implements GenericoController
     }
 
     public function salvar(Request $request) {
-        CadTag::create(["descricao" => $request->input("descricao"), "slug" => str_slug($request->input("descricao")), "created_at" => date("Y-m-d H:i:s"), "updated_at" => date("Y-m-d H:i:s")]);
+        CadTag::create([
+            "descricao" => $request->descricao, 
+            "slug" => str_slug($request->descricao), 
+            "created_at" => date("Y-m-d H:i:s"), 
+            "updated_at" => date("Y-m-d H:i:s"),
+        ]);
         return redirect()->action("CadTagController@listar")->withInput(["sucesso" => "Tag salva com sucesso"]);
     }
 }

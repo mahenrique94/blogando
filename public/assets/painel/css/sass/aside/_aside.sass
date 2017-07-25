@@ -1,7 +1,7 @@
 $foto-margin: 5px
 $navegacao-padding: 1rem
 
-.bg-p-aside
+.#{$prefix}-aside
     @include align-items("center")
     @include display-flex
     @include justify-content("space-between")
@@ -11,6 +11,7 @@ $navegacao-padding: 1rem
     position: fixed
     top: 0
     width: 100%
+    z-index: 1
     &__titulo
         font-size: 1.125rem
     &__link

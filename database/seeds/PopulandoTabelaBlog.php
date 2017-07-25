@@ -17,6 +17,7 @@ class PopulandoTabelaBlog extends Seeder
             "descricao" => "Descrição do meu blog",
             "slug" => "titulo-do-blog",
             "url" => "http://titulodoblog.com.br",
+            "path" => "/meu-caminho",
             "created_at" => DB::raw('current_timestamp'),
             "updated_at" => DB::raw('current_timestamp'),
         ]);

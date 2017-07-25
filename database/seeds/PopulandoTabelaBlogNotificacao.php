@@ -15,6 +15,8 @@ class PopulandoTabelaBlogNotificacao extends Seeder
             "id" => 1,
             "idtiponotificacao" => 1,
             "descricao" => "Bem vindo ao Blogando",
+            "imagem" => "blogando.svg",
+            "link" => "#",
             "created_at" => DB::raw("current_timestamp"),
             "updated_at" => DB::raw("current_timestamp"),
         ]);

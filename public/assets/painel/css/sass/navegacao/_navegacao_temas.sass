@@ -1,8 +1,8 @@
 @each $tema in $temas
-    .bg-p-navegacao--#{$tema}
+    .#{$prefix}-navegacao--#{$tema}
         @extend .bg-p-navegacao
         border-top: 5px solid map_get($temas-colors, $tema)
         &::before
             background: map_get($temas-colors, $tema)
-        .bg-p-navegacao__icone
+        .#{$prefix}-navegacao__icone
             color: map_get($temas-colors, $tema)

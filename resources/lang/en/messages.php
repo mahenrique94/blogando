@@ -2,6 +2,7 @@
 
 return [
     ######################################## BOTAO ########################################
+    "botao.carregar"                                            => "Carregar",
     "botao.deletar"                                             => "Deletar",
     "botao.editar"                                              => "Editar",
     "botao.escrever"                                            => "Escrever",
@@ -10,11 +11,31 @@ return [
     "botao.sair"                                                => "Sair",
     "botao.salvar"                                              => "Salvar",
 
+    ######################################## BOTAO ########################################
+    "caixa.categorias"                                          => "Categorias",
+    "caixa.imagem"                                              => "Imagem",
+    "caixa.informacoes"                                         => "Informações",
+    "caixa.tags"                                                => "Tags",
+
     ######################################## LABEL ########################################
+    "label.as"                                                  => "As",
+    "label.ativo"                                               => "Ativo",
+    "label.autor"                                               => "Autor",
+    "label.agendado"                                            => "Agendado",
+    "label.data"                                                => "Data",
     "label.id"                                                  => "Id",
+    "label.imagem"                                              => "Imagem",
     "label.descricao"                                           => "Descrição",
+    "label.por"                                                 => "Por",
+    "label.publicadoem"                                         => "Publicado em",
+    "label.publicadopor"                                        => "Publicado por",
+    "label.situacao"                                            => "Situação",
+    "label.titulo"                                              => "Título",
 
     ######################################## MENSAGEM ########################################
+    "mensagem.semimagem"                                        => "Imagem não carregada",
+    "mensagem.semcategoria"                                     => "Categorias não adicionadas",
+    "mensagem.semtag"                                           => "Tags não adicionadas",
     "mensagem.tabelavazia"                                      => "Não possui registros",
 
     ######################################## MENU ########################################
@@ -69,5 +90,5 @@ return [
     "placeholder.filtro"                                        => "Digite aqui sua pesquisa",
 
     ######################################## TITULO ########################################
-    "titulo.pagina"                                             => "Blogando"
+    "titulo.pagina"                                             => "Blogando",
 ];

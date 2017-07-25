@@ -3,7 +3,7 @@
 @section("conteudo")
     <form action="/painel/posts/categorias" class="o-form" id="formcadcategoria" method="POST" name="formcadcategoria" role="form">
         @if ($categoria->id != null)
-            <input name="_method" type="hidden" value="PUT">
+            {{method_field("PUT")}}
         @endif
         <input aria-hidden="true" name="_token" type="hidden" value="{{csrf_token()}}"/>
         <input aria-hidden="true" name="id" type="hidden" value="{{$categoria->id}}"/>

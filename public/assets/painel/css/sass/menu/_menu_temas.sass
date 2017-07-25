@@ -1,12 +1,12 @@
 @each $tema in $temas
-    .bg-p-menu--#{$tema}
-        @extend .bg-p-menu
+    .#{$prefix}-menu--#{$tema}
+        @extend .#{$prefix}-menu
         background: map_get($temas-colors, $tema)
         color: map_get($temas-texts, $tema)
-        .bg-p-menu__lista
+        .#{$prefix}-menu__lista
             &--segundo
                 background: lighten(map_get($temas-colors, $tema), 10%)
-        .bg-p-menu__link
+        .#{$prefix}-menu__link
             &--segundo
                 &::before
                     background: lighten(map_get($temas-colors, $tema), 10%)

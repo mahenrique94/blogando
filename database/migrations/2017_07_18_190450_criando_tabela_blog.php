@@ -18,6 +18,7 @@ class CriandoTabelaBlog extends Migration
             $table->string("titulo", 120)->unique();
             $table->string("slug", 255)->unique();
             $table->string("url", 255)->unique();
+            $table->string("path", 255)->unique();
             $table->string("descricao", 255);
             $table->timestamps();
         });

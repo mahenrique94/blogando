@@ -17,6 +17,8 @@ class CriandoTabelaBlogNotificacao extends Migration
             $table->bigIncrements('id');
             $table->integer("idtiponotificacao")->unsigned();
             $table->string("descricao", 255);
+            $table->string("imagem", 255);
+            $table->string("link", 255);
             $table->foreign("idtiponotificacao")->references("id")->on("bg_blog_tiponotificacao");
             $table->timestamps();
         });

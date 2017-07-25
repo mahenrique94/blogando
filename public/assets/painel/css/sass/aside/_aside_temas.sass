@@ -1,14 +1,14 @@
 @each $tema in $temas
-    .bg-p-aside--#{$tema}
+    .#{$prefix}-aside--#{$tema}
         @extend .bg-p-aside
         background: map_get($temas-colors, $tema)
         color: map_get($temas-texts, $tema)
-        .bg-p-aside__link
+        .#{$prefix}-aside__link
             background: map_get($temas-texts, $tema)
             color: map_get($temas-colors, $tema)
             &:hover
                 background: darken(map_get($temas-texts, $tema), 10%)
-        .bg-p-aside__navegacao
+        .#{$prefix}-aside__navegacao
             &:hover, &.is-ativo
                 @if $tema == padrao
                     background: map_get($temas-texts-hover, $tema)

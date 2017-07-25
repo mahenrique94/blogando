@@ -19,15 +19,12 @@ class CriandoTabelaPost extends Migration
             $table->integer("idsituacao")->unsigned();
             $table->string("titulo", 120)->unique();
             $table->string("slug", 255)->unique();
-            $table->string("link", 255)->unique();
-            $table->string("imagem", 255);
+            $table->string("imagem", 255)->nullable();
             $table->text("conteudo");
             $table->text("conteudohtml");
             $table->text("conteudomarkdown");
             $table->string("conteudoresumido", 255);
             $table->timestamp("datapostagem");
-            $table->boolean("rascunho")->default(false);
-            $table->boolean("inativo")->default(false);
             $table->foreign("idautor")->references("id")->on("bg_post_autor");
             $table->foreign("idsituacao")->references("id")->on("bg_post_situacao");
             $table->timestamps();

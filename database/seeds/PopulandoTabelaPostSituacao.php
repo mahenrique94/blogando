@@ -27,7 +27,7 @@ class PopulandoTabelaPostSituacao extends Seeder
         ]);
         DB::table("bg_post_situacao")->insert([
             "id" => 3,
-            "descricao" => "Agendada",
+            "descricao" => "Agendado",
             "slug" => "agendada",
             "created_at" => DB::raw('current_timestamp'),
             "updated_at" => DB::raw('current_timestamp'),
@@ -50,6 +50,13 @@ class PopulandoTabelaPostSituacao extends Seeder
             "id" => 6,
             "descricao" => "Em andamento",
             "slug" => "Em-andamento",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
+        ]);
+        DB::table("bg_post_situacao")->insert([
+            "id" => 7,
+            "descricao" => "Inativo",
+            "slug" => "inativo",
             "created_at" => DB::raw('current_timestamp'),
             "updated_at" => DB::raw('current_timestamp'),
         ]);
