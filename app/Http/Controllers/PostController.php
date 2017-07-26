@@ -12,7 +12,7 @@ use League\HTMLToMarkdown\HtmlConverter;
 class PostController extends Controller
 {
     public function atualizar(Request $request) {
-        Post::where("id", $request->input("id"))
+        $post = Post::where("id", $request->input("id"))
             ->update([
                 "idautor" => 1,
                 "idsituacao" => 1,
@@ -25,7 +25,7 @@ class PostController extends Controller
                 "conteudoresumido" => substr(strip_tags($request->conteudo), 0, 255), 
                 "updated_at" => date("Y-m-d H:i:s"),
             ]);
-        return redirect()->action("PostController@listar")->withInput(["sucesso" => "Post atualizado com sucesso"]);
+        return redirect()->action("PostController@editar", ["id" => $post])->withInput(["sucesso" => "Post atualizado com sucesso"]);
     }
 
     public function deletar($id) {
@@ -54,7 +54,7 @@ class PostController extends Controller
     }
 
     public function salvar(Request $request) {
-        Post::create([
+        $post = Post::create([
             "idautor" => 1,
             "idsituacao" => 1,
             "titulo" => $request->titulo, 
@@ -68,7 +68,7 @@ class PostController extends Controller
             "created_at" => date("Y-m-d H:i:s"), 
             "updated_at" => date("Y-m-d H:i:s"),
         ]);
-        return redirect()->action("PostController@listar")->withInput(["sucesso" => "Post salvo com sucesso"]);
+        return redirect()->action("PostController@editar", ["id" => $post])->withInput(["sucesso" => "Post salvo com sucesso"]);
     }
 
     private function htmlParaMarkdown($string) {

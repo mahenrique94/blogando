@@ -85,7 +85,7 @@
                     <a class="bg-p-caixa__acao" href="#" onclick="buscarImagem(this, event)"><i class="icon-upload"></i></a>
                 </div>
             </div>
-            <div class="bg-p-caixa">
+            <div class="bg-p-caixa {{is_null($post->id) ? "is-hide" : ""}}">
                 <div class="bg-p-caixa__cabecalho">@lang("messages.caixa.categorias")</div>
                 <div class="bg-p-caixa__corpo">
                     <select class="bg-p-caixa__select js-select is-hide" id="categorias" name="categorias">
@@ -97,9 +97,9 @@
                     @if (count($post->categorias) <= 0)
                         <span class="bg-p-caixa__mensagem js-mensagem">@lang("messages.mensagem.semcategoria")</span>
                     @else
-                        <ul>
+                        <ul class="bg-p-caixa__lista js-lista">
                             @foreach ($post->categorias as $categoria)
-                                <li>{{$categoria->categoria->descricao}}</li>
+                                <li class="bg-p-caixa__item js-item">{{$categoria->categoria->descricao}}<span><button class="bg-p-caixa__acao" formaction="/painel/post/categoria/{{$categoria->id}}" onclick="DialogController.build(event, this, requestDelete, 'Deseja confirmar a exclusao', 'icon-trash');" role="button" type="button" style="float: right;" title="@lang("messages.botao.deletar")"><i class="icon-minus bg-p-caixa__icone"></i></button></span></li>
                             @endforeach
                         </ul>
                     @endif
@@ -107,18 +107,36 @@
                 <div class="bg-p-caixa__rodape">
                     <a class="bg-p-caixa__acao" href="#" onclick="mostrarSelect(this, event);"><i class="icon-plus"></i></a>
                     <div class="bg-p-caixa__opcoes is-hide">
-                        <button class="bg-p-caixa__acao" form="formpost" formaction="/categoria" formmethod="post" onclick="salvarCaixa(this, event);"><i class="icon-ok"></i></button>
+                        <button class="bg-p-caixa__acao" form="formpost" formaction="/painel/post/categoria" formmethod="post" onclick="salvarCaixa(this, 'categorias', event);" type="button"><i class="icon-ok"></i></button>
                         <a class="bg-p-caixa__acao" href="#" onclick="esconderSelect(this, event);"><i class="icon-cancel"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="bg-p-caixa">
+            <div class="bg-p-caixa {{is_null($post->id) ? "is-hide" : ""}}">
                 <div class="bg-p-caixa__cabecalho">@lang("messages.caixa.tags")</div>
                 <div class="bg-p-caixa__corpo">
-                    <span class="bg-p-caixa__mensagem js-mensagem">@lang("messages.mensagem.semtag")</span>
+                    <select class="bg-p-caixa__select js-select is-hide" id="tags" name="tags">
+                        <option value="">Selecione uma tag</option>
+                        @foreach ($tags as $tag)
+                            <option value="{{$tag->id}}">{{$tag->descricao}}</option>
+                        @endforeach
+                    </select>
+                    @if (count($post->tags) <= 0)
+                        <span class="bg-p-caixa__mensagem js-mensagem">@lang("messages.mensagem.semtag")</span>
+                    @else
+                        <ul class="bg-p-caixa__lista js-lista">
+                            @foreach ($post->tags as $tag)
+                                <li class="bg-p-caixa__item js-item">{{$tag->tag->descricao}}<span><button class="bg-p-caixa__acao" formaction="/painel/post/tag/{{$tag->id}}" onclick="DialogController.build(event, this, requestDelete, 'Deseja confirmar a exclusao', 'icon-trash');" role="button" type="button" style="float: right;" title="@lang("messages.botao.deletar")"><i class="icon-minus bg-p-caixa__icone"></i></button></span></li>
+                            @endforeach
+                        </ul>
+                    @endif
                 </div>
                 <div class="bg-p-caixa__rodape">
-                    <a class="bg-p-caixa__acao" href="#"><i class="icon-plus"></i></a>
+                    <a class="bg-p-caixa__acao" href="#" onclick="mostrarSelect(this, event);"><i class="icon-plus"></i></a>
+                    <div class="bg-p-caixa__opcoes is-hide">
+                        <button class="bg-p-caixa__acao" form="formpost" formaction="/painel/post/tag" formmethod="post" onclick="salvarCaixa(this, 'tags', event);" type="button"><i class="icon-ok"></i></button>
+                        <a class="bg-p-caixa__acao" href="#" onclick="esconderSelect(this, event);"><i class="icon-cancel"></i></a>
+                    </div>
                 </div>
             </div>
         </div>

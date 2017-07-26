@@ -34,6 +34,14 @@ Route::prefix("painel")->group(function() {
     Route::post("tag", "CadTagController@salvar")->middleware(["csrf"]);
     Route::put("tag", "CadTagController@atualizar")->middleware(["csrf"]);
 
+    Route::delete("post/categoria/{id}", "PostCategoriaController@deletar");
+    Route::get("post/categoria/json", "PostCategoriaController@json");
+    Route::post("post/categoria/", "PostCategoriaController@salvar");
+
+    Route::delete("post/tag/{id}", "PostTagController@deletar");
+    Route::get("post/tag/json", "PostTagController@json");
+    Route::post("post/tag/", "PostTagController@salvar");
+
     Route::delete("post/{id}", "PostController@deletar");
     Route::get("post", "PostController@listar");
     Route::get("post/formulario", "PostController@formulario");

@@ -35,8 +35,8 @@ return [
 
     ######################################## MENSAGEM ########################################
     "mensagem.semimagem"                                        => "Imagem não carregada",
-    "mensagem.semcategoria"                                     => "Categorias não adicionadas",
-    "mensagem.semtag"                                           => "Tags não adicionadas",
+    "mensagem.semcategoria"                                     => "Nenhuma categoria adicionada",
+    "mensagem.semtag"                                           => "Nenhuma tag adicionada",
     "mensagem.tabelavazia"                                      => "Não possui registros",
 
     ######################################## MENU ########################################

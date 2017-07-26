@@ -10,7 +10,7 @@
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "atividades" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.dashboard.atividades")</a></li>  --}}
             </ul>
         </li>
-        <li class="bg-p-menu__item has-submenu {{$pagina === "posts" ? "is-ativo" : ""}}" role="menuitem"><a class="bg-p-menu__link has-submenu {{$pagina === "posts" ? "is-ativo" : ""}}" href="/painel/posts" role="link" title="@lang("messages.menu.post")"><i class="icon-newspaper bg-p-menu__icone"></i>&nbsp;@lang("messages.menu.post")</a>
+        <li class="bg-p-menu__item has-submenu {{$pagina === "posts" ? "is-ativo" : ""}}" role="menuitem"><a class="bg-p-menu__link has-submenu {{$pagina === "posts" ? "is-ativo" : ""}}" href="/painel/post" role="link" title="@lang("messages.menu.post")"><i class="icon-newspaper bg-p-menu__icone"></i>&nbsp;@lang("messages.menu.post")</a>
             <ul class="bg-p-menu__lista bg-p-menu__lista--segundo" role="menubar">
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "novo" ? "is-ativo" : ""}}" href="/painel/post/formulario" role="link" title="@lang("messages.menu.post.novo")">@lang("messages.menu.post.novo")</a></li>
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "todos" ? "is-ativo" : ""}}" href="/painel/post" role="link" title="@lang("messages.menu.post.todos")">@lang("messages.menu.post.todos")</a></li>

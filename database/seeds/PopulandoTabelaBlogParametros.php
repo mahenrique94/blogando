@@ -17,7 +17,6 @@ class PopulandoTabelaBlogParametros extends Seeder
             "idtipoparametro" => 1,
             "idformatodata" => 1,
             "idformatohora" => 4,
-            "idcategoriapadrao" => 1,
             "idtipovisualizacaopostsrelacionados" => 1,
             "idtipocompartilhamento" => 1,
             "quantidadepostsporpagina" => 10,
