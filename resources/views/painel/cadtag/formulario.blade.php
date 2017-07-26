@@ -1,7 +1,7 @@
 @extends("painel.config.pagina")
 @section("pagina", "Tags - Formulário")
 @section("conteudo")
-    <form action="/painel/posts/tags" class="o-form" id="formcadtag" method="POST" name="formcadtag" role="form">
+    <form action="/painel/tag" class="o-form" id="formcadtag" method="POST" name="formcadtag" role="form">
         @if ($tag->id != null)
             {{method_field("PUT")}}
         @endif
@@ -10,12 +10,11 @@
         <div class="bg-p-dashboard__header">
             <div class="o-breadcrumb--arrow">
                 <span class="o-breadcrumb__link"><a href="/painel/dashboard" role="link" title="@lang("messages.menu.dashboard")">@lang("messages.menu.dashboard")</a></span>
-                <span class="o-breadcrumb__link"><a href="/painel/posts" role="link" title="@lang("messages.menu.posts")">@lang("messages.menu.posts")</a></span>
-                <span class="o-breadcrumb__link"><a href="/painel/posts/tags" role="link" title="@lang("messages.menu.posts.tags")">@lang("messages.menu.posts.tags")</a></span>
-                <span class="o-breadcrumb__link"><a class="is-inactive" href="/painel/posts/tags/formulario" role="link" title="@lang("messages.menu.formulario")">@lang("messages.menu.formulario")</a></span>
+                <span class="o-breadcrumb__link"><a href="/painel/tag" role="link" title="@lang("messages.menu.post.tag")">@lang("messages.menu.post.tag")</a></span>
+                <span class="o-breadcrumb__link"><a class="is-inactive" href="/painel/tag/formulario" role="link" title="@lang("messages.menu.formulario")">@lang("messages.menu.formulario")</a></span>
             </div>
             <button class="o-button--tie o-button--medium" type="submit"><i class="icon-floppy"></i>@lang("messages.botao.salvar")</button>
-            <a class="o-button--tie o-button--medium" href="/painel/posts/tags"><i class="icon-search"></i>@lang("messages.botao.pesquisar")</a>
+            <a class="o-button--tie o-button--medium" href="/painel/tag"><i class="icon-search"></i>@lang("messages.botao.pesquisar")</a>
         </div>
         <section class="o-form__body o-form__body--padding">
             <div class="l-row" role="row">

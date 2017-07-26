@@ -24,7 +24,7 @@ class CriandoTabelaPost extends Migration
             $table->text("conteudohtml");
             $table->text("conteudomarkdown");
             $table->string("conteudoresumido", 255);
-            $table->timestamp("datapostagem");
+            $table->timestamp("datapostagem")->nullable();
             $table->foreign("idautor")->references("id")->on("bg_post_autor");
             $table->foreign("idsituacao")->references("id")->on("bg_post_situacao");
             $table->timestamps();

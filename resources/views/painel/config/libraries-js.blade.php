@@ -5,6 +5,7 @@
 <script src="/assets/painel/js/simplemde/simplemde.min.js"></script>
 <script src="/assets/painel/js/animacao.js"></script>
 <script src="/assets/painel/js/blogando.js"></script>
+<script src="/assets/painel/js/requisicao.js"></script>
  <script>
     tinymce.init({
         selector: "#conteudo",

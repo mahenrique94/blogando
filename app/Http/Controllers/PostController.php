@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\CadCategoria;
+use App\CadTag;
 use Parsedown;
 use League\HTMLToMarkdown\HtmlConverter;
 
@@ -32,11 +34,11 @@ class PostController extends Controller
     }
 
     public function editar($id) {
-        return view("painel.post.formulario", ["pagina" => "posts", "subpagina" => "novo"])->with("post", Post::find($id));
+        return view("painel.post.formulario", ["pagina" => "posts", "subpagina" => "novo"])->with("post", Post::find($id))->with("categorias", CadCategoria::all())->with("tags", CadTag::all());
     }
 
     public function formulario() {
-        return view("painel.Post.formulario", ["pagina" => "posts", "subpagina" => "novo"])->with("post", new Post());
+        return view("painel.Post.formulario", ["pagina" => "posts", "subpagina" => "novo"])->with("post", new Post())->with("categorias", CadCategoria::all())->with("tags", CadTag::all());
     }
 
     public function json() {
@@ -82,7 +84,7 @@ class PostController extends Controller
     private function subindoImagem($request) {        
         if ($request->hasFile("file") && $request->file->isValid()) {
             $imagem = str_slug($request->input("titulo")) . ".jpg";
-            $request->file->move("/Arquivo/Upload/blogando", $imagem);
+            $request->file->move("/Arquivo/Upload/blogando/posts/" . date_format(date_create($request->datapostagem), "Y") . "/" . date_format(date_create($request->datapostagem), "m"), $imagem);
             return $imagem;
         }
         if (!is_null($request->input("imagem")))

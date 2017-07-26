@@ -10,33 +10,35 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get("/arquivo/download/{pasta}/{ano}/{mes}/{arquivo}", "ArquivoController@download");
+Route::get("/arquivo/download/{pasta}/{arquivo}", "ArquivoController@download");
 Route::get("/arquivo/download/{arquivo}", "ArquivoController@download");
 
 Route::prefix("painel")->group(function() {
     Route::get("", "PainelController@index");
     Route::get("dashboard", "DashboardController@index");
 
-    Route::delete("posts/categorias/{id}", "CadCategoriaController@deletar");
-    Route::get("posts/categorias", "CadCategoriaController@listar");
-    Route::get("posts/categorias/formulario", "CadCategoriaController@formulario");
-    Route::get("posts/categorias/json", "CadCategoriaController@json");
-    Route::get("posts/categorias/{id}", "CadCategoriaController@editar");
-    Route::post("posts/categorias", "CadCategoriaController@salvar")->middleware(["csrf"]);
-    Route::put("posts/categorias", "CadCategoriaController@atualizar")->middleware(["csrf"]);
+    Route::delete("categoria/{id}", "CadCategoriaController@deletar");
+    Route::get("categoria", "CadCategoriaController@listar");
+    Route::get("categoria/formulario", "CadCategoriaController@formulario");
+    Route::get("categoria/json", "CadCategoriaController@json");
+    Route::get("categoria/{id}", "CadCategoriaController@editar");
+    Route::post("categoria", "CadCategoriaController@salvar")->middleware(["csrf"]);
+    Route::put("categoria", "CadCategoriaController@atualizar")->middleware(["csrf"]);
 
-    Route::delete("posts/tags/{id}", "CadTagController@deletar");
-    Route::get("posts/tags", "CadTagController@listar");
-    Route::get("posts/tags/formulario", "CadTagController@formulario");
-    Route::get("posts/tags/json", "CadTagController@json");
-    Route::get("posts/tags/{id}", "CadTagController@editar");
-    Route::post("posts/tags", "CadTagController@salvar")->middleware(["csrf"]);
-    Route::put("posts/tags", "CadTagController@atualizar")->middleware(["csrf"]);
+    Route::delete("tag/{id}", "CadTagController@deletar");
+    Route::get("tag", "CadTagController@listar");
+    Route::get("tag/formulario", "CadTagController@formulario");
+    Route::get("tag/json", "CadTagController@json");
+    Route::get("tag/{id}", "CadTagController@editar");
+    Route::post("tag", "CadTagController@salvar")->middleware(["csrf"]);
+    Route::put("tag", "CadTagController@atualizar")->middleware(["csrf"]);
 
-    Route::delete("posts/{id}", "PostController@deletar");
-    Route::get("posts", "PostController@listar");
-    Route::get("posts/formulario", "PostController@formulario");
-    Route::get("posts/json", "PostController@json");
-    Route::get("posts/{id}", "PostController@editar");
-    Route::post("posts", "PostController@salvar")->middleware(["csrf"]);
-    Route::put("posts", "PostController@atualizar")->middleware(["csrf"]);
+    Route::delete("post/{id}", "PostController@deletar");
+    Route::get("post", "PostController@listar");
+    Route::get("post/formulario", "PostController@formulario");
+    Route::get("post/json", "PostController@json");
+    Route::get("post/{id}", "PostController@editar");
+    Route::post("post", "PostController@salvar")->middleware(["csrf"]);
+    Route::put("post", "PostController@atualizar")->middleware(["csrf"]);
 });

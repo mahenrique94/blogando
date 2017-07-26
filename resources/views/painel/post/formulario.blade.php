@@ -3,7 +3,7 @@
 @section("conteudo")
     <div class="l-row" role="row">
         <div class="u-grid--9" role="grid">
-            <form action="/painel/posts" class="o-form" enctype="multipart/form-data" id="formpost" method="POST" name="formpost" role="form">                
+            <form action="/painel/post" class="o-form" enctype="multipart/form-data" id="formpost" method="POST" name="formpost" role="form">                
                 @if ($post->id != null)
                     {{method_field("PUT")}}
                 @endif
@@ -14,11 +14,11 @@
                 <div class="bg-p-dashboard__header">
                     <div class="o-breadcrumb--arrow">
                         <span class="o-breadcrumb__link"><a href="/painel/dashboard" role="link" title="@lang("messages.menu.dashboard")">@lang("messages.menu.dashboard")</a></span>
-                        <span class="o-breadcrumb__link"><a href="/painel/posts" role="link" title="@lang("messages.menu.posts")">@lang("messages.menu.posts")</a></span>
-                        <span class="o-breadcrumb__link"><a class="is-inactive" href="/painel/posts/formulario" role="link" title="@lang("messages.menu.posts.novo")">@lang("messages.menu.posts.novo")</a></span>
+                        <span class="o-breadcrumb__link"><a href="/painel/post" role="link" title="@lang("messages.menu.post")">@lang("messages.menu.post")</a></span>
+                        <span class="o-breadcrumb__link"><a class="is-inactive" href="/painel/post/formulario" role="link" title="@lang("messages.menu.post.novo")">@lang("messages.menu.post.novo")</a></span>
                     </div>
                     <button class="o-button--tie o-button--medium" type="submit"><i class="icon-floppy"></i>@lang("messages.botao.salvar")</button>
-                    <a class="o-button--tie o-button--medium" href="/painel/posts"><i class="icon-search"></i>@lang("messages.botao.pesquisar")</a>
+                    <a class="o-button--tie o-button--medium" href="/painel/post"><i class="icon-search"></i>@lang("messages.botao.pesquisar")</a>
                 </div>
                 <section class="o-form__body o-form__body--padding">
                     <div class="l-row" role="row">
@@ -77,9 +77,9 @@
                 <div class="bg-p-caixa__cabecalho">@lang("messages.caixa.imagem")</div>
                 <div class="bg-p-caixa__corpo">
                     @if (is_null($post->imagem))
-                        @lang("messages.mensagem.semimagem")
+                        <span class="bg-p-caixa__mensagem js-mensagem">@lang("messages.mensagem.semimagem")</span>
                     @endif
-                    <img alt="{{$post->titulo}}" class="bg-p-caixa__imagem js-imagem {{is_null($post->imagem) ? "is-hide" : ""}}" src="/arquivo/download/{{$post->imagem}}">
+                    <img alt="{{$post->titulo}}" class="bg-p-caixa__imagem js-imagem {{is_null($post->imagem) ? "is-hide" : ""}}" src="/arquivo/download/posts/{{date_format(date_create($post->datapostagem), "Y")}}/{{date_format(date_create($post->datapostagem), "m")}}/{{$post->imagem}}">
                 </div>
                 <div class="bg-p-caixa__rodape">
                     <a class="bg-p-caixa__acao" href="#" onclick="buscarImagem(this, event)"><i class="icon-upload"></i></a>
@@ -88,16 +88,34 @@
             <div class="bg-p-caixa">
                 <div class="bg-p-caixa__cabecalho">@lang("messages.caixa.categorias")</div>
                 <div class="bg-p-caixa__corpo">
-                    @lang("messages.mensagem.semcategoria")
+                    <select class="bg-p-caixa__select js-select is-hide" id="categorias" name="categorias">
+                        <option value="">Selecione uma categoria</option>
+                        @foreach ($categorias as $categoria)
+                            <option value="{{$categoria->id}}">{{$categoria->descricao}}</option>
+                        @endforeach
+                    </select>
+                    @if (count($post->categorias) <= 0)
+                        <span class="bg-p-caixa__mensagem js-mensagem">@lang("messages.mensagem.semcategoria")</span>
+                    @else
+                        <ul>
+                            @foreach ($post->categorias as $categoria)
+                                <li>{{$categoria->categoria->descricao}}</li>
+                            @endforeach
+                        </ul>
+                    @endif
                 </div>
                 <div class="bg-p-caixa__rodape">
-                    <a class="bg-p-caixa__acao" href="#"><i class="icon-plus"></i></a>
+                    <a class="bg-p-caixa__acao" href="#" onclick="mostrarSelect(this, event);"><i class="icon-plus"></i></a>
+                    <div class="bg-p-caixa__opcoes is-hide">
+                        <button class="bg-p-caixa__acao" form="formpost" formaction="/categoria" formmethod="post" onclick="salvarCaixa(this, event);"><i class="icon-ok"></i></button>
+                        <a class="bg-p-caixa__acao" href="#" onclick="esconderSelect(this, event);"><i class="icon-cancel"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="bg-p-caixa">
                 <div class="bg-p-caixa__cabecalho">@lang("messages.caixa.tags")</div>
                 <div class="bg-p-caixa__corpo">
-                    @lang("messages.mensagem.semtag")
+                    <span class="bg-p-caixa__mensagem js-mensagem">@lang("messages.mensagem.semtag")</span>
                 </div>
                 <div class="bg-p-caixa__rodape">
                     <a class="bg-p-caixa__acao" href="#"><i class="icon-plus"></i></a>

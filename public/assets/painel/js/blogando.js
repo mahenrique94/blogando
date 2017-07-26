@@ -1,11 +1,17 @@
 /** @auth Matheus Castiglioni
  *  Funções JS e recursos para o BLOGANDO
  */
+const cancelarEvento = event => event.preventDefault();
 const carregarImagem = event => mostrarImagem(URL.createObjectURL(event.target.files[0]));
+const buscarMensagem = elemento => elemento.querySelector(".js-mensagem");
+const buscarSelect = elemento => elemento.querySelector(".js-select");
+const existeElemento = elemento => elemento;
+const esconderElemento = elemento => elemento.style.display = "none";
+const mostrarElemento = elemento => elemento.style.display = "block";
 
 window.addEventListener("load", event => {
-    const inputFile = document.querySelector(".js-inputImagem");
-    if (inputFile)
+    const inputFile = $(".js-inputImagem");
+    if (existeElemento(inputFile))
         inputFile.addEventListener("change", carregarImagem);
 });
 
@@ -13,8 +19,8 @@ window.addEventListener("load", event => {
  *  Mostrar ou esconder o menu de navegacao
  */
 function toggleNavegacao(link, event) {
-    event.preventDefault();
-    const navegacao = document.querySelector(link.href.substring(link.href.indexOf("#")));
+    cancelarEvento(event);
+    const navegacao = $(link.href.substring(link.href.indexOf("#")));
     link.classList.toggle("is-ativo");
     if (navegacaoEstaEscondida(navegacao))
         mostrarNavegacao(navegacao);
@@ -37,9 +43,9 @@ function esconderNavegacao(navegacao) {
  *  Realizar click no input file que esta escondido
  */
 function buscarImagem(botao, event) {
-    event.preventDefault();
-    const input = document.querySelector(".js-inputImagem");
-    if (input)
+    cancelarEvento(event);
+    const input = $(".js-inputImagem");
+    if (existeElemento(input))
         input.click();
 }
 
@@ -47,22 +53,59 @@ function buscarImagem(botao, event) {
  *  Carregar imagem no navegador assim que for selecionada
  */
 function mostrarImagem(url) {
-    const imagem = document.querySelector(".js-imagem");
-    if (imagem) {
+    const imagem = $(".js-imagem");
+    if (existeElemento(imagem)) {
         const corpo = imagem.parentNode;
-        corpo.innerHTML = "";
-        corpo.appendChild(copiarImagem(imagem, url));
+        esconderMensagem(corpo);
+        imagem.setAttribute("src", url);
+        mostrarElemento(imagem);
     }
 }
 
 /** @auth Matheus Castiglioni
- *  Criar um novo elemento do DOM com a imagem selecionada
+ *  Mostrar o select contendo todas as categorias e tags das caixas do formulário do post
  */
-function copiarImagem(imagem, url) {
-    const novaImagem = document.createElement("img");
-    novaImagem.setAttribute("src", url);
-    novaImagem.setAttribute("alt", imagem.alt);
-    novaImagem.className = imagem.className;
-    novaImagem.style.display = "block";
-    return novaImagem;
+function mostrarSelect(botao, event) {
+    cancelarEvento(event);
+    const caixa = botao.parentNode.parentNode;
+    const select = buscarSelect(caixa);
+    if (existeElemento(select)) {
+        esconderMensagem(caixa);
+        esconderElemento(botao);
+        mostrarElemento(select);
+        mostrarElemento(botao.nextElementSibling);
+    }
+}
+
+/** @auth Matheus Castiglioni
+ *  Esconder o select contendo todas as categorias e tags das caixas do formulário do post
+ */
+function esconderSelect(botao, event) {
+    cancelarEvento(event);
+    const caixa = botao.parentNode.parentNode.parentNode;
+    const select = buscarSelect(caixa);
+    if (existeElemento(select)) {
+        mostrarMensagem(caixa);
+        esconderElemento(select);
+        esconderElemento(botao.parentNode);
+        mostrarElemento(botao.parentNode.previousElementSibling);
+    }
+}
+
+/** @auth Matheus Castiglioni
+ *  Esconder mensagem que informa se uma categoria ou tag não esta selecionada
+ */
+function esconderMensagem(elemento) {
+    const mensagem = buscarMensagem(elemento);
+    if (existeElemento(mensagem))
+        esconderElemento(mensagem);
+}
+
+/** @auth Matheus Castiglioni
+ *  Mostrar mensagem que informa se uma categoria ou tag não esta selecionada
+ */
+function mostrarMensagem(elemento) {
+    const mensagem = buscarMensagem(elemento);
+    if (existeElemento(mensagem))
+        mostrarElemento(mensagem);
 }
