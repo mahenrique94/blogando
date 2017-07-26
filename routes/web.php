@@ -16,6 +16,7 @@ Route::get("/arquivo/download/{arquivo}", "ArquivoController@download");
 
 Route::get("painel/acessar", "AutenticacaoController@formulario");
 Route::post("painel/autenticar", "AutenticacaoController@autenticar");
+
 Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() {
     Route::get("", "PainelController@index");
     Route::get("dashboard", "DashboardController@index");

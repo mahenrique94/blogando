@@ -15,7 +15,7 @@ class AutenticacaoController extends Controller
                 ->where("senha", $request->senha)
                 ->where("inativo", false)->first();
             if (AutorValidador::validar($autor) && AutorValidador::ehIgual($autor, $request->email, $request->senha)) {
-                Auth::login($autor);
+                Auth::loginUsingId($autor->id, true);
                 return redirect()->action("DashboardController@index");
             } else {
                 return redirect()->action("AutenticacaoController@formulario")->withInput(["erro" => "Email ou senha inválido"]);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Post;
 use App\CadCategoria;
 use App\CadTag;
@@ -14,8 +15,6 @@ class PostController extends Controller
     public function atualizar(Request $request) {
         $post = Post::where("id", $request->input("id"))
             ->update([
-                "idautor" => 1,
-                "idsituacao" => 1,
                 "titulo" => $request->titulo, 
                 "slug" => str_slug($request->titulo), 
                 "imagem" => $this->subindoImagem($request),
@@ -55,7 +54,7 @@ class PostController extends Controller
 
     public function salvar(Request $request) {
         $post = Post::create([
-            "idautor" => 1,
+            "idautor" => Auth::id(),
             "idsituacao" => 1,
             "titulo" => $request->titulo, 
             "slug" => str_slug($request->titulo), 

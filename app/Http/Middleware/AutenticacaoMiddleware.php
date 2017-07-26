@@ -18,7 +18,7 @@ class AutenticacaoMiddleware
     public function handle($request, Closure $next)
     {
         $usuario = Auth::user();
-        if (isset($usuario) && !is_null($usuario) && !empty($usuario))
+        if (!Auth::guest() && isset($usuario) && !is_null($usuario) && !empty($usuario))
             return $next($request);
         return redirect()->action("AutenticacaoController@formulario");
     }
