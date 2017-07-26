@@ -14,13 +14,13 @@ Route::get("/arquivo/download/{pasta}/{ano}/{mes}/{arquivo}", "ArquivoController
 Route::get("/arquivo/download/{pasta}/{arquivo}", "ArquivoController@download");
 Route::get("/arquivo/download/{arquivo}", "ArquivoController@download");
 
-Route::prefix("painel")->group(function() {
+Route::get("painel/acessar", "AutenticacaoController@formulario");
+Route::post("painel/autenticar", "AutenticacaoController@autenticar");
+Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() {
     Route::get("", "PainelController@index");
     Route::get("dashboard", "DashboardController@index");
 
-    Route::get("acessar", "AutenticacaoController@formulario");
     Route::get("sair", "AutenticacaoController@sair");
-    Route::post("autenticar", "AutenticacaoController@autenticar");
 
     Route::delete("categoria/{id}", "CadCategoriaController@deletar");
     Route::get("categoria", "CadCategoriaController@listar");

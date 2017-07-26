@@ -28,6 +28,7 @@ class AutenticacaoController extends Controller
     }
 
     public function sair() {
-
+        Auth::logout();
+        return redirect()->action("AutenticacaoController@formulario");
     }
 }

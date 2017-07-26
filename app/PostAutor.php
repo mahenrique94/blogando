@@ -48,7 +48,7 @@ class PostAutor extends Model implements Authenticatable
      */
     public function getRememberToken() {
         // TODO: Implement getRememberToken() method.
-        return $this->id;
+        return $this->token;
     }
 
     /**
@@ -59,6 +59,7 @@ class PostAutor extends Model implements Authenticatable
      */
     public function setRememberToken($value) {
         // TODO: Implement setRememberToken() method.
+        $this->remember_token = $value;
     }
 
     /**

@@ -22,6 +22,8 @@ class CriandoTabelaPostAutor extends Migration
             $table->string("slug", 255)->unique();
             $table->string("email", 255)->unique();
             $table->string("senha", 255);
+            $table->string("token", 255)->nullable()->unique();
+            $table->string("remember_token", 255)->nullable()->unique();
             $table->string("imagem", 255)->nullable();
             $table->string("apelido", 60)->nullable();
             $table->text("perfil")->nullable();
