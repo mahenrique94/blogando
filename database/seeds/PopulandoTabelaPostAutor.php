@@ -18,6 +18,7 @@ class PopulandoTabelaPostAutor extends Seeder
             "idnotificacaoatual" => 1,
             "nome" => "Administrador",
             "slug" => "administrador",
+            "imagem" => "administrador.jpg",
             "email" => "administrador@blog.com.br",
             "senha" => "12345678",
             "created_at" => DB::raw('current_timestamp'),
