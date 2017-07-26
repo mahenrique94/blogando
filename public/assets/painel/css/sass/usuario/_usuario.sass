@@ -1,9 +1,9 @@
 .#{$prefix}-usuario
     @include transform("translateX(500px)")
     background: #E6E6E6
-    border-left: 1px solid #DCDCDC
+    border-left: $border
     box-shadow: -1px 0 5px rgba(0, 0, 0, .35)
-    color: #595959
+    color: $text
     min-height: 100vh
     opacity: 0
     padding: 1rem
@@ -16,7 +16,7 @@
         margin-bottom: 1rem
     &__foto
         @include border-radius(100%)
-        border: 2px solid #DCDCDC
+        border: $border
         box-shadow: 0 0 5px rgba(#595959, .5)
         display: inline-block
         margin-bottom: 1rem

@@ -2,6 +2,7 @@
 
 return [
     ######################################## BOTAO ########################################
+    "botao.acessar"                                             => "Acessar",
     "botao.carregar"                                            => "Carregar",
     "botao.deletar"                                             => "Deletar",
     "botao.editar"                                              => "Editar",
@@ -88,7 +89,9 @@ return [
     "menu.usuarios.todos"                                       => "Listar todos",
 
     ######################################## PLACEHOLDER ########################################
+    "placeholder.email"                                         => "Email",
     "placeholder.filtro"                                        => "Digite aqui sua pesquisa",
+    "placeholder.senha"                                         => "Senha",
 
     ######################################## TITULO ########################################
     "titulo.pagina"                                             => "Blogando",

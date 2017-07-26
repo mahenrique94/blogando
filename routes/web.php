@@ -18,6 +18,10 @@ Route::prefix("painel")->group(function() {
     Route::get("", "PainelController@index");
     Route::get("dashboard", "DashboardController@index");
 
+    Route::get("acessar", "AutenticacaoController@formulario");
+    Route::get("sair", "AutenticacaoController@sair");
+    Route::post("autenticar", "AutenticacaoController@autenticar");
+
     Route::delete("categoria/{id}", "CadCategoriaController@deletar");
     Route::get("categoria", "CadCategoriaController@listar");
     Route::get("categoria/formulario", "CadCategoriaController@formulario");

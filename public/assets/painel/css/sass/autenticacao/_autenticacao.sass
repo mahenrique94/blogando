@@ -1,0 +1,64 @@
+$height-icon: 42px
+$width-icon: 50px
+$border-radius: 10px
+
+.#{$prefix}-autenticacao
+    &__painel
+        @include border-radius($border-radius)
+        @include transform("translate(-50%, -50%)")
+        background: #FFFFFF
+        border: $border
+        box-shadow: 0 0 5px rgba($text, .2)
+        left: 50%
+        position: absolute
+        top: 50%
+        width: 400px
+    &__titulo
+        color: $text
+        float: left
+        font :
+            size: 1.5rem
+            weight: 500
+        padding: 1.5rem 2rem
+        text-align: center
+        width: 100%
+    &__formulario
+        padding: 2rem
+    &__grupo
+        position: relative
+    &__icone
+        background: $text-alt
+        border-right: $border
+        border-bottom-left-radius: 3px
+        border-top-left-radius: 3px
+        font-size: 1.5rem
+        height: $height-icon
+        left: 1px
+        line-height: $height-icon
+        position: absolute
+        text-align: center
+        top: 1px
+        width: $width-icon
+    &__data
+        padding: .8rem ($width-icon + 10px)
+        &:focus
+            border-color: $text
+            box-shadow: 0 0 5px rgba($text, .2)
+    &__botao
+        @include border-radius(5px)
+        background: $text
+        border: none
+        color: $text-alt
+        display: block
+        padding: .75rem
+        text-align: center
+        width: 100%
+    &__marca
+        background: #FEFEFE
+        border-top: $border
+        border-bottom-left-radius: $border-radius
+        border-bottom-right-radius: $border-radius
+        color: $text
+        font-size: .8rem
+        padding: 2rem
+        text-align: center
