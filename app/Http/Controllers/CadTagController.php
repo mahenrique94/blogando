@@ -8,7 +8,7 @@ use App\CadTag;
 class CadTagController extends Controller implements GenericoController
 {
     public function atualizar(Request $request) {
-        CadTag::where("id", $request->input("id"))
+        CadTag::where("id", $request->id)
             ->update([
                 "descricao" => $request->descricao, 
                 "slug" => str_slug($request->descricao), 
@@ -37,7 +37,7 @@ class CadTagController extends Controller implements GenericoController
     public function listar(Request $request) {
         $tags = CadTag::all();
         if ($request->has("campo") && $request->has("filtro")) {
-            $tags = CadTag::where($request->input("campo"), "like", $request->input("filtro"))->get();
+            $tags = CadTag::where($request->campo, "like", $request->filtro)->get();
         }
         return view("painel.cadTag.lista", ["pagina" => "posts", "subpagina" => "tags"])->with("tags", $tags);
     }

@@ -29,7 +29,7 @@
                     </div>
                     <div class="l-row" role="row">
                         <div class="u-grid--12" role="grid">
-                            <textarea aria-required="true" class="o-form__data" id="conteudo" name="conteudo">{{$post->conteudohtml}}</textarea>
+                            <textarea aria-required="true" class="o-form__data" id="conteudo" name="conteudo">{{$blog->parametros->usarmarkdown ? $post->conteudomarkdown : $post->conteudohtml}}</textarea>
                         </div>
                     </div>
                 </section> 
@@ -79,7 +79,7 @@
                     @if (is_null($post->imagem))
                         <span class="bg-p-caixa__mensagem js-mensagem">@lang("messages.mensagem.semimagem")</span>
                     @endif
-                    <img alt="{{$post->titulo}}" class="bg-p-caixa__imagem js-imagem {{is_null($post->imagem) ? "is-hide" : ""}}" src="/arquivo/download/posts/{{date_format(date_create($post->datapostagem), "Y")}}/{{date_format(date_create($post->datapostagem), "m")}}/{{$post->imagem}}">
+                    <a href="/arquivo/visualizar/posts/{{date_format(date_create($post->datapostagem), "Y")}}/{{date_format(date_create($post->datapostagem), "m")}}/{{$post->imagem}}" target="_blank"><img alt="{{$post->titulo}}" class="bg-p-caixa__imagem js-imagem {{is_null($post->imagem) ? "is-hide" : ""}}" src="/arquivo/download/posts/{{date_format(date_create($post->datapostagem), "Y")}}/{{date_format(date_create($post->datapostagem), "m")}}/{{$post->imagem}}"></a>
                 </div>
                 <div class="bg-p-caixa__rodape">
                     <a class="bg-p-caixa__acao" href="#" onclick="buscarImagem(this, event)"><i class="icon-upload"></i></a>

@@ -15,10 +15,12 @@ class CriandoTabelaBlogAparencia extends Migration
     {
         Schema::create('bg_blog_aparencia', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer("idblog")->unsigned();
             $table->integer("idtemamenu")->unsigned()->unique();
             $table->integer("idtemaaside")->unsigned()->unique();
             $table->integer("idtemaperfil")->unsigned()->unique();
             $table->integer("idtemanavegacao")->unsigned()->unique();
+            $table->foreign("idblog")->references("id")->on("bg_blog");
             $table->foreign("idtemamenu")->references("id")->on("bg_blog_tema");
             $table->foreign("idtemaaside")->references("id")->on("bg_blog_tema");
             $table->foreign("idtemaperfil")->references("id")->on("bg_blog_tema");

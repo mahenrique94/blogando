@@ -13,6 +13,9 @@
 Route::get("/arquivo/download/{pasta}/{ano}/{mes}/{arquivo}", "ArquivoController@download");
 Route::get("/arquivo/download/{pasta}/{arquivo}", "ArquivoController@download");
 Route::get("/arquivo/download/{arquivo}", "ArquivoController@download");
+Route::get("/arquivo/visualizar/{pasta}/{ano}/{mes}/{arquivo}", "ArquivoController@visualizar");
+Route::get("/arquivo/visualizar/{past}/{arquivo}", "ArquivoController@visualizar");
+Route::get("/arquivo/visualizar/{arquivo}", "ArquivoController@visualizar");
 
 Route::get("painel/acessar", "AutenticacaoController@formulario");
 Route::post("painel/autenticar", "AutenticacaoController@autenticar");

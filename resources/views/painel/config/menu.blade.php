@@ -1,4 +1,4 @@
-<menu class="bg-p-menu--padrao bg-p-dashboard__menu" role="menu">    
+<menu class="bg-p-menu--{{$blog->aparencia->temamenu->slug}} bg-p-dashboard__menu" role="menu">    
     <ul class="bg-p-menu__lista" role="menubar">
         <li class="bg-p-menu__item has-submenu {{$pagina === "dashboard" ? "is-ativo" : ""}}" role="menuitem"><a class="bg-p-menu__link has-submenu {{$pagina === "dashboard" ? "is-ativo" : ""}}" href="/painel/dashboard" role="link" title="@lang("messages.menu.dashboard")"><i class="icon-th-large bg-p-menu__icone"></i>&nbsp;@lang("messages.menu.dashboard")</a>
             <ul class="bg-p-menu__lista bg-p-menu__lista--segundo" role="menubar">
@@ -49,14 +49,14 @@
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "grupos" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.administrador.grupos")</a></li>
             </ul>
         </li>  --}}
-        {{--  <li class="bg-p-menu__item {{$pagina === "configuracoes" ? "is-ativo" : ""}}" role="menuitem"><a class="bg-p-menu__link {{$pagina === "configuracoes" ? "is-ativo" : ""}}" href="#"><i class="icon-cog-alt bg-p-menu__icone"></i>&nbsp;@lang("messages.menu.configuracoes")</a>
+        <li class="bg-p-menu__item {{$pagina === "configuracoes" ? "is-ativo" : ""}}" role="menuitem"><a class="bg-p-menu__link {{$pagina === "configuracoes" ? "is-ativo" : ""}}" href="#"><i class="icon-cog-alt bg-p-menu__icone"></i>&nbsp;@lang("messages.menu.configuracoes")</a>
             <ul class="bg-p-menu__lista bg-p-menu__lista--segundo" role="menubar">
-                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "geral" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.configuracoes.geral")</a></li>
-                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "escrita" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.configuracoes.escrita")</a></li>
+                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "geral" ? "is-ativo" : ""}}" href="/painel/configuracoes">@lang("messages.menu.configuracoes.geral")</a></li>
+                {{--  <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "escrita" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.configuracoes.escrita")</a></li>
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "leitura" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.configuracoes.leitura")</a></li>
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "discussao" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.configuracoes.discussao")</a></li>
-                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "compartilhamento" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.configuracoes.compartilhamento")</a></li>
+                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "compartilhamento" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.configuracoes.compartilhamento")</a></li>  --}}
             </ul>
-        </li>  --}}
+        </li> 
     </ul>
 </menu>

@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Parsedown\Providers\ParsedownServiceProvider::class,
+        App\Providers\ComposerServiceProvider::class,
 
     ],
 

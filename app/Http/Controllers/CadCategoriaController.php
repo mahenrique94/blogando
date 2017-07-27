@@ -8,7 +8,7 @@ use App\CadCategoria;
 class CadCategoriaController extends Controller implements GenericoController
 {   
     public function atualizar(Request $request) {
-        CadCategoria::where("id", $request->input("id"))
+        CadCategoria::where("id", $request->id)
             ->update([
                 "descricao" => $request->descricao, 
                 "slug" => str_slug($request->descricao), 
@@ -37,7 +37,7 @@ class CadCategoriaController extends Controller implements GenericoController
     public function listar(Request $request) {
         $categorias = CadCategoria::all();
         if ($request->has("campo") && $request->has("filtro")) {
-            $categorias = CadCategoria::where($request->input("campo"), "like", $request->input("filtro"))->get();
+            $categorias = CadCategoria::where($request->campo, "like", $request->filtro)->get();
         }
         return view("painel.cadcategoria.lista", ["pagina" => "posts", "subpagina" => "categorias"])->with("categorias", $categorias);
     }

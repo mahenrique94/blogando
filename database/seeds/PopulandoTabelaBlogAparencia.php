@@ -13,6 +13,7 @@ class PopulandoTabelaBlogAparencia extends Seeder
     {
         DB::table("bg_blog_aparencia")->insert([
             "id" => 1,
+            "idblog" => 1,
             "idtemamenu" => 1,
             "idtemaaside" => 1,
             "idtemaperfil" => 1,

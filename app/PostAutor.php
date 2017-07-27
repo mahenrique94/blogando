@@ -11,6 +11,10 @@ class PostAutor extends Model implements Authenticatable
     protected $guarded = ["id", "created_at", "token", "remember_token"];
     protected $hidden = ["id", "created_at", "token", "remember_token"];
 
+    public function blog() {
+        return $this->belongsTo("\App\Blog", "idblog");
+    }
+
     /**
      * Get the name of the unique identifier for the user.
      *

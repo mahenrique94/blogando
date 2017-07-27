@@ -35,19 +35,17 @@
             </tr>
         </thead>
         <tbody>
-            @if(count($posts) == 0)
+            @forelse ($posts as $post)
+                <tr>
+                    <td>{{$post->titulo}}</td>
+                    <td style="font-size: 1.1rem;text-align: center;width: 50px;"><a href="/painel/post/{{$post->id}}" role="link" title="@lang("messages.botao.editar")"><i class="icon-pencil"></i></a></td>
+                    <td style="font-size: 1.1rem;text-align: center;width: 50px;"><button formaction="/painel/post/{{$post->id}}" onclick="DialogController.build(event, this, requestDelete, 'Deseja confirmar a exclusao', 'icon-trash');" role="button" type="button" style="background: transparent;border: none;" title="@lang("messages.botao.deletar")"><i class="icon-trash"></i></button></td>
+                </tr>
+            @empty
                 <tr>
                     <td colspan="3">@lang("messages.mensagem.tabelavazia")</td>
-                </tr>                
-            @else
-                @foreach ($posts as $post)
-                    <tr>
-                        <td>{{$post->titulo}}</td>
-                        <td style="font-size: 1.1rem;text-align: center;width: 50px;"><a href="/painel/post/{{$post->id}}" role="link" title="@lang("messages.botao.editar")"><i class="icon-pencil"></i></a></td>
-                        <td style="font-size: 1.1rem;text-align: center;width: 50px;"><button formaction="/painel/post/{{$post->id}}" onclick="DialogController.build(event, this, requestDelete, 'Deseja confirmar a exclusao', 'icon-trash');" role="button" type="button" style="background: transparent;border: none;" title="@lang("messages.botao.deletar")"><i class="icon-trash"></i></button></td>
-                    </tr>
-                @endforeach
-            @endif
+                </tr>            
+            @endforelse
         </tbody>
     </table>
 @stop
