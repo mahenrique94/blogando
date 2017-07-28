@@ -8,11 +8,13 @@ return [
     "botao.deletar"                                             => "Deletar",
     "botao.editar"                                              => "Editar",
     "botao.escrever"                                            => "Escrever",
+    "botao.naolidas"                                            => "Não lidas",
     "botao.nova"                                                => "Adicionar nova",
     "botao.novo"                                                => "Adicionar novo",
     "botao.pesquisar"                                           => "Pesquisar",
     "botao.sair"                                                => "Sair",
     "botao.salvar"                                              => "Salvar",
+    "botao.todas"                                               => "Todas",
     "botao.visualizar"                                          => "Visualizar",
 
     ######################################## BOTAO ########################################
@@ -54,6 +56,7 @@ return [
     "label.temamenu"                                            => "Tema do menu(lateral esquerdo)",
     "label.temaaside"                                           => "Tema do menu(superior)",
     "label.temanavegacao"                                       => "Tema das navegações(superior direito)",
+    "label.temanotificacao"                                     => "Tema das notificações",
     "label.temaperfil"                                          => "Tema do perfil(usuário)",
     "label.tipovisualizacaopostsrelacionados"                   => "Exibição dos posts relacionados",
     "label.tipocompartilhamento"                                => "Tipo de compartilhamento",

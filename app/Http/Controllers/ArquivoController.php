@@ -13,7 +13,7 @@ class ArquivoController extends Controller
     }
 
     public function upload($file = "", $pasta = "", $ano = "", $mes = "", $arquivo = "") {
-        $file->move(criandoPath, $arquivo);
+        $file->move($this->criandoPath($pasta, $ano, $mes, $arquivo));
         return response("Arquivo carregado e salvo com sucesso", 200);
     }
 

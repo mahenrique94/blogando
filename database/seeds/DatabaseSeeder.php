@@ -29,6 +29,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PopulandoTabelaPostTipoVisualizacao::class);
         $this->call(PopulandoTabelaBlogParametros::class);
         $this->call(PopulandoTabelaPostAutor::class);
-        $this->call(PopulandoTabelaPostAutorParametros::class);
+        $this->call(PopulandoTabelaPostAutorParametros::class);        
     }
 }

@@ -1,6 +1,6 @@
 @each $tema in $temas
     .#{$prefix}-usuario--#{$tema}
-        @extend .bg-p-usuario
+        @extend .bg-p-usuario !optional
         .#{$prefix}-usuario__nome, .#{$prefix}-usuario__opcoes___link--primeiro, .#{$prefix}-usuario__opcoes___icone
             @if $tema == claro
                 color: map_get($temas-texts, $tema)

@@ -12,8 +12,16 @@
     </h1>
     <div class="bg-p-aside__opcoes">
         <a class="bg-p-aside__link" href="/painel/post/formulario"><i class="icon-pencil"></i>&nbsp;@lang("messages.botao.escrever")</a>
-         <a class="bg-p-aside__perfil" href="#perfilUsuario" onclick="togglePerfil(this, event);"><img alt="{{Auth::user()->nome}}" class="bg-p-aside__foto" src="/arquivo/download/usuarios/{{Auth::user()->imagem}}"></a> 
+         <a class="bg-p-aside__perfil" href="#perfilUsuario" onclick="toggleElemento(this, event);"><img alt="{{Auth::user()->nome}}" class="bg-p-aside__foto" src="/arquivo/download/usuarios/{{Auth::user()->imagem}}"></a> 
         <a class="bg-p-aside__navegacao" href="#navegacaoOpcoes" onclick="toggleNavegacao(this, event);"><i class="icon-th"></i></a>
+        <a class="bg-p-aside__navegacao" href="#notificacoes" onclick="toggleElemento(this, event);">
+            <i class="icon-bell-alt"></i>
+            @if (count($notificacoesnaolidas) > 0)
+                <div class="bg-p-aside__naolidas">
+                    <span class="bg-p-notificacao__naolidas ">{{count($notificacoesnaolidas)}}</span>
+                </div>
+            @endif
+        </a>
     </div>
 </aside>
 <aside class="bg-p-navegacao--{{$blog->aparencia->temanavegacao->slug}}" id="navegacaoOpcoes">
@@ -30,7 +38,7 @@
          --}}
     </ul>
 </aside>
- <aside class="bg-p-usuario--{{$blog->aparencia->temaperfil->slug}}" data-animacao-situacao="desanimado" id="perfilUsuario">
+ <aside class="bg-p-usuario--{{$blog->aparencia->temaperfil->slug}} bg-p-slide" data-animacao-situacao="desanimado" id="perfilUsuario">
     <div class="bg-p-usuario__info">
         <img alt="" class="bg-p-usuario__foto" src="/arquivo/download/usuarios/{{Auth::user()->imagem}}">
         <span class="bg-p-usuario__nome"><i class="icon-user"></i>&nbsp;{{Auth::user()->nome}}</span>
@@ -46,4 +54,41 @@
         <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="#"><i class="icon-th-list bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.minhasatividades")</a></li>  --}}
         <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="/painel/configuracoes/geral"><i class="icon-cog bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.conta")</a></li>
     </ul> 
+</aside> 
+ <aside class="bg-p-notificacao--{{$blog->aparencia->temanotificacao->slug}} bg-p-slide" data-animacao-situacao="desanimado" id="notificacoes">
+    <div class="bg-p-notificacao__opcoes">
+        <a href="#tab1" class="bg-p-notificacao__acao is-ativo" onclick="tab(this);">
+            @lang("messages.botao.naolidas")
+            @if (count($notificacoesnaolidas) > 0)
+                <span class="bg-p-notificacao__naolidas">{{count($notificacoesnaolidas)}}</span>
+            @endif
+            </a>
+        <a href="#tab2" class="bg-p-notificacao__acao" onclick="tab(this);">@lang("messages.botao.todas")</a>
+    </div>
+    <div class="bg-p-notificacao__tabs">
+        <div class="bg-p-notificacao__tab is-show" data-tab="1" id="tab1">
+            @foreach ($notificacoesnaolidas as $notificacao)
+                <div class="bg-p-notificacao__caixa">
+                    <button class="bg-p-notificacao__ler" formaction="/painel/notificacao/ler/{{$notificacao->id}}" onclick="removerNotificacao(this);" type="button"><i class="icon-cancel"></i></button>
+                    <a class="bg-p-notificacao__link" href="{{$notificacao->link}}">
+                        <img alt="" class="bg-p-notificacao__imagem" src="/arquivo/download/sistema/{{$notificacao->imagem}}">            
+                        <h3 class="bg-p-notificacao__titulo">{{$notificacao->nome}}</h3>
+                        <p class="bg-p-notificacao__descricao">{{$notificacao->descricao}}</p>
+                    </a>
+                </div>
+            @endforeach
+        </div>
+        <div class="bg-p-notificacao__tab is-hide" data-tab="2" id="tab2">
+            @foreach ($notificacoes as $notificacao)
+                <div class="bg-p-notificacao__caixa">
+                    <button class="bg-p-notificacao__ler" formaction="/painel/notificacao/ler/{{$notificacao->id}}" onclick="removerNotificacao(this);" type="button"><i class="icon-cancel"></i></button>
+                    <a class="bg-p-notificacao__link" href="{{$notificacao->link}}">
+                        <img alt="" class="bg-p-notificacao__imagem" src="/arquivo/download/sistema/{{$notificacao->imagem}}">            
+                        <h3 class="bg-p-notificacao__titulo">{{$notificacao->nome}}</h3>
+                        <p class="bg-p-notificacao__descricao">{{$notificacao->descricao}}</p>
+                    </a>
+                </div>
+            @endforeach
+        </div>
+    </div>
 </aside> 

@@ -25,4 +25,8 @@ class BlogAparencia extends Model
     public function temanavegacao() {
         return $this->belongsTo("\App\BlogTema", "idtemanavegacao");
     }
+
+    public function temanotificacao() {
+        return $this->belongsTo("\App\BlogTema", "idtemanotificacao");
+    }
 }

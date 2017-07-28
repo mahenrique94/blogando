@@ -72,6 +72,8 @@ Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() 
     Route::get("dashboard/meus-posts", "DashboardController@meusposts");
     Route::get("dashboard/meus-rascunhos", "DashboardController@meusrascunhos");
 
+    Route::post("notificacao/ler/{id}", "BlogNotificacaoController@ler");
+
     Route::delete("post/categoria/{id}", "PostCategoriaController@deletar");
     Route::get("post/categoria/json", "PostCategoriaController@json");
     Route::post("post/categoria/", "PostCategoriaController@salvar");

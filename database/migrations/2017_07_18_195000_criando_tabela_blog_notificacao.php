@@ -16,7 +16,9 @@ class CriandoTabelaBlogNotificacao extends Migration
         Schema::create('bg_blog_notificacao', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer("idtiponotificacao")->unsigned();
+            $table->string("titulo", 60);
             $table->string("descricao", 255);
+            $table->string("nome", 120);
             $table->string("imagem", 255);
             $table->string("link", 255);
             $table->foreign("idtiponotificacao")->references("id")->on("bg_blog_tiponotificacao");

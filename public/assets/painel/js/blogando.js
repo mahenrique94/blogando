@@ -8,6 +8,7 @@ const buscarSelect = elemento => elemento.querySelector(".js-select");
 const existeElemento = elemento => elemento;
 const esconderElemento = elemento => elemento.style.display = "none";
 const mostrarElemento = elemento => elemento.style.display = "block";
+const tabClicadaJaEstaAtiva = (tab, clicada) => tab.id === clicada.substring(1);
 
 window.addEventListener("load", event => {
     const inputFile = $(".js-inputImagem");
@@ -108,4 +109,21 @@ function mostrarMensagem(elemento) {
     const mensagem = buscarMensagem(elemento);
     if (existeElemento(mensagem))
         mostrarElemento(mensagem);
+}
+
+/** @auth Matheus Castiglioni
+ *  Realizar troca da tabs
+ */
+function tab(link) {
+    const id = link.href.substring(link.href.indexOf("#"));
+    const ativa = link.parentNode.nextElementSibling.querySelector(".is-show");
+    const tab = link.parentNode.nextElementSibling.querySelector(id);
+    if (tabClicadaJaEstaAtiva(ativa, id))
+        return false;
+    toggleTab(ativa);
+    toggleTab(tab);
+}
+function toggleTab(tab) {
+    tab.classList.toggle("is-show");
+    tab.classList.toggle("is-hide");
 }

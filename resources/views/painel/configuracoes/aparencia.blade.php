@@ -56,6 +56,18 @@
                     @endforeach
                 </div>
             </div>
+            <div class="l-row" role="row">
+                <div class="u-grid--6" role="grid">
+                    <label class="o-form__text" for="idtemanotificacao">@lang("messages.label.temanotificacao")</label>
+                    <input aria-hidden="true" {{is_null($aparencia->idtemanotificacao) ? "" : "checked"}} class="o-mark__data--radio" id="idtemanotificacao" name="idtemanotificacao" type="hidden" value="{{$aparencia->idtemanotificacao}}">
+                    @foreach ($temas as $tema)
+                        <label class="o-mark__text" for="idtemanotificacao">
+                            <span class="o-mark__element" data-marked="{{$tema->id}}" onclick="MarkController.mark(this);"></span>
+                            {{$tema->tema}}
+                        </label>
+                    @endforeach
+                </div>
+            </div>
             <div class="l-row is-right" role="row">
                 <div class="u-grid--12" role="grid">
                     <button class="o-button--tie o-button--medium" type="submit"><i class="icon-arrows-cw"></i>@lang("messages.botao.atualizarconfiguracoes")</button>

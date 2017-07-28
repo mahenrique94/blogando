@@ -18,6 +18,7 @@ class PopulandoTabelaBlogAparencia extends Seeder
             "idtemaaside" => 1,
             "idtemaperfil" => 1,
             "idtemanavegacao" => 1,
+            "idtemanotificacao" => 1,
         ]);
     }
 }

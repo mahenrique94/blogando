@@ -1,0 +1,56 @@
+$border-radius: 10px
+
+.#{$prefix}-notificacao
+    text-align: left !important
+    &__opcoes, &__caixa
+        background: #FFFFFF
+        border: $border
+        box-shadow: 0 0 5px rgba(0, 0, 0, .1)
+    &__opcoes
+        @include border-radius($border-radius)
+        @include display-flex
+        margin-bottom: 1rem
+    &__acao    
+        border-right: $border
+        padding: .5rem
+        text-align: center        
+        width: 100%
+        &:last-child
+            border: none
+        &:hover, &.is-ativo
+            background: darken(#FFFFFF, 3%)
+        &:first-child:hover, &:first-child.is-ativo
+            border-top-left-radius: $border-radius
+            border-bottom-left-radius: $border-radius
+        &:last-child:hover, &:last-child.is-ativo
+            border-top-right-radius: $border-radius
+            border-bottom-right-radius: $border-radius
+    &__naolidas
+        @include border-radius(100%)
+        background: #FF8080
+        color: #FDFDFD
+        font-size: .8rem
+        padding: .15rem .25rem
+    &__caixa
+        @include border-radius(5px)
+        margin-bottom: 1rem
+        padding: 1rem
+        position: relative
+    &__link
+        display: block
+    &__imagem
+        float: left
+        margin: 0 .3rem .3rem 0
+        width: 50px
+    &__titulo
+        font-weight: 500
+    &__descricao
+        font-weight: 100
+    &__ler
+        background: transparent
+        border: none
+        position: absolute
+        right: 2px
+        top: 2px
+
+@import notificacao_temas

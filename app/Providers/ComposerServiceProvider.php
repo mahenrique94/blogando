@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
 use App\Blog;
+use App\BlogNotificacao;
 
 class ComposerServiceProvider extends ServiceProvider
 {
@@ -27,10 +28,13 @@ class ComposerServiceProvider extends ServiceProvider
         View::composer("*", function ($view) {
             if (!Auth::guest()) {
                 $user = Auth::user();
-                $view->with("blog", Blog::find($user->idblog));
+                $view->with("blog", Blog::find($user->idblog))
+                    ->with("notificacoesnaolidas", BlogNotificacao::where("id", ">", $user->idnotificacaoatual)->get());
             } else {
-                $view->with("blog", Blog::all()->first());
+                $view->with("blog", Blog::all()->first())
+                    ->with("notificacoesnaolidas", BlogNotificacao::lastest());
             }            
+            $view->with("notificacoes", BlogNotificacao::where("id", ">", 1)->get());
         });
     }
 

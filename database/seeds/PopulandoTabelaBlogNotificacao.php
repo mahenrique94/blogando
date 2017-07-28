@@ -14,6 +14,8 @@ class PopulandoTabelaBlogNotificacao extends Seeder
         DB::table("bg_blog_notificacao")->insert([
             "id" => 1,
             "idtiponotificacao" => 1,
+            "nome" => "Blogando",
+            "titulo" => "",
             "descricao" => "",
             "imagem" => "",
             "link" => "#",
@@ -23,6 +25,8 @@ class PopulandoTabelaBlogNotificacao extends Seeder
         DB::table("bg_blog_notificacao")->insert([
             "id" => 2,
             "idtiponotificacao" => 1,
+            "nome" => "Blogando",
+            "titulo" => "Boas vindas",
             "descricao" => "Bem vindo ao Blogando",
             "imagem" => "blogando.svg",
             "link" => "#",

@@ -1,0 +1,5 @@
+@each $tema in $temas
+    .#{$prefix}-notificacao--#{$tema}
+        @extend .bg-p-notificacao
+        .bg-p-notificacao__titulo, .bg-p-notificacao__descricao, .bg-p-notificacao__acao
+            color: map_get($temas-colors, $tema)
