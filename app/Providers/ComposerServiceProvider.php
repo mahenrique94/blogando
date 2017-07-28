@@ -29,12 +29,12 @@ class ComposerServiceProvider extends ServiceProvider
             if (!Auth::guest()) {
                 $user = Auth::user();
                 $view->with("blog", Blog::find($user->idblog))
-                    ->with("notificacoesnaolidas", BlogNotificacao::where("id", ">", $user->idnotificacaoatual)->get());
+                    ->with("notificacoesnaolidas", BlogNotificacao::where("id", ">", 0));
             } else {
                 $view->with("blog", Blog::all()->first())
                     ->with("notificacoesnaolidas", BlogNotificacao::lastest());
             }            
-            $view->with("notificacoes", BlogNotificacao::where("id", ">", 1)->get());
+            $view->with("notificacoes", BlogNotificacao::where("id", ">", 0)->get());
         });
     }
 

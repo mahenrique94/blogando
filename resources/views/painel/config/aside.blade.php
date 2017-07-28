@@ -55,7 +55,7 @@
         <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="/painel/configuracoes/geral"><i class="icon-cog bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.conta")</a></li>
     </ul> 
 </aside> 
- <aside class="bg-p-notificacao--{{$blog->aparencia->temanotificacao->slug}} bg-p-slide" data-animacao-situacao="desanimado" id="notificacoes">
+    <aside class="bg-p-notificacao--{{$blog->aparencia->temanotificacao->slug}} bg-p-slide" data-animacao-situacao="desanimado" id="notificacoes">
     <div class="bg-p-notificacao__opcoes">
         <a href="#tab1" class="bg-p-notificacao__acao is-ativo" onclick="tab(this);">
             @lang("messages.botao.naolidas")

@@ -15,7 +15,6 @@ class PopulandoTabelaPostAutor extends Seeder
             "id" => 1,
             "idblog" => 1,
             "idgrupo" => 1,
-            "idnotificacaoatual" => 1,
             "nome" => "Administrador",
             "slug" => "administrador",
             "imagem" => "administrador.jpg",
