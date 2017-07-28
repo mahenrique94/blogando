@@ -9,7 +9,7 @@
         <input aria-hidden="true" name="id" type="hidden" value="{{$categoria->id}}"/>
         <div class="bg-p-dashboard__header">
             <div class="o-breadcrumb--arrow">
-                <span class="o-breadcrumb__link"><a href="/painel/dashboard" role="link" title="@lang("messages.menu.dashboard")">@lang("messages.menu.dashboard")</a></span>
+                <span class="o-breadcrumb__link"><a href="/painel/post" role="link" title="@lang("messages.menu.post")">@lang("messages.menu.post")</a></span>
                 <span class="o-breadcrumb__link"><a href="/painel/categoria" role="link" title="@lang("messages.menu.post.categoria")">@lang("messages.menu.post.categoria")</a></span>
                 <span class="o-breadcrumb__link"><a class="is-inactive" href="/painel/categoria/formulario" role="link" title="@lang("messages.menu.formulario")">@lang("messages.menu.formulario")</a></span>
             </div>

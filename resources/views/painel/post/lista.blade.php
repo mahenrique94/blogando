@@ -3,7 +3,6 @@
 @section("conteudo")
     <div class="bg-p-dashboard__header">
         <div class="o-breadcrumb--arrow">
-            <span class="o-breadcrumb__link"><a href="/painel/dashboard" role="link" title="@lang("messages.menu.dashboard")">@lang("messages.menu.dashboard")</a></span>
             <span class="o-breadcrumb__link"><a href="/painel/post" role="link" title="@lang("messages.menu.post")">@lang("messages.menu.post")</a></span>
             <span class="o-breadcrumb__link"><a class="is-inactive" href="/painel/post" role="link" title="@lang("messages.menu.post.todos")">@lang("messages.menu.post.todos")</a></span>
         </div>

@@ -16,9 +16,16 @@ class ComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::composer("painel.configuracoes.aparencia", "App\Http\ViewComposers\AparenciaComposer");
+        View::composer(["painel.configuracoes.escrita", "painel.configuracoes.leitura", "painel.configuracoes.compartilhamento"], "App\Http\ViewComposers\ParametrosComposer");
+
         View::composer("*", function ($view) {
-            $user = Auth::user();
-            $view->with("blog", Blog::find($user->idblog));
+            if (!Auth::guest()) {
+                $user = Auth::user();
+                $view->with("blog", Blog::find($user->idblog));
+            } else {
+                $view->with("blog", Blog::all()->first());
+            }            
         });
     }
 

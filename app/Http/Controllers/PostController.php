@@ -8,6 +8,7 @@ use App\Post;
 use App\PostAutor;
 use App\CadCategoria;
 use App\CadTag;
+use App\Blog;
 use Parsedown;
 use League\HTMLToMarkdown\HtmlConverter;
 
@@ -86,8 +87,12 @@ class PostController extends Controller
 
     private function subindoImagem($request) {        
         if ($request->hasFile("file") && $request->file->isValid()) {
-            $imagem = str_slug($request->input("titulo")) . ".jpg";
-            $request->file->storeAs("public/posts/" . date_format(date_create($request->datapostagem), "Y") . "/" . date_format(date_create($request->datapostagem), "m"), $imagem);
+            $blog = Blog::find(Auth::user()->idblog);
+            $imagem = str_slug($request->titulo) . ".jpg";
+            if (!is_null($blog->path) && !empty($blog->path))
+                $request->file->move($blog->path . "/posts/" . date_format(date_create($request->datapostagem), "Y") . "/" . date_format(date_create($request->datapostagem), "m"), $imagem);
+            else
+                $request->file->storeAs("public/posts/" . date_format(date_create($request->datapostagem), "Y") . "/" . date_format(date_create($request->datapostagem), "m"), $imagem);
             return $imagem;
         }
         if (!is_null($request->input("imagem")))

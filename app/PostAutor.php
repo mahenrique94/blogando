@@ -8,7 +8,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 class PostAutor extends Model implements Authenticatable
 {
     protected $table = "bg_post_autor";
-    protected $guarded = ["id", "created_at", "token", "remember_token"];
+    protected $guarded = ["id", "idblog", "created_at", "token", "remember_token"];
     protected $hidden = ["id", "created_at", "token", "remember_token"];
 
     public function blog() {

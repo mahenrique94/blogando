@@ -13,7 +13,6 @@
                 <input accept="image/jpg" aria-hidden="true" class="is-hide js-inputImagem" id="file" name="file" type="file"/>
                 <div class="bg-p-dashboard__header">
                     <div class="o-breadcrumb--arrow">
-                        <span class="o-breadcrumb__link"><a href="/painel/dashboard" role="link" title="@lang("messages.menu.dashboard")">@lang("messages.menu.dashboard")</a></span>
                         <span class="o-breadcrumb__link"><a href="/painel/post" role="link" title="@lang("messages.menu.post")">@lang("messages.menu.post")</a></span>
                         <span class="o-breadcrumb__link"><a class="is-inactive" href="/painel/post/formulario" role="link" title="@lang("messages.menu.post.novo")">@lang("messages.menu.post.novo")</a></span>
                     </div>

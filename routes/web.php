@@ -14,7 +14,7 @@ Route::get("/arquivo/download/{pasta}/{ano}/{mes}/{arquivo}", "ArquivoController
 Route::get("/arquivo/download/{pasta}/{arquivo}", "ArquivoController@download");
 Route::get("/arquivo/download/{arquivo}", "ArquivoController@download");
 Route::get("/arquivo/visualizar/{pasta}/{ano}/{mes}/{arquivo}", "ArquivoController@visualizar");
-Route::get("/arquivo/visualizar/{past}/{arquivo}", "ArquivoController@visualizar");
+Route::get("/arquivo/visualizar/{pasta}/{arquivo}", "ArquivoController@visualizar");
 Route::get("/arquivo/visualizar/{arquivo}", "ArquivoController@visualizar");
 
 Route::get("painel/acessar", "AutenticacaoController@formulario");
@@ -34,13 +34,18 @@ Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() 
     Route::post("categoria", "CadCategoriaController@salvar")->middleware(["csrf"]);
     Route::put("categoria", "CadCategoriaController@atualizar")->middleware(["csrf"]);
 
-    Route::delete("tag/{id}", "CadTagController@deletar");
-    Route::get("tag", "CadTagController@listar");
-    Route::get("tag/formulario", "CadTagController@formulario");
-    Route::get("tag/json", "CadTagController@json");
-    Route::get("tag/{id}", "CadTagController@editar");
-    Route::post("tag", "CadTagController@salvar")->middleware(["csrf"]);
-    Route::put("tag", "CadTagController@atualizar")->middleware(["csrf"]);
+    Route::get("configuracoes/aparencia", "BlogAparenciaController@formulario");
+    Route::get("configuracoes/compartilhamento", "BlogParametrosController@compartilhamento");
+    Route::get("configuracoes/discussao", "BlogParametrosController@discussao");
+    Route::get("configuracoes/escrita", "BlogParametrosController@escrita");
+    Route::get("configuracoes/geral", "BlogController@formulario");
+    Route::get("configuracoes/leitura", "BlogParametrosController@leitura");
+    Route::put("configuracoes/aparencia", "BlogAparenciaController@atualizar");
+    Route::put("configuracoes/compartilhamento", "BlogParametrosController@compartilhamentoAtualizar");
+    Route::put("configuracoes/discussao", "BlogParametrosController@discussaoAtualizar");
+    Route::put("configuracoes/escrita", "BlogParametrosController@escritaAtualizar");
+    Route::put("configuracoes/leitura", "BlogParametrosController@leituraAtualizar");
+    Route::put("configuracoes/geral", "BlogController@atualizar");
 
     Route::delete("post/categoria/{id}", "PostCategoriaController@deletar");
     Route::get("post/categoria/json", "PostCategoriaController@json");
@@ -57,4 +62,12 @@ Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() 
     Route::get("post/{id}", "PostController@editar");
     Route::post("post", "PostController@salvar")->middleware(["csrf"]);
     Route::put("post", "PostController@atualizar")->middleware(["csrf"]);
+
+    Route::delete("tag/{id}", "CadTagController@deletar");
+    Route::get("tag", "CadTagController@listar");
+    Route::get("tag/formulario", "CadTagController@formulario");
+    Route::get("tag/json", "CadTagController@json");
+    Route::get("tag/{id}", "CadTagController@editar");
+    Route::post("tag", "CadTagController@salvar")->middleware(["csrf"]);
+    Route::put("tag", "CadTagController@atualizar")->middleware(["csrf"]);
 });

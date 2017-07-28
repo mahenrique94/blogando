@@ -3,6 +3,7 @@
 return [
     ######################################## BOTAO ########################################
     "botao.acessar"                                             => "Acessar",
+    "botao.atualizarconfiguracoes"                              => "Atualizar configurações",
     "botao.carregar"                                            => "Carregar",
     "botao.deletar"                                             => "Deletar",
     "botao.editar"                                              => "Editar",
@@ -28,11 +29,18 @@ return [
     "label.id"                                                  => "Id",
     "label.imagem"                                              => "Imagem",
     "label.descricao"                                           => "Descrição",
+    "label.path"                                                => "Path",
     "label.por"                                                 => "Por",
     "label.publicadoem"                                         => "Publicado em",
     "label.publicadopor"                                        => "Publicado por",
     "label.situacao"                                            => "Situação",
     "label.titulo"                                              => "Título",
+    "label.temamenu"                                            => "Tema do menu(lateral)",
+    "label.temaaside"                                           => "Tema do menu(superior)",
+    "label.temanavegacao"                                       => "Tema das navegações(superior direito)",
+    "label.temaperfil"                                          => "Tema do perfil(usuário)",
+    "label.url"                                                 => "URL",
+    "label.usarmarkdown"                                        => "Editor Markdown",
 
     ######################################## MENSAGEM ########################################
     "mensagem.semimagem"                                        => "Imagem não carregada",
@@ -54,6 +62,7 @@ return [
     "menu.dashboard.meusrascunhos"                              => "Meus rascunhos",
     "menu.comentarios"                                          => "Comentários",
     "menu.configuracoes"                                        => "Configurações",
+    "menu.configuracoes.aparencia"                              => "Aparência",
     "menu.configuracoes.compartilhamento"                       => "Compartilhamento",
     "menu.configuracoes.discussao"                              => "Discussão",
     "menu.configuracoes.escrita"                                => "Escrita",
