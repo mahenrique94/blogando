@@ -21,12 +21,14 @@
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "tags" ? "is-ativo" : ""}}" href="/painel/tag" role="link" title="@lang("messages.menu.post.tag")">@lang("messages.menu.post.tag")</a></li>
             </ul>
         </li>
-        {{--  <li class="bg-p-menu__item {{$pagina === "midia" ? "is-ativo" : ""}}" role="menuitem"><a class="bg-p-menu__link {{$pagina === "midia" ? "is-ativo" : ""}}" href="#"><i class="icon-picture bg-p-menu__icone"></i>&nbsp;@lang("messages.menu.midia")</a>
+        <li class="bg-p-menu__item {{$pagina === "midia" ? "is-ativo" : ""}}" role="menuitem"><a class="bg-p-menu__link {{$pagina === "midia" ? "is-ativo" : ""}}" href="/painel/midia/biblioteca"><i class="icon-picture bg-p-menu__icone"></i>&nbsp;@lang("messages.menu.midia")</a>
             <ul class="bg-p-menu__lista bg-p-menu__lista--segundo" role="menubar">
-                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "nova" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.midia.nova")</a></li>
-                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "biblioteca" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.midia.biblioteca")</a></li>
+                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "nova" ? "is-ativo" : ""}}" href="/painel/midia/adicionar">@lang("messages.menu.midia.nova")</a></li>
+            {{--  
+                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "biblioteca" ? "is-ativo" : ""}}" href="/painel/midia/biblioteca">@lang("messages.menu.midia.biblioteca")</a></li>
+            --}}
             </ul>
-        </li>  --}}
+        </li>
         {{--  <li class="bg-p-menu__item {{$pagina === "comentarios" ? "is-ativo" : ""}}" role="menuitem"><a class="bg-p-menu__link {{$pagina === "comentarios" ? "is-ativo" : ""}}" href="#"><i class="icon-chat bg-p-menu__icone"></i>&nbsp;@lang("messages.menu.comentarios")</a></li>  --}}
         {{--  <li class="bg-p-menu__item {{$pagina === "ferramentas" ? "is-ativo" : ""}}" role="menuitem"><a class="bg-p-menu__link {{$pagina === "ferramentas" ? "is-ativo" : ""}}" href="#"><i class="icon-wrench bg-p-menu__icone"></i>&nbsp;@lang("messages.menu.ferramentas")</a>
             <ul class="bg-p-menu__lista bg-p-menu__lista--segundo" role="menubar">

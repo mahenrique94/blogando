@@ -51,7 +51,7 @@ return [
     "label.salvar"                                              => "Salvar",
     "label.situacao"                                            => "Situação",
     "label.titulo"                                              => "Título",
-    "label.temamenu"                                            => "Tema do menu(lateral)",
+    "label.temamenu"                                            => "Tema do menu(lateral esquerdo)",
     "label.temaaside"                                           => "Tema do menu(superior)",
     "label.temanavegacao"                                       => "Tema das navegações(superior direito)",
     "label.temaperfil"                                          => "Tema do perfil(usuário)",
