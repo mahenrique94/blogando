@@ -60,5 +60,12 @@ class PopulandoTabelaPostSituacao extends Seeder
             "created_at" => DB::raw('current_timestamp'),
             "updated_at" => DB::raw('current_timestamp'),
         ]);
+        DB::table("bg_post_situacao")->insert([
+            "id" => 8,
+            "descricao" => "Rascunho",
+            "slug" => "rascunho",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
+        ]);
     }
 }

@@ -22,9 +22,30 @@ Route::post("painel/autenticar", "AutenticacaoController@autenticar");
 
 Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() {
     Route::get("", "PainelController@index");
-    Route::get("dashboard", "DashboardController@index");
 
-    Route::get("sair", "AutenticacaoController@sair");
+    Route::delete("administrador/permissao/{id}", "AdmPermissaoController@deletar");
+    Route::get("administrador/permissao", "AdmPermissaoController@listar");
+    Route::get("administrador/permissao/formulario", "AdmPermissaoController@formulario");
+    Route::get("administrador/permissao/json", "AdmPermissaoController@json");
+    Route::get("administrador/permissao/{id}", "AdmPermissaoController@editar");
+    Route::post("administrador/permissao", "AdmPermissaoController@salvar")->middleware(["csrf"]);
+    Route::put("administrador/permissao", "AdmPermissaoController@atualizar")->middleware(["csrf"]);
+
+    Route::delete("administrador/tipo-de-acesso/{id}", "AdmTipoAcessoController@deletar");
+    Route::get("administrador/tipo-de-acesso", "AdmTipoAcessoController@listar");
+    Route::get("administrador/tipo-de-acesso/formulario", "AdmTipoAcessoController@formulario");
+    Route::get("administrador/tipo-de-acesso/json", "AdmTipoAcessoController@json");
+    Route::get("administrador/tipo-de-acesso/{id}", "AdmTipoAcessoController@editar");
+    Route::post("administrador/tipo-de-acesso", "AdmTipoAcessoController@salvar")->middleware(["csrf"]);
+    Route::put("administrador/tipo-de-acesso", "AdmTipoAcessoController@atualizar")->middleware(["csrf"]);
+
+    Route::delete("administrador/grupo/{id}", "AdmGrupoController@deletar");
+    Route::get("administrador/grupo", "AdmGrupoController@listar");
+    Route::get("administrador/grupo/formulario", "AdmGrupoController@formulario");
+    Route::get("administrador/grupo/json", "AdmGrupoController@json");
+    Route::get("administrador/grupo/{id}", "AdmGrupoController@editar");
+    Route::post("administrador/grupo", "AdmGrupoController@salvar")->middleware(["csrf"]);
+    Route::put("administrador/grupo", "AdmGrupoController@atualizar")->middleware(["csrf"]);
 
     Route::delete("categoria/{id}", "CadCategoriaController@deletar");
     Route::get("categoria", "CadCategoriaController@listar");
@@ -47,6 +68,10 @@ Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() 
     Route::put("configuracoes/leitura", "BlogParametrosController@leituraAtualizar");
     Route::put("configuracoes/geral", "BlogController@atualizar");
 
+    Route::get("dashboard", "DashboardController@index");
+    Route::get("dashboard/meus-posts", "DashboardController@meusposts");
+    Route::get("dashboard/meus-rascunhos", "DashboardController@meusrascunhos");
+
     Route::delete("post/categoria/{id}", "PostCategoriaController@deletar");
     Route::get("post/categoria/json", "PostCategoriaController@json");
     Route::post("post/categoria/", "PostCategoriaController@salvar");
@@ -57,11 +82,15 @@ Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() 
 
     Route::delete("post/{id}", "PostController@deletar");
     Route::get("post", "PostController@listar");
+    Route::get("post/agendados", "PostController@listarAgendados");
+    Route::get("post/rascunhos", "PostController@listarRascunhos");
     Route::get("post/formulario", "PostController@formulario");
     Route::get("post/json", "PostController@json");
     Route::get("post/{id}", "PostController@editar");
     Route::post("post", "PostController@salvar")->middleware(["csrf"]);
     Route::put("post", "PostController@atualizar")->middleware(["csrf"]);
+
+    Route::get("sair", "AutenticacaoController@sair");
 
     Route::delete("tag/{id}", "CadTagController@deletar");
     Route::get("tag", "CadTagController@listar");

@@ -28,7 +28,7 @@
     <table class="c-table--tie c-table--hovered c-table--zebrered c-table--bordered">
         <thead>
             <tr>
-                <th>Descrição</th>
+                <th>@lang("messages.label.descricao")</th>
                 <th></th>
                 <th></th>
             </tr>

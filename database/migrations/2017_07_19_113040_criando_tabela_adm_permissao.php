@@ -16,11 +16,11 @@ class CriandoTabelaAdmPermissao extends Migration
         Schema::create('bg_adm_permissao', function (Blueprint $table) {
             $table->increments('id');
             $table->string("descricao", 60)->unique();
-            $table->boolean("salvar");
-            $table->boolean("editar");
-            $table->boolean("listar");
-            $table->boolean("deletar");
-            $table->boolean("visualizar");
+            $table->boolean("salvar")->default(false);
+            $table->boolean("editar")->default(false);
+            $table->boolean("listar")->default(false);
+            $table->boolean("deletar")->default(false);
+            $table->boolean("visualizar")->default(false);
             $table->timestamps();
         });
     }

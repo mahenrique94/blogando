@@ -3,8 +3,9 @@
         <li class="bg-p-menu__item has-submenu {{$pagina === "dashboard" ? "is-ativo" : ""}}" role="menuitem"><a class="bg-p-menu__link has-submenu {{$pagina === "dashboard" ? "is-ativo" : ""}}" href="/painel/dashboard" role="link" title="@lang("messages.menu.dashboard")"><i class="icon-th-large bg-p-menu__icone"></i>&nbsp;@lang("messages.menu.dashboard")</a>
             <ul class="bg-p-menu__lista bg-p-menu__lista--segundo" role="menubar">
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "inicio" ? "is-ativo" : ""}}" href="/painel/dashboard" role="link" title="@lang("messages.menu.dashboard.inicio")">@lang("messages.menu.dashboard.inicio")</a></li>
-                {{--  <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "meuspost" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.dashboard.meuspost")</a></li>
-                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "meusrascunhos" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.dashboard.meusrascunhos")</a></li>
+                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "meusposts" ? "is-ativo" : ""}}" href="/painel/dashboard/meus-posts">@lang("messages.menu.dashboard.meusposts")</a></li>
+                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "meusrascunhos" ? "is-ativo" : ""}}" href="/painel/dashboard/meus-rascunhos">@lang("messages.menu.dashboard.meusrascunhos")</a></li>
+                {{--  
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "meuscomentarios" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.dashboard.meuscomentarios")</a></li>
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "comentarios" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.dashboard.comentarios")</a></li>
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "atividades" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.dashboard.atividades")</a></li>  --}}
@@ -14,8 +15,8 @@
             <ul class="bg-p-menu__lista bg-p-menu__lista--segundo" role="menubar">
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "novo" ? "is-ativo" : ""}}" href="/painel/post/formulario" role="link" title="@lang("messages.menu.post.novo")">@lang("messages.menu.post.novo")</a></li>
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "todos" ? "is-ativo" : ""}}" href="/painel/post" role="link" title="@lang("messages.menu.post.todos")">@lang("messages.menu.post.todos")</a></li>
-                {{--  <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "agendados" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.post.agendados")</a></li>
-                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "rascunhos" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.post.rascunhos")</a></li>  --}}
+                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "agendados" ? "is-ativo" : ""}}" href="/painel/post/agendados">@lang("messages.menu.post.agendados")</a></li>
+                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "rascunhos" ? "is-ativo" : ""}}" href="/painel/post/rascunhos">@lang("messages.menu.post.rascunhos")</a></li>
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "categorias" ? "is-ativo" : ""}}" href="/painel/categoria" role="link" title="@lang("messages.menu.post.categoria")">@lang("messages.menu.post.categoria")</a></li>
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "tags" ? "is-ativo" : ""}}" href="/painel/tag" role="link" title="@lang("messages.menu.post.tag")">@lang("messages.menu.post.tag")</a></li>
             </ul>
@@ -42,13 +43,13 @@
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "convidar" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.usuarios.convidar")</a></li>
             </ul>
         </li>  --}}
-        {{--  <li class="bg-p-menu__item {{$pagina === "admnistrador" ? "is-ativo" : ""}}" role="menuitem"><a class="bg-p-menu__link {{$pagina === "admnistrador" ? "is-ativo" : ""}}" href="#"><i class="icon-male bg-p-menu__icone"></i>&nbsp;@lang("messages.menu.administrador")</a>
+        <li class="bg-p-menu__item {{$pagina === "administrador" ? "is-ativo" : ""}}" role="menuitem"><a class="bg-p-menu__link {{$pagina === "administrador" ? "is-ativo" : ""}}" href="/painel/administrador/grupo"><i class="icon-male bg-p-menu__icone"></i>&nbsp;@lang("messages.menu.administrador")</a>
             <ul class="bg-p-menu__lista bg-p-menu__lista--segundo" role="menubar">
-                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "permissoes" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.administrador.permissoes")</a></li>
-                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "tipoacesso" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.administrador.tipoacesso")</a></li>
-                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "grupos" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.administrador.grupos")</a></li>
+                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "permissoes" ? "is-ativo" : ""}}" href="/painel/administrador/permissao">@lang("messages.menu.administrador.permissoes")</a></li>
+                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "tipoacesso" ? "is-ativo" : ""}}" href="/painel/administrador/tipo-de-acesso">@lang("messages.menu.administrador.tipoacesso")</a></li>
+                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "grupos" ? "is-ativo" : ""}}" href="/painel/administrador/grupo">@lang("messages.menu.administrador.grupos")</a></li>
             </ul>
-        </li>  --}}
+        </li>
         <li class="bg-p-menu__item {{$pagina === "configuracoes" ? "is-ativo" : ""}}" role="menuitem"><a class="bg-p-menu__link {{$pagina === "configuracoes" ? "is-ativo" : ""}}" href="/painel/configuracoes/geral"><i class="icon-cog-alt bg-p-menu__icone"></i>&nbsp;@lang("messages.menu.configuracoes")</a>
             <ul class="bg-p-menu__lista bg-p-menu__lista--segundo" role="menubar">
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "geral" ? "is-ativo" : ""}}" href="/painel/configuracoes/geral">@lang("messages.menu.configuracoes.geral")</a></li>

@@ -56,6 +56,22 @@ class PostController extends Controller
         return view("painel.post.lista", ["pagina" => "posts"], ["subpagina" => "todos"])->with("posts", $posts);
     }
 
+    public function listarAgendados(Request $request) {
+        $posts = Post::where("idsituacao", 3)->get();
+        if ($request->has("campo") && $request->has("filtro")) {
+            $posts = Post::where($request->campo, "like", $request->filtro)->where("idsituacao", 3)->get();
+        }
+        return view("painel.post.agendados", ["pagina" => "posts"], ["subpagina" => "agendados"])->with("posts", $posts);
+    }
+
+    public function listarRascunhos(Request $request) {
+        $posts = Post::where("idsituacao", 8)->get();
+        if ($request->has("campo") && $request->has("filtro")) {
+            $posts = Post::where($request->campo, "like", $request->filtro)->where("idsituacao", 8)->get();
+        }
+        return view("painel.post.rascunhos", ["pagina" => "posts"], ["subpagina" => "rascunhos"])->with("posts", $posts);
+    }
+
     public function salvar(Request $request) {
         $autor = PostAutor::find(Auth::id());
         $post = Post::create([

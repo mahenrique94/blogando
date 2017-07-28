@@ -13,6 +13,7 @@ return [
     "botao.pesquisar"                                           => "Pesquisar",
     "botao.sair"                                                => "Sair",
     "botao.salvar"                                              => "Salvar",
+    "botao.visualizar"                                          => "Visualizar",
 
     ######################################## BOTAO ########################################
     "caixa.categorias"                                          => "Categorias",
@@ -29,13 +30,17 @@ return [
     "label.data"                                                => "Data",
     "label.id"                                                  => "Id",
     "label.imagem"                                              => "Imagem",
+    "label.deletar"                                             => "Deletar",
     "label.descricao"                                           => "Descrição",
+    "label.editar"                                              => "Editar",
     "label.formatodata"                                         => "Formato de data",
     "label.formatodatahora"                                     => "Formato de data e hora",
     "label.formatohora"                                         => "Formato de hora",
+    "label.listar"                                              => "Listar",
     "label.mostrarpostsrelacionados"                            => "Mostrar posts relacionados",
     "label.notificarnovoscomentarios"                           => "Notificar via email por novos comentários",
     "label.path"                                                => "Path",
+    "label.permissao"                                           => "Permissão",
     "label.permitircomentarios"                                 => "Permitir comentários",
     "label.permitircomentariosanonimos"                         => "Permitir comentários(anônimos)",
     "label.permitircompartilhamentos"                           => "Permitir compartilhamentos",
@@ -43,6 +48,7 @@ return [
     "label.publicadoem"                                         => "Publicado em",
     "label.publicadopor"                                        => "Publicado por",
     "label.quantidadepostsporpagina"                            => "Quantidade de posts por página",
+    "label.salvar"                                              => "Salvar",
     "label.situacao"                                            => "Situação",
     "label.titulo"                                              => "Título",
     "label.temamenu"                                            => "Tema do menu(lateral)",
@@ -53,6 +59,7 @@ return [
     "label.tipocompartilhamento"                                => "Tipo de compartilhamento",
     "label.url"                                                 => "URL",
     "label.usarmarkdown"                                        => "Editor Markdown",
+    "label.visualizar"                                          => "Visualizar",
 
     ######################################## MENSAGEM ########################################
     "mensagem.semimagem"                                        => "Imagem não carregada",
