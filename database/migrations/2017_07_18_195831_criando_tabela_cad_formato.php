@@ -16,7 +16,8 @@ class CriandoTabelaCadFormato extends Migration
         Schema::create('bg_cad_formato', function (Blueprint $table) {
             $table->increments('id');
             $table->integer("idtipoformato")->unsigned();
-            $table->string("formato", 120)->unique();
+            $table->string("descricao", 120)->unique();
+            $table->string("formato", 60);
             $table->foreign("idtipoformato")->references("id")->on("bg_cad_tipoformato");
             $table->timestamps();
         });

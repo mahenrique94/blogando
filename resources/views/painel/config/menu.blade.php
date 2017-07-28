@@ -55,10 +55,8 @@
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "aparencia" ? "is-ativo" : ""}}" href="/painel/configuracoes/aparencia">@lang("messages.menu.configuracoes.aparencia")</a></li>
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "escrita" ? "is-ativo" : ""}}" href="/painel/configuracoes/escrita">@lang("messages.menu.configuracoes.escrita")</a></li>
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "leitura" ? "is-ativo" : ""}}" href="/painel/configuracoes/leitura">@lang("messages.menu.configuracoes.leitura")</a></li>
-                {{--                  
-                
-                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "discussao" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.configuracoes.discussao")</a></li>
-                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "compartilhamento" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.configuracoes.compartilhamento")</a></li>  --}}
+                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "discussao" ? "is-ativo" : ""}}" href="/painel/configuracoes/discussao">@lang("messages.menu.configuracoes.discussao")</a></li>
+                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "compartilhamento" ? "is-ativo" : ""}}" href="/painel/configuracoes/compartilhamento">@lang("messages.menu.configuracoes.compartilhamento")</a></li>
             </ul>
         </li> 
     </ul>

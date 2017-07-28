@@ -17,7 +17,12 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer("painel.configuracoes.aparencia", "App\Http\ViewComposers\AparenciaComposer");
-        View::composer(["painel.configuracoes.escrita", "painel.configuracoes.leitura", "painel.configuracoes.compartilhamento"], "App\Http\ViewComposers\ParametrosComposer");
+        View::composer([
+            "painel.configuracoes.escrita", 
+            "painel.configuracoes.leitura", 
+            "painel.configuracoes.compartilhamento",
+            "painel.configuracoes.discussao",
+        ], "App\Http\ViewComposers\ParametrosComposer");
 
         View::composer("*", function ($view) {
             if (!Auth::guest()) {
