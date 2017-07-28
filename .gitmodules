@@ -1,12 +1,12 @@
-[submodule "public/assets/css/jlib"]
-	path = public/assets/css/jlib
+[submodule "public/assets/painel/css/jlib"]
+	path = public/assets/painel/css/jlib
 	url = https://github.com/mahenrique94/jlib.git
 	branch = master
-[submodule "public/assets/css/stilize"]
-	path = public/assets/css/stilize
+[submodule "public/assets/painel/css/stilize"]
+	path = public/assets/painel/css/stilize
 	url = https://github.com/mahenrique94/stilize.git
 	branch = master
-[submodule "public/assets/js/jlib"]
-	path = public/assets/js/jlib
+[submodule "public/assets/painel/js/jlib"]
+	path = public/assets/painel/js/jlib
 	url = https://github.com/mahenrique94/jlib.git
 	branch = master
