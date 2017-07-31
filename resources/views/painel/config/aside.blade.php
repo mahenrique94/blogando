@@ -18,7 +18,7 @@
             <i class="icon-bell-alt"></i>
             @if (count($notificacoesnaolidas) > 0)
                 <div class="bg-p-aside__naolidas">
-                    <span class="bg-p-notificacao__naolidas ">{{count($notificacoesnaolidas)}}</span>
+                    <span class="bg-p-notificacao__naolidas js-quantidadeNotificacao">{{count($notificacoesnaolidas)}}</span>
                 </div>
             @endif
         </a>
@@ -60,7 +60,7 @@
         <a href="#tab1" class="bg-p-notificacao__acao is-ativo" onclick="tab(this);">
             @lang("messages.botao.naolidas")
             @if (count($notificacoesnaolidas) > 0)
-                <span class="bg-p-notificacao__naolidas">{{count($notificacoesnaolidas)}}</span>
+                <span class="bg-p-notificacao__naolidas js-quantidadeNotificacao">{{count($notificacoesnaolidas)}}</span>
             @endif
             </a>
         <a href="#tab2" class="bg-p-notificacao__acao" onclick="tab(this);">@lang("messages.botao.todas")</a>
@@ -68,8 +68,8 @@
     <div class="bg-p-notificacao__tabs">
         <div class="bg-p-notificacao__tab is-show" data-tab="1" id="tab1">
             @foreach ($notificacoesnaolidas as $notificacao)
-                <div class="bg-p-notificacao__caixa">
-                    <button class="bg-p-notificacao__ler" formaction="/painel/notificacao/ler/{{$notificacao->id}}" onclick="removerNotificacao(this);" type="button"><i class="icon-cancel"></i></button>
+                <div class="bg-p-notificacao__caixa" data-id="{{$notificacao->id}}">
+                    <button class="bg-p-notificacao__ler" formaction="/painel/notificacao/ler/{{$notificacao->id}}" formmethod="post" onclick="lerNotificacao(this);" type="button"><i class="icon-cancel"></i></button>
                     <a class="bg-p-notificacao__link" href="{{$notificacao->link}}">
                         <img alt="" class="bg-p-notificacao__imagem" src="/arquivo/download/sistema/{{$notificacao->imagem}}">            
                         <h3 class="bg-p-notificacao__titulo">{{$notificacao->nome}}</h3>
@@ -79,9 +79,17 @@
             @endforeach
         </div>
         <div class="bg-p-notificacao__tab is-hide" data-tab="2" id="tab2">
-            @foreach ($notificacoes as $notificacao)
-                <div class="bg-p-notificacao__caixa">
-                    <button class="bg-p-notificacao__ler" formaction="/painel/notificacao/ler/{{$notificacao->id}}" onclick="removerNotificacao(this);" type="button"><i class="icon-cancel"></i></button>
+            @foreach ($notificacoesnaolidas as $notificacao)                
+                <div class="bg-p-notificacao__caixa" data-notificacao="{{$notificacao->id}}">
+                    <a class="bg-p-notificacao__link" href="{{$notificacao->link}}">
+                        <img alt="" class="bg-p-notificacao__imagem" src="/arquivo/download/sistema/{{$notificacao->imagem}}">            
+                        <h3 class="bg-p-notificacao__titulo">{{$notificacao->nome}}</h3>
+                        <p class="bg-p-notificacao__descricao">{{$notificacao->descricao}}</p>
+                    </a>
+                </div>
+            @endforeach
+            @foreach ($notificacoes as $notificacao)                
+                <div class="bg-p-notificacao__caixa bg-p-notificacao__caixa--lida" data-notificacao="{{$notificacao->id}}">
                     <a class="bg-p-notificacao__link" href="{{$notificacao->link}}">
                         <img alt="" class="bg-p-notificacao__imagem" src="/arquivo/download/sistema/{{$notificacao->imagem}}">            
                         <h3 class="bg-p-notificacao__titulo">{{$notificacao->nome}}</h3>

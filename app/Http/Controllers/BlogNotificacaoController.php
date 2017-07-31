@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\PostAutor;
+use App\BlogNotificacaoAutor;
 
 class BlogNotificacaoController extends Controller
 {
     public function ler($id) {
-        PostAutor::where("id", Auth::id())
-            ->update([
-                "idcategoriaatual" => $id,
+        BlogNotificacaoAutor::create([
+                "idautor" => Auth::id(),
+                "idnotificacao" => $id,
+                "created_at" => date("Y-m-d H:i:s"),
                 "updated_at" => date("Y-m-d H:i:s"),
             ]);
-        $id = DB::table("bg_post_categoria")->latest("id")->first();
-        return response()->json($id);
+        return response("Notificação lida com sucesso", 200);
     }
 }

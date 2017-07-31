@@ -1,6 +1,10 @@
 /** @auth Matheus Castiglioni
  *  Requisições Ajax
  */
+
+/** @auth Matheus Castiglioni
+ *  Criando, deletando e listando categorias e tags dos posts
+ */
 function salvarCaixa(botao, tipo, event) {
     cancelarEvento(event);
     const data = [$("[name=\"id\"]"), $(`[name="${tipo}"]`)];
@@ -33,13 +37,11 @@ function salvarCaixa(botao, tipo, event) {
             }
         });
 }
-
 function criarLista() {
     const lista = document.createElement("ul");
     lista.classList.add("bg-p-caixa__lista", "js-lista");
     return lista;
 }
-
 function criarItem(conteudo, resposta) {
     const item = document.createElement("li");
     item.classList.add("bg-p-caixa__item", "js-item");
@@ -47,7 +49,6 @@ function criarItem(conteudo, resposta) {
     item.appendChild(criarBotaoDeletar(resposta));
     return item;
 }
-
 function criarBotaoDeletar({id}) {
     const span = document.createElement("span");
     const botao = document.createElement("button");
@@ -62,9 +63,50 @@ function criarBotaoDeletar({id}) {
     span.appendChild(botao);
     return span;
 }
-
 function criarIconeDeletar() {
     const icone = document.createElement("i");
     icone.classList.add("icon-minus", "bg-p-caixa__icone");
     return icone;
+}
+
+/** @auth Matheus Castiglioni
+ *  Lendo notificações
+ */
+function lerNotificacao(notificacao) {
+    HttpService.request(notificacao.formAction, notificacao.formMethod, null, false)
+        .then(resposta => {
+            removerNotificacao(notificacao);
+            atualizarContagemDeNotificacoes();
+        });
+}
+function animacaoRemoverNotificacao(notificacao) {
+    notificacao.animate({
+        transform: ["scale(1)", "scale(0)"]
+    }, {
+        duration: 200,
+        easing: "linear",
+        fill : "forwards"
+    });
+}
+function removerNotificacao(notificacao) {
+    const caixa = notificacao.parentNode
+    const caixaAux = $(`[data-notificacao="${caixa.dataset.id}"`);
+    if (existeElemento(caixaAux))
+        caixaAux.classList.add("bg-p-notificacao__caixa--lida");
+    removerCaixaNotificacao(caixa);
+}
+function removerCaixaNotificacao(caixa) {
+    animacaoRemoverNotificacao(caixa);
+    setTimeout(() => caixa.remove(), 200);    
+}
+function atualizarContagemDeNotificacoes() {
+    const contadores = $$(".js-quantidadeNotificacao");
+    if (contadores.length > 0) {
+        contadores.forEach(contador => {
+            const quantidadeAtual = parseInt(contador.textContent) - 1;
+            contador.textContent = quantidadeAtual;
+            if (quantidadeAtual == 0)
+                contador.remove();
+        });
+    }
 }

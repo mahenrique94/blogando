@@ -9,6 +9,7 @@ const existeElemento = elemento => elemento;
 const esconderElemento = elemento => elemento.style.display = "none";
 const mostrarElemento = elemento => elemento.style.display = "block";
 const tabClicadaJaEstaAtiva = (tab, clicada) => tab.id === clicada.substring(1);
+const toggleAtivo = elemento => elemento.classList.toggle("is-ativo");
 
 window.addEventListener("load", event => {
     const inputFile = $(".js-inputImagem");
@@ -116,14 +117,20 @@ function mostrarMensagem(elemento) {
  */
 function tab(link) {
     const id = link.href.substring(link.href.indexOf("#"));
-    const ativa = link.parentNode.nextElementSibling.querySelector(".is-show");
+    const ativa = link.parentNode.nextElementSibling.querySelector(".is-show");    
     const tab = link.parentNode.nextElementSibling.querySelector(id);
     if (tabClicadaJaEstaAtiva(ativa, id))
         return false;
+    limparAtivo(link);
     toggleTab(ativa);
     toggleTab(tab);
 }
 function toggleTab(tab) {
     tab.classList.toggle("is-show");
     tab.classList.toggle("is-hide");
+}
+function limparAtivo(link) {
+    const ativoAtual = link.parentNode.querySelector(".is-ativo");
+    toggleAtivo(ativoAtual);
+    toggleAtivo(link);
 }

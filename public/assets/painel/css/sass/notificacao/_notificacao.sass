@@ -33,9 +33,14 @@ $border-radius: 10px
         padding: .15rem .25rem
     &__caixa
         @include border-radius(5px)
+        @include transition("all .2s ease-in-out")
         margin-bottom: 1rem
         padding: 1rem
         position: relative
+        &--lida
+            background: darken(#FFFFFF, 7%)
+        &:hover
+            @include transform("scale(1.1)")
     &__link
         display: block
     &__imagem
