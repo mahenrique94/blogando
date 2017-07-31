@@ -110,3 +110,15 @@ function atualizarContagemDeNotificacoes() {
         });
     }
 }
+
+/** @auth Matheus Castiglioni
+ *  Enviar as imagens para o servidor via Ajax
+ */
+function enviarImagens(form, event) {
+    cancelarEvento(event);
+    const data = new FormData();
+    data.append("arquivos", arquivos[0]);
+    HttpService.upload(form.action, form.method, data)
+        .then(resposta => console.log(resposta))
+        .catch(erro => console.error(erro));
+}

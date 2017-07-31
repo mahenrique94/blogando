@@ -10,7 +10,8 @@
     <script>
         var simplemde = new SimpleMDE({ 
             element: document.querySelector("#conteudo"),
-            spellChecker : false
+            spellChecker : false,
+            toolbar: ["bold", "italic", "heading", "|", "quote", "unordered-list", "ordered-list", "|", "link", "image", "|", "guide"]
         });
     </script>  
 @else
@@ -20,13 +21,15 @@
             height: 300,
             theme: "modern",
             menubar: false,
+            language : "pt_BR",
+            browser_spellcheck : true,
             plugins: [
-                "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+                "advlist autolink autosave autoresize lists link image charmap print preview hr anchor pagebreak",
                 "searchreplace wordcount visualblocks visualchars code fullscreen",
                 "insertdatetime media nonbreaking save table contextmenu directionality",
-                "emoticons template paste textcolor colorpicker textpattern imagetools codesample"
+                "emoticons template paste textcolor textpattern colorpicker textpattern imagetools codesample"
             ],
-            toolbar: "undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image codesample preview"
+            toolbar: "restoredraft undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image codesample"
         });    
     </script> 
 @endif

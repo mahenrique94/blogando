@@ -15,6 +15,12 @@ use League\HTMLToMarkdown\HtmlConverter;
 class PostController extends Controller
 {
 
+    private $arquivoController;
+
+    public function __construct(ArquivoController $arquivoController) {
+        $this->arquivoController = $arquivoController;
+    }
+
     public function atualizar(Request $request) {
         $autor = PostAutor::find(Auth::id());
         Post::where("id", $request->id)
@@ -103,12 +109,8 @@ class PostController extends Controller
 
     private function subindoImagem($request) {        
         if ($request->hasFile("file") && $request->file->isValid()) {
-            $blog = Blog::find(Auth::user()->idblog);
             $imagem = str_slug($request->titulo) . ".jpg";
-            if (!is_null($blog->path) && !empty($blog->path))
-                $request->file->move($blog->path . "/posts/" . date_format(date_create($request->datapostagem), "Y") . "/" . date_format(date_create($request->datapostagem), "m"), $imagem);
-            else
-                $request->file->storeAs("public/posts/" . date_format(date_create($request->datapostagem), "Y") . "/" . date_format(date_create($request->datapostagem), "m"), $imagem);
+            $this->arquivoController->upload($request->file, $imagem, "posts", date_format(date_create($request->datapostagem), "Y"), date_format(date_create($request->datapostagem), "m"));
             return $imagem;
         }
         if (!is_null($request->input("imagem")))

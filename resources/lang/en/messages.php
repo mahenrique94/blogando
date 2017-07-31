@@ -5,8 +5,10 @@ return [
     "botao.acessar"                                             => "Acessar",
     "botao.atualizarconfiguracoes"                              => "Atualizar configurações",
     "botao.carregar"                                            => "Carregar",
+    "botao.copiar"                                              => "Copiar",
     "botao.deletar"                                             => "Deletar",
     "botao.editar"                                              => "Editar",
+    "botao.enviar"                                              => "Enviar",
     "botao.escrever"                                            => "Escrever",
     "botao.naolidas"                                            => "Não lidas",
     "botao.nova"                                                => "Adicionar nova",
@@ -22,6 +24,9 @@ return [
     "caixa.imagem"                                              => "Imagem",
     "caixa.informacoes"                                         => "Informações",
     "caixa.tags"                                                => "Tags",
+
+    ######################################## DESCRICAO ########################################
+    "descricao.midia"                                           => "Clique no botão abaixo para carregar as imagens á serem enviadas ao servidor",
 
     ######################################## LABEL ########################################
     "label.as"                                                  => "As",

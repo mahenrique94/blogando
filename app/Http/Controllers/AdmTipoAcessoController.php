@@ -16,7 +16,7 @@ class AdmTipoAcessoController extends Controller implements GenericoController
                 "slug" => str_slug($request->descricao), 
                 "updated_at" => date("Y-m-d H:i:s"),
             ]);
-        return redirect()->action("AdmTipoAcessoController@listar")->withInput(["sucesso" => "Tipo de acesso salvo atualizada com sucesso"]);;
+        return redirect()->action("AdmTipoAcessoController@listar")->withInput(["sucesso" => "Tipo de acesso salvo atualizada com sucesso"]);
     }
 
     public function deletar($id) {

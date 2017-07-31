@@ -1,0 +1,43 @@
+.#{$prefix}-midia
+    &__form
+        &___caixa
+            border: 2px dashed #DCDCDC
+            margin-bottom: 1rem
+            padding: 5rem 1rem
+            text-align: center
+        &__descricao
+            color: $text
+    &__lista
+        padding: 1rem 0
+    &__arquivos        
+        @include display-flex
+        flex-wrap: wrap
+        width: 100%
+    &__arquivo
+        @include calc(width, "25% - 1rem")
+        border: $border
+        height: 200px
+        margin: 0 1rem 1rem 0
+        padding: .25rem
+    &__caixa
+        @include calc(width, "25% - 1rem")
+        margin: 0 1rem 1rem 0
+        .#{$prefix}-midia__arquivo
+            margin-bottom: 0
+            width: 100%
+    &__tabela
+        background: #E5E5E5
+        width: 100%
+        td
+            padding: .25rem .5rem
+        &___titulo
+            color: $text
+            font-weight: 500
+            text-align: center
+        &___link
+            @include border-radius(2px)
+            background: $text-alt
+            border: $border
+            color: $text
+            padding: .2rem
+            width: 100%

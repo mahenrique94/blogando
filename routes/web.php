@@ -10,6 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get("", "BlogandoController@index");
+
 Route::get("/arquivo/download/{pasta}/{ano}/{mes}/{arquivo}", "ArquivoController@download");
 Route::get("/arquivo/download/{pasta}/{arquivo}", "ArquivoController@download");
 Route::get("/arquivo/download/{arquivo}", "ArquivoController@download");
@@ -73,6 +75,10 @@ Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() 
     Route::get("dashboard/meus-rascunhos", "DashboardController@meusrascunhos");
 
     Route::post("notificacao/ler/{id}", "BlogNotificacaoController@ler");
+
+    Route::post("midia/adicionar", "BlogMidiaController@adicionar");
+    Route::get("midia/biblioteca", "BlogMidiaController@biblioteca");
+    Route::get("midia/formulario", "BlogMidiaController@formulario");
 
     Route::delete("post/categoria/{id}", "PostCategoriaController@deletar");
     Route::get("post/categoria/json", "PostCategoriaController@json");

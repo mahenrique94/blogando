@@ -1,0 +1,10 @@
+@extends("config.pagina")
+@section("header")
+    Header
+@stop
+@section("conteudo")
+    Conteudo
+@stop
+@section("footer")
+    Footer
+@stop

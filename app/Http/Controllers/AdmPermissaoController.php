@@ -18,7 +18,7 @@ class AdmPermissaoController extends Controller implements GenericoController
                 "visualizar" => $request->visualizar, 
                 "updated_at" => date("Y-m-d H:i:s"),
             ]);
-        return redirect()->action("AdmPermissaoController@listar")->withInput(["sucesso" => "Permissão atualizada com sucesso"]);;
+        return redirect()->action("AdmPermissaoController@listar")->withInput(["sucesso" => "Permissão atualizada com sucesso"]);
     }
 
     public function deletar($id) {

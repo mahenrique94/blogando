@@ -16,7 +16,7 @@ class AdmGrupoController extends Controller implements GenericoController
                 "slug" => str_slug($request->descricao),
                 "updated_at" => date("Y-m-d H:i:s"),
             ]);
-        return redirect()->action("AdmGrupoController@listar")->withInput(["sucesso" => "Grupo atualizado com sucesso"]);;
+        return redirect()->action("AdmGrupoController@listar")->withInput(["sucesso" => "Grupo atualizado com sucesso"]);
     }
 
     public function deletar($id) {
@@ -25,7 +25,7 @@ class AdmGrupoController extends Controller implements GenericoController
     }
 
     public function editar($id) {
-        return view("painel.admGrupo.formulario", ["pagina" => "administrador", "subpagina" => "grupos"])->with("grupo", AdmGrupo::find($id))->with("tiposdeacesso", AdmTipoAcesso::all());;
+        return view("painel.admGrupo.formulario", ["pagina" => "administrador", "subpagina" => "grupos"])->with("grupo", AdmGrupo::find($id))->with("tiposdeacesso", AdmTipoAcesso::all());
     }
 
     public function formulario() {

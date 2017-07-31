@@ -14,7 +14,7 @@ class CadCategoriaController extends Controller implements GenericoController
                 "slug" => str_slug($request->descricao), 
                 "updated_at" => date("Y-m-d H:i:s"),
             ]);
-        return redirect()->action("CadCategoriaController@listar")->withInput(["sucesso" => "Categoria atualizada com sucesso"]);;
+        return redirect()->action("CadCategoriaController@listar")->withInput(["sucesso" => "Categoria atualizada com sucesso"]);
     }
 
     public function deletar($id) {

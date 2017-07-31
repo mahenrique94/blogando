@@ -14,7 +14,7 @@ class CadTagController extends Controller implements GenericoController
                 "slug" => str_slug($request->descricao), 
                 "updated_at" => date("Y-m-d H:i:s"),
             ]);
-        return redirect()->action("CadTagController@listar")->withInput(["sucesso" => "Tag atualizada com sucesso"]);;
+        return redirect()->action("CadTagController@listar")->withInput(["sucesso" => "Tag atualizada com sucesso"]);
     }
 
     public function deletar($id) {

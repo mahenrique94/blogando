@@ -1,6 +1,7 @@
 /** @auth Matheus Castiglioni
  *  Funções JS e recursos para o BLOGANDO
  */
+var arquivos;
 const cancelarEvento = event => event.preventDefault();
 const carregarImagem = event => mostrarImagem(URL.createObjectURL(event.target.files[0]));
 const buscarMensagem = elemento => elemento.querySelector(".js-mensagem");
@@ -15,6 +16,10 @@ window.addEventListener("load", event => {
     const inputFile = $(".js-inputImagem");
     if (existeElemento(inputFile))
         inputFile.addEventListener("change", carregarImagem);
+
+    const inputArquivos = $(".js-arquivos");
+    if (existeElemento(inputArquivos))
+        inputArquivos.addEventListener("change", criarImagens);
 });
 
 /** @auth Matheus Castiglioni
@@ -57,7 +62,7 @@ function buscarImagem(botao, event) {
 function mostrarImagem(url) {
     const imagem = $(".js-imagem");
     if (existeElemento(imagem)) {
-        const corpo = imagem.parentNode;
+        const corpo = imagem.parentNode.parentNode;
         esconderMensagem(corpo);
         imagem.setAttribute("src", url);
         mostrarElemento(imagem);
@@ -133,4 +138,49 @@ function limparAtivo(link) {
     const ativoAtual = link.parentNode.querySelector(".is-ativo");
     toggleAtivo(ativoAtual);
     toggleAtivo(link);
+}
+
+/** @auth Matheus Castiglioni
+ *  Realizar click no input file que esta escondido
+ */
+function selecionarArquivo(event) {
+    cancelarEvento(event);
+    const inputArquivo = $("[type=file]");
+    if (existeElemento(inputArquivo))
+        inputArquivo.click();
+}
+
+function criarImagens(event) {
+    arquivos = event.target.files;
+    for (let arquivo of arquivos) {
+        inserirImagem(criarImagem(arquivo));
+    }
+}
+function criarImagem(arquivo) {
+    const imagem = document.createElement("img");
+    imagem.classList.add("bg-p-midia__arquivo");
+    imagem.src = URL.createObjectURL(arquivo);
+    imagem.alt = arquivo.name;
+    return imagem;
+}
+function inserirImagem(imagem) {
+    const conteudo = $(".bg-p-midia__arquivos");
+    if (existeElemento(conteudo))
+        conteudo.appendChild(imagem);
+}
+
+/** @auth Matheus Castiglioni
+ *  Copiar a URL de uma imagem para o CTRL+V
+ */
+function copiarClipboard(botao, event) {
+    cancelarEvento(event);
+    const url = botao.parentNode.parentNode.querySelector(".js-link");
+    if (existeElemento(url)) {
+        const td = botao.parentNode.previousElementSibling;
+        url.select();
+        document.execCommand("copy");
+        url.style.color = "#00CC99";
+        url.value = "Link copiado";
+        url.blur();
+    }
 }
