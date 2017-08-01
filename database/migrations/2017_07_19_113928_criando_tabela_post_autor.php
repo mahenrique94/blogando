@@ -15,7 +15,6 @@ class CriandoTabelaPostAutor extends Migration
     {
         Schema::create('bg_post_autor', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("idblog")->unsigned();
             $table->integer("idgrupo")->unsigned();
             $table->string("nome", 120)->unique();
             $table->string("slug", 255)->unique();
@@ -27,7 +26,6 @@ class CriandoTabelaPostAutor extends Migration
             $table->string("apelido", 60)->nullable();
             $table->text("perfil")->nullable();
             $table->boolean("inativo")->default(false);
-            $table->foreign("idblog")->references("id")->on("bg_blog");
             $table->foreign("idgrupo")->references("id")->on("bg_adm_grupo");
             $table->timestamps();
         });

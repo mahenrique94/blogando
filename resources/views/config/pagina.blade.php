@@ -6,15 +6,21 @@
     <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <title>{{$blog->titulo}}</title>
-    <link rel="icon" href="/assets/painel/img/favicon.ico">
+    <link rel="stylesheet" href="/assets/lib/prism/prism.css">
+    <link rel="stylesheet" href="/assets/temas/blogando/blogando.css">
+    <link rel="icon" href="/assets/temas/blogando/favicon.ico">
 </head>
-<body class="bg-body">
+<body class="bg-body" style="padding-top: {{Auth::guest() ? "" : "50px"}};">
+    @if (!Auth::guest())
+        @include("painel.config.aside")
+    @endif
     <main class="bg-wrap u-wrap" role="main">
         @include("config.header")
-        <section class="bg-conteudo u-content">
-            @yield("conteudo")
-        </section>
+        @yield("conteudo")
         @include("config.footer")
     </main>
+    @include("painel.config.libraries-js")
+    <script src="/assets/lib/prism/prism.js"></script>
+    <script src="/assets/temas/blogando/blogando.js"></script>
 </body>
 </html>

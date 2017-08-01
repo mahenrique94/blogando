@@ -10,8 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get("", "BlogandoController@index");
-
 Route::get("/arquivo/download/{pasta}/{ano}/{mes}/{arquivo}", "ArquivoController@download");
 Route::get("/arquivo/download/{pasta}/{arquivo}", "ArquivoController@download");
 Route::get("/arquivo/download/{arquivo}", "ArquivoController@download");
@@ -108,3 +106,10 @@ Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() 
     Route::post("tag", "CadTagController@salvar")->middleware(["csrf"]);
     Route::put("tag", "CadTagController@atualizar")->middleware(["csrf"]);
 });
+
+Route::get("", "BlogandoController@index");
+Route::get("/arquivo/{ano}/{mes}", "BlogandoController@arquivo");
+Route::get("/autor/{slug}", "BlogandoController@autor");
+Route::get("/categoria/{slug}", "BlogandoController@categoria");
+Route::get("/{slug}", "BlogandoController@post");
+Route::get("/tag/{slug}", "BlogandoController@tag");

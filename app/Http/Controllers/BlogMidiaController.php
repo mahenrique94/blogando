@@ -22,7 +22,6 @@ class BlogMidiaController extends Controller
                     $slug = str_slug(substr($arquivo->getClientOriginalName(), 0, strrpos($arquivo->getClientOriginalName(), "."))) . "." . $arquivo->getClientOriginalExtension();
                     $this->arquivoController->upload($arquivo, $slug, "arquivos/imagens");
                     BlogMidia::create([
-                        "idblog" => Auth::user()->idblog,
                         "idtipomidia" => $request->idtipomidia,
                         "nome" => $arquivo->getClientOriginalName(),
                         "slug" => $slug,

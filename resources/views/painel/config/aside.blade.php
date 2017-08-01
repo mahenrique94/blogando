@@ -11,8 +11,9 @@
         <a href="/painel">@lang("messages.menu.titulo")</a>
     </h1>
     <div class="bg-p-aside__opcoes">
+        <a class="bg-p-aside__link" href="/"><i class="icon-globe"></i>&nbsp;@lang("messages.botao.blog")</a>
         <a class="bg-p-aside__link" href="/painel/post/formulario"><i class="icon-pencil"></i>&nbsp;@lang("messages.botao.escrever")</a>
-         <a class="bg-p-aside__perfil" href="#perfilUsuario" onclick="toggleElemento(this, event);"><img alt="{{Auth::user()->nome}}" class="bg-p-aside__foto" src="/arquivo/download/usuarios/{{Auth::user()->imagem}}"></a> 
+        <a class="bg-p-aside__perfil" href="#perfilUsuario" onclick="toggleElemento(this, event);"><img alt="{{Auth::user()->nome}}" class="bg-p-aside__foto" src="/arquivo/download/usuarios/{{Auth::user()->imagem}}"></a> 
         <a class="bg-p-aside__navegacao" href="#navegacaoOpcoes" onclick="toggleNavegacao(this, event);"><i class="icon-th"></i></a>
         <a class="bg-p-aside__navegacao" href="#notificacoes" onclick="toggleElemento(this, event);">
             <i class="icon-bell-alt"></i>

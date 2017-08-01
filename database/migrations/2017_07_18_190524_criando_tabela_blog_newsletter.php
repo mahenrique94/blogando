@@ -15,14 +15,12 @@ class CriandoTabelaBlogNewsletter extends Migration
     {
         Schema::create('bg_blog_newsletter', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer("idblog")->unsigned();
             $table->string("nome", 120)->nullable();
             $table->string("email", 255)->unique();
             $table->boolean("inativo")->default(false);
             $table->boolean("acompanharposts")->default(false);
             $table->boolean("acompanharcomentarios")->default(false);
             $table->boolean("acompanharrespostas")->default(false);
-            $table->foreign("idblog")->references("id")->on("bg_blog");
             $table->timestamps();
         });
     }

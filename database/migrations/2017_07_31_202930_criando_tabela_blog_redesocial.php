@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriandoTabelaBlogNewsletterparametros extends Migration
+class CriandoTabelaBlogRedesocial extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CriandoTabelaBlogNewsletterparametros extends Migration
      */
     public function up()
     {
-        Schema::create('bg_blog_newsletterparametros', function (Blueprint $table) {
+        Schema::create('bg_blog_redesocial', function (Blueprint $table) {
             $table->increments('id');
-            $table->text("textoacompanharposts");
-            $table->text("textoacompanharcomentarios");
-            $table->text("textoacompanharrespostas");
+            $table->integer("idredesocial")->unsigned()->unique();
+            $table->string("link", 255)->unique();
+            $table->foreign("idredesocial")->references("id")->on("bg_cad_redesocial");
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CriandoTabelaBlogNewsletterparametros extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bg_blog_newsletterparametros');
+        Schema::dropIfExists('bg_blog_redesocial');
     }
 }

@@ -13,4 +13,16 @@ class BlogParametros extends Model
     public function blog() {
         return $this->belongsTo("\App\Blog", "idblog");
     }
+
+    public function formatodata() {
+        return $this->belongsTo("\App\CadFormato", "idformatodata");
+    }
+
+    public function formatohora() {
+        return $this->belongsTo("\App\CadFormato", "idformatohora");
+    }
+
+    public function formatodatahora() {
+        return $this->belongsTo("\App\CadFormato", "idformatodatahora");
+    }
 }

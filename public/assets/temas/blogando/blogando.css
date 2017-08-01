@@ -1,0 +1,238 @@
+/***
+** Variáveis
+***/
+:root {
+    --texto: #FDFDFD;
+    --cor: #595959;
+    --espacamento: 5rem;
+    --separador: 3rem;
+}
+
+/***
+** Configurações
+***/
+.bg-conteudo {
+    background: #F2F2F2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: var(--separador) var(--espacamento);
+}
+.bg-conteudo--visualizar {
+    background: var(--texto);
+    padding: var(--separador) var(--espacamento);
+}
+
+/***
+** Header
+***/
+.bg-header {
+    align-items: center;
+    background: var(--cor);
+    color: var(--texto);
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem var(--espacamento);
+}
+.bg-titulo {
+    display: inline-block;
+    font-weight: 500;
+}
+
+/***
+** Nav
+***/
+.bg-nav, .bg-nav__lista, .bg-nav__item {
+    display: inline;
+}
+.bg-nav__link {
+    border: 1px solid;
+    border-radius: 5px;
+    padding: .5rem;
+    transition: all .25s linear;
+}
+.bg-nav__link:hover {
+    background: var(--texto);
+    color: var(--cor);
+}
+
+
+/***
+** Corpo
+***/
+.bg-posts {
+    float: left;
+    order: 1;
+    width: calc(65% - var(--separador));    
+}
+.bg-post {
+    background: var(--texto);
+    border: 1px solid #DCDCDC;
+    margin-bottom: var(--separador);
+    padding: 2rem;
+}
+.bg-post__titulo {
+    color: var(--cor);
+    font-weight: 500;
+}
+.bg-post__titulo:hover {
+    text-decoration: underline;
+}
+.bg-post__informacoes {
+    color: var(--cor);
+    font-size: .9rem;
+}
+.bg-post__autor {
+    font-weight: 500;
+}
+.bg-post__autor:hover {
+    text-decoration: underline;
+}
+.bg-post__categoria {
+    background: #F2F2F2;
+    border-radius: 3px;
+    color: var(--cor);
+    display: inline-block;
+    font-weight: 200;
+    margin-right: 1rem;
+    padding: .5rem;
+}
+.bg-post__tag {
+    background: #F2F2F2;
+    display: inline-block;
+    font-weight: 200;
+    margin-right: 1rem;
+    padding: .2rem .75rem .2rem .2rem;
+    position: relative;
+}
+.bg-post__tag::after {
+    background: #F2F2F2;
+    content: " ";
+    height: 16px;
+    position: absolute;
+    right: -8px;
+    top: 4px;
+    transform: rotate(45deg);
+    width: 16px;    
+}
+.bg-post__tag:hover, .bg-post__tag:hover::after {
+    background: #EAEAEA;
+}
+.bg-post__imagem {
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .2);
+    height: 300px;
+    margin: 1rem 0;
+}
+.bg-post__conteudo {
+    color: var(--cor);
+    text-align: justify;
+}
+.bg-post__continuarLendo {
+    border: 1px solid;
+    color: var(--cor);
+    display: block;
+    margin: 1rem 0;
+    padding: 1rem;
+    text-align: center;
+    transition: all .25s linear;
+}
+.bg-post__continuarLendo:hover {
+    background: var(--cor);
+    color: var(--texto);
+}
+
+/***
+** Visualizar
+***/
+.bg-visualizar .bg-post {
+    border: none;
+    padding: 0;
+}
+.bg-visualizar .bg-post__titulo {
+    font-size: 2.5rem;
+}
+.bg-visualizar .bg-post__informacoes {
+    font-size: 1.1rem;
+}
+.bg-visualizar .bg-post__imagem {
+    background-size: cover;
+    height: 400px;
+    margin: 0 0 2rem 0;
+    width: 100%;
+}
+.bg-visualizar .bg-post__conteudo {
+    font-size: 1.2rem;
+    margin: 2rem 0;
+}
+.bg-visualizar .bg-post__conteudo p {
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+.bg-visualizar .bg-post__conteudo strong {
+    font-weight: 700;
+}
+.bg-visualizar .bg-post__conteudo em {
+    font-weight: 100;
+}
+.bg-visualizar .bg-post__conteudo img {
+    display: block;
+    margin: 0 auto;
+}
+.bg-visualizar .bg-post__conteudo a {
+    text-decoration: underline;
+}
+.bg-visualizar .bg-post__conteudo pre {
+    background: #F2F2F2;
+    padding: 1rem;
+}
+
+/***
+** Aside
+***/
+.bg-aside {
+    float: right;
+    order: 1;
+    width: 35%;
+}
+.bg-aside__caixa {
+    background: var(--texto);
+    border: 1px solid #DCDCDC;
+    margin-bottom: var(--separador);
+    padding: 1rem;
+}
+.bg-aside__titulo {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+.bg-aside__link {
+    color: var(--cor);
+    display: block;
+    line-height: 2;
+    transition: all .2s ease-in-out;
+}
+.bg-aside__link:hover {
+    padding-left: 1rem;
+}
+
+/***
+** Filtro
+***/
+.bg-resultado {
+    background: var(--texto);
+    border-left: 3px solid;
+    margin-bottom: 3rem;
+    padding: 1rem;
+    width: 100%;
+}
+
+/***
+** Footer
+***/
+.bg-footer {
+    background: var(--cor);
+    color: var(--texto);   
+    padding: 1rem var(--espacamento);
+}

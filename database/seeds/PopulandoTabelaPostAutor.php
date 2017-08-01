@@ -13,7 +13,6 @@ class PopulandoTabelaPostAutor extends Seeder
     {
         DB::table("bg_post_autor")->insert([
             "id" => 1,
-            "idblog" => 1,
             "idgrupo" => 1,
             "nome" => "Administrador",
             "slug" => "administrador",

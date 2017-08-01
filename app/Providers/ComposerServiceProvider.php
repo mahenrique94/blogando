@@ -9,6 +9,9 @@ use DB;
 use App\Blog;
 use App\BlogNotificacao;
 use App\BlogNotificacaoAutor;
+use App\CadCategoria;
+use App\CadTag;
+use App\Post;
 
 class ComposerServiceProvider extends ServiceProvider
 {
@@ -28,15 +31,18 @@ class ComposerServiceProvider extends ServiceProvider
         ], "App\Http\ViewComposers\ParametrosComposer");
 
         View::composer("*", function ($view) {
+            $blog = Blog::first();
             if (!Auth::guest()) {
                 $user = Auth::user();
-                $view->with("blog", Blog::find($user->idblog))
-                    ->with("notificacoesnaolidas", $this->buscarNotificacoesNaoLidas());
+                $view->with("notificacoesnaolidas", $this->buscarNotificacoesNaoLidas());
             } else {
-                $view->with("blog", Blog::all()->first())
-                    ->with("notificacoesnaolidas", BlogNotificacao::all()->first());
-            }            
+                $view->with("notificacoesnaolidas", BlogNotificacao::all()->first());
+            }   
+            $view->with("blog", $blog);         
             $view->with("notificacoes", $this->buscarNotificacoesLidas());
+            $view->with("categorias", CadCategoria::orderBy("descricao")->get());
+            $view->with("tags", CadTag::orderBy("descricao")->get());            
+            $view->with("postsrecentes", Post::where("datapostagem", "<=", date("Y-m-d H:i"))->orderBy("datapostagem", "desc")->take(5)->get());
         });
     }
 

@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Post;
 use App\PostAutor;
-use App\CadCategoria;
-use App\CadTag;
 use App\Blog;
 use Parsedown;
 use League\HTMLToMarkdown\HtmlConverter;
@@ -23,14 +21,15 @@ class PostController extends Controller
 
     public function atualizar(Request $request) {
         $autor = PostAutor::find(Auth::id());
+        $blog = Blog::first();
         Post::where("id", $request->id)
             ->update([
                 "titulo" => $request->titulo, 
                 "slug" => str_slug($request->titulo), 
                 "imagem" => $this->subindoImagem($request),
                 "conteudo" => $request->conteudo, 
-                "conteudohtml" => $autor->blog->parametros->usarmarkdown ? $this->markdownParaHtml($request->conteudo) : $request->conteudo, 
-                "conteudomarkdown" => $autor->blog->parametros->usarmarkdown ? $request->conteudo : $this->htmlParaMarkdown($request->conteudo), 
+                "conteudohtml" => $blog->parametros->usarmarkdown ? $this->markdownParaHtml($request->conteudo) : $request->conteudo, 
+                "conteudomarkdown" => $blog->parametros->usarmarkdown ? $request->conteudo : $this->htmlParaMarkdown($request->conteudo), 
                 "conteudoresumido" => substr(strip_tags($request->conteudo), 0, 255), 
                 "updated_at" => date("Y-m-d H:i:s"),
             ]);
@@ -43,11 +42,11 @@ class PostController extends Controller
     }
 
     public function editar($id) {
-        return view("painel.post.formulario", ["pagina" => "posts", "subpagina" => "novo"])->with("post", Post::find($id))->with("categorias", CadCategoria::all())->with("tags", CadTag::all());
+        return view("painel.post.formulario", ["pagina" => "posts", "subpagina" => "novo"])->with("post", Post::find($id));
     }
 
     public function formulario() {
-        return view("painel.Post.formulario", ["pagina" => "posts", "subpagina" => "novo"])->with("post", new Post())->with("categorias", CadCategoria::all())->with("tags", CadTag::all());
+        return view("painel.Post.formulario", ["pagina" => "posts", "subpagina" => "novo"])->with("post", new Post());
     }
 
     public function json() {
@@ -80,6 +79,7 @@ class PostController extends Controller
 
     public function salvar(Request $request) {
         $autor = PostAutor::find(Auth::id());
+        $blog = Blog::first();
         $post = Post::create([
             "idautor" => Auth::id(),
             "idsituacao" => 1,
@@ -87,8 +87,8 @@ class PostController extends Controller
             "slug" => str_slug($request->titulo), 
             "imagem" => $this->subindoImagem($request),
             "conteudo" => $request->conteudo, 
-            "conteudohtml" => $autor->blog->parametros->usarmarkdown ? $this->markdownParaHtml($request->conteudo) : $request->conteudo, 
-            "conteudomarkdown" => $autor->blog->parametros->usarmarkdown ? $request->conteudo : $this->htmlParaMarkdown($request->conteudo), 
+            "conteudohtml" => $blog->parametros->usarmarkdown ? $this->markdownParaHtml($request->conteudo) : $request->conteudo, 
+            "conteudomarkdown" => $blog->parametros->usarmarkdown ? $request->conteudo : $this->htmlParaMarkdown($request->conteudo), 
             "conteudoresumido" => substr(strip_tags($request->conteudo), 0, 255), 
             "datapostagem" => date("Y-m-d H:i:s"),
             "created_at" => date("Y-m-d H:i:s"), 
@@ -98,7 +98,7 @@ class PostController extends Controller
     }
 
     private function htmlParaMarkdown($string) {
-        $converter = new HtmlConverter(array("header_style"=>"atx"));
+        $converter = new HtmlConverter(array("header_style" => "atx"));
         return $converter->convert($string);
     }
 

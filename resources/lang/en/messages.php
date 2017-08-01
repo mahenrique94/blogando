@@ -4,6 +4,7 @@ return [
     ######################################## BOTAO ########################################
     "botao.acessar"                                             => "Acessar",
     "botao.atualizarconfiguracoes"                              => "Atualizar configurações",
+    "botao.blog"                                                => "Blog",
     "botao.carregar"                                            => "Carregar",
     "botao.copiar"                                              => "Copiar",
     "botao.deletar"                                             => "Deletar",

@@ -15,11 +15,9 @@ class CriandoTabelaBlogMidia extends Migration
     {
         Schema::create('bg_blog_midia', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer("idblog")->unsigned();
             $table->integer("idtipomidia")->unsigned();
             $table->string("nome", 120)->unique();
             $table->string("slug", 255)->unique();
-            $table->foreign("idblog")->references("id")->on("bg_blog");
             $table->foreign("idtipomidia")->references("id")->on("bg_blog_tipomidia");
             $table->timestamps();
         });
