@@ -25,7 +25,7 @@ class BlogandoController extends Controller
             ->orderBy("bg_post.datapostagem", "desc")
             ->take($this->blog->parametros->quantidadepostsporpagina)
             ->get();
-        return view("temas.blogando.index")->with("posts", $posts)->with("mes", $mes)->with("ano", $ano);
+        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("posts", $posts)->with("mes", $mes)->with("ano", $ano);
     }
 
     public function autor($slug) {
@@ -35,7 +35,7 @@ class BlogandoController extends Controller
             ->take($this->blog->parametros->quantidadepostsporpagina)
             ->select("bg_post.*")
             ->get();
-        return view("temas.blogando.index")->with("posts", $posts)->with("autor", PostAutor::where("slug", $slug)->first());
+        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("posts", $posts)->with("autor", PostAutor::where("slug", $slug)->first());
     }
 
     public function categoria($slug) {
@@ -46,15 +46,15 @@ class BlogandoController extends Controller
             ->take($this->blog->parametros->quantidadepostsporpagina)
             ->select("bg_post.*")
             ->get();
-        return view("temas.blogando.index")->with("posts", $posts)->with("categoria", CadCategoria::where("slug", $slug)->first());
+        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("posts", $posts)->with("categoria", CadCategoria::where("slug", $slug)->first());
     }
 
     public function index() {
-        return view("temas.blogando.index")->with("posts", Post::where("datapostagem", "<=", date("Y-m-d H:i"))->orderBy("datapostagem", "desc")->take($this->blog->parametros->quantidadepostsporpagina)->get());;
+        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("posts", Post::where("datapostagem", "<=", date("Y-m-d H:i"))->orderBy("datapostagem", "desc")->take($this->blog->parametros->quantidadepostsporpagina)->get());;
     }
 
     public function post($slug) {
-        return view("temas.blogando.visualizar")->with("post", Post::where("slug", $slug)->first());
+        return view("temas." . $this->blog->aparencia->temablog .  ".visualizar")->with("post", Post::where("slug", $slug)->first());
     }
 
     public function tag($slug) {
@@ -65,6 +65,6 @@ class BlogandoController extends Controller
             ->take($this->blog->parametros->quantidadepostsporpagina)
             ->select("bg_post.*")
             ->get();
-        return view("temas.blogando.index")->with("posts", $posts)->with("tag", CadTag::where("slug", $slug)->first());
+        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("posts", $posts)->with("tag", CadTag::where("slug", $slug)->first());
     }
 }

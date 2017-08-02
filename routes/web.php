@@ -12,7 +12,7 @@
 */
 Route::get("/arquivo/download/{pasta}/{ano}/{mes}/{arquivo}", "ArquivoController@download");
 Route::get("/arquivo/download/{pasta}/{arquivo}", "ArquivoController@download");
-Route::get("/arquivo/download/{arquivo}", "ArquivoController@download");
+Route::get("/arquivo/download/{arquivom}", "ArquivoController@download");
 Route::get("/arquivo/visualizar/{pasta}/{ano}/{mes}/{arquivo}", "ArquivoController@visualizar");
 Route::get("/arquivo/visualizar/{pasta}/{arquivo}", "ArquivoController@visualizar");
 Route::get("/arquivo/visualizar/{arquivo}", "ArquivoController@visualizar");
@@ -61,12 +61,22 @@ Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() 
     Route::get("configuracoes/escrita", "BlogParametrosController@escrita");
     Route::get("configuracoes/geral", "BlogController@formulario");
     Route::get("configuracoes/leitura", "BlogParametrosController@leitura");
+    Route::get("configuracoes/newsletter", "BlogNewsletterParametrosController@formulario");
     Route::put("configuracoes/aparencia", "BlogAparenciaController@atualizar");
     Route::put("configuracoes/compartilhamento", "BlogParametrosController@compartilhamentoAtualizar");
     Route::put("configuracoes/discussao", "BlogParametrosController@discussaoAtualizar");
     Route::put("configuracoes/escrita", "BlogParametrosController@escritaAtualizar");
-    Route::put("configuracoes/leitura", "BlogParametrosController@leituraAtualizar");
     Route::put("configuracoes/geral", "BlogController@atualizar");
+    Route::put("configuracoes/leitura", "BlogParametrosController@leituraAtualizar");
+    Route::put("configuracoes/newsletter", "BlogNewsletterParametrosController@atualizar");
+
+    Route::delete("configuracoes/rede-social/{id}", "BlogRedeSocialController@deletar");
+    Route::get("configuracoes/rede-social", "BlogRedeSocialController@listar");
+    Route::get("configuracoes/rede-social/formulario", "BlogRedeSocialController@formulario");
+    Route::get("configuracoes/rede-social/json", "BlogRedeSocialController@json");
+    Route::get("configuracoes/rede-social/{id}", "BlogRedeSocialController@editar");
+    Route::post("configuracoes/rede-social", "BlogRedeSocialController@salvar")->middleware(["csrf"]);
+    Route::put("configuracoes/rede-social", "BlogRedeSocialController@atualizar")->middleware(["csrf"]);
 
     Route::get("dashboard", "DashboardController@index");
     Route::get("dashboard/meus-posts", "DashboardController@meusposts");
@@ -108,7 +118,7 @@ Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() 
 });
 
 Route::get("", "BlogandoController@index");
-Route::get("/arquivo/{ano}/{mes}", "BlogandoController@arquivo");
+Route::get("/arquivo/{ano2017}/{mes}", "BlogandoController@arquivo");
 Route::get("/autor/{slug}", "BlogandoController@autor");
 Route::get("/categoria/{slug}", "BlogandoController@categoria");
 Route::get("/{slug}", "BlogandoController@post");

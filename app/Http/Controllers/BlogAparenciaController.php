@@ -11,11 +11,17 @@ class BlogAparenciaController extends Controller implements GenericoController
     public function atualizar(Request $request) {
         BlogAparencia::where("id", $request->id)
             ->update([
+                "temablog" => $request->temablog, 
                 "idtemamenu" => $request->idtemamenu, 
                 "idtemaaside" => $request->idtemaaside, 
                 "idtemaperfil" => $request->idtemaperfil, 
                 "idtemanavegacao" => $request->idtemanavegacao,
-                "idtemanotificacao" => $request->idtemanotificacao,
+                "mostrarredessociais" => $request->mostrarredessociais,
+                "mostrarpostsrecentes" => $request->mostrarpostsrecentes,
+                "mostrarcategorias" => $request->mostrarcategorias,
+                "mostrartags" => $request->mostrartags,
+                "mostrararquivos" => $request->mostrararquivos,
+                "mostrarnewsletter" => $request->mostrarnewsletter,
                 "updated_at" => date("Y-m-d H:i:s"),
             ]);
         return redirect()->action("BlogAparenciaController@formulario")->withInput(["sucesso" => "Configurações atualizadas com sucesso"]);

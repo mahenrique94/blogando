@@ -9,6 +9,7 @@ use DB;
 use App\Blog;
 use App\BlogNotificacao;
 use App\BlogNotificacaoAutor;
+use App\BlogRedeSocial;
 use App\CadCategoria;
 use App\CadTag;
 use App\Post;
@@ -31,6 +32,10 @@ class ComposerServiceProvider extends ServiceProvider
         ], "App\Http\ViewComposers\ParametrosComposer");
 
         View::composer("*", function ($view) {
+            $arquivos = DB::table("bg_post")
+                ->select(DB::raw("extract(year from datapostagem) as ano, extract(month from datapostagem) as mes"))
+                ->groupBy(DB::raw("1, 2"))
+                ->get();
             $blog = Blog::first();
             if (!Auth::guest()) {
                 $user = Auth::user();
@@ -43,6 +48,8 @@ class ComposerServiceProvider extends ServiceProvider
             $view->with("categorias", CadCategoria::orderBy("descricao")->get());
             $view->with("tags", CadTag::orderBy("descricao")->get());            
             $view->with("postsrecentes", Post::where("datapostagem", "<=", date("Y-m-d H:i"))->orderBy("datapostagem", "desc")->take(5)->get());
+            $view->with("blogredessociais", BlogRedeSocial::all());
+            $view->with("arquivos", $arquivos);
         });
     }
 

@@ -57,6 +57,8 @@
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "leitura" ? "is-ativo" : ""}}" href="/painel/configuracoes/leitura">@lang("messages.menu.configuracoes.leitura")</a></li>
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "discussao" ? "is-ativo" : ""}}" href="/painel/configuracoes/discussao">@lang("messages.menu.configuracoes.discussao")</a></li>
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "compartilhamento" ? "is-ativo" : ""}}" href="/painel/configuracoes/compartilhamento">@lang("messages.menu.configuracoes.compartilhamento")</a></li>
+                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "redesocial" ? "is-ativo" : ""}}" href="/painel/configuracoes/rede-social">@lang("messages.menu.configuracoes.redesocial")</a></li>
+                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "newsletter" ? "is-ativo" : ""}}" href="/painel/configuracoes/newsletter">@lang("messages.menu.configuracoes.newsletter")</a></li>
             </ul>
         </li> 
     </ul>

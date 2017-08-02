@@ -1,4 +1,5 @@
 @extends("config.pagina")
+@section("titulo"){{$blog->titulo}}@stop
 @include("temas.blogando.header")
 @section("conteudo")
     <section class="bg-conteudo u-content">
@@ -20,7 +21,7 @@
                     <header class="bg-post__cabecalho">
                         <h2 class="bg-post__titulo"><a href="/{{$post->slug}}">{{$post->titulo}}</a></h2>
                         <p class="bg-post__informacoes">
-                            Postado em <span class="bg-post__data">{{date_format(date_create($post->datapostagem), $blog->parametros->formatodatahora->formato)}}</span> por <a class="bg-post__autor" href="/autor/{{$post->autor->slug}}">{{$post->autor->nome}}</a>                        
+                            Postado em <time class="bg-post__data">{{date_format(date_create($post->datapostagem), $blog->parametros->formatodatahora->formato)}}</time> por <a class="bg-post__autor" href="/autor/{{$post->autor->slug}}">{{$post->autor->nome}}</a>                        
                         </p>
                         <p class="bg-post__categorias">
                             @foreach ($post->categorias as $categoria)
@@ -42,44 +43,24 @@
             @endforeach
         </section>
         <aside class="bg-aside">
-            <div class="bg-aside__caixa">
-                <h3 class="bg-aside__titulo">Redes Sociais</h3>
-                {{--  <ul class="bg-aside__lista">
-                    @foreach ($categorias as $categoria)                
-                        <li class="bg-aside__item"><a class="bg-aside__link" href="/categoria/{{$categoria->slug}}">{{$categoria->descricao}}</a></li>
-                    @endforeach
-                </ul>  --}}
-            </div>
-            <div class="bg-aside__caixa">
-                <h3 class="bg-aside__titulo">Postagens recentes</h3>
-                <ul class="bg-aside__lista">
-                    @foreach ($postsrecentes as $post)                
-                        <li class="bg-aside__item"><a class="bg-aside__link" href="/{{$post->slug}}">{{$post->titulo}}</a></li>
-                    @endforeach
-                </ul>
-            </div>
-            <div class="bg-aside__caixa">
-                <h3 class="bg-aside__titulo">Categorias</h3>
-                <ul class="bg-aside__lista">
-                    @foreach ($categorias as $categoria)                
-                        <li class="bg-aside__item"><a class="bg-aside__link" href="/categoria/{{$categoria->slug}}">{{$categoria->descricao}}</a></li>
-                    @endforeach
-                </ul>
-            </div>
-            <div class="bg-aside__caixa">
-                <h3 class="bg-aside__titulo">Tags</h3>
-                @foreach ($tags as $tag)                
-                    <a class="bg-post__tag" href="/tag/{{$tag->slug}}">{{$tag->descricao}}</a>
-                @endforeach
-            </div>
-            <div class="bg-aside__caixa">
-                <h3 class="bg-aside__titulo">Arquivos</h3>
-                {{--  <ul class="bg-aside__lista">
-                    @foreach ($tags as $tag)                
-                        <li class="bg-aside__item"><a class="bg-aside__link" href="/tag/{{$tag->slug}}">{{$tag->descricao}}</a></li>
-                    @endforeach
-                </ul>  --}}
-            </div>
+            @if ($blog->aparencia->mostrarredessociais)
+                @include("temas.blogando.redessociais")
+            @endif
+            @if ($blog->aparencia->mostrarpostsrecentes)
+                @include("temas.blogando.postsrecentes")
+            @endif
+            @if ($blog->aparencia->mostrarcategorias)
+                @include("temas.blogando.categorias")
+            @endif
+            @if ($blog->aparencia->mostrartags)
+                @include("temas.blogando.tags")
+            @endif
+            @if ($blog->aparencia->mostrararquivos)
+                @include("temas.blogando.arquivos")
+            @endif
+            @if ($blog->aparencia->mostrarnewsletter)
+                @include("temas.blogando.newsletter")
+            @endif
         </aside>
     </section>
 @stop

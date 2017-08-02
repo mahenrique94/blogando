@@ -13,6 +13,14 @@
         </div>
         <section class="o-form__body o-form__body--padding">
             <div class="l-row" role="row">
+                <div class="u-grid--12" role="grid">
+                    <label class="o-form__text" for="temablog">@lang("messages.label.temablog")</label>
+                    <select aria-required="true" class="o-form__data" id="temablog" name="temablog" required>
+                        <option {{$aparencia->temablog == "blogando" ? "selected" : ""}} value="blogando">Blogando</option>
+                    </select>
+                </div>
+            </div>
+            <div class="l-row" role="row">
                 <div class="u-grid--6" role="grid">
                     <label class="o-form__text" for="idtemamenu">@lang("messages.label.temamenu")</label>
                     <input aria-hidden="true" {{is_null($aparencia->idtemamenu) ? "" : "checked"}} class="o-mark__data--radio" id="idtemamenu" name="idtemamenu" type="hidden" value="{{$aparencia->idtemamenu}}">
@@ -68,6 +76,40 @@
                     @endforeach
                 </div>
             </div>
+            <div class="l-row" role="row">
+                <div class="u-grid--3" role="grid">
+                    <label class="o-form__text" for="mostrararquivos">@lang("messages.label.mostrararquivos")</label>
+                    <input {{$aparencia->mostrararquivos ? "checked" : ""}} class="o-mark__data--checkbox" id="mostrararquivos" name="mostrararquivos" type="hidden" value="{{$aparencia->mostrararquivos}}">
+					<label class="o-mark__text"><span class="o-mark__element" data-marked="1" data-unmarked="0" onclick="MarkController.mark(this);"></span></label>
+                </div>
+                <div class="u-grid--3" role="grid">
+                    <label class="o-form__text" for="mostrarcategorias">@lang("messages.label.mostrarcategorias")</label>
+                    <input {{$aparencia->mostrarcategorias ? "checked" : ""}} class="o-mark__data--checkbox" id="mostrarcategorias" name="mostrarcategorias" type="hidden" value="{{$aparencia->mostrarcategorias}}">
+					<label class="o-mark__text"><span class="o-mark__element" data-marked="1" data-unmarked="0" onclick="MarkController.mark(this);"></span></label>
+                </div>
+                <div class="u-grid--3" role="grid">
+                    <label class="o-form__text" for="mostrarnewsletter">@lang("messages.label.mostrarnewsletter")</label>
+                    <input {{$aparencia->mostrarnewsletter ? "checked" : ""}} class="o-mark__data--checkbox" id="mostrarnewsletter" name="mostrarnewsletter" type="hidden" value="{{$aparencia->mostrarnewsletter}}">
+					<label class="o-mark__text"><span class="o-mark__element" data-marked="1" data-unmarked="0" onclick="MarkController.mark(this);"></span></label>
+                </div>
+                <div class="u-grid--3" role="grid">
+                    <label class="o-form__text" for="mostrarpostsrecentes">@lang("messages.label.mostrarpostsrecentes")</label>
+                    <input {{$aparencia->mostrarpostsrecentes ? "checked" : ""}} class="o-mark__data--checkbox" id="mostrarpostsrecentes" name="mostrarpostsrecentes" type="hidden" value="{{$aparencia->mostrarpostsrecentes}}">
+					<label class="o-mark__text"><span class="o-mark__element" data-marked="1" data-unmarked="0" onclick="MarkController.mark(this);"></span></label>
+                </div>
+            </div> 
+            <div class="l-row" role="row">
+                <div class="u-grid--3" role="grid">
+                    <label class="o-form__text" for="mostrarredessociais">@lang("messages.label.mostrarredessociais")</label>
+                    <input {{$aparencia->mostrarredessociais ? "checked" : ""}} class="o-mark__data--checkbox" id="mostrarredessociais" name="mostrarredessociais" type="hidden" value="{{$aparencia->mostrarredessociais}}">
+					<label class="o-mark__text"><span class="o-mark__element" data-marked="1" data-unmarked="0" onclick="MarkController.mark(this);"></span></label>
+                </div>
+                <div class="u-grid--3" role="grid">
+                    <label class="o-form__text" for="mostrartags">@lang("messages.label.mostrartags")</label>
+                    <input {{$aparencia->mostrartags ? "checked" : ""}} class="o-mark__data--checkbox" id="mostrartags" name="mostrartags" type="hidden" value="{{$aparencia->mostrartags}}">
+					<label class="o-mark__text"><span class="o-mark__element" data-marked="1" data-unmarked="0" onclick="MarkController.mark(this);"></span></label>
+                </div>
+            </div> 
             <div class="l-row is-right" role="row">
                 <div class="u-grid--12" role="grid">
                     <button class="o-button--tie o-button--medium" type="submit"><i class="icon-arrows-cw"></i>@lang("messages.botao.atualizarconfiguracoes")</button>
