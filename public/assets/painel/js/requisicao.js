@@ -122,3 +122,19 @@ function enviarImagens(form, event) {
         .then(resposta => console.log(resposta))
         .catch(erro => console.error(erro));
 }
+
+/** @auth Matheus Castiglioni
+ *  Assinar newsletter do blog
+ */
+function assinarNewsletter(form, event) {
+    cancelarEvento(event);
+    HttpService.request(form.action, form.method, form.elements, true)
+        .then(resposta => {
+            form.style.color = "#00CC99";
+            form.innerHTML = resposta;
+        }).catch(error => {
+            form.style.color = "#FF8080";
+            form.innerHTML = "Ocorreu um erro ao tentar assinar sua newsletter";
+            console.log(error);
+        });
+}

@@ -18,9 +18,9 @@ class CriandoTabelaBlogNewsletter extends Migration
             $table->string("nome", 120)->nullable();
             $table->string("email", 255)->unique();
             $table->boolean("inativo")->default(false);
-            $table->boolean("acompanharposts")->default(false);
-            $table->boolean("acompanharcomentarios")->default(false);
-            $table->boolean("acompanharrespostas")->default(false);
+            $table->boolean("acompanharposts")->default(true);
+            $table->boolean("acompanharcomentarios")->default(true);
+            $table->boolean("acompanharrespostas")->default(true);
             $table->timestamps();
         });
     }

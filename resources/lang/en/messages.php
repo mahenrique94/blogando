@@ -3,6 +3,7 @@
 return [
     ######################################## BOTAO ########################################
     "botao.acessar"                                             => "Acessar",
+    "botao.assinar"                                             => "Assinar",
     "botao.atualizarconfiguracoes"                              => "Atualizar configurações",
     "botao.blog"                                                => "Blog",
     "botao.carregar"                                            => "Carregar",
@@ -32,6 +33,7 @@ return [
 
     ######################################## DESCRICAO ########################################
     "descricao.midia"                                           => "Clique no botão abaixo para carregar as imagens á serem enviadas ao servidor",
+    "descricao.newsletter"                                      => "Assina nossa newsletter e fique por dentro das novidades",
 
     ######################################## LABEL ########################################
     "label.as"                                                  => "As",
@@ -122,6 +124,7 @@ return [
     "menu.midia"                                                => "Mídias",
     "menu.midia.biblioteca"                                     => "Biblioteca",
     "menu.midia.nova"                                           => "Adicicionar nova",
+    "menu.newsletter"                                           => "Newsletter",
     "menu.perfil"                                               => "Perfil",
     "menu.perfil.conta"                                         => "Configurações da conta",
     "menu.perfil.meuperfil"                                     => "Meu perfill",
@@ -145,7 +148,8 @@ return [
 
     ######################################## PLACEHOLDER ########################################
     "placeholder.email"                                         => "Email",
-    "placeholder.filtro"                                        => "Digite aqui sua pesquisa",
+    "placeholder.emailnewsletter"                               => "Digite seu email aqui",
+    "placeholder.filtro"                                        => "Digite sua pesquisa aqui",
     "placeholder.senha"                                         => "Senha",
 
     ######################################## TITULO ########################################

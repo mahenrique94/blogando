@@ -15,6 +15,10 @@ class PostAutor extends Model implements Authenticatable
         return $this->belongsTo("\App\Blog", "idblog");
     }
 
+    public function redessociais() {
+        return $this->hasMany("\App\PostAutorRedeSocial", "idautor", "id");
+    }
+
     /**
      * Get the name of the unique identifier for the user.
      *

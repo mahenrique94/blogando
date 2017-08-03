@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/assets/temas/{{$blog->aparencia->temablog}}/{{$blog->aparencia->temablog}}.css">
     <link rel="icon" href="/assets/temas/{{$blog->aparencia->temablog}}/favicon.ico">
 </head>
-<body class="bg-body" style="padding-top: {{Auth::guest() ? "" : "50px"}};">
+<body class="bg-body" style="{{Auth::guest() ? "" : "padding-top: 50px;"}}">
     @if (!Auth::guest())
         @include("painel.config.aside")
     @endif

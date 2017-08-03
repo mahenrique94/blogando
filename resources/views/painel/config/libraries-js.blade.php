@@ -8,10 +8,20 @@
 <script src="/assets/painel/js/requisicao.js"></script>
 @if ($blog->parametros->usarmarkdown)
     <script>
-        var simplemde = new SimpleMDE({ 
+        new SimpleMDE({             
+            autosave : {
+                enabled: true,
+                uniqueId : new Date().getTime()
+            },
             element: document.querySelector("#conteudo"),
             spellChecker : false,
-            toolbar: ["bold", "italic", "heading", "|", "quote", "unordered-list", "ordered-list", "|", "link", "image", "|", "guide"]
+            status : false,
+            insertTexts : {
+                image : ["![](", ")"],
+                link : ["[", "]()"],
+            },
+            tabSize : 4,
+            toolbar : ["bold", "italic", "heading", "|", "quote", "unordered-list", "ordered-list", "|", "link", "image", "|", "guide"]
         });
     </script>  
 @else

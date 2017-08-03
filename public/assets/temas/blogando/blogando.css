@@ -6,6 +6,7 @@
     --cor: #595959;
     --espacamento: 5rem;
     --separador: 3rem;
+    --imagem-autor: 150px;
 }
 
 /***
@@ -207,6 +208,11 @@
     font-weight: 500;
     margin-bottom: 1rem;
 }
+.bg-aside__descricao {
+    color: var(--cor);
+    font-weight: 100;
+    margin-bottom: 1rem;
+}
 .bg-aside__lista--redesocial .bg-aside__link {
     font-size: 2rem;
     line-height: initial;
@@ -229,6 +235,42 @@
 }
 .bg-aside__link:hover {
     padding-left: 1rem;
+}
+
+/***
+** Redes Sociais
+***/
+
+
+/***
+** Autor
+***/
+.bg-autor {
+    background: var(--texto);
+    color: var(--cor);
+    display: inline-block;
+    padding: 1rem;
+    width: 100%;
+}
+.bg-autor__imagem {
+    float: left;
+    height: var(--imagem-autor);
+    width: var(--imagem-autor);
+}
+.bg-autor__informacoes {
+    margin-left: var(--imagem-autor);
+    padding-left: 2rem;
+    width: calc(100% - var(--imagem-autor));
+}
+.bg-autor__nome {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: .5rem;
+}
+.bg-autor__perfil {
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    text-align: justify;
 }
 
 /***

@@ -82,6 +82,14 @@ Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() 
     Route::get("dashboard/meus-posts", "DashboardController@meusposts");
     Route::get("dashboard/meus-rascunhos", "DashboardController@meusrascunhos");
 
+    Route::delete("newsletter/{id}", "BlogNewsletterController@deletar");
+    Route::get("newsletter", "BlogNewsletterController@listar");
+    Route::get("newsletter/formulario", "BlogNewsletterController@formulario");
+    Route::get("newsletter/json", "BlogNewsletterController@json");
+    Route::get("newsletter/{id}", "BlogNewsletterController@editar");
+    Route::post("newsletter", "BlogNewsletterController@salvar")->middleware(["csrf"]);
+    Route::put("newsletter", "BlogNewsletterController@atualizar")->middleware(["csrf"]);
+
     Route::post("notificacao/ler/{id}", "BlogNotificacaoController@ler");
 
     Route::post("midia/adicionar", "BlogMidiaController@adicionar");
@@ -123,3 +131,5 @@ Route::get("/autor/{slug}", "BlogandoController@autor");
 Route::get("/categoria/{slug}", "BlogandoController@categoria");
 Route::get("/{slug}", "BlogandoController@post");
 Route::get("/tag/{slug}", "BlogandoController@tag");
+
+Route::post("newsletter/assinar", "BlogNewsletterController@assinar");

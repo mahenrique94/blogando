@@ -27,6 +27,7 @@
                 </footer>
             </article>
         </section>
+        @include("temas.blogando.autor")
     </section>
 @stop
 @include("temas.blogando.footer")
