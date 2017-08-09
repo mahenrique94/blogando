@@ -10,8 +10,11 @@
         </svg>
         <a href="/painel">@lang("messages.menu.titulo")</a>
     </h1>
-    <div class="bg-p-aside__opcoes">
+    <div class="bg-p-aside__opcoes bg-p-aside__opcoes--painel">
         <a class="bg-p-aside__link" href="/"><i class="icon-globe"></i>&nbsp;@lang("messages.botao.blog")</a>
+        <a class="bg-p-aside__link" href="/painel"><i class="icon-gauge"></i>&nbsp;@lang("messages.botao.painel")</a>
+    </div>
+    <div class="bg-p-aside__opcoes">
         <a class="bg-p-aside__link" href="/painel/post/formulario"><i class="icon-pencil"></i>&nbsp;@lang("messages.botao.escrever")</a>
         <a class="bg-p-aside__perfil" href="#perfilUsuario" onclick="toggleElemento(this, event);"><img alt="{{Auth::user()->nome}}" class="bg-p-aside__foto" src="/arquivo/download/usuarios/{{Auth::user()->imagem}}"></a> 
         <a class="bg-p-aside__navegacao" href="#navegacaoOpcoes" onclick="toggleNavegacao(this, event);"><i class="icon-th"></i></a>

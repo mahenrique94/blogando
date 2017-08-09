@@ -15,6 +15,7 @@ return [
     "botao.naolidas"                                            => "Não lidas",
     "botao.nova"                                                => "Adicionar nova",
     "botao.novo"                                                => "Adicionar novo",
+    "botao.painel"                                              => "Painel",
     "botao.pesquisar"                                           => "Pesquisar",
     "botao.sair"                                                => "Sair",
     "botao.salvar"                                              => "Salvar",
