@@ -46,7 +46,7 @@ class PostController extends Controller
     }
 
     public function formulario() {
-        return view("painel.Post.formulario", ["pagina" => "posts", "subpagina" => "novo"])->with("post", new Post());
+        return view("painel.post.formulario", ["pagina" => "posts", "subpagina" => "novo"])->with("post", new Post());
     }
 
     public function json() {

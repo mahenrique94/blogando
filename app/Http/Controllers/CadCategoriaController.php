@@ -23,11 +23,11 @@ class CadCategoriaController extends Controller implements GenericoController
     }
 
     public function editar($id) {
-        return view("painel.cadcategoria.formulario", ["pagina" => "posts", "subpagina" => "categorias"])->with("categoria", CadCategoria::find($id));
+        return view("painel.cadCategoria.formulario", ["pagina" => "posts", "subpagina" => "categorias"])->with("categoria", CadCategoria::find($id));
     }
 
     public function formulario() {
-        return view("painel.cadcategoria.formulario", ["pagina" => "posts", "subpagina" => "categorias"])->with("categoria", new CadCategoria());
+        return view("painel.cadCategoria.formulario", ["pagina" => "posts", "subpagina" => "categorias"])->with("categoria", new CadCategoria());
     }
 
     public function json() {
@@ -39,7 +39,7 @@ class CadCategoriaController extends Controller implements GenericoController
         if ($request->has("campo") && $request->has("filtro")) {
             $categorias = CadCategoria::where($request->campo, "like", $request->filtro)->get();
         }
-        return view("painel.cadcategoria.lista", ["pagina" => "posts", "subpagina" => "categorias"])->with("categorias", $categorias);
+        return view("painel.cadCategoria.lista", ["pagina" => "posts", "subpagina" => "categorias"])->with("categorias", $categorias);
     }
 
     public function salvar(Request $request) {

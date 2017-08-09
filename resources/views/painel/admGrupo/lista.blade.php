@@ -42,7 +42,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="8">@lang("messages.mensagem.tabelavazia")</td>
+                    <td colspan="3">@lang("messages.mensagem.tabelavazia")</td>
                 </tr>                
             @endforelse
         </tbody>

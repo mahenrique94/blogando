@@ -19,6 +19,12 @@ class BlogNewsletterController extends Controller implements GenericoController
     public function atualizar(Request $request) {
         BlogNewsletter::where("id", $request->id)
             ->update([
+                "nome" => $request->nome,
+                "email" => $request->email,
+                "acompanharposts" => $request->acompanharposts,
+                "acompanharcomentarios" => $request->acompanharcomentarios,
+                "acompanharrespostas" => $request->acompanharrespostas,
+                "inativo" => $request->inativo,
                 "updated_at" => date("Y-m-d H:i:s"),
             ]);
         return redirect()->action("BlogNewsletterController@listar")->withInput(["sucesso" => "Newsletter atualizada com sucesso"]);
@@ -51,6 +57,12 @@ class BlogNewsletterController extends Controller implements GenericoController
 
     public function salvar(Request $request) {
         BlogNewsletter::create([
+            "nome" => $request->nome,
+            "email" => $request->email,
+            "acompanharposts" => $request->acompanharposts,
+            "acompanharcomentarios" => $request->acompanharcomentarios,
+            "acompanharrespostas" => $request->acompanharrespostas,
+            "inativo" => $request->inativo,
             "created_at" => date("Y-m-d H:i:s"),
             "updated_at" => date("Y-m-d H:i:s"),
         ]);
