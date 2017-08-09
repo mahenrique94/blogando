@@ -71,6 +71,12 @@
     border: 1px solid #DCDCDC;
     margin-bottom: var(--separador);
     padding: 2rem;
+    position: relative;
+}
+.bg-post__editar {
+    position: absolute;
+    right: 10px;
+    top: 10px;
 }
 .bg-post__titulo {
     color: var(--cor);

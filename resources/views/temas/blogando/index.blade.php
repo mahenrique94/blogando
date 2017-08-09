@@ -18,6 +18,7 @@
         <section class="bg-posts">
             @foreach ($posts as $post)
                 <article class="bg-post">
+                    <a class="bg-post__editar o-button--tie o-button--medium" href="/painel/post/{{$post->id}}"><i class="icon-pencil"></i>@lang("messages.botao.editar")</a>
                     <header class="bg-post__cabecalho">
                         <h2 class="bg-post__titulo"><a href="/{{$post->slug}}">{{$post->titulo}}</a></h2>
                         <p class="bg-post__informacoes">

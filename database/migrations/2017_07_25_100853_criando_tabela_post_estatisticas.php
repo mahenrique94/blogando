@@ -16,9 +16,9 @@ class CriandoTabelaPostEstatisticas extends Migration
         Schema::create('bg_post_estatisticas', function (Blueprint $table) {
             $table->increments('id');
             $table->bigInteger("idpost")->unsigned()->unique();
-            $table->integer("curtidas");
-            $table->integer("visualizacoes");
-            $table->integer("compartilhamentos");
+            $table->integer("curtidas")->default(0);
+            $table->integer("visualizacoes")->default(0);;
+            $table->integer("compartilhamentos")->default(0);;
             $table->foreign("idpost")->references("id")->on("bg_post");
             $table->timestamps();
         });

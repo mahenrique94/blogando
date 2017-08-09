@@ -14,22 +14,24 @@ class PostController extends Controller
 {
 
     private $arquivoController;
+    private $estatisticasController;
+    private $blog;
 
-    public function __construct(ArquivoController $arquivoController) {
+    public function __construct(ArquivoController $arquivoController, PostEstatisticasController $estatisticasController) {
         $this->arquivoController = $arquivoController;
+        $this->estatisticasController = $estatisticasController;
+        $this->blog = Blog::first();
     }
 
     public function atualizar(Request $request) {
-        $autor = PostAutor::find(Auth::id());
-        $blog = Blog::first();
         Post::where("id", $request->id)
             ->update([
                 "titulo" => $request->titulo, 
                 "slug" => str_slug($request->titulo), 
                 "imagem" => $this->subindoImagem($request),
                 "conteudo" => $request->conteudo, 
-                "conteudohtml" => $blog->parametros->usarmarkdown ? $this->markdownParaHtml($request->conteudo) : $request->conteudo, 
-                "conteudomarkdown" => $blog->parametros->usarmarkdown ? $request->conteudo : $this->htmlParaMarkdown($request->conteudo), 
+                "conteudohtml" => $this->blog->parametros->usarmarkdown ? $this->markdownParaHtml($request->conteudo) : $request->conteudo,
+                "conteudomarkdown" => $this->blog->parametros->usarmarkdown ? $request->conteudo : $this->htmlParaMarkdown($request->conteudo),
                 "conteudoresumido" => substr(strip_tags($request->conteudo), 0, 255), 
                 "updated_at" => date("Y-m-d H:i:s"),
             ]);
@@ -78,8 +80,6 @@ class PostController extends Controller
     }
 
     public function salvar(Request $request) {
-        $autor = PostAutor::find(Auth::id());
-        $blog = Blog::first();
         $post = Post::create([
             "idautor" => Auth::id(),
             "idsituacao" => 1,
@@ -87,13 +87,14 @@ class PostController extends Controller
             "slug" => str_slug($request->titulo), 
             "imagem" => $this->subindoImagem($request),
             "conteudo" => $request->conteudo, 
-            "conteudohtml" => $blog->parametros->usarmarkdown ? $this->markdownParaHtml($request->conteudo) : $request->conteudo, 
-            "conteudomarkdown" => $blog->parametros->usarmarkdown ? $request->conteudo : $this->htmlParaMarkdown($request->conteudo), 
+            "conteudohtml" => $this->blog->parametros->usarmarkdown ? $this->markdownParaHtml($request->conteudo) : $request->conteudo,
+            "conteudomarkdown" => $this->blog->parametros->usarmarkdown ? $request->conteudo : $this->htmlParaMarkdown($request->conteudo),
             "conteudoresumido" => substr(strip_tags($request->conteudo), 0, 255), 
             "datapostagem" => date("Y-m-d H:i:s"),
             "created_at" => date("Y-m-d H:i:s"), 
             "updated_at" => date("Y-m-d H:i:s"),
         ]);
+        $this->estatisticasController->criarNova($post->id);
         return redirect()->action("PostController@editar", ["id" => $post])->withInput(["sucesso" => "Post salvo com sucesso"]);
     }
 

@@ -35,13 +35,15 @@
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "excluir" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.ferramentas.excluir")</a></li>
             </ul>
         </li>  --}}
-        {{--  <li class="bg-p-menu__item {{$pagina === "usuarios" ? "is-ativo" : ""}}" role="menuitem"><a class="bg-p-menu__link {{$pagina === "usuarios" ? "is-ativo" : ""}}" href="#"><i class="icon-users bg-p-menu__icone"></i>&nbsp;@lang("messages.menu.usuarios")</a>
+        <li class="bg-p-menu__item {{$pagina === "usuarios" ? "is-ativo" : ""}}" role="menuitem"><a class="bg-p-menu__link {{$pagina === "usuarios" ? "is-ativo" : ""}}" href="/painel/usuarios"><i class="icon-users bg-p-menu__icone"></i>&nbsp;@lang("messages.menu.usuarios")</a>
             <ul class="bg-p-menu__lista bg-p-menu__lista--segundo" role="menubar">
-                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "perfil" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.usuarios.perfil")</a></li>
-                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "configuracoes" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.usuarios.configuracoes")</a></li>
-                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "todos" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.usuarios.todos")</a></li>
+                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "perfil" ? "is-ativo" : ""}}" href="/painel/usuarios/{{Auth::id()}}">@lang("messages.menu.usuarios.perfil")</a></li>
             </ul>
-        </li>  --}}
+        </li>
+        {{--
+            <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "configuracoes" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.usuarios.configuracoes")</a></li>
+            <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "todos" ? "is-ativo" : ""}}" href="#">@lang("messages.menu.usuarios.todos")</a></li>
+          --}}
         <li class="bg-p-menu__item {{$pagina === "newsletter" ? "is-ativo" : ""}}" role="menuitem"><a class="bg-p-menu__link {{$pagina === "newsletter" ? "is-ativo" : ""}}" href="/painel/newsletter"><i class="icon-mail bg-p-menu__icone"></i>&nbsp;@lang("messages.menu.newsletter")</a></li>
         <li class="bg-p-menu__item {{$pagina === "administrador" ? "is-ativo" : ""}}" role="menuitem"><a class="bg-p-menu__link {{$pagina === "administrador" ? "is-ativo" : ""}}" href="/painel/administrador/grupo"><i class="icon-male bg-p-menu__icone"></i>&nbsp;@lang("messages.menu.administrador")</a>
             <ul class="bg-p-menu__lista bg-p-menu__lista--segundo" role="menubar">

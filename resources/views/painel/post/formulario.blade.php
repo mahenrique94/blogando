@@ -16,8 +16,12 @@
                         <span class="o-breadcrumb__link"><a href="/painel/post" role="link" title="@lang("messages.menu.post")">@lang("messages.menu.post")</a></span>
                         <span class="o-breadcrumb__link"><a class="is-inactive" href="/painel/post/formulario" role="link" title="@lang("messages.menu.post.novo")">@lang("messages.menu.post.novo")</a></span>
                     </div>
+                    <a class="o-button--tie o-button--medium" href="/painel/post/formulario"><i class="icon-plus"></i>@lang("messages.botao.novo")</a>
                     <button class="o-button--tie o-button--medium" type="submit"><i class="icon-floppy"></i>@lang("messages.botao.salvar")</button>
                     <a class="o-button--tie o-button--medium" href="/painel/post"><i class="icon-search"></i>@lang("messages.botao.pesquisar")</a>
+                    @unless (is_null($post->id))
+                        <a class="o-button--tie o-button--medium" href="/{{$post->slug}}"><i class="icon-eye"></i>@lang("messages.botao.visualizar")</a>
+                    @endunless
                 </div>
                 <section class="o-form__body o-form__body--padding">
                     <div class="l-row" role="row">
