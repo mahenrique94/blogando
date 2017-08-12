@@ -184,3 +184,12 @@ function copiarClipboard(botao, event) {
         url.blur();
     }
 }
+
+/** @auth Matheus Castiglioni
+ *  Responder um comentário nos posts
+ */
+function responderComentario(link) {
+    const form = $(link.href.substring(link.href.indexOf("#")));
+    if (existeElemento(form))
+        form.idcomentario.value = link.dataset.comentario;
+}

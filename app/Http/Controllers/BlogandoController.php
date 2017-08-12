@@ -43,6 +43,7 @@ class BlogandoController extends Controller
         $comentario = PostComentario::create([
             "idpost" => $request->idpost,
             "idautor" => $request->idautor,
+            "idcomentario" => $request->idcomentario,
             "nome" => $request->nome,
             "email" => $request->email,
             "comentario" => $request->comentario,

@@ -82,7 +82,10 @@
     color: var(--cor);
     font-weight: 500;
 }
-.bg-post__titulo:hover {
+.bg-post__comentario {
+    margin-right: .5rem;
+}
+.bg-post__link:hover {
     text-decoration: underline;
 }
 .bg-post__informacoes {
@@ -244,8 +247,69 @@
 }
 
 /***
-** Redes Sociais
+** Comentários
 ***/
+.bg-comentarios__titulo, .bg-comentarios__formulario___titulo {
+    border-bottom: 1px solid var(--cor);
+    color: var(--cor);
+    font-size: 1.75rem;
+    font-weight: 500;
+    margin: var(--separador) 0;
+    width: 100%;
+}
+.bg-comentarios__comentario {
+    background: #FFFFFF;
+    border: 1px solid #DCDCDC;
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    position: relative;
+    width: 100%;
+}
+.bg-comentarios__comentario--resposta {
+    background: #F9F9F9;
+}
+.bg-comentarios__comentario:last-of-type {
+    margin-bottom: 0;
+}
+.bg-comentarios__comentario___foto {
+    display: inline-block;
+    height: 75px;
+    vertical-align: top;
+    width: 75px;
+}
+.bg-comentarios__comentario___corpo {
+    display: inline-block;
+    margin-left: 1rem;
+    width: calc(100% - 95px);
+}
+.bg-comentarios__comentario___nome {
+    color: var(--cor);
+    font-size: 1.2rem;
+    font-weight: 500;
+    width: 100%;
+}
+.bg-comentarios__comentario___email {
+    color: var(--cor);
+    width: 100%;
+}
+.bg-comentarios__comentario___descricao {
+    color: var(--cor);
+    margin: .5rem 0;
+    font-size: 1.1rem;
+    text-align: justify;
+}
+.bg-comentarios__comentario___data {
+    color: var(--cor);
+    font-size: .85rem;
+    float: right;
+}
+.bg-comentarios__formulario___titulo {
+    margin-bottom: 0;
+}
+.bg-comentarios__respostas {
+    padding: 1rem 0;
+}
 
 
 /***

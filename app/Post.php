@@ -18,6 +18,10 @@ class Post extends Model
         return $this->hasMany("\App\PostCategoria", "idpost", "id");
     }
 
+    public function comentarios() {
+        return $this->hasMany("\App\PostComentario", "idpost", "id");
+    }
+
     public function situacao() {
         return $this->belongsTo("\App\PostSituacao", "idsituacao");
     }
