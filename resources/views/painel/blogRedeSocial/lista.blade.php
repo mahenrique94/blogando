@@ -1,5 +1,5 @@
 @extends("painel.config.pagina")
-@section("pagina", "Configurações - Rede Social")
+@section("pagina", "Configurações - Rede social")
 @section("conteudo")
     <div class="bg-p-dashboard__header">
         <div class="o-breadcrumb--arrow">
@@ -7,7 +7,7 @@
             <span class="o-breadcrumb__link"><a class="is-inactive" href="/painel/configuracoes/rede-social" role="link" title="@lang("messages.menu.configuracoes.redesocial")">@lang("messages.menu.configuracoes.redesocial")</a></span>
         </div>
         <a class="o-button--tie o-button--medium" href="/painel/configuracoes/rede-social/formulario"><i class="icon-plus"></i>@lang("messages.botao.nova")</a>
-        <form action="/painel/configuracoes/grupo" class="o-form" id="formblogredesocial" method="get" name="formblogredesocial" role="search">
+        <form action="/painel/configuracoes/rede-social" class="o-form" id="formblogredesocial" method="get" name="formblogredesocial" role="search">
             <div class="l-row" role="row">
                 <div class="u-grid--2" role="grid">
                     <select class="o-form__data" name="campo">

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\PostComentario;
 use App\Post;
 
-class PostComentarioController extends Controller
+class PostComentarioController extends Controller implements GenericoController
 {
     public function atualizar(Request $request) {
         PostComentario::where("id", $request->id)

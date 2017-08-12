@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\PostAutorParametros;
 
-class PostAutorParametrosController extends Controller
+class PostAutorParametrosController extends Controller implements GenericoController
 {
     public function atualizar(Request $request) {
         $parametros = PostAutorParametros::where("id", $request->id)

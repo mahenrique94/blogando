@@ -133,6 +133,17 @@ Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() 
     Route::post("tag", "CadTagController@salvar")->middleware(["csrf"]);
     Route::put("tag", "CadTagController@atualizar")->middleware(["csrf"]);
 
+    Route::delete("usuarios/rede-social/{id}", "PostAutorRedeSocialController@deletar");
+    Route::get("usuarios/rede-social", "PostAutorRedeSocialController@listar");
+    Route::get("usuarios/rede-social/formulario", "PostAutorRedeSocialController@formulario");
+    Route::get("usuarios/rede-social/json", "PostAutorRedeSocialController@json");
+    Route::get("usuarios/rede-social/{id}", "PostAutorRedeSocialController@editar");
+    Route::post("usuarios/rede-social", "PostAutorRedeSocialController@salvar")->middleware(["csrf"]);
+    Route::put("usuarios/rede-social", "PostAutorRedeSocialController@atualizar")->middleware(["csrf"]);
+
+    Route::get("usuarios/configuracoes/{id}", "PostAutorParametrosController@editar");
+    Route::put("usuarios/configuracoes", "PostAutorParametrosController@atualizar")->middleware(["csrf"]);
+
     Route::delete("usuarios/{id}", "PostAutorController@deletar");
     Route::get("usuarios", "PostAutorController@listar");
     Route::get("usuarios/formulario", "PostAutorController@formulario");
@@ -141,8 +152,6 @@ Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() 
     Route::post("usuarios", "PostAutorController@salvar")->middleware(["csrf"]);
     Route::put("usuarios", "PostAutorController@atualizar")->middleware(["csrf"]);
 
-    Route::get("usuarios/configuracoes/{id}", "PostAutorParametrosController@editar");
-    Route::put("usuarios/configuracoes", "PostAutorParametrosController@atualizar")->middleware(["csrf"]);
 });
 
 Route::get("", "BlogandoController@index");

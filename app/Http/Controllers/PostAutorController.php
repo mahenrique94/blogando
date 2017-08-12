@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\PostAutor;
 use App\AdmGrupo;
 
-class PostAutorController extends Controller
+class PostAutorController extends Controller implements GenericoController
 {
     private $arquivoController;
     private $autorParametrosController;

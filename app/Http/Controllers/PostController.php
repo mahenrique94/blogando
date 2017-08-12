@@ -10,7 +10,7 @@ use App\Blog;
 use Parsedown;
 use League\HTMLToMarkdown\HtmlConverter;
 
-class PostController extends Controller
+class PostController extends Controller implements GenericoController
 {
 
     private $arquivoController;

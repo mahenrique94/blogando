@@ -135,7 +135,7 @@ return [
     "menu.configuracoes.geral"                                  => "Geral",
     "menu.configuracoes.leitura"                                => "Leitura",
     "menu.configuracoes.newsletter"                             => "Newsletter",
-    "menu.configuracoes.redesocial"                             => "Rede Social",
+    "menu.configuracoes.redesocial"                             => "Rede social",
     "menu.ferramentas"                                          => "Ferramentas",
     "menu.ferramentas.excluir"                                  => "Excluir blog",
     "menu.ferramentas.exportar"                                 => "Exportar",
@@ -152,6 +152,7 @@ return [
     "menu.perfil.meusrascunhos"                                 => "Meus rascunhos",
     "menu.perfil.meuscomentarios"                               => "Meus comentários",
     "menu.perfil.minhasatividades"                              => "Minhas atividades",
+    "menu.perfil.minhasredessociais"                            => "Minhas redes sociais",
     "menu.post"                                                 => "Posts",
     "menu.post.agendados"                                       => "Agendados",
     "menu.post.categoria"                                       => "Categorias",
@@ -164,6 +165,7 @@ return [
     "menu.usuarios.configuracoes"                               => "Minhas configurações",
     "menu.usuarios.convidar"                                    => "Convidar novo",
     "menu.usuarios.perfil"                                      => "Meu perfil",
+    "menu.usuarios.redesocial"                                  => "Rede social",
     "menu.usuarios.todos"                                       => "Listar todos",
 
     ######################################## PLACEHOLDER ########################################

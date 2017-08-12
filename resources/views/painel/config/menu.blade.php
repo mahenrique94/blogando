@@ -38,6 +38,7 @@
             <ul class="bg-p-menu__lista bg-p-menu__lista--segundo" role="menubar">
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "perfil" ? "is-ativo" : ""}}" href="/painel/usuarios/{{Auth::id()}}">@lang("messages.menu.usuarios.perfil")</a></li>
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "configuracoes" ? "is-ativo" : ""}}" href="/painel/usuarios/configuracoes/{{Auth::id()}}">@lang("messages.menu.usuarios.configuracoes")</a></li>
+                <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "usuariosredesocial" ? "is-ativo" : ""}}" href="/painel/usuarios/rede-social">@lang("messages.menu.usuarios.redesocial")</a></li>
                 <li class="bg-p-menu__item bg-p-menu__item--segundo" role="menuitem"><a class="bg-p-menu__link bg-p-menu__link--segundo {{$subpagina === "todosusuarios" ? "is-ativo" : ""}}" href="/painel/usuarios">@lang("messages.menu.usuarios.todos")</a></li>
             </ul>
         </li>
