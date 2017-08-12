@@ -123,6 +123,17 @@ Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() 
     Route::get("tag/{id}", "CadTagController@editar");
     Route::post("tag", "CadTagController@salvar")->middleware(["csrf"]);
     Route::put("tag", "CadTagController@atualizar")->middleware(["csrf"]);
+
+    Route::delete("usuarios/{id}", "PostAutorController@deletar");
+    Route::get("usuarios", "PostAutorController@listar");
+    Route::get("usuarios/formulario", "PostAutorController@formulario");
+    Route::get("usuarios/json", "PostAutorController@json");
+    Route::get("usuarios/{id}", "PostAutorController@editar");
+    Route::post("usuarios", "PostAutorController@salvar")->middleware(["csrf"]);
+    Route::put("usuarios", "PostAutorController@atualizar")->middleware(["csrf"]);
+
+    Route::get("usuarios/configuracoes/{id}", "PostAutorParametrosController@editar");
+    Route::put("usuarios/configuracoes", "PostAutorParametrosController@atualizar")->middleware(["csrf"]);
 });
 
 Route::get("", "BlogandoController@index");

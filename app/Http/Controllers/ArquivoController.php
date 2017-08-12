@@ -35,6 +35,15 @@ class ArquivoController extends Controller
         return response("Arquivo carregado e salvo com sucesso", 200);
     }
 
+    public function uploadToDirectory($file, $arquivo = "", $pasta = "") {
+        $path = $this->criandoPath($pasta);
+        if (!is_null($this->blog->path) && !empty($this->blog->path))
+            $file->move($path, $arquivo);
+        else
+            $file->storeAs("public" . "/" . $pasta, $arquivo);
+        return response("Arquivo carregado e salvo com sucesso", 200);
+    }
+
     public function visualizar($pasta, $ano, $mes, $arquivo) {                
         return response()->make(file_get_contents($this->criandoPath($pasta, $ano, $mes, $arquivo)), 200, ['content-type' => 'image/jpg']);
     }
@@ -57,7 +66,7 @@ class ArquivoController extends Controller
             $path = $path . $mes . "/";
         else
             $path = $path . $mes;
-            
+
         if (!empty($arquivo))
             $path = $path . $arquivo;
 

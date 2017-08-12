@@ -114,8 +114,8 @@ class PostController extends Controller
             $this->arquivoController->upload($request->file, $imagem, "posts", date_format(date_create($request->datapostagem), "Y"), date_format(date_create($request->datapostagem), "m"));
             return $imagem;
         }
-        if (!is_null($request->input("imagem")))
-            return $request->input("imagem");
+        if (!is_null($request->imagem))
+            return $request->imagem;
         return null;
     }
 }

@@ -77,7 +77,7 @@
                 </div>
             </div>
             <div class="bg-p-caixa">
-                <div class="bg-p-caixa__cabecalho">@lang("messages.caixa.imagem")</div>
+                <div class="bg-p-caixa__cabecalho">@lang("messages.caixa.imagempost")</div>
                 <div class="bg-p-caixa__corpo">
                     @if (is_null($post->imagem))
                         <span class="bg-p-caixa__mensagem js-mensagem">@lang("messages.mensagem.semimagem")</span>
