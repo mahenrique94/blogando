@@ -11,6 +11,10 @@ class PostComentarioController extends Controller
     public function atualizar(Request $request) {
         PostComentario::where("id", $request->id)
             ->update([
+                "nome" => $request->nome,
+                "email" => $request->email,
+                "comentario" => $request->comentario,
+                "aprovado" => $request->aprovado,
                 "updated_at" => date("Y-m-d H:i:s"),
             ]);
         return redirect()->action("PostComentarioController@listar")->withInput(["sucesso" => "Comentário atualizado com sucesso"]);

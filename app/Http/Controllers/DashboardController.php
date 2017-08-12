@@ -5,11 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Post;
+use App\PostComentario;
 
 class DashboardController extends Controller
 {
     public function index() {
         return view("painel.dashboard.index", ["pagina" => "dashboard"], ["subpagina" => "inicio"]);
+    }
+
+    public function meuscomentarios(Request $request) {
+        $comentarios = PostComentario::where("email", Auth::user()->email)->get();
+        if ($request->has("campo") && $request->has("filtro")) {
+            $comentarios = PostComentario::where($request->campo, "like", $request->filtro)->where("email", Auth::user()->email)->get();
+        }
+        return view("painel.dashboard.meuscomentarios", ["pagina" => "dashboard"], ["subpagina" => "meuscomentarios"])->with("comentarios", $comentarios);
     }
 
     public function meusposts(Request $request) {

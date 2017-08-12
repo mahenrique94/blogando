@@ -1,6 +1,6 @@
 <div class="bg-comentarios">
     <h3 class="bg-comentarios__titulo">Comentários</h3>
-    @foreach($comentarios as $comentario)
+    @foreach($postcomentarios as $comentario)
         {{$comentario->comentario}}
     @endforeach
     <form action="/comentario" class="bg-comentarios__formulario o-form" id="formpostcomentario" name="formpostcomentario" method="post">

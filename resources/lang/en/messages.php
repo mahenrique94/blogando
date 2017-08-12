@@ -45,6 +45,7 @@ return [
     "label.acompanharrespostas"                                 => "Enviar email para novas respostas",
     "label.agendado"                                            => "Agendado",
     "label.apelido"                                             => "Apelido",
+    "label.aprovado"                                            => "Aprovado",
     "label.as"                                                  => "As",
     "label.ativo"                                               => "Ativo",
     "label.autor"                                               => "Autor",

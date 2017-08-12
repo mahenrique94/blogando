@@ -51,7 +51,7 @@ class ComposerServiceProvider extends ServiceProvider
             $view->with("postsrecentes", Post::where("datapostagem", "<=", date("Y-m-d H:i"))->orderBy("datapostagem", "desc")->take(5)->get());
             $view->with("blogredessociais", BlogRedeSocial::all());
             $view->with("arquivos", $arquivos);
-            $view->with("comentarios", PostComentario::all());
+            $view->with("postcomentarios", PostComentario::where("aprovado", true)->orderBy("created_at", "desc")->get());
         });
     }
 
