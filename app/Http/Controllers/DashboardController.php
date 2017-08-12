@@ -14,9 +14,9 @@ class DashboardController extends Controller
     }
 
     public function meuscomentarios(Request $request) {
-        $comentarios = PostComentario::where("email", Auth::user()->email)->get();
+        $comentarios = PostComentario::where("idautor", Auth::id())->get();
         if ($request->has("campo") && $request->has("filtro")) {
-            $comentarios = PostComentario::where($request->campo, "like", $request->filtro)->where("email", Auth::user()->email)->get();
+            $comentarios = PostComentario::where($request->campo, "like", $request->filtro)->where("idautor", Auth::id())->get();
         }
         return view("painel.dashboard.meuscomentarios", ["pagina" => "dashboard"], ["subpagina" => "meuscomentarios"])->with("comentarios", $comentarios);
     }

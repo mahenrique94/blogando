@@ -42,6 +42,7 @@ class BlogandoController extends Controller
     public function comentar(Request $request) {
         $comentario = PostComentario::create([
             "idpost" => $request->idpost,
+            "idautor" => $request->idautor,
             "nome" => $request->nome,
             "email" => $request->email,
             "comentario" => $request->comentario,

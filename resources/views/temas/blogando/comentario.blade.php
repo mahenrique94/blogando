@@ -6,16 +6,17 @@
     <form action="/comentario" class="bg-comentarios__formulario o-form" id="formpostcomentario" name="formpostcomentario" method="post">
         <input aria-hidden="true" name="_token" type="hidden" value="{{csrf_token()}}"/>
         <input aria-hidden="true" name="idpost" type="hidden" value="{{$post->id}}"/>
+        <input aria-hidden="true" name="idautor" type="hidden" value="{{Auth::guest() ? null : Auth::id()}}"/>
         <h3 class="bg-comentarios__formulario___titulo">Deixe o seu comentário</h3>
         <section class="o-form__body o-form__body--padding">
             <div class="l-row" role="row">
                 <div class="u-grid--6" role="grid">
                     <label class="o-form__text" for="nome">@lang("messages.label.nome")</label>
-                    <input aria-required="true" class="o-form__data" id="nome" maxlength="120" name="nome" required type="text" value="">
+                    <input aria-required="true" class="o-form__data" id="nome" maxlength="120" name="nome" required type="text" value="{{Auth::guest() ? "" : Auth::user()->nome}}">
                 </div>
                 <div class="u-grid--6" role="grid">
                     <label class="o-form__text" for="email">@lang("messages.label.email")</label>
-                    <input aria-required="true" class="o-form__data" id="email" maxlength="255" name="email" required type="email" value="">
+                    <input aria-required="true" class="o-form__data" id="email" maxlength="255" name="email" required type="email" value="{{Auth::guest() ? "" : Auth::user()->email}}">
                 </div>
             </div>
             <div class="l-row" role="row">
