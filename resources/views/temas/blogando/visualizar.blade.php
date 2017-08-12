@@ -29,6 +29,12 @@
             </article>
         </section>
         @include("temas.blogando.autor")
+        @if ($blog->parametros->permitircomentarios && $blog->parametros->permitircomentariosanonimos)
+            @include("temas.blogando.comentario")
+        @endif
+        @if ($blog->parametros->permitircomentarios && !$blog->parametros->permitircomentariosanonimos)
+            @include("temas.blogando.disqus")
+        @endif
     </section>
 @stop
 @include("temas.blogando.footer")

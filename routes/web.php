@@ -17,6 +17,8 @@ Route::get("/arquivo/visualizar/{pasta}/{ano}/{mes}/{arquivo}", "ArquivoControll
 Route::get("/arquivo/visualizar/{pasta}/{arquivo}", "ArquivoController@visualizar");
 Route::get("/arquivo/visualizar/{arquivo}", "ArquivoController@visualizar");
 
+Route::post("comentario", "BlogandoController@comentar");
+
 Route::get("painel/acessar", "AutenticacaoController@formulario");
 Route::post("painel/autenticar", "AutenticacaoController@autenticar");
 
@@ -54,6 +56,12 @@ Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() 
     Route::get("categoria/{id}", "CadCategoriaController@editar");
     Route::post("categoria", "CadCategoriaController@salvar")->middleware(["csrf"]);
     Route::put("categoria", "CadCategoriaController@atualizar")->middleware(["csrf"]);
+
+    Route::delete("comentario/{id}", "PostComentarioController@deletar");
+    Route::get("comentario", "PostComentarioController@listar");
+    Route::get("comentario/json", "PostComentarioController@json");
+    Route::get("comentario/{id}", "PostComentarioController@editar");
+    Route::put("comentario", "PostComentarioController@atualizar")->middleware(["csrf"]);
 
     Route::get("configuracoes/aparencia", "BlogAparenciaController@formulario");
     Route::get("configuracoes/compartilhamento", "BlogParametrosController@compartilhamento");

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\PostComentario;
 use App\Blog;
 use App\PostAutor;
 use App\CadCategoria;
@@ -36,6 +37,22 @@ class BlogandoController extends Controller
             ->select("bg_post.*")
             ->get();
         return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("posts", $posts)->with("autor", PostAutor::where("slug", $slug)->first());
+    }
+
+    public function comentar(Request $request) {
+        $comentario = PostComentario::create([
+            "idpost" => $request->idpost,
+            "nome" => $request->nome,
+            "email" => $request->email,
+            "comentario" => $request->comentario,
+            "avisarnovoscomentarios" => $request->avisarnovoscomentarios,
+            "avisarrespostas" => $request->avisarrespostas,
+            "aprovado" => 1,
+            "created_at" => date("Y-m-d H:i:s"),
+            "updated_at" => date("Y-m-d H:i:s"),
+        ]);
+        $post = Post::find($comentario->idpost);
+        return redirect()->action("BlogandoController@post", ["slug" => $post->slug]);
     }
 
     public function categoria($slug) {

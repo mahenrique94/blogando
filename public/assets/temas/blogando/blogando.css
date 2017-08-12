@@ -255,7 +255,6 @@
     background: var(--texto);
     color: var(--cor);
     display: inline-block;
-    padding: 1rem;
     width: 100%;
 }
 .bg-autor__imagem {

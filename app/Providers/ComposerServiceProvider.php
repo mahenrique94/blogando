@@ -13,6 +13,7 @@ use App\BlogRedeSocial;
 use App\CadCategoria;
 use App\CadTag;
 use App\Post;
+use App\PostComentario;
 
 class ComposerServiceProvider extends ServiceProvider
 {
@@ -50,6 +51,7 @@ class ComposerServiceProvider extends ServiceProvider
             $view->with("postsrecentes", Post::where("datapostagem", "<=", date("Y-m-d H:i"))->orderBy("datapostagem", "desc")->take(5)->get());
             $view->with("blogredessociais", BlogRedeSocial::all());
             $view->with("arquivos", $arquivos);
+            $view->with("comentarios", PostComentario::all());
         });
     }
 

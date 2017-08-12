@@ -23,7 +23,6 @@ class CriandoTabelaPostComentario extends Migration
             $table->boolean("avisarnovoscomentarios")->default(false);
             $table->boolean("avisarrespostas")->default(false);
             $table->boolean("aprovado")->default(true);
-            $table->boolean("inativo")->default(false);
             $table->foreign("idpost")->references("id")->on("bg_post");
             $table->foreign("idcomentario")->references("id")->on("bg_post_comentario");
             $table->timestamps();
