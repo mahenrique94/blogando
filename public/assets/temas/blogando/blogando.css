@@ -32,6 +32,7 @@
     background: var(--cor);
     color: var(--texto);
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     padding: 2rem var(--espacamento);
 }
@@ -44,11 +45,17 @@
 ** Nav
 ***/
 .bg-nav, .bg-nav__lista, .bg-nav__item {
-    display: inline;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.bg-nav__item:last-child .bg-nav__link {
+    margin-right: 0;
 }
 .bg-nav__link {
     border: 1px solid var(--texto);
     border-radius: 5px;
+    margin-right: .5rem;
     padding: .5rem;
     transition: all .25s linear;
 }
@@ -363,6 +370,7 @@
     background: var(--cor);
     color: var(--texto);
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     padding: 1rem var(--espacamento);
 }

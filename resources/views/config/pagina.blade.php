@@ -10,6 +10,7 @@
     @unless ($blog->aparencia->temablog === "blogando")
         <link rel="stylesheet" href="/assets/temas/blogando/blogando.css">
     @endunless
+    <link rel="stylesheet" href="/assets/temas/blogando/media-querie.css">
     <link rel="stylesheet" href="/assets/temas/{{$blog->aparencia->temablog}}/{{$blog->aparencia->temablog}}.css">
     <link rel="icon" href="/assets/temas/{{$blog->aparencia->temablog}}/favicon.ico">
 </head>
