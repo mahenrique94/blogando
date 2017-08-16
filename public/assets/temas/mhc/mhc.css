@@ -1,5 +1,5 @@
 .bg-conteudo {
-    background: linear-gradient(to bottom right, #80ccff 49%, #0099ff 50%, #80ccff 51%), linear-gradient(to bottom left, #80ccff 49%, #0099ff 50%, #80ccff 51%);
+    background: url(/assets/temas/mhc/background.jpg);
     background-size: 50px;
 }
 
