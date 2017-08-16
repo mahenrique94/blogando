@@ -1,6 +1,7 @@
 <table class="c-table--tie c-table--hovered c-table--zebrered c-table--bordered">
     <thead>
     <tr>
+        <th>@lang("messages.label.post")</th>
         <th>@lang("messages.label.nome")</th>
         <th>@lang("messages.label.email")</th>
         <th>@lang("messages.label.comentario")</th>
@@ -11,6 +12,7 @@
     <tbody>
     @forelse ($comentarios as $comentario)
         <tr>
+            <td>{{$comentario->post->titulo}}</td>
             <td>{{$comentario->nome}}</td>
             <td>{{$comentario->email}}</td>
             <td>{{$comentario->comentario}}</td>
@@ -19,7 +21,7 @@
         </tr>
     @empty
         <tr>
-            <td colspan="5">@lang("messages.mensagem.tabelavazia")</td>
+            <td colspan="6">@lang("messages.mensagem.tabelavazia")</td>
         </tr>
     @endforelse
     </tbody>

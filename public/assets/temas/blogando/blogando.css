@@ -47,7 +47,7 @@
     display: inline;
 }
 .bg-nav__link {
-    border: 1px solid;
+    border: 1px solid var(--texto);
     border-radius: 5px;
     padding: .5rem;
     transition: all .25s linear;
@@ -310,7 +310,9 @@
 .bg-comentarios__respostas {
     padding: 1rem 0;
 }
-
+.bg-comentarios--disqus {
+    padding-top: var(--separador);
+}
 
 /***
 ** Autor
@@ -319,6 +321,7 @@
     background: var(--texto);
     color: var(--cor);
     display: inline-block;
+    padding-top: var(--separador);
     width: 100%;
 }
 .bg-autor__imagem {
@@ -358,6 +361,34 @@
 ***/
 .bg-footer {
     background: var(--cor);
-    color: var(--texto);   
+    color: var(--texto);
+    display: flex;
+    justify-content: space-between;
     padding: 1rem var(--espacamento);
+}
+.bg-footer__lista {
+    margin-right: 5rem;
+}
+.bg-footer__link {
+    color: var(--texto);
+    line-height: 1.5;
+    transition: all .2s linear;
+}
+.bg-footer__link:hover:not(.bg-footer__link--titulo) {
+    font-size: 1.2rem;
+    text-decoration: underline;
+}
+.bg-footer__link--titulo {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+.bg-footer .bg-aside__caixa {
+    background: transparent;
+    border: none;
+    margin-bottom: 0;
+    padding: 0;
+    width: 300px;
+}
+.bg-footer .bg-aside__descricao {
+    color: var(--texto);
 }

@@ -5,6 +5,8 @@
     <section class="bg-conteudo--visualizar u-content">
         <section class="bg-visualizar">
             <article class="bg-post">
+                <input id="url" name="url" type="hidden" value="{{$blog->url}}">
+                <input id="post" name="post" type="hidden" value="{{$post->slug}}">
                 @unless (Auth::guest())
                     <a class="bg-post__editar o-button--tie o-button--medium" href="/painel/post/{{$post->id}}"><i class="icon-pencil"></i>@lang("messages.botao.editar")</a>
                 @endunless

@@ -83,6 +83,7 @@ return [
     "label.permitircomentariosanonimos"                         => "Permitir comentários(anônimos)",
     "label.permitircompartilhamentos"                           => "Permitir compartilhamentos",
     "label.por"                                                 => "Por",
+    "label.post"                                                => "Post",
     "label.publicadoem"                                         => "Publicado em",
     "label.publicadopor"                                        => "Publicado por",
     "label.redesocial"                                          => "Rede Social",

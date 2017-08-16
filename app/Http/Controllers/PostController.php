@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Post;
 use App\PostAutor;
+use App\PostEstatisticas;
 use App\Blog;
 use Parsedown;
 use League\HTMLToMarkdown\HtmlConverter;
@@ -39,6 +40,7 @@ class PostController extends Controller implements GenericoController
     }
 
     public function deletar($id) {
+        PostEstatisticas::where("idpost", $id)->delete();
         Post::destroy($id);
         return response($id, 200);
     }

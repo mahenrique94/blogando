@@ -1,0 +1,134 @@
+.bg-conteudo {
+    background: linear-gradient(to bottom right, #80ccff 49%, #0099ff 50%, #80ccff 51%), linear-gradient(to bottom left, #80ccff 49%, #0099ff 50%, #80ccff 51%);
+    background-size: 50px;
+}
+
+.bg-header {
+    background: #FFFFFF;
+    border-bottom: 3px solid #0099FF;
+}
+.bg-titulo {
+    color: #0099FF;
+}
+
+.bg-android {
+    background: #00CC99;
+    border-color: #00CC99;
+    color: #FDFDFD;
+}
+.bg-android:hover {
+    background: #FDFDFD;
+    color: #00CC99;
+}
+.bg-css3 {
+    background: #0099FF;
+    border-color: #0099FF;
+    color: #FDFDFD;
+}
+.bg-css3:hover {
+    background: #FDFDFD;
+    color: #0099FF;
+}
+.bg-dba {
+    background: #A1A1A1;
+    border-color: #A1A1A1;
+    color: #FDFDFD;
+}
+.bg-dba:hover {
+    background: #FDFDFD;
+    color: #A1A1A1;
+}
+.bg-html5 {
+    background: #FF9933;
+    border-color: #FF9933;
+    color: #FDFDFD;
+}
+.bg-html5:hover {
+    background: #FDFDFD;
+    color: #FF9933;
+}
+.bg-infra {
+    background: #595959;
+    border-color: #595959;
+    color: #FDFDFD;
+}
+.bg-infra:hover {
+    background: #FDFDFD;
+    color: #595959;
+}
+.bg-java {
+    background: #FF8080;
+    border-color: #FF8080;
+    color: #FDFDFD;
+}
+.bg-java:hover {
+    background: #FDFDFD;
+    color: #FF8080;
+}
+.bg-javascript {
+    background: #ECEC00;
+    border-color: #ECEC00;
+    color: #FDFDFD;
+}
+.bg-javascript:hover {
+    background: #FDFDFD;
+    color: #ECEC00;
+}
+.bg-php {
+    background: #FF66FF;
+    border-color: #FF66FF;
+    color: #FDFDFD;
+}
+.bg-php:hover {
+    background: #FDFDFD;
+    color: #FF66FF;
+}
+
+.bg-facebook {
+    color: #6699FF;
+}
+.bg-github {
+    color: #9900CC;
+}
+.bg-google-plus {
+    color: #FF4D4D;
+}
+.bg-instagram {
+    color: #996633;
+}
+.bg-linkedin {
+    color: #0066CC;
+}
+.bg-twitter {
+    color: #66CCFF;
+}
+
+.bg-post__titulo, .bg-post__autor, .bg-post__data {
+    color: #0099FF;
+}
+.bg-post__continuarLendo {
+    border-color: #0099FF;
+    color: #0099FF;
+}
+.bg-post__continuarLendo:hover {
+    background: #0099FF;
+}
+
+.bg-aside__titulo {
+    color: #0099FF;
+}
+
+.bg-autor__nome {
+    color: #0099FF;
+}
+
+.bg-footer {
+    background: #FFFFFF;
+    border-top: 3px solid #0099FF;
+}
+.bg-footer__link, .bg-footer .bg-aside__descricao {
+    color: #595959;
+}
+.bg-footer__link--titulo {
+    color: #0099FF;
+}

@@ -17,4 +17,8 @@ class PostComentario extends Model
     public function comentarios() {
         return $this->hasMany("\App\PostComentario", "idcomentario", 'id');
     }
+
+    public function post() {
+        return $this->belongsTo("\App\Post", "idpost");
+    }
 }

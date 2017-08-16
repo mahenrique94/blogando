@@ -22,7 +22,12 @@
                         <a class="bg-post__editar o-button--tie o-button--medium" href="/painel/post/{{$post->id}}"><i class="icon-pencil"></i>@lang("messages.botao.editar")</a>
                     @endunless
                     <header class="bg-post__cabecalho">
-                        <h2 class="bg-post__titulo"><span class="bg-post__comentario"><i class="icon-chat"></i>{{count($post->comentarios)}}</span><a class="bg-post__link" href="/{{$post->slug}}">{{$post->titulo}}</a></h2>
+                        <h2 class="bg-post__titulo">
+                            @if ($blog->parametros->permitircomentarios && $blog->parametros->permitircomentariosanonimos)
+                                <span class="bg-post__comentario"><i class="icon-chat"></i>{{count($post->comentarios)}}</span>
+                            @endif
+                            <a class="bg-post__link" href="/{{$post->slug}}">{{$post->titulo}}</a>
+                        </h2>
                         <p class="bg-post__informacoes">
                             Postado em <time class="bg-post__data">{{date_format(date_create($post->datapostagem), $blog->parametros->formatodatahora->formato)}}</time> por <a class="bg-post__autor" href="/autor/{{$post->autor->slug}}">{{$post->autor->nome}}</a>                        
                         </p>

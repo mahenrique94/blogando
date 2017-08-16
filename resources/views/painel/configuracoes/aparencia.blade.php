@@ -17,6 +17,7 @@
                     <label class="o-form__text" for="temablog">@lang("messages.label.temablog")</label>
                     <select aria-required="true" class="o-form__data" id="temablog" name="temablog" required>
                         <option {{$aparencia->temablog == "blogando" ? "selected" : ""}} value="blogando">Blogando</option>
+                        <option {{$aparencia->temablog == "mhc" ? "selected" : ""}} value="mhc">MHC</option>
                     </select>
                 </div>
             </div>

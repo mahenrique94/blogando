@@ -1,13 +1,13 @@
 <div class="bg-comentarios">
-    <h3 class="bg-comentarios__titulo">
-        @if (count($postcomentarios) == 1)
-            {{count($postcomentarios)}} Comentário
-        @elseif (count($postcomentarios) > 1)
-            {{count($postcomentarios)}} Comentários
-        @else
-            Comentários
-        @endif
-    </h3>
+    @if (count($postcomentarios) > 0)
+        <h3 class="bg-comentarios__titulo">
+            @if (count($postcomentarios) == 1)
+                {{count($postcomentarios)}} Comentário
+            @else
+                {{count($postcomentarios)}} Comentários
+            @endif
+        </h3>
+    @endif
     @foreach($postcomentarios as $comentario)
         @if (is_null($comentario->idcomentario))
             <div class="bg-comentarios__comentario">

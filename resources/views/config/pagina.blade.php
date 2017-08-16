@@ -7,6 +7,9 @@
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <title>@yield("titulo")</title>
     <link rel="stylesheet" href="/assets/lib/prism/prism.css">
+    @unless ($blog->aparencia->temablog === "blogando")
+        <link rel="stylesheet" href="/assets/temas/blogando/blogando.css">
+    @endunless
     <link rel="stylesheet" href="/assets/temas/{{$blog->aparencia->temablog}}/{{$blog->aparencia->temablog}}.css">
     <link rel="icon" href="/assets/temas/{{$blog->aparencia->temablog}}/favicon.ico">
 </head>
@@ -21,6 +24,9 @@
     </main>
     @include("painel.config.libraries-js")
     <script src="/assets/lib/prism/prism.js"></script>
+    @unless ($blog->aparencia->temablog === "blogando")
+        <script src="/assets/temas/blogando/blogando.js"></script>
+    @endunless
     <script src="/assets/temas/{{$blog->aparencia->temablog}}/{{$blog->aparencia->temablog}}.js"></script>
 </body>
 </html>
