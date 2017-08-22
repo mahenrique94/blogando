@@ -7,13 +7,13 @@
                 <div class="u-grid--12" role="grid">
                     <div class="o-form__group">
                         <input aria-required="true" class="o-form__data no-margin" maxlength="255" name="email" placeholder="@lang("messages.placeholder.emailnewsletter")" required type="email">
-                        <span class="o-form__groupElement"><label class="o-button--tie"><i class="icon-mail"></i></label></span>
+                        <span class="o-form__groupElement"><label class="bg-aside__button o-button--tie"><i class="icon-mail"></i></label></span>
                     </div>
                 </div>
             </div>
             <div class="l-row" role="row">
                 <div class="u-grid--12" role="grid">
-                    <button class="o-button--tie o-button--medium is-right" role="button" title="@lang("messages.botao.assinar")" type="submit"><i class="icon-pencil"></i>&nbsp;@lang("messages.botao.assinar")</button>
+                    <button class="bg-aside__button o-button--tie o-button--medium is-right" role="button" title="@lang("messages.botao.assinar")" type="submit"><i class="icon-pencil"></i>&nbsp;@lang("messages.botao.assinar")</button>
                 </div>
             </div>
         </section>

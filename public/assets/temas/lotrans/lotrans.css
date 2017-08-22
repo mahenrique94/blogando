@@ -1,0 +1,121 @@
+.bg-conteudo, .bg-conteudo--visualizar, .bg-visualizar .bg-post, .bg-autor {
+    background: #F2F3F9;
+}
+
+.bg-header {
+    background: #003399;
+}
+.bg-titulo {
+    color: #F2F2F2;
+}
+
+.bg-aside__caixa {
+    background: transparent;
+    border: none;
+}
+.bg-aside__link, .bg-aside__descricao {
+    color: #003399;
+}
+.bg-aside__link {
+    padding-left: 1rem;
+}
+.bg-aside__link::before {
+    content: "\f101";
+    font-family: Stilize;
+    margin-right: .5rem;
+}
+.bg-aside__link:hover {
+    padding-left: 2rem;
+}
+.bg-aside__button, .bg-comentarios__button {
+    background: #003399;
+    border: 1px solid #003399;
+    border-bottom: 3px solid #002266;
+    color: #F2F2F2;
+}
+.bg-aside__button:hover, .bg-comentarios__button:hover {
+    background: #FFFFFF;
+    color: #003399;
+}
+
+.bg-post {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 0;
+}
+.bg-post__cabecalho {
+    padding: 0 2rem;
+}
+.bg-post__icone {
+    color: #003399;
+    font-size: 1.25rem;
+    vertical-align: middle;
+}
+.bg-post__informacoes {
+    margin-bottom: 2rem;
+}
+.bg-post__autor, .bg-post__data {
+    color: #A1A1A1;
+    font-weight: 300;
+    margin-right: 2rem;
+}
+.bg-post__imagem {
+    background-size: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: none;
+    margin: 0;
+}
+.bg-post__titulo {
+    color: #003399;
+    font-size: 2rem;
+    margin: 1.5rem 0;
+}
+.bg-post__conteudo {
+    padding: 0 2rem;
+}
+.bg-post__rodape {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+.bg-post__continuarLendo {
+    background: #003399;
+    border-radius: 50px;
+    color: #F2F2F2;
+    display: inline-block;
+    width: 200px;
+}
+.bg-post__continuarLendo:hover {
+    background: transparent;
+    color: #003399;
+}
+.bg-post__comentario {
+    color: #CACACA;
+    font-size: 1.5rem;
+    margin-right: 0;
+    text-align: right;
+    width: 100%;
+}
+.bg-post__tag {
+    background: #003399;
+    color: #F2F2F2;
+}
+.bg-post__tag:hover, .bg-post__tag:hover::after {
+    background: #0044CC;
+}
+.bg-post__tag::after {
+    background: #003399;
+}
+
+.bg-footer {
+    background: #003399;
+}
+.bg-footer .bg-aside__button {
+    background: #F2F2F2;
+    border-bottom-color: #595959;
+    color: #595959;
+}

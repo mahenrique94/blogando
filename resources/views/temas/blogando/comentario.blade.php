@@ -86,7 +86,7 @@
             </div>
             <div class="l-row is-right" role="row">
                 <div class="u-grid--12" role="grid">
-                    <button class="o-button--tie o-button--medium" type="submit"><i class="icon-comment"></i>@lang("messages.botao.comentar")</button>
+                    <button class="bg-comentarios__button o-button--tie o-button--medium" type="submit"><i class="icon-comment"></i>@lang("messages.botao.comentar")</button>
                 </div>
             </div>
         </section>
