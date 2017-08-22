@@ -132,3 +132,34 @@
 .bg-footer__link--titulo {
     color: #0099FF;
 }
+
+.bg-visualizar .bg-post__conteudo h1,
+.bg-visualizar .bg-post__conteudo h2,
+.bg-visualizar .bg-post__conteudo h3,
+.bg-visualizar .bg-post__conteudo h4,
+.bg-visualizar .bg-post__conteudo h5,
+.bg-visualizar .bg-post__conteudo h6 {
+    font-weight: 500;
+    margin-top: 2.5rem;
+}
+.bg-visualizar .bg-post__conteudo a, .bg-visualizar .bg-post__conteudo strong {
+    border-radius: 2px;
+    padding: .2rem;
+}
+.bg-visualizar .bg-post__conteudo a {
+    background: #FFE6E6;
+    color: #FF8080;
+}
+.bg-visualizar .bg-post__conteudo strong {
+    background: #E6F5FF;
+    color: #0099FF;
+}
+.bg-visualizar .bg-post__conteudo img {
+    max-width: 100%;
+}
+.bg-visualizar .bg-post__conteudo ol li {
+    list-style: decimal;
+}
+.bg-visualizar .bg-post__conteudo pre {
+    white-space: pre-wrap;
+}

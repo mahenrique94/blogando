@@ -32,7 +32,7 @@
                         </p>
                         <p class="bg-post__categorias">
                             @foreach ($post->categorias as $categoria)
-                                <a class="bg-post__categoria" href="/categoria/{{$categoria->categoria->slug}}">{{$categoria->categoria->descricao}}</a>
+                                <a class="bg-post__categoria bg-{{$categoria->categoria->slug}}" href="/categoria/{{$categoria->categoria->slug}}">{{$categoria->categoria->descricao}}</a>
                             @endforeach
                         </p>
                     </header>
