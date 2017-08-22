@@ -174,7 +174,7 @@
     font-size: 1.1rem;
 }
 .bg-visualizar .bg-post__imagem {
-    background-size: cover;
+    background-size: contain;
     height: 400px;
     margin: 0 0 2rem 0;
     width: 100%;
@@ -200,9 +200,14 @@
 .bg-visualizar .bg-post__conteudo a {
     text-decoration: underline;
 }
-.bg-visualizar .bg-post__conteudo pre {
+.bg-visualizar .bg-post__conteudo pre, .bg-visualizar .bg-post__conteudo code {
     background: #F2F2F2;
+}
+.bg-visualizar .bg-post__conteudo pre {
     padding: 1rem;
+}
+.bg-visualizar .bg-post__conteudo code {
+    padding: .2rem;
 }
 
 /***

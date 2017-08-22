@@ -146,11 +146,11 @@
     border-radius: 2px;
     padding: .2rem;
 }
-.bg-visualizar .bg-post__conteudo a {
+.bg-visualizar .bg-post__conteudo a, .bg-visualizar .bg-post__conteudo a code {
     background: #FFE6E6;
     color: #FF8080;
 }
-.bg-visualizar .bg-post__conteudo strong {
+.bg-visualizar .bg-post__conteudo strong, .bg-visualizar .bg-post__conteudo strong code {
     background: #E6F5FF;
     color: #0099FF;
 }
