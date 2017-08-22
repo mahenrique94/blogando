@@ -2,7 +2,7 @@
     <ul class="bg-footer__lista">
         <li class="bg-footer__item"><a class="bg-footer__link bg-footer__link--titulo" href="#">Redes Sociais</a></li>
         @foreach ($blogredessociais as $redesocial)
-            <li class="bg-footer__item"><a class="bg-footer__link" href="{{$redesocial->link}}">{{$redesocial->redesocial->descricao}}</a></li>
+            <li class="bg-footer__item"><a class="bg-footer__link" href="{{$redesocial->link}}" target="_blank">{{$redesocial->redesocial->descricao}}</a></li>
         @endforeach
     </ul>
     <ul class="bg-footer__lista">

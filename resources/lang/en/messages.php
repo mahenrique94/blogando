@@ -18,8 +18,10 @@ return [
     "botao.novo"                                                => "Adicionar novo",
     "botao.painel"                                              => "Painel",
     "botao.pesquisar"                                           => "Pesquisar",
+    "botao.relatarerro"                                         => "Relatar um erro",
     "botao.sair"                                                => "Sair",
     "botao.salvar"                                              => "Salvar",
+    "botao.sugerirfuncionalidade"                               => "Sugerir uma funcionalidade",
     "botao.todas"                                               => "Todas",
     "botao.visualizar"                                          => "Visualizar",
 

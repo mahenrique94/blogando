@@ -13,6 +13,8 @@
     <div class="bg-p-aside__opcoes bg-p-aside__opcoes--painel">
         <a class="bg-p-aside__link" href="/"><i class="icon-globe"></i>&nbsp;@lang("messages.botao.blog")</a>
         <a class="bg-p-aside__link" href="/painel"><i class="icon-gauge"></i>&nbsp;@lang("messages.botao.painel")</a>
+        <a class="bg-p-aside__link bg-p-aside__link--quiet" href="https://feedback.userreport.com/bc4f9ef9-720a-487e-a73f-00af8f498780/#submit/idea" target="_blank"><i class="icon-lightbulb"></i>&nbsp;@lang("messages.botao.sugerirfuncionalidade")</a>
+        <a class="bg-p-aside__link bg-p-aside__link--quiet" href="https://feedback.userreport.com/bc4f9ef9-720a-487e-a73f-00af8f498780/#submit/bug" target="_blank"><i class="icon-attention"></i>&nbsp;@lang("messages.botao.relatarerro")</a>
     </div>
     <div class="bg-p-aside__opcoes">
         <a class="bg-p-aside__link" href="/painel/post/formulario"><i class="icon-pencil"></i>&nbsp;@lang("messages.botao.escrever")</a>
