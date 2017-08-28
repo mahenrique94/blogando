@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/assets/temas/blogando/media-querie.css">
     <link rel="stylesheet" href="/assets/temas/{{$blog->aparencia->temablog}}/{{$blog->aparencia->temablog}}.css">
     <link rel="icon" href="/assets/temas/{{$blog->aparencia->temablog}}/favicon.ico">
+    @include("temas.mhc.google-console")
 </head>
 <body class="bg-body" style="{{Auth::guest() ? "" : "padding-top: 50px;"}}">
     @if (!Auth::guest())
@@ -29,5 +30,6 @@
         <script src="/assets/temas/blogando/blogando.js"></script>
     @endunless
     <script src="/assets/temas/{{$blog->aparencia->temablog}}/{{$blog->aparencia->temablog}}.js"></script>
+    @include("temas.mhc.google-analytics")
 </body>
 </html>
