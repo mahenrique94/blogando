@@ -118,6 +118,7 @@
     background: #F2F2F2;
     display: inline-block;
     font-weight: 200;
+    margin-bottom: .5rem;
     margin-right: 1rem;
     padding: .2rem .75rem .2rem .2rem;
     position: relative;
@@ -230,6 +231,9 @@
 }
 .bg-visualizar .bg-post__conteudo blockquote::after {
     right: 5px;
+}
+.bg-visualizar .bg-post__conteudo ul li a {
+    line-height: 2;
 }
 
 /***
