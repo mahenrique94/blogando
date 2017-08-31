@@ -16,7 +16,8 @@ class CriandoTabelaPostCategoria extends Migration
         Schema::create('bg_post_categoria', function (Blueprint $table) {
             $table->increments('id');
             $table->bigInteger("idpost")->unsigned();
-            $table->integer("idcategoria")->unsigned()->unique();
+            $table->integer("idcategoria")->unsigned();
+            $table->unique(["idpost", "idcategoria"]);
             $table->foreign("idpost")->references("id")->on("bg_post");
             $table->foreign("idcategoria")->references("id")->on("bg_cad_categoria");
             $table->timestamps();
