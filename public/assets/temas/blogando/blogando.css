@@ -139,7 +139,6 @@
 .bg-post__imagem {
     background-position: center;
     background-repeat: no-repeat;
-    box-shadow: 0 0 3px rgba(0, 0, 0, .2);
     height: 300px;
     margin: 1rem 0;
 }
