@@ -19,6 +19,7 @@
                         <option {{$aparencia->temablog == "blogando" ? "selected" : ""}} value="blogando">Blogando</option>
                         <option {{$aparencia->temablog == "lotrans" ? "selected" : ""}} value="lotrans">Lotrans</option>
                         <option {{$aparencia->temablog == "mhc" ? "selected" : ""}} value="mhc">MHC</option>
+                        <option {{$aparencia->temablog == "playpix" ? "selected" : ""}} value="playpix">Playpix</option>
                     </select>
                 </div>
             </div>

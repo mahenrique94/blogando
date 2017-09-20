@@ -1,0 +1,59 @@
+:root {
+    --primaria: #820CAF;
+    --secondaria: #12E50F;
+    --texto: #595959;
+    --aux: #FDFDFD;
+}
+
+.bg-header {
+    background: var(--aux);
+    display: block;
+    padding: 0;
+    position: relative;
+}
+.bg-header--container {
+    padding: 1rem 3rem 0;
+}
+
+.bg-logo {
+    width: 175px;
+}
+
+.bg-nav__link {
+    border: none;
+    color: var(--primaria);
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+.bg-nav__link:hover {
+    background: var(--primaria);
+    color: var(--aux);
+}
+
+.bg-pesquisar {
+    display: inline-block;
+    left: 50%;
+    position: absolute;
+    top: 25px;
+    transform: translate(-50%, 0);
+    width: 350px;
+}
+.bg-pesquisar__data:focus {
+    border-color: var(--primaria);
+    box-shadow: 0 0 3px 1px rgba(130, 12, 175, .3);
+}
+.bg-pesquisar__botao {
+    background: var(--primaria);
+}
+
+.bg-info {
+    background: var(--primaria);
+    color: var(--aux);
+    letter-spacing: 2px;
+    padding: .5rem;
+    text-align: center;
+}
+
+.bg-footer {
+    padding: 0;
+}

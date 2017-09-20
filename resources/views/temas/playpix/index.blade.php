@@ -1,0 +1,44 @@
+@extends("config.pagina")
+@section("titulo"){{$blog->titulo}}@stop
+@include("temas.playpix.header")
+{{--
+@section("conteudo")
+    <section class="bg-conteudo u-content">
+        <section class="bg-posts">
+            @foreach ($posts as $post)
+                <article class="bg-post">
+                    @unless (Auth::guest())
+                        <a class="bg-post__editar o-button--tie o-button--medium" href="/painel/post/{{$post->id}}"><i class="icon-pencil"></i>@lang("messages.botao.editar")</a>
+                    @endunless
+                    <header class="bg-post__cabecalho">
+                        <h2 class="bg-post__titulo">
+                            @if ($blog->parametros->permitircomentarios && $blog->parametros->permitircomentariosanonimos)
+                                <span class="bg-post__comentario"><i class="icon-chat"></i>{{count($post->comentarios)}}</span>
+                            @endif
+                            <a class="bg-post__link" href="/{{$post->slug}}">{{$post->titulo}}</a>
+                        </h2>
+                        <p class="bg-post__informacoes">
+                            Postado em <time class="bg-post__data">{{date_format(date_create($post->datapostagem), $blog->parametros->formatodatahora->formato)}}</time> por <a class="bg-post__autor" href="/autor/{{$post->autor->slug}}">{{$post->autor->nome}}</a>
+                        </p>
+                        <p class="bg-post__categorias">
+                            @foreach ($post->categorias as $categoria)
+                                <a class="bg-post__categoria bg-{{$categoria->categoria->slug}}" href="/categoria/{{$categoria->categoria->slug}}">{{$categoria->categoria->descricao}}</a>
+                            @endforeach
+                        </p>
+                    </header>
+                    <a href="/{{$post->slug}}"><div class="bg-post__imagem" style="background-image: url(/arquivo/download/posts/{{date_format(date_create($post->datapostagem), "Y")}}/{{date_format(date_create($post->datapostagem), "m")}}/{{$post->imagem}});"></div></a>
+                    <section class="bg-post__conteudo">{{$post->conteudoresumido}}...</section>
+                    <footer class="bg-post__rodape">
+                        <a class="bg-post__continuarLendo" href="/{{$post->slug}}">Continuar lendo</a>
+                        <p class="bg-post__tags">
+                            @foreach ($post->tags as $tag)
+                                <a class="bg-post__tag" href="/tag/{{$tag->tag->slug}}">{{$tag->tag->descricao}}</a>
+                            @endforeach
+                        </p>
+                    </footer>
+                </article>
+            @endforeach
+        </section>
+    </section>
+@stop
+@include("temas.playpix.footer")--}}
