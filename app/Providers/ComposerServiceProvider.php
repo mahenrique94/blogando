@@ -37,17 +37,21 @@ class ComposerServiceProvider extends ServiceProvider
                 ->select(DB::raw("extract(year from datapostagem) as ano, extract(month from datapostagem) as mes"))
                 ->groupBy(DB::raw("1, 2"))
                 ->get();
+
             $blog = Blog::first();
+
             if (!Auth::guest()) {
                 $user = Auth::user();
                 $view->with("notificacoesnaolidas", $this->buscarNotificacoesNaoLidas());
             } else {
                 $view->with("notificacoesnaolidas", BlogNotificacao::all()->first());
-            }   
+            }
+
             $view->with("blog", $blog);         
             $view->with("notificacoes", $this->buscarNotificacoesLidas());
             $view->with("categorias", CadCategoria::orderBy("descricao")->get());
             $view->with("tags", CadTag::orderBy("descricao")->get());            
+            $view->with("postsdestaque", Post::where("datapostagem", "<=", date("Y-m-d H:i"))->orderBy("datapostagem", "desc")->take(3)->get());
             $view->with("postsrecentes", Post::where("datapostagem", "<=", date("Y-m-d H:i"))->orderBy("datapostagem", "desc")->take(5)->get());
             $view->with("blogredessociais", BlogRedeSocial::all());
             $view->with("arquivos", $arquivos);

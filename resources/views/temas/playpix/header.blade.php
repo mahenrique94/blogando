@@ -8,5 +8,4 @@
         @include("temas.playpix.pesquisar")
         @include("temas.playpix.nav")
     </div>
-    <div class="bg-info">A <a class="bg-marca" href="/"><strong>Playpix</strong></a> é um canal de notícias atualizado diariamente</div>
 @stop

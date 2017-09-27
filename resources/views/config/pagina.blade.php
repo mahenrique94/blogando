@@ -31,5 +31,6 @@
     @endunless
     <script src="/assets/temas/{{$blog->aparencia->temablog}}/{{$blog->aparencia->temablog}}.js"></script>
     @include("temas.mhc.google-analytics")
+    @yield("rodape")
 </body>
 </html>
