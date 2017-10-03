@@ -9,6 +9,12 @@
     color: var(--primaria) !important;
 }
 
+.bg-toggleNav {
+    color: var(--primaria);
+    float: right;
+    margin-top: .75rem;
+}
+
 .bg-header {
     background: var(--aux);
     display: block;
@@ -42,8 +48,6 @@
     border: none;
     border-radius: 0;
     color: var(--primaria);
-    font-weight: 500;
-    letter-spacing: 2px;
 }
 .bg-nav__link::before {
     font-family: Stilize;
@@ -70,7 +74,6 @@
 }
 
 .bg-pesquisar {
-    display: inline-block;
     left: 50%;
     position: absolute;
     transform: translate(-50%, 0);
@@ -122,70 +125,13 @@
 }
 
 .bg-banner {
-    display: grid;
-    grid-gap: .1rem;
-    grid-template-areas:
-        "banner banner2"
-        "banner banner3";
-    grid-template-rows: auto auto;
     height: calc(100vh - 124px);
-}
-.bg-banner__wrap {
-    overflow: hidden;
-}
-.bg-banner__wrap--1 {
-    grid-area: banner;
-}
-.bg-banner__wrap--2 {
-    grid-area: banner2;
-}
-.bg-banner__wrap--3 {
-    grid-area: banner3;
 }
 .bg-banner__post {
     color: var(--aux);
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-}
-.bg-banner__post___imagem {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-    transition: transform .2s linear;
-}
-.bg-banner__post___imagem:hover {
-    transform: scale(1.2);
-}
-.bg-banner__post___info {
-    background: rgba(0, 0, 0, .4);
-    bottom: 2rem;
-    box-shadow: 0 0 0 999999px rgba(0, 0, 0, .4);
-    left: 2rem;
-    position: absolute;
 }
 .bg-banner__post___categoria {
-    background: none;
     color: var(--secondaria);
-    display: block;
-}
-.bg-banner__post___categoria:hover {
-    text-decoration: underline;
-}
-.bg-banner__post___data {
-    font-weight: 100;
-    font-size: .85rem;
-    line-height: 1.5;
-}
-.bg-banner__post___titulo {
-    display: block;
-    font-weight: bold;
-    font-size: 2rem;
-    text-shadow: 0 0 5px rgba(0, 0, 0, .3);
-}
-.bg-banner__post___titulo:hover {
-    text-decoration: underline;
 }
 
 .bg-publicidade--banner, .bg-publicidade--box {
@@ -199,11 +145,10 @@
 }
 .bg-publicidade--banner .bg-publicidade__imagem, .bg-publicidade--box .bg-publicidade__imagem {
     border: 1px solid #DCDCDC;
-    width: 75%;
 }
 
 .bg-posts {
-    padding: 2rem 2rem;
+    padding: 2rem;
 }
 .bg-post {
     background: none;
@@ -227,7 +172,6 @@
 }
 .bg-post__wrap {
     float: left;
-    width: calc(100% - 321px);
 }
 .bg-post__titulo {
     color: var(--primaria);
@@ -396,12 +340,98 @@
     margin-right: .5rem;
     vertical-align: middle;
 }
-.bg-rodape__lista, .bg-rodape__item {
-    display: inline-block;
-}
-.bg-rodape__link {
-    padding-left: .75rem;
-}
 .bg-rodape__link:hover {
     text-decoration: underline;
+}
+
+/***
+** Media Querie
+***/
+@media screen and (min-width: 0) {
+    .bg-titulo {
+        margin-bottom: .75rem;
+    }
+    .bg-nav {
+        display: none;
+    }
+    .bg-nav__lista {
+        flex-direction: column;
+    }
+    .bg-info {
+        font-size: .85rem;
+    }
+    .bg-publicidade--banner {
+        padding-bottom: 0;
+    }
+    .bg-publicidade__imagem {
+        width: 90%;
+    }
+    .bg-posts {
+        padding: 0 2rem;
+    }
+    .bg-post__wrap {
+        width: 100%;
+    }
+    .bg-post__imagem {
+        margin-bottom: 1rem;
+    }
+    .bg-rodape {
+        flex-direction: column;
+    }
+    .bg-rodape__marca {
+        margin-bottom: .75rem;
+    }
+    .bg-rodape__lista {
+        width: 100%;
+    }
+    .bg-rodape__lista, .bg-rodape__item {
+        display: block;
+    }
+    .bg-rodape__link {
+        margin-left: 0;
+    }
+}
+@media screen and (min-width: 768px) {
+    .bg-titulo {
+        margin-bottom: 0;
+    }
+    .bg-nav {
+        display: flex;
+    }
+    .bg-nav__lista {
+        flex-direction: row;
+    }
+    .bg-info {
+        font-size: 1rem;
+    }
+    .bg-publicidade--banner {
+        padding-bottom: 1rem;
+    }
+    .bg-publicidade__imagem {
+        width: 75%;
+    }
+    .bg-posts {
+        padding: 2rem;
+    }
+    .bg-post__wrap {
+        width: calc(100% - 321px);
+    }
+    .bg-post__imagem {
+        margin-bottom: 0;
+    }
+    .bg-rodape {
+        flex-direction: row;
+    }
+    .bg-rodape__marca {
+        margin-bottom: 0;
+    }
+    .bg-rodape__lista {
+        width: initial;
+    }
+    .bg-rodape__lista, .bg-rodape__item {
+        display: inline-block;
+    }
+    .bg-rodape__link {
+        margin-left: .75rem;
+    }
 }

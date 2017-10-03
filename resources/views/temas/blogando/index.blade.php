@@ -3,6 +3,9 @@
 @include("temas.blogando.header")
 @section("conteudo")
     <section class="bg-conteudo u-content">
+        @if (isset($filtro) && !is_null($filtro) && !empty($filtro))
+            <p class="bg-resultado">Foi encontrado <strong>{{count($posts)}}</strong> {{count($posts) > 1 ? "posts" : "post"}} para o título <strong>{{$filtro}}</strong>.</p>
+        @endif
         @if (isset($mes) && !is_null($mes) && !empty($mes) && isset($ano) && !is_null($ano) && !empty($ano))
             <p class="bg-resultado">Foi encontrado <strong>{{count($posts)}}</strong> {{count($posts) > 1 ? "posts" : "post"}} para o mês <strong>{{$mes}}</strong> do ano <strong>{{$ano}}</strong>.</p>
         @endif
@@ -51,6 +54,7 @@
             @endforeach
         </section>
         <aside class="bg-aside">
+            @include("temas.blogando.pesquisar")
             @if ($blog->aparencia->mostrarredessociais)
                 @include("temas.blogando.redessociais")
             @endif

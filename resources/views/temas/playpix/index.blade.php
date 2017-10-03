@@ -4,17 +4,20 @@
 @section("conteudo")
     <section class="u-content">
         <div class="bg-info">A <a class="bg-marca" href="/"><strong>Playpix</strong></a> é um canal de notícias atualizado diariamente</div>
+        @if (isset($filtro) && !is_null($filtro) && !empty($filtro))
+            <p class="bg-resultado">Foi encontrado <strong>{{isset($postssemdestaque) ? count($postssemdestaque) : count($posts)}}</strong> {{isset($postssemdestaque) ? count($postssemdestaque) : count($posts) > 1 ? "posts" : "post"}} para o título <strong>{{$filtro}}</strong>.</p>
+        @endif
         @if (isset($mes) && !is_null($mes) && !empty($mes) && isset($ano) && !is_null($ano) && !empty($ano))
-            <p class="bg-resultado">Foi encontrado <strong>{{count($postssemdestaque)}}</strong> {{count($postssemdestaque) > 1 ? "posts" : "post"}} para o mês <strong>{{$mes}}</strong> do ano <strong>{{$ano}}</strong>.</p>
+            <p class="bg-resultado">Foi encontrado <strong>{{isset($postssemdestaque) ? count($postssemdestaque) : count($posts)}}</strong> {{isset($postssemdestaque) ? count($postssemdestaque) : count($posts) > 1 ? "posts" : "post"}} para o mês <strong>{{$mes}}</strong> do ano <strong>{{$ano}}</strong>.</p>
         @endif
         @if (isset($autor) && !is_null($autor) && !empty($autor))
-            <p class="bg-resultado">Foi encontrado <strong>{{count($postssemdestaque)}}</strong> {{count($postssemdestaque) > 1 ? "posts" : "post"}} para o autor <strong>{{$autor->nome}}</strong>.</p>
+            <p class="bg-resultado">Foi encontrado <strong>{{isset($postssemdestaque) ? count($postssemdestaque) : count($posts)}}</strong> {{isset($postssemdestaque) ? count($postssemdestaque) : count($posts) > 1 ? "posts" : "post"}} para o autor <strong>{{$autor->nome}}</strong>.</p>
         @endif
         @if (isset($categoria) && !is_null($categoria) && !empty($categoria))
-            <p class="bg-resultado">Foi encontrado <strong>{{count($postssemdestaque)}}</strong> {{count($postssemdestaque) > 1 ? "posts" : "post"}} para a categoria <strong>{{$categoria->descricao}}</strong>.</p>
+            <p class="bg-resultado">Foi encontrado <strong>{{isset($postssemdestaque) ? count($postssemdestaque) : count($posts)}}</strong> {{isset($postssemdestaque) ? count($postssemdestaque) : count($posts) > 1 ? "posts" : "post"}} para a categoria <strong>{{$categoria->descricao}}</strong>.</p>
         @endif
         @if (isset($tag) && !is_null($tag) && !empty($tag))
-            <p class="bg-resultado">Foi encontrado <strong>{{count($postssemdestaque)}}</strong> {{count($postssemdestaque) > 1 ? "posts" : "post"}} para a tag <strong>{{$tag->descricao}}</strong>.</p>
+            <p class="bg-resultado">Foi encontrado <strong>{{isset($postssemdestaque) ? count($postssemdestaque) : count($posts)}}</strong> {{isset($postssemdestaque) ? count($postssemdestaque) : count($posts) > 1 ? "posts" : "post"}} para a tag <strong>{{$tag->descricao}}</strong>.</p>
         @endif
         <section class="bg-banner">
             @foreach ($postsdestaque as $post)
@@ -38,7 +41,7 @@
             </a>
         </div>
         <section class="bg-posts">
-            @foreach ($postssemdestaque as $post)
+            @foreach (isset($postssemdestaque) ? $postssemdestaque : $posts as $post)
                 @if ($loop->index == ($blog->parametros->quantidadepostsporpagina / 2))
                     <div class="bg-publicidade--banner">
                         <a href="https://produto.mercadolivre.com.br/MLB-912764844-logomarca-logotipo-logo-criar-logomarca-profissional-_JM" target="_blank">
@@ -48,7 +51,7 @@
                 @endif
                 <article class="bg-post">
                     @unless (Auth::guest())
-                        <a class="bg-post__editar o-button--tie o-button--medium" href="/painel/post/{{$posts[$i]->id}}"><i class="icon-pencil"></i>@lang("messages.botao.editar")</a>
+                        <a class="bg-post__editar o-button--tie o-button--medium" href="/painel/post/{{$post->id}}"><i class="icon-pencil"></i>@lang("messages.botao.editar")</a>
                     @endunless
                     <a href="/{{$post->slug}}"><div class="bg-post__imagem" style="background-image: url(/arquivo/download/posts/{{date_format(date_create($post->datapostagem), "Y")}}/{{date_format(date_create($post->datapostagem), "m")}}/{{$post->imagem}});"></div></a>
                     <div class="bg-post__wrap">

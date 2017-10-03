@@ -33,6 +33,7 @@ return [
     "caixa.imagempost"                                          => "Imagem de destaque",
     "caixa.informacoes"                                         => "Informações",
     "caixa.newsletter"                                          => "Newsletter",
+    "caixa.pesquisar"                                           => "Pesquisar",
     "caixa.postsrecentes"                                       => "Posts recentes",
     "caixa.redessociais"                                        => "Redes Sociais",
     "caixa.tags"                                                => "Tags",

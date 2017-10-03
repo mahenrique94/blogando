@@ -158,6 +158,7 @@ Route::get("", "BlogandoController@index");
 Route::get("/arquivo/{ano2017}/{mes}", "BlogandoController@arquivo");
 Route::get("/autor/{slug}", "BlogandoController@autor");
 Route::get("/categoria/{slug}", "BlogandoController@categoria");
+Route::get("/procurar", "BlogandoController@procurar");
 Route::get("/{slug}", "BlogandoController@post");
 Route::get("/tag/{slug}", "BlogandoController@tag");
 
