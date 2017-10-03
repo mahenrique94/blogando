@@ -15,8 +15,13 @@
     margin-top: .75rem;
 }
 
+.bg-conteudo--visualizar {
+    background: var(--aux);
+}
+
 .bg-header {
     background: var(--aux);
+    box-shadow: 0 0 7px rgba(0, 0, 0, .5);
     display: block;
     padding: 0;
     position: relative;
@@ -114,6 +119,16 @@
     text-align: center;
 }
 
+.bg-categoria {
+    background: var(--primaria);
+    border-bottom: 5px solid rgba(0, 0, 0, .225);
+    color: var(--aux);
+    font-size: 2rem;
+    padding: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
 .bg-resultado {
     background: #F5F5F5;
     border-color: var(--primaria);
@@ -206,6 +221,13 @@
     color: #BFBFBF;
 }
 
+.bg-visualizar .bg-post__titulo:hover {
+    text-decoration: underline;
+}
+.bg-visualizar .bg-post__categoria {
+    color: var(--secondaria);
+}
+
 .bg-aside {
     padding: 3rem 2rem 2rem 0;
 }
@@ -237,16 +259,16 @@
 .bg-aside__caixa--redessociais .bg-aside__link {
     font-size: 2.5rem;
 }
-.bg-aside__caixa--redessociais .bg-facebook {
+.bg-aside__caixa--redessociais .bg-facebook, .bg-autor__informacoes .bg-facebook {
     color: #3366FF;
 }
-.bg-aside__caixa--redessociais .bg-google-plus {
+.bg-aside__caixa--redessociais .bg-google-plus, .bg-autor__informacoes .bg-google-plus {
     color: #FF8080;
 }
-.bg-aside__caixa--redessociais .bg-instagram {
+.bg-aside__caixa--redessociais .bg-instagram, .bg-autor__informacoes .bg-instagram {
     color: #996600;
 }
-.bg-aside__caixa--redessociais .bg-twitter {
+.bg-aside__caixa--redessociais .bg-twitter, .bg-autor__informacoes .bg-twitter {
     color: #33CCFF;
 }
 
@@ -292,6 +314,13 @@
     content: "\f187";
     font-family: Stilize;
     margin-right: .5rem;
+}
+
+.bg-autor {
+    background: var(--aux);
+}
+.bg-autor__nome {
+    color: var(--primaria);
 }
 
 .bg-footer {

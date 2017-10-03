@@ -40,6 +40,13 @@
     .bg-posts {
         width: 100%;
     }
+    .bg-visualizar .bg-post__titulo {
+        font-size: 1.7rem;
+    }
+    .bg-visualizar .bg-post__imagem {
+        height: 200px;
+        margin-bottom: 0;
+    }
     .bg-aside {
         display: none;
     }
@@ -86,6 +93,13 @@
     }
     .bg-posts {
         width: calc(65% - 3rem);
+    }
+    .bg-visualizar .bg-post__titulo {
+        font-size: 2.5rem;
+    }
+    .bg-visualizar .bg-post__imagem {
+        height: 400px;
+        margin-bottom: 2rem;
     }
     .bg-aside {
         display: block;

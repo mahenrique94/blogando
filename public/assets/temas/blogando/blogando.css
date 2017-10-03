@@ -240,16 +240,11 @@
     border: none;
     padding: 0;
 }
-.bg-visualizar .bg-post__titulo {
-    font-size: 2.5rem;
-}
 .bg-visualizar .bg-post__informacoes {
     font-size: 1.1rem;
 }
 .bg-visualizar .bg-post__imagem {
     background-size: contain;
-    height: 400px;
-    margin: 0 0 2rem 0;
     width: 100%;
 }
 .bg-visualizar .bg-post__conteudo {
