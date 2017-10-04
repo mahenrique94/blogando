@@ -24,6 +24,17 @@ class ArquivoController extends Controller
         return response()->download($this->criandoPath($pasta, $ano, $mes, $arquivo));
     }
 
+    public function save($request, $name, $directory) {
+        if ($request->hasFile("file") && $request->file->isValid()) {
+            $imagem = str_slug($name) . ".jpg";
+            $this->uploadToDirectory($request->file, $imagem, $directory);
+            return $imagem;
+        }
+        if (!is_null($request->imagem))
+            return $request->imagem;
+        return null;
+    }
+
     public function upload($file, $arquivo = "", $pasta = "", $ano = "", $mes = "") {
         $ano = !empty($ano) ? $ano : $this->ano;
         $mes = !empty($mes) ? $mes : $this->mes;
@@ -44,7 +55,7 @@ class ArquivoController extends Controller
         return response("Arquivo carregado e salvo com sucesso", 200);
     }
 
-    public function visualizar($pasta, $ano, $mes, $arquivo) {                
+    public function visualizar($pasta = "", $ano = "", $mes = "", $arquivo = "") {
         return response()->make(file_get_contents($this->criandoPath($pasta, $ano, $mes, $arquivo)), 200, ['content-type' => 'image/jpg']);
     }
 

@@ -16,6 +16,7 @@ class BlogAparenciaController extends Controller implements GenericoController
                 "idtemaaside" => $request->idtemaaside, 
                 "idtemaperfil" => $request->idtemaperfil, 
                 "idtemanavegacao" => $request->idtemanavegacao,
+                "mostrarpesquisa" => $request->mostrarpesquisa,
                 "mostrarredessociais" => $request->mostrarredessociais,
                 "mostrarpostsrecentes" => $request->mostrarpostsrecentes,
                 "mostrarcategorias" => $request->mostrarcategorias,

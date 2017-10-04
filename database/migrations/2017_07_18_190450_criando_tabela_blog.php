@@ -20,6 +20,8 @@ class CriandoTabelaBlog extends Migration
             $table->string("url", 255)->unique();
             $table->string("path", 255)->nullable();
             $table->string("descricao", 255);
+            $table->string("keywords", 255)->nullable();
+            $table->string("imagem", 255);
             $table->timestamps();
         });
     }

@@ -17,6 +17,7 @@ class PopulandoTabelaBlog extends Seeder
             "descricao" => "Descrição do meu blog",
             "slug" => "titulo-do-blog",
             "url" => "http://localhost:8000",
+            "imagem" => "blogando.svg",
             "created_at" => DB::raw('current_timestamp'),
             "updated_at" => DB::raw('current_timestamp'),
         ]);

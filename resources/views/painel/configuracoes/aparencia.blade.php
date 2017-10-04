@@ -96,12 +96,17 @@
 					<label class="o-mark__text"><span class="o-mark__element" data-marked="1" data-unmarked="0" onclick="MarkController.mark(this);"></span></label>
                 </div>
                 <div class="u-grid--3" role="grid">
+                    <label class="o-form__text" for="mostrarpesquisa">@lang("messages.label.mostrarpesquisa")</label>
+                    <input {{$aparencia->mostrarpesquisa ? "checked" : ""}} class="o-mark__data--checkbox" id="mostrarpesquisa" name="mostrarpesquisa" type="hidden" value="{{$aparencia->mostrarpesquisa}}">
+					<label class="o-mark__text"><span class="o-mark__element" data-marked="1" data-unmarked="0" onclick="MarkController.mark(this);"></span></label>
+                </div>
+            </div>
+            <div class="l-row" role="row">
+                <div class="u-grid--3" role="grid">
                     <label class="o-form__text" for="mostrarpostsrecentes">@lang("messages.label.mostrarpostsrecentes")</label>
                     <input {{$aparencia->mostrarpostsrecentes ? "checked" : ""}} class="o-mark__data--checkbox" id="mostrarpostsrecentes" name="mostrarpostsrecentes" type="hidden" value="{{$aparencia->mostrarpostsrecentes}}">
 					<label class="o-mark__text"><span class="o-mark__element" data-marked="1" data-unmarked="0" onclick="MarkController.mark(this);"></span></label>
                 </div>
-            </div> 
-            <div class="l-row" role="row">
                 <div class="u-grid--3" role="grid">
                     <label class="o-form__text" for="mostrarredessociais">@lang("messages.label.mostrarredessociais")</label>
                     <input {{$aparencia->mostrarredessociais ? "checked" : ""}} class="o-mark__data--checkbox" id="mostrarredessociais" name="mostrarredessociais" type="hidden" value="{{$aparencia->mostrarredessociais}}">

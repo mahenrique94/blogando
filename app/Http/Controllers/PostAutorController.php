@@ -26,7 +26,7 @@ class PostAutorController extends Controller implements GenericoController
                 "senha" => $request->senha,
                 "perfil" => $request->perfil,
                 "slug" => str_slug($request->nome),
-                "imagem" => $this->subindoImagem($request),
+                "imagem" => $this->arquivoController->save($request, $request->nome, "usuarios"),
                 "updated_at" => date("Y-m-d H:i:s"),
             ]);
         return redirect()->action("PostAutorController@listar")->withInput(["sucesso" => "Autor atualizado com sucesso"]);
@@ -72,16 +72,5 @@ class PostAutorController extends Controller implements GenericoController
         ]);
         $this->autorParametrosController->criarNovo($autor->id);
         return redirect()->action("PostAutorController@listar")->withInput(["sucesso" => "Autor salva com sucesso"]);
-    }
-
-    private function subindoImagem($request) {
-        if ($request->hasFile("file") && $request->file->isValid()) {
-            $imagem = str_slug($request->nome) . ".jpg";
-            $this->arquivoController->uploadToDirectory($request->file, $imagem, "usuarios");
-            return $imagem;
-        }
-        if (!is_null($request->imagem))
-            return $request->imagem;
-        return null;
     }
 }

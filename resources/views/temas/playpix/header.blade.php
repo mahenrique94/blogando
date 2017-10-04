@@ -6,7 +6,9 @@
                 <img alt="{{$blog->titulo}}" class="bg-logo" src="/assets/temas/{{$blog->aparencia->temablog}}/{{$blog->aparencia->temablog}}.png">
             </a>
         </h1>
-        @include("temas.playpix.pesquisar")
+        @if ($blog->aparencia->mostrarpesquisa)
+            @include("temas.playpix.pesquisar")
+        @endif
         @include("temas.playpix.nav")
     </div>
 @stop

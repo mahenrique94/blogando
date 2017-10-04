@@ -27,7 +27,7 @@ class BlogandoController extends Controller
             ->take($this->blog->parametros->quantidadepostsporpagina)
             ->get();
 
-        return view("temas." . $this->blog->aparencia->temablog .  ".index")
+        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")
             ->with("posts", $posts)->with("mes", $mes)->with("ano", $ano);
     }
 
@@ -39,7 +39,7 @@ class BlogandoController extends Controller
             ->select("bg_post.*")
             ->get();
 
-        return view("temas." . $this->blog->aparencia->temablog .  ".index")
+        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")
             ->with("posts", $posts)->with("autor", PostAutor::where("slug", $slug)->first());
     }
 
@@ -70,23 +70,23 @@ class BlogandoController extends Controller
             ->select("bg_post.*")
             ->get();
 
-        return view("temas." . $this->blog->aparencia->temablog .  ".index")
+        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")
             ->with("posts", $posts)->with("categoria", CadCategoria::where("slug", $slug)->first())->with("categoriafiltrada", CadCategoria::where("slug", $slug)->first());
     }
 
     public function index() {
-        return view("temas." . $this->blog->aparencia->temablog .  ".index")
+        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")
             ->with("posts", Post::where("datapostagem", "<=", date("Y-m-d H:i"))->orderBy("datapostagem", "desc")->take($this->blog->parametros->quantidadepostsporpagina)->get())
             ->with("postssemdestaque", Post::where("datapostagem", "<=", date("Y-m-d H:i"))->orderBy("datapostagem", "desc")->skip(3)->take($this->blog->parametros->quantidadepostsporpagina)->get());
     }
 
     public function procurar(Request $request) {
-        return view("temas." . $this->blog->aparencia->temablog .  ".index")
+        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")
             ->with("posts", Post::where(DB::raw("lower(titulo)"), "like", "%" . $request->filtro . "%")->orderBy("datapostagem", "desc")->take($this->blog->parametros->quantidadepostsporpagina)->get())->with("filtro", $request->filtro);
     }
 
     public function post($slug) {
-        return view("temas." . $this->blog->aparencia->temablog .  ".visualizar")->with("post", Post::where("slug", $slug)->first());
+        return view("temas." . $this->blog->aparencia->temablog .  ".visualizar")->with("pagina", "visualizar")->with("post", Post::where("slug", $slug)->first());
     }
 
     public function tag($slug) {
@@ -98,7 +98,7 @@ class BlogandoController extends Controller
             ->select("bg_post.*")
             ->get();
 
-        return view("temas." . $this->blog->aparencia->temablog .  ".index")
+        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")
             ->with("posts", $posts)->with("tag", CadTag::where("slug", $slug)->first());
     }
 }

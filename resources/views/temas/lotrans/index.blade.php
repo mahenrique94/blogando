@@ -52,6 +52,9 @@
             @endforeach
         </section>
         <aside class="bg-aside">
+            @if ($blog->aparencia->mostrarpesquisa)
+                @include("temas.blogando.pesquisar")
+            @endif
             @if ($blog->aparencia->mostrarredessociais)
                 @include("temas.blogando.redessociais")
             @endif

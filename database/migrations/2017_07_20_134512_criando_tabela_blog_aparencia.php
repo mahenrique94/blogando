@@ -22,6 +22,7 @@ class CriandoTabelaBlogAparencia extends Migration
             $table->integer("idtemaperfil")->unsigned()->unique();
             $table->integer("idtemanavegacao")->unsigned()->unique();
             $table->integer("idtemanotificacao")->unsigned()->unique();
+            $table->boolean("mostrarpesquisa")->default(true);
             $table->boolean("mostrarredessociais")->default(true);
             $table->boolean("mostrarpostsrecentes")->default(true);
             $table->boolean("mostrarcategorias")->default(true);

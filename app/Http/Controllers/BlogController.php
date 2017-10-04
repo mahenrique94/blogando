@@ -7,6 +7,12 @@ use App\Blog;
 
 class BlogController extends Controller implements GenericoController
 {
+    private $arquivoController;
+
+    public function __construct(ArquivoController $arquivoController) {
+        $this->arquivoController = $arquivoController;
+    }
+
     public function atualizar(Request $request) {
         Blog::where("id", $request->id)
             ->update([
@@ -15,6 +21,8 @@ class BlogController extends Controller implements GenericoController
                 "url" => $request->url, 
                 "descricao" => $request->descricao, 
                 "slug" => str_slug($request->titulo), 
+                "keywords" => $request->keywords,
+                "imagem" => $this->arquivoController->save($request, $request->titulo, "blog"),
                 "updated_at" => date("Y-m-d H:i:s"),
             ]);
         return redirect()->action("BlogController@formulario")->withInput(["sucesso" => "Configurações atualizadas com sucesso"]);
@@ -43,4 +51,5 @@ class BlogController extends Controller implements GenericoController
     public function salvar(Request $request) {
         
     }
+
 }

@@ -10,76 +10,84 @@
 .bg-titulo {
     color: #0099FF;
 }
+.bg-nav__link {
+    border: 1px solid #0099FF;
+    color: #0099FF;
+}
+.bg-nav__link:hover {
+    background: #0099FF;
+    color: #FDFDFD;
+}
 
-.bg-android {
+.bg-nav .bg-android {
     background: #00CC99;
     border-color: #00CC99;
     color: #FDFDFD;
 }
-.bg-android:hover {
+.bg-nav .bg-android:hover {
     background: #FDFDFD;
     color: #00CC99;
 }
-.bg-css3 {
+.bg-nav .bg-css3 {
     background: #0099FF;
     border-color: #0099FF;
     color: #FDFDFD;
 }
-.bg-css3:hover {
+.bg-nav .bg-css3:hover {
     background: #FDFDFD;
     color: #0099FF;
 }
-.bg-dba {
+.bg-nav .bg-dba {
     background: #A1A1A1;
     border-color: #A1A1A1;
     color: #FDFDFD;
 }
-.bg-dba:hover {
+.bg-nav .bg-dba:hover {
     background: #FDFDFD;
     color: #A1A1A1;
 }
-.bg-html5 {
+.bg-nav .bg-html5 {
     background: #FF9933;
     border-color: #FF9933;
     color: #FDFDFD;
 }
-.bg-html5:hover {
+.bg-nav .bg-html5:hover {
     background: #FDFDFD;
     color: #FF9933;
 }
-.bg-infra {
+.bg-nav .bg-infra {
     background: #595959;
     border-color: #595959;
     color: #FDFDFD;
 }
-.bg-infra:hover {
+.bg-nav .bg-infra:hover {
     background: #FDFDFD;
     color: #595959;
 }
-.bg-java {
+.bg-nav .bg-java {
     background: #FF8080;
     border-color: #FF8080;
     color: #FDFDFD;
 }
-.bg-java:hover {
+.bg-nav .bg-java:hover {
     background: #FDFDFD;
     color: #FF8080;
 }
-.bg-javascript {
+.bg-nav .bg-javascript {
     background: #ECEC00;
     border-color: #ECEC00;
     color: #FDFDFD;
 }
-.bg-javascript:hover {
+.bg-nav .bg-javascript:hover {
     background: #FDFDFD;
     color: #ECEC00;
 }
-.bg-php {
+.bg-nav .bg-php {
     background: #FF66FF;
     border-color: #FF66FF;
     color: #FDFDFD;
 }
-.bg-php:hover {
+.bg-nav .bg-php:hover {
     background: #FDFDFD;
     color: #FF66FF;
 }

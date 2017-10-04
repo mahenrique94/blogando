@@ -478,7 +478,6 @@
     transition: all .2s linear;
 }
 .bg-footer__link:hover:not(.bg-footer__link--titulo) {
-    font-size: 1.2rem;
     text-decoration: underline;
 }
 .bg-footer__link--titulo {
