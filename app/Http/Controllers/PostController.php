@@ -110,7 +110,7 @@ class PostController extends Controller implements GenericoController
         return $parsedown->text($string);
     }
 
-    private function subindoImagem($request) {        
+    private function subindoImagem($request) {
         if ($request->hasFile("file") && $request->file->isValid()) {
             $imagem = str_slug($request->titulo) . ".jpg";
             $this->arquivoController->upload($request->file, $imagem, "posts", date_format(date_create($request->datapostagem), "Y"), date_format(date_create($request->datapostagem), "m"));

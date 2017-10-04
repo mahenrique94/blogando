@@ -20,7 +20,8 @@
                             </tr>
                             <tr>
                                 <td><input class="bg-p-midia__tabela___link js-link" type="text" value="{{$blog->url}}/arquivo/download/arquivos-imagens/{{date_format(date_create($midia->created_at), "Y")}}/{{date_format(date_create($midia->created_at), "m")}}/{{$midia->slug}}"></td>
-                                <td><a class="bg-p-midia__tabela___copiar" href="#" onclick="copiarClipboard(this, event);" title="@lang("messages.botao.copiar")"><i class="icon-paste"></i></a></td>
+                                <td style="width: 35px"><button class="bg-p-midia__tabela___deletar" formaction="/painel/midia/{{$midia->id}}" onclick="DialogController.build(event, this, requestDeleteMidia, 'Deseja confirmar a exclusao', 'icon-trash');" role="button" type="button" style="background: transparent;border: none;" title="@lang("messages.botao.deletar")"><i class="icon-trash"></i></button></td>
+                                <td style="width: 35px"><a class="bg-p-midia__tabela___copiar" href="#" onclick="copiarClipboard(this, event);" title="@lang("messages.botao.copiar")"><i class="icon-paste"></i></a></td>
                             </tr>
                         </tbody>
                     </table>

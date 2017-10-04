@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\BlogMidia;
 
 class BlogMidiaController extends Controller
@@ -36,6 +36,14 @@ class BlogMidiaController extends Controller
 
     public function biblioteca() {
         return view("painel.midia.biblioteca", ["pagina" => "midia", "subpagina" => "biblioteca"])->with("midias", BlogMidia::all());
+    }
+
+    public function deletar($id) {
+        $midia = BlogMidia::find($id);
+        $arquivo = "public/arquivos/imagens/" . date_format(date_create($midia->created_at), "Y") . "/" . date_format(date_create($midia->created_at), "m") . "/" . $midia->slug;
+        Storage::delete($arquivo);
+        BlogMidia::destroy($id);
+        return response($arquivo, 200);
     }
 
     public function formulario(Request $request) {

@@ -9,6 +9,10 @@
                 @endif
                 <input aria-hidden="true" name="_token" type="hidden" value="{{csrf_token()}}"/>
                 <input aria-hidden="true" name="id" type="hidden" value="{{$post->id}}"/>
+                <input aria-hidden="true" name="idautor" type="hidden" value="{{$post->idautor}}"/>
+                <input aria-hidden="true" name="idsituacao" type="hidden" value="{{$post->idsituacao}}"/>
+                <input aria-hidden="true" name="slug" type="hidden" value="{{$post->slug}}"/>
+                <input aria-hidden="true" name="datapostagem" type="hidden" value="{{$post->datapostagem}}"/>
                 <input aria-hidden="true" name="imagem" type="hidden" value="{{$post->imagem}}"/>
                 <input accept="image/jpg" aria-hidden="true" class="is-hide js-inputImagem" id="file" name="file" type="file"/>
                 <div class="bg-p-dashboard__header">

@@ -193,3 +193,19 @@ function responderComentario(link) {
     if (existeElemento(form))
         form.idcomentario.value = link.dataset.comentario;
 }
+
+/** @auth Matheus Castiglioni
+ *  Deletar uma midia da biblioteca
+ */
+function requestDeleteMidia(obj) {
+    const URL = obj.href || obj.formAction;
+    const ID = URL.substring(URL.lastIndexOf("=") + 1);
+    HttpService.request(URL, "DELETE").then(response => {
+        console.log(response);
+        obj.parentNode.parentNode.parentNode.parentNode.parentNode.remove();
+        append(newToast("o-toast--success", "Registro excluido com sucesso", "icon-ok-circled"));
+    }).catch(error => {
+        append(newToast("o-toast--error", "Registro nao pode ser excluido", "icon-cancel-circled"));
+        console.error(error);
+    });
+};

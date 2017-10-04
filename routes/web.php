@@ -101,6 +101,7 @@ Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() 
 
     Route::post("notificacao/ler/{id}", "BlogNotificacaoController@ler");
 
+    Route::delete("midia/{id}", "BlogMidiaController@deletar");
     Route::post("midia/adicionar", "BlogMidiaController@adicionar");
     Route::get("midia/biblioteca", "BlogMidiaController@biblioteca");
     Route::get("midia/formulario", "BlogMidiaController@formulario");
