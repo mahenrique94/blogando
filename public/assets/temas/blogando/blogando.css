@@ -264,6 +264,8 @@
 .bg-visualizar .bg-post__conteudo img {
     display: block;
     margin: 0 auto;
+    max-height: 400px;
+    max-width: 100%;
 }
 .bg-visualizar .bg-post__conteudo a {
     text-decoration: underline;

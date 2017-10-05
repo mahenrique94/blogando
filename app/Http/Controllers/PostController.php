@@ -33,7 +33,7 @@ class PostController extends Controller implements GenericoController
                 "conteudo" => $request->conteudo, 
                 "conteudohtml" => $this->blog->parametros->usarmarkdown ? $this->markdownParaHtml($request->conteudo) : $request->conteudo,
                 "conteudomarkdown" => $this->blog->parametros->usarmarkdown ? $request->conteudo : $this->htmlParaMarkdown($request->conteudo),
-                "conteudoresumido" => substr(strip_tags($request->conteudo), 0, 255), 
+                "conteudoresumido" => $this->blog->parametros->usarmarkdown ? substr(strip_tags($this->markdownParaHtml($request->conteudo)), 0, 255) : substr(strip_tags($request->conteudo), 0, 255),
                 "updated_at" => date("Y-m-d H:i:s"),
             ]);
         return redirect()->action("PostController@editar", ["id" => $request->id])->withInput(["sucesso" => "Post atualizado com sucesso"]);
