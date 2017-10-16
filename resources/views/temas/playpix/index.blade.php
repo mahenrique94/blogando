@@ -19,36 +19,26 @@
         @if (isset($tag) && !is_null($tag) && !empty($tag))
             <p class="bg-resultado">Foi encontrado <strong>{{isset($postssemdestaque) ? count($postssemdestaque) : count($posts)}}</strong> {{isset($postssemdestaque) ? count($postssemdestaque) : count($posts) > 1 ? "posts" : "post"}} para a tag <strong>{{$tag->descricao}}</strong>.</p>
         @endif
-        <section class="bg-banner">
-            @foreach ($postsdestaque as $post)
-                <div class="bg-banner__wrap bg-banner__wrap--{{$loop->index + 1}}">
-                    <div class="bg-banner__post">
-                        <a href="{{$post->slug}}"><div class="bg-banner__post___imagem" style="background-image: url(/arquivo/download/posts/{{date_format(date_create($post->datapostagem), "Y")}}/{{date_format(date_create($post->datapostagem), "m")}}/{{$post->imagem}});"></div></a>
-                        <div class="bg-banner__post___info">
-                            @foreach ($post->categorias as $categoria)
-                                <a class="bg-banner__post___categoria" href="/categoria/{{$categoria->categoria->slug}}">{{$categoria->categoria->descricao}}</a>
-                            @endforeach
-                            <time class="bg-banner__post___data">{{date_format(date_create($post->datapostagem), $blog->parametros->formatodatahora->formato)}}</time>
-                            <a class="bg-banner__post___titulo" href="{{$post->slug}}">{{$post->titulo}}</a>
+        @if ($metodo === "index")
+            <section class="bg-banner">
+                @foreach ($postsdestaque as $post)
+                    <div class="bg-banner__wrap bg-banner__wrap--{{$loop->index + 1}}">
+                        <div class="bg-banner__post">
+                            <a href="/{{$post->slug}}"><div class="bg-banner__post___imagem" style="background-image: url(/arquivo/download/posts/{{date_format(date_create($post->datapostagem), "Y")}}/{{date_format(date_create($post->datapostagem), "m")}}/{{$post->imagem}});"></div></a>
+                            <div class="bg-banner__post___info">
+                                @foreach ($post->categorias as $categoria)
+                                    <a class="bg-banner__post___categoria" href="/categoria/{{$categoria->categoria->slug}}">{{$categoria->categoria->descricao}}</a>
+                                @endforeach
+                                <time class="bg-banner__post___data">{{date_format(date_create($post->datapostagem), $blog->parametros->formatodatahora->formato)}}</time>
+                                <a class="bg-banner__post___titulo" href="/{{$post->slug}}">{{$post->titulo}}</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
-        </section>
-        <div class="bg-publicidade--banner">
-            <a href="https://www.facebook.com/favordorei12" target="_blank">
-                <img alt="Banner Favor do Rei" class="bg-publicidade__imagem" src="/assets/temas/playpix/publicidade/banner_01.jpg">
-            </a>
-        </div>
+                @endforeach
+            </section>
+        @endif
         <section class="bg-posts">
-            @foreach (isset($postssemdestaque) ? $postssemdestaque : $posts as $post)
-                @if ($loop->index == ($blog->parametros->quantidadepostsporpagina / 2))
-                    <div class="bg-publicidade--banner">
-                        <a href="https://produto.mercadolivre.com.br/MLB-912764844-logomarca-logotipo-logo-criar-logomarca-profissional-_JM" target="_blank">
-                            <img alt="Banner do Lukpix" class="bg-publicidade__imagem" src="/assets/temas/playpix/publicidade/banner_02.jpg">
-                        </a>
-                    </div>
-                @endif
+            @foreach ($posts as $post)
                 <article class="bg-post">
                     @unless (Auth::guest())
                         <a class="bg-post__editar o-button--tie o-button--medium" href="/painel/post/{{$post->id}}"><i class="icon-pencil"></i>@lang("messages.botao.editar")</a>

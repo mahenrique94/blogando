@@ -21,7 +21,6 @@
 
 .bg-header {
     background: var(--aux);
-    box-shadow: 0 0 7px rgba(0, 0, 0, .5);
     display: block;
     padding: 0;
     position: relative;
@@ -133,7 +132,9 @@
     background: #F5F5F5;
     border-color: var(--primaria);
     border-width: 5px;
-    margin: 0;
+    margin: 2rem;
+    margin-bottom: 0;
+    width: initial;
 }
 .bg-resultado strong {
     color: var(--primaria);
@@ -183,7 +184,6 @@
     height: 200px;
     margin: 0;
     margin-right: 1rem;
-    width: 300px;
 }
 .bg-post__wrap {
     float: left;
@@ -396,13 +396,14 @@
         width: 90%;
     }
     .bg-posts {
-        padding: 0 2rem;
+        padding: 0 1rem;
     }
     .bg-post__wrap {
         width: 100%;
     }
     .bg-post__imagem {
         margin-bottom: 1rem;
+        width: 100%;
     }
     .bg-rodape {
         flex-direction: column;
@@ -447,6 +448,10 @@
     }
     .bg-post__imagem {
         margin-bottom: 0;
+        width: 300px;
+    }
+    .bg-conteudo--visualizar {
+        padding: 2rem 10rem;
     }
     .bg-rodape {
         flex-direction: row;

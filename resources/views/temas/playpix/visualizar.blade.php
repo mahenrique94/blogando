@@ -28,11 +28,6 @@
                         @endforeach
                     </p>
                 </header>
-                <div class="bg-publicidade--banner">
-                    <a href="https://www.facebook.com/favordorei12" target="_blank">
-                        <img alt="Banner Favor do Rei" class="bg-publicidade__imagem" src="/assets/temas/playpix/publicidade/banner_01.jpg">
-                    </a>
-                </div>
                 <section class="bg-post__conteudo">{!!$post->conteudohtml!!}</section>
                 <footer class="bg-post__rodape">
                     <p class="bg-post__tags">
@@ -43,11 +38,6 @@
                 </footer>
             </article>
         </section>
-        <div class="bg-publicidade--banner">
-            <a href="https://produto.mercadolivre.com.br/MLB-912764844-logomarca-logotipo-logo-criar-logomarca-profissional-_JM" target="_blank">
-                <img alt="Banner do Lukpix" class="bg-publicidade__imagem" src="/assets/temas/playpix/publicidade/banner_02.jpg">
-            </a>
-        </div>
         @include("temas.blogando.autor")
         @if ($blog->parametros->permitircomentarios && $blog->parametros->permitircomentariosanonimos)
             @include("temas.blogando.comentario")
