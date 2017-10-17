@@ -360,7 +360,9 @@
 
 .bg-rodape {
     align-items: center;
-    color: var(--primaria);
+    background: var(--primaria);
+    border-top: 1px solid var(--aux);
+    color: var(--aux);
     display: flex;
     justify-content: space-between;
     padding: 1rem 2rem;
