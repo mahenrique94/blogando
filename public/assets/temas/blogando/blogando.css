@@ -282,27 +282,36 @@
 .bg-visualizar .bg-post__conteudo blockquote {
     background: #F9F9F9;
     margin: 1rem;
-    padding: 1rem 2rem;
+    padding: 1rem 2rem 1rem 4rem;
     position: relative;
 }
 .bg-visualizar .bg-post__conteudo blockquote p {
     margin: 0;
 }
-.bg-visualizar .bg-post__conteudo blockquote::before, .bg-visualizar .bg-post__conteudo blockquote::after {
+.bg-visualizar .bg-post__conteudo blockquote::before {
+    color: rgba(89, 89, 89, .25);
     content: '"';
     font-family: Arial, sans-serif;
-    font-size: 3rem;
+    font-size: 9rem;
+    line-height: .75;
     position: absolute;
     top: 0;
 }
 .bg-visualizar .bg-post__conteudo blockquote::before {
     left: 5px;
 }
-.bg-visualizar .bg-post__conteudo blockquote::after {
-    right: 5px;
+.bg-visualizar .bg-post__conteudo ul {
+    margin-bottom: 1rem;
+    margin-left: 2rem;
+}
+.bg-visualizar .bg-post__conteudo li {
+    list-style: initial;
 }
 .bg-visualizar .bg-post__conteudo ul li a {
     line-height: 2;
+}
+.bg-visualizar .bg-post__conteudo iframe {
+    margin-bottom: 1rem;
 }
 
 /***
