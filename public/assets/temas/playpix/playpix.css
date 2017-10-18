@@ -449,6 +449,9 @@
     .bg-rodape__link {
         margin-left: 0;
     }
+    .bg-contato {
+        padding: 0;
+    }
 }
 @media screen and (min-width: 768px) {
     .bg-titulo {
@@ -496,5 +499,8 @@
     }
     .bg-rodape__link {
         margin-left: .75rem;
+    }
+    .bg-contato {
+        padding: 0 10rem;
     }
 }
