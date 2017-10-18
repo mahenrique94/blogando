@@ -375,6 +375,33 @@
     text-decoration: underline;
 }
 
+.bg-pagina__titulo {
+    border-bottom-color: var(--primaria);
+    color: var(--primaria);
+}
+.bg-pagina__descricao {
+    color: var(--texto);
+}
+.bg-pagina__link {
+    color: var(--primaria);
+}
+
+.bg-contato__label {
+    color: var(--primaria);
+}
+.bg-contato__dados {
+    border-color: var(--primaria);
+}
+.bg-contato__dados:focus {
+    box-shadow: 0 0 10px 2px rgba(130, 12, 175, .3);
+}
+.bg-contato__botao {
+    background: var(--primaria);
+}
+.bg-contato__botao:hover {
+    background: #690A8F;
+}
+
 /***
 ** Media Querie
 ***/

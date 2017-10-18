@@ -17,8 +17,6 @@ Route::get("/arquivo/visualizar/{pasta}/{ano}/{mes}/{arquivo}", "ArquivoControll
 Route::get("/arquivo/visualizar/{pasta}/{arquivo}", "ArquivoController@visualizar");
 Route::get("/arquivo/visualizar/{arquivo}", "ArquivoController@visualizar");
 
-Route::post("comentario", "BlogandoController@comentar");
-
 Route::get("painel/acessar", "AutenticacaoController@formulario");
 Route::post("painel/autenticar", "AutenticacaoController@autenticar");
 
@@ -156,11 +154,18 @@ Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() 
 });
 
 Route::get("", "BlogandoController@index");
+Route::get("/anuncie", "BlogandoController@anuncie");
 Route::get("/arquivo/{ano2017}/{mes}", "BlogandoController@arquivo");
 Route::get("/autor/{slug}", "BlogandoController@autor");
 Route::get("/categoria/{slug}", "BlogandoController@categoria");
+Route::get("/contato", "BlogandoController@contato");
 Route::get("/procurar", "BlogandoController@procurar");
+Route::get("/sobre", "BlogandoController@sobre");
 Route::get("/{slug}", "BlogandoController@post");
 Route::get("/tag/{slug}", "BlogandoController@tag");
+Route::post("/comentario", "BlogandoController@comentar");
+
+Route::get("/email/enviar", "EmailController@enviar");
+Route::get("/email/template", "EmailController@template");
 
 Route::post("newsletter/assinar", "BlogNewsletterController@assinar");

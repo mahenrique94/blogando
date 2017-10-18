@@ -47,6 +47,9 @@
         height: 200px;
         margin-bottom: 0;
     }
+    .bg-visualizar iframe {
+        max-width: 100%;
+    }
     .bg-aside {
         display: none;
     }
@@ -57,6 +60,9 @@
     .bg-autor__informacoes {
         margin-left: 75px;
         width: calc(100% - 75px);
+    }
+    .bg-pagina__titulo {
+        font-size: 1.7rem;
     }
     .bg-footer {
         padding: 1rem 2rem;
@@ -101,6 +107,9 @@
         height: 400px;
         margin-bottom: 2rem;
     }
+    .bg-visualizar iframe {
+        max-width: initial;
+    }
     .bg-aside {
         display: block;
     }
@@ -111,6 +120,9 @@
     .bg-autor__informacoes {
         margin-left: 150px;
         width: calc(100% - 150px);
+    }
+    .bg-pagina__titulo {
+        font-size: 2rem;
     }
     .bg-footer {
         padding: 1rem 5rem;

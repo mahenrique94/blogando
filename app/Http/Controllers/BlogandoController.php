@@ -20,6 +20,10 @@ class BlogandoController extends Controller
         $this->blog = Blog::first();
     }
 
+    public function anuncie() {
+        return view("temas." . $this->blog->aparencia->temablog .  ".anuncie");
+    }
+
     public function arquivo($ano, $mes) {
         $posts = Post::where(DB::raw("extract(year from datapostagem)"), $ano)
             ->where(DB::raw("extract(month from datapostagem)"), $mes)
@@ -43,6 +47,19 @@ class BlogandoController extends Controller
             ->with("posts", $posts)->with("autor", PostAutor::where("slug", $slug)->first());
     }
 
+    public function categoria($slug) {
+        $posts = Post::join("bg_post_categoria", "bg_post_categoria.idpost", "bg_post.id")
+            ->join("bg_cad_categoria", "bg_post_categoria.idcategoria", "bg_cad_categoria.id")
+            ->where("bg_cad_categoria.slug", "=", $slug)
+            ->orderBy("bg_post.datapostagem", "desc")
+            ->take($this->blog->parametros->quantidadepostsporpagina)
+            ->select("bg_post.*")
+            ->get();
+
+        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")->with("metodo", "categoria")
+            ->with("posts", $posts)->with("categoria", CadCategoria::where("slug", $slug)->first())->with("categoriafiltrada", CadCategoria::where("slug", $slug)->first());
+    }
+
     public function comentar(Request $request) {
         $comentario = PostComentario::create([
             "idpost" => $request->idpost,
@@ -61,17 +78,8 @@ class BlogandoController extends Controller
         return redirect()->action("BlogandoController@post", ["slug" => $post->slug]);
     }
 
-    public function categoria($slug) {
-        $posts = Post::join("bg_post_categoria", "bg_post_categoria.idpost", "bg_post.id")
-            ->join("bg_cad_categoria", "bg_post_categoria.idcategoria", "bg_cad_categoria.id")
-            ->where("bg_cad_categoria.slug", "=", $slug)
-            ->orderBy("bg_post.datapostagem", "desc")
-            ->take($this->blog->parametros->quantidadepostsporpagina)
-            ->select("bg_post.*")
-            ->get();
-
-        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")->with("metodo", "categoria")
-            ->with("posts", $posts)->with("categoria", CadCategoria::where("slug", $slug)->first())->with("categoriafiltrada", CadCategoria::where("slug", $slug)->first());
+    public function contato() {
+        return view("temas." . $this->blog->aparencia->temablog .  ".contato");
     }
 
     public function index() {
@@ -80,13 +88,17 @@ class BlogandoController extends Controller
             ->with("postssemdestaque", Post::where("datapostagem", "<=", date("Y-m-d H:i"))->orderBy("datapostagem", "desc")->skip(3)->take($this->blog->parametros->quantidadepostsporpagina)->get());
     }
 
+    public function post($slug) {
+        return view("temas." . $this->blog->aparencia->temablog .  ".visualizar")->with("pagina", "visualizar")->with("metodo", "visualizar")->with("post", Post::where("slug", $slug)->first());
+    }
+
     public function procurar(Request $request) {
         return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")->with("metodo", "procurar")
             ->with("posts", Post::where(DB::raw("lower(titulo)"), "like", "%" . $request->filtro . "%")->orderBy("datapostagem", "desc")->take($this->blog->parametros->quantidadepostsporpagina)->get())->with("filtro", $request->filtro);
     }
 
-    public function post($slug) {
-        return view("temas." . $this->blog->aparencia->temablog .  ".visualizar")->with("pagina", "visualizar")->with("metodo", "visualizar")->with("post", Post::where("slug", $slug)->first());
+    public function sobre() {
+        return view("temas." . $this->blog->aparencia->temablog .  ".sobre");
     }
 
     public function tag($slug) {
@@ -101,4 +113,5 @@ class BlogandoController extends Controller
         return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")->with("metodo", "tag")
             ->with("posts", $posts)->with("tag", CadTag::where("slug", $slug)->first());
     }
+    
 }

@@ -82,7 +82,7 @@
                 @include("temas.playpix.postsrecentes")
             @endif
             <div class="bg-publicidade--box">
-                <a href="https://www.facebook.com/frasesclub10/" target="_blank">
+                <a href="https://www.facebook.com/favordorei12/" target="_blank">
                     <img alt="Banner Frases Club" class="bg-publicidade__imagem" src="/assets/temas/playpix/publicidade/box_01.jpg">
                 </a>
             </div>
@@ -96,7 +96,7 @@
                 @include("temas.blogando.arquivos")
             @endif
             <div class="bg-publicidade--box">
-                <a href="https://www.facebook.com/proflucasmartins01/" target="_blank">
+                <a href="https://www.facebook.com/frasesclub10/" target="_blank">
                     <img alt="Banner Lucas Martins" class="bg-publicidade__imagem" src="/assets/temas/playpix/publicidade/box_02.jpg">
                 </a>
             </div>

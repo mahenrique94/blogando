@@ -56,7 +56,7 @@ class ArquivoController extends Controller
     }
 
     public function visualizar($pasta = "", $ano = "", $mes = "", $arquivo = "") {
-        return response()->make(file_get_contents($this->criandoPath($pasta, $ano, $mes, $arquivo)), 200, ['content-type' => 'image/jpg']);
+        return response()->make(file_get_contents($this->criandoPath($pasta, $ano, $mes, $arquivo)), 200, ['content-type' => mime_content_type($this->criandoPath($pasta, $ano, $mes, $arquivo))]);
     }
 
     private function criandoPath($pasta = "", $ano = "", $mes = "", $arquivo = "") {
