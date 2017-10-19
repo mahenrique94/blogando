@@ -247,6 +247,9 @@
     background-size: contain;
     width: 100%;
 }
+.bg-visualizar .bg-post__titulo:hover {
+    text-decoration: underline;
+}
 .bg-visualizar .bg-post__conteudo {
     font-size: 1.2rem;
     margin: 2rem 0;
