@@ -58,9 +58,9 @@ class PostController extends Controller implements GenericoController
     }
     
     public function listar(Request $request) {
-        $posts = Post::all();
+        $posts = Post::orderBy("id", "desc")->get();
         if ($request->has("campo") && $request->has("filtro")) {
-            $posts = Post::where($request->campo, "like", $request->filtro)->get();
+            $posts = Post::where($request->campo, "like", "%" . $request->filtro . "%")->orderBy("id", "desc")->get();
         }
         return view("painel.post.lista", ["pagina" => "posts"], ["subpagina" => "todos"])->with("posts", $posts);
     }

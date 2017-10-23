@@ -30,7 +30,7 @@
             selector: "#conteudo",
             height: 300,
             theme: "modern",
-            menubar: false,
+            menubar: true,
             language : "pt_BR",
             browser_spellcheck : true,
             plugins: [
@@ -39,7 +39,8 @@
                 "insertdatetime media nonbreaking save table contextmenu directionality",
                 "emoticons template paste textcolor textpattern colorpicker textpattern imagetools codesample"
             ],
-            toolbar: "restoredraft undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | link image codesample"
+            toolbar: "restoredraft | undo redo searchreplace | insert | fontselect fontsizeselect forecolor backcolor | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist | emoticons link image media codesample removeformat print preview",
+            fontsize_formats: "8px 10px 12px 14px 16px 18px 20px 22px 24px 36px 48px 72px"
         });    
     </script> 
 @endif
