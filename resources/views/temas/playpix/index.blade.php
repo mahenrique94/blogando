@@ -4,21 +4,7 @@
 @section("conteudo")
     <section class="u-content">
         <div class="bg-info">A <a class="bg-marca" href="/"><strong>Playpix</strong></a> é um canal de notícias atualizado diariamente</div>
-        @if (isset($filtro) && !is_null($filtro) && !empty($filtro))
-            <p class="bg-resultado">Foi encontrado <strong>{{isset($postssemdestaque) ? count($postssemdestaque) : count($posts)}}</strong> {{isset($postssemdestaque) ? count($postssemdestaque) : count($posts) > 1 ? "posts" : "post"}} para o título <strong>{{$filtro}}</strong>.</p>
-        @endif
-        @if (isset($mes) && !is_null($mes) && !empty($mes) && isset($ano) && !is_null($ano) && !empty($ano))
-            <p class="bg-resultado">Foi encontrado <strong>{{isset($postssemdestaque) ? count($postssemdestaque) : count($posts)}}</strong> {{isset($postssemdestaque) ? count($postssemdestaque) : count($posts) > 1 ? "posts" : "post"}} para o mês <strong>{{$mes}}</strong> do ano <strong>{{$ano}}</strong>.</p>
-        @endif
-        @if (isset($autor) && !is_null($autor) && !empty($autor))
-            <p class="bg-resultado">Foi encontrado <strong>{{isset($postssemdestaque) ? count($postssemdestaque) : count($posts)}}</strong> {{isset($postssemdestaque) ? count($postssemdestaque) : count($posts) > 1 ? "posts" : "post"}} para o autor <strong>{{$autor->nome}}</strong>.</p>
-        @endif
-        @if (isset($categoria) && !is_null($categoria) && !empty($categoria))
-            <p class="bg-resultado">Foi encontrado <strong>{{isset($postssemdestaque) ? count($postssemdestaque) : count($posts)}}</strong> {{isset($postssemdestaque) ? count($postssemdestaque) : count($posts) > 1 ? "posts" : "post"}} para a categoria <strong>{{$categoria->descricao}}</strong>.</p>
-        @endif
-        @if (isset($tag) && !is_null($tag) && !empty($tag))
-            <p class="bg-resultado">Foi encontrado <strong>{{isset($postssemdestaque) ? count($postssemdestaque) : count($posts)}}</strong> {{isset($postssemdestaque) ? count($postssemdestaque) : count($posts) > 1 ? "posts" : "post"}} para a tag <strong>{{$tag->descricao}}</strong>.</p>
-        @endif
+        @include("temas.blogando.resultado")
         @if ($metodo === "index")
             <section class="bg-banner">
                 @foreach ($postsdestaque as $post)
@@ -70,6 +56,7 @@
                     </div>
                 </article>
             @endforeach
+            @include("temas.blogando.paginacao")
         </section>
         <aside class="bg-aside">
             @if ($blog->aparencia->mostrarredessociais)

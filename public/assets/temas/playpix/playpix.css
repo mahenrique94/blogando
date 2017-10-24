@@ -316,6 +316,25 @@
     margin-right: .5rem;
 }
 
+.bg-paginacao {
+    background: transparent;
+    margin-top: 2rem;
+    padding: 0;
+    text-align: right;
+}
+.bg-paginacao__link {
+    border-color: var(--primaria);
+    color: var(--primaria);
+}
+.bg-paginacao__link.is-ativo {
+    background: var(--primaria);
+    color: var(--aux);
+}
+.bg-paginacao__link:hover {
+    background: var(--primaria);
+    color: var(--aux);
+}
+
 .bg-autor {
     background: var(--aux);
 }

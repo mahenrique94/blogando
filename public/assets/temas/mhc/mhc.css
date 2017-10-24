@@ -168,3 +168,21 @@
 .bg-visualizar .bg-post__conteudo pre {
     white-space: pre-wrap;
 }
+
+.bg-paginacao__link {
+    border-color: #0099FF;
+    color: #0099FF;
+}
+.bg-paginacao__link.is-ativo {
+    background: #0099FF;
+}
+.bg-paginacao__link:hover {
+    background: #0099FF;
+}
+
+.bg-resultado {
+    border-color: #0099FF;
+}
+.bg-resultado strong {
+    color: #0099FF;
+}
