@@ -104,9 +104,16 @@ class BlogandoController extends Controller
         return view("temas." . $this->blog->aparencia->temablog .  ".visualizar")->with("pagina", "visualizar")->with("metodo", "visualizar")->with("post", Post::where("slug", $slug)->first());
     }
 
-    public function procurar(Request $request) {
-        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")->with("metodo", "procurar")
-            ->with("posts", Post::where(DB::raw("lower(titulo)"), "like", "%" . $request->filtro . "%")->orderBy("datapostagem", "desc")->take($this->blog->parametros->quantidadepostsporpagina)->get())->with("filtro", $request->filtro);
+    public function procurar(Request $request, $pagina = 1) {
+        $query = Post::where(DB::raw("lower(titulo)"), "like", "%" . $request->filtro . "%")->orderBy("datapostagem", "desc");
+
+        $quantidadeDePosts = $query->count();
+        $quantidadeDePaginas = intval(round($quantidadeDePosts / $this->quantidadeDePostsPorPagina));
+        $skip = ($pagina * $this->quantidadeDePostsPorPagina) - $this->quantidadeDePostsPorPagina;
+
+        $posts = $query->skip($skip)->take($this->quantidadeDePostsPorPagina)->get();
+        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")->with("metodo", "procurar")->with("paginas", $quantidadeDePaginas)->with("paginaAtual", $pagina)->with("resultado", $quantidadeDePosts)->with("link", "/procurar")
+            ->with("posts", $posts)->with("filtro", $request->filtro);
     }
 
     public function sobre() {

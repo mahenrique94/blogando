@@ -164,6 +164,7 @@ Route::get("/categoria/{slug}", "BlogandoController@categoria");
 Route::get("/categoria/{slug}/pagina/{pagina}", "BlogandoController@categoria");
 Route::get("/contato", "BlogandoController@contato");
 Route::get("/procurar", "BlogandoController@procurar");
+Route::get("/procurar/pagina/{pagina}", "BlogandoController@procurar");
 Route::get("/sobre", "BlogandoController@sobre");
 Route::get("/{slug}", "BlogandoController@post");
 Route::get("/tag/{slug}", "BlogandoController@tag");
