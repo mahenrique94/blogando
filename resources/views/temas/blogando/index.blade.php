@@ -52,6 +52,7 @@
                     </footer>
                 </article>
             @endforeach
+            @include("temas.blogando.paginacao")
         </section>
         <aside class="bg-aside">
             @if ($blog->aparencia->mostrarpesquisa)

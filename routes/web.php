@@ -154,8 +154,9 @@ Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() 
 });
 
 Route::get("", "BlogandoController@index");
+Route::get("/pagina/{pagina}", "BlogandoController@index");
 Route::get("/anuncie", "BlogandoController@anuncie");
-Route::get("/arquivo/{ano2017}/{mes}", "BlogandoController@arquivo");
+Route::get("/arquivo/{ano}/{mes}", "BlogandoController@arquivo");
 Route::get("/autor/{slug}", "BlogandoController@autor");
 Route::get("/categoria/{slug}", "BlogandoController@categoria");
 Route::get("/contato", "BlogandoController@contato");

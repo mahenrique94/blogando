@@ -366,6 +366,49 @@
 }
 
 /***
+** Paginação
+***/
+.bg-paginacao {
+    background: var(--texto);
+    padding: 1.5rem;
+    text-align: center;
+}
+.bg-paginacao__paginas, .bg-paginacao__pagina {
+    display: inline-block;
+}
+.bg-paginacao__link {
+    border: 1px solid var(--cor);
+    color: var(--cor);
+    font-size: 1.35rem;
+    padding: .5rem 1rem;
+    transition: all .2s linear;
+}
+.bg-paginacao__link--primeira::before {
+    content: "\f100";
+    font-family: Stilize;
+}
+.bg-paginacao__link--anterior::before {
+    content: "\f104";
+    font-family: Stilize;
+}
+.bg-paginacao__link--proxima::before {
+    content: "\f105";
+    font-family: Stilize;
+}
+.bg-paginacao__link--ultima::before {
+    content: "\f101";
+    font-family: Stilize;
+}
+.bg-paginacao__link:hover {
+    color: var(--texto);
+    background: var(--cor);
+}
+.bg-paginacao__link.is-ativo {
+    background: var(--cor);
+    color: var(--texto);
+}
+
+/***
 ** Comentários
 ***/
 .bg-comentarios__titulo, .bg-comentarios__formulario___titulo {

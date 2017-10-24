@@ -82,9 +82,14 @@ class BlogandoController extends Controller
         return view("temas." . $this->blog->aparencia->temablog .  ".contato");
     }
 
-    public function index() {
-        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")->with("metodo", "index")
-            ->with("posts", Post::where("datapostagem", "<=", date("Y-m-d H:i"))->orderBy("datapostagem", "desc")->take($this->blog->parametros->quantidadepostsporpagina)->get())
+    public function index($pagina = 1) {
+        $posts = Post::where("datapostagem", "<=", date("Y-m-d H:i"))->orderBy("datapostagem", "desc")->get();
+        $quantidadeDePosts = count($posts->toArray());
+        $quantidadeDePostsPorPagina = $this->blog->parametros->quantidadepostsporpagina;
+        $quantidadeDePaginas = intval(round($quantidadeDePosts / $quantidadeDePostsPorPagina));
+        $posts = $posts->splice((($pagina * $this->blog->parametros->quantidadepostsporpagina) - $this->blog->parametros->quantidadepostsporpagina), ($pagina * $this->blog->parametros->quantidadepostsporpagina));
+        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")->with("metodo", "index")->with("paginas", $quantidadeDePaginas)->with("pagina", $pagina)
+            ->with("posts", $posts)
             ->with("postssemdestaque", Post::where("datapostagem", "<=", date("Y-m-d H:i"))->orderBy("datapostagem", "desc")->skip(3)->take($this->blog->parametros->quantidadepostsporpagina)->get());
     }
 
