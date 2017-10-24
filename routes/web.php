@@ -157,13 +157,17 @@ Route::get("", "BlogandoController@index");
 Route::get("/pagina/{pagina}", "BlogandoController@index");
 Route::get("/anuncie", "BlogandoController@anuncie");
 Route::get("/arquivo/{ano}/{mes}", "BlogandoController@arquivo");
+Route::get("/arquivo/{ano}/{mes}/pagina/{pagina}", "BlogandoController@arquivo");
 Route::get("/autor/{slug}", "BlogandoController@autor");
+Route::get("/autor/{slug}/pagina/{pagina}", "BlogandoController@autor");
 Route::get("/categoria/{slug}", "BlogandoController@categoria");
+Route::get("/categoria/{slug}/pagina/{pagina}", "BlogandoController@categoria");
 Route::get("/contato", "BlogandoController@contato");
 Route::get("/procurar", "BlogandoController@procurar");
 Route::get("/sobre", "BlogandoController@sobre");
 Route::get("/{slug}", "BlogandoController@post");
 Route::get("/tag/{slug}", "BlogandoController@tag");
+Route::get("/tag/{slug}/pagina/{pagina}", "BlogandoController@tag");
 Route::post("/comentario", "BlogandoController@comentar");
 
 Route::get("/email/enviar", "EmailController@enviar");

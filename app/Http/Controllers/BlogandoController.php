@@ -15,48 +15,57 @@ class BlogandoController extends Controller
 {
 
     private $blog;
+    private $quantidadeDePostsPorPagina;
 
     public function __construct() {
         $this->blog = Blog::first();
+        $this->quantidadeDePostsPorPagina = $this->blog->parametros->quantidadepostsporpagina;
     }
 
     public function anuncie() {
         return view("temas." . $this->blog->aparencia->temablog .  ".anuncie");
     }
 
-    public function arquivo($ano, $mes) {
-        $posts = Post::where(DB::raw("extract(year from datapostagem)"), $ano)
+    public function arquivo($ano, $mes, $pagina = 1) {
+        $query = Post::where(DB::raw("extract(year from datapostagem)"), $ano)
             ->where(DB::raw("extract(month from datapostagem)"), $mes)
-            ->orderBy("bg_post.datapostagem", "desc")
-            ->take($this->blog->parametros->quantidadepostsporpagina)
-            ->get();
+            ->orderBy("bg_post.datapostagem", "desc");
 
-        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")->with("metodo", "arquivo")
+        $quantidadeDePosts = $query->count();
+        $quantidadeDePaginas = intval(round($quantidadeDePosts / $this->quantidadeDePostsPorPagina));
+        $skip = ($pagina * $this->quantidadeDePostsPorPagina) - $this->quantidadeDePostsPorPagina;
+
+        $posts = $query->skip($skip)->take($this->quantidadeDePostsPorPagina)->get();
+        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")->with("metodo", "arquivo")->with("paginas", $quantidadeDePaginas)->with("paginaAtual", $pagina)->with("resultado", $quantidadeDePosts)->with("link", "/arquivo/" . $ano . "/" . $mes)
             ->with("posts", $posts)->with("mes", $mes)->with("ano", $ano);
     }
 
-    public function autor($slug) {
-        $posts = Post::join("bg_post_autor", "bg_post.idautor", "bg_post_autor.id")
+    public function autor($slug, $pagina = 1) {
+        $query = Post::join("bg_post_autor", "bg_post.idautor", "bg_post_autor.id")
             ->where("bg_post_autor.slug", $slug)
-            ->orderBy("bg_post.datapostagem", "desc")
-            ->take($this->blog->parametros->quantidadepostsporpagina)
-            ->select("bg_post.*")
-            ->get();
+            ->orderBy("bg_post.datapostagem", "desc");
 
-        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")->with("metodo", "autor")
+        $quantidadeDePosts = $query->count();
+        $quantidadeDePaginas = intval(round($quantidadeDePosts / $this->quantidadeDePostsPorPagina));
+        $skip = ($pagina * $this->quantidadeDePostsPorPagina) - $this->quantidadeDePostsPorPagina;
+
+        $posts = $query->skip($skip)->take($this->quantidadeDePostsPorPagina)->select("bg_post.*")->get();
+        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")->with("metodo", "autor")->with("paginas", $quantidadeDePaginas)->with("paginaAtual", $pagina)->with("resultado", $quantidadeDePosts)->with("link", "/autor/" . $slug)
             ->with("posts", $posts)->with("autor", PostAutor::where("slug", $slug)->first());
     }
 
-    public function categoria($slug) {
-        $posts = Post::join("bg_post_categoria", "bg_post_categoria.idpost", "bg_post.id")
+    public function categoria($slug, $pagina = 1) {
+        $query = Post::join("bg_post_categoria", "bg_post_categoria.idpost", "bg_post.id")
             ->join("bg_cad_categoria", "bg_post_categoria.idcategoria", "bg_cad_categoria.id")
             ->where("bg_cad_categoria.slug", "=", $slug)
-            ->orderBy("bg_post.datapostagem", "desc")
-            ->take($this->blog->parametros->quantidadepostsporpagina)
-            ->select("bg_post.*")
-            ->get();
+            ->orderBy("bg_post.datapostagem", "desc");
 
-        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")->with("metodo", "categoria")
+        $quantidadeDePosts = $query->count();
+        $quantidadeDePaginas = intval(round($quantidadeDePosts / $this->quantidadeDePostsPorPagina));
+        $skip = ($pagina * $this->quantidadeDePostsPorPagina) - $this->quantidadeDePostsPorPagina;
+
+        $posts = $query->skip($skip)->take($this->quantidadeDePostsPorPagina)->select("bg_post.*")->get();
+        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")->with("metodo", "categoria")->with("paginas", $quantidadeDePaginas)->with("paginaAtual", $pagina)->with("resultado", $quantidadeDePosts)->with("link", "/categoria/" . $slug)
             ->with("posts", $posts)->with("categoria", CadCategoria::where("slug", $slug)->first())->with("categoriafiltrada", CadCategoria::where("slug", $slug)->first());
     }
 
@@ -83,13 +92,11 @@ class BlogandoController extends Controller
     }
 
     public function index($pagina = 1) {
-        $posts = Post::where("datapostagem", "<=", date("Y-m-d H:i"))->orderBy("datapostagem", "desc")->get();
-        $quantidadeDePosts = count($posts->toArray());
-        $quantidadeDePostsPorPagina = $this->blog->parametros->quantidadepostsporpagina;
-        $quantidadeDePaginas = intval(round($quantidadeDePosts / $quantidadeDePostsPorPagina));
-        $posts = $posts->splice((($pagina * $this->blog->parametros->quantidadepostsporpagina) - $this->blog->parametros->quantidadepostsporpagina), ($pagina * $this->blog->parametros->quantidadepostsporpagina));
-        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")->with("metodo", "index")->with("paginas", $quantidadeDePaginas)->with("pagina", $pagina)
-            ->with("posts", $posts)
+        $quantidadeDePosts = Post::count();
+        $quantidadeDePaginas = intval(round($quantidadeDePosts / $this->quantidadeDePostsPorPagina));
+        $skip = ($pagina * $this->quantidadeDePostsPorPagina) - $this->quantidadeDePostsPorPagina;
+        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")->with("metodo", "index")->with("paginas", $quantidadeDePaginas)->with("paginaAtual", $pagina)->with("resultado", $quantidadeDePosts)->with("link", "")
+            ->with("posts", Post::where("datapostagem", "<=", date("Y-m-d H:i"))->orderBy("datapostagem", "desc")->skip($skip)->take($this->quantidadeDePostsPorPagina)->get())
             ->with("postssemdestaque", Post::where("datapostagem", "<=", date("Y-m-d H:i"))->orderBy("datapostagem", "desc")->skip(3)->take($this->blog->parametros->quantidadepostsporpagina)->get());
     }
 
@@ -106,16 +113,18 @@ class BlogandoController extends Controller
         return view("temas." . $this->blog->aparencia->temablog .  ".sobre");
     }
 
-    public function tag($slug) {
-        $posts = Post::join("bg_post_tag", "bg_post_tag.idpost", "bg_post.id")
+    public function tag($slug, $pagina = 1) {
+        $query = Post::join("bg_post_tag", "bg_post_tag.idpost", "bg_post.id")
             ->join("bg_cad_tag", "bg_post_tag.idtag", "bg_cad_tag.id")
             ->where("bg_cad_tag.slug", "=", $slug)
-            ->orderBy("bg_post.datapostagem", "desc")
-            ->take($this->blog->parametros->quantidadepostsporpagina)
-            ->select("bg_post.*")
-            ->get();
+            ->orderBy("bg_post.datapostagem", "desc");
 
-        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")->with("metodo", "tag")
+        $quantidadeDePosts = $query->count();
+        $quantidadeDePaginas = intval(round($quantidadeDePosts / $this->quantidadeDePostsPorPagina));
+        $skip = ($pagina * $this->quantidadeDePostsPorPagina) - $this->quantidadeDePostsPorPagina;
+
+        $posts = $query->skip($skip)->take($this->quantidadeDePostsPorPagina)->select("bg_post.*")->get();
+        return view("temas." . $this->blog->aparencia->temablog .  ".index")->with("pagina", "index")->with("metodo", "tag")->with("paginas", $quantidadeDePaginas)->with("paginaAtual", $pagina)->with("resultado", $quantidadeDePosts)->with("link", "/tag/" . $slug)
             ->with("posts", $posts)->with("tag", CadTag::where("slug", $slug)->first());
     }
     
