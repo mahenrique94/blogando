@@ -25,11 +25,10 @@
     .bg-pesquisar {
         display: none;
     }
-    .bg-nav__item {
-        width: 50%;
-    }
     .bg-nav__link {
         margin-top: 1rem;
+        text-align: center;
+        width: 100%;
     }
     .bg-banner {
         grid-template-columns: 100% 0;
@@ -85,11 +84,10 @@
     .bg-pesquisar {
         display: inline-block;
     }
-    .bg-nav__item {
-        width: initial;
-    }
     .bg-nav__link {
         margin-top: 0;
+        text-align: initial;
+        width: initial;
     }
     .bg-banner {
         grid-template-columns: auto auto;

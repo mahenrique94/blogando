@@ -462,6 +462,9 @@
     .bg-rodape__lista {
         width: 100%;
     }
+    .bg-rodape__item {
+        text-align: center;
+    }
     .bg-rodape__lista, .bg-rodape__item {
         display: block;
     }
@@ -512,6 +515,9 @@
     }
     .bg-rodape__lista {
         width: initial;
+    }
+    .bg-rodape__item {
+        text-align: initial;
     }
     .bg-rodape__lista, .bg-rodape__item {
         display: inline-block;

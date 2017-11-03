@@ -16,18 +16,27 @@
     <link rel="icon" href="/assets/temas/{{$blog->aparencia->temablog}}/favicon.ico">
     @include("temas." . $blog->aparencia->temablog . ".google-console")
     {{-- OPEN GRAPH -> FACEBOOK --}}
+    <meta property="og:locale" content="pt_BR">
+    <meta property=”og:site_name” content=”{{$blog->titulo}}“/>
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="400">
     @if (isset($pagina) && $pagina === "visualizar")
         <meta name="description" content="{{$post->conteudoresumido}}">
+        <meta property="og:title" content="{{$post->titulo}}" />
         <meta property="og:url" content="{{$blog->url}}/{{$post->slug}}" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="{{$post->titulo}}" />
+        <meta property="article:author" content="{{$post->autor->nome}}">
+        <meta property="article:section" content="{{$post->categorias[0]->categoria->descricao}}">
+        <meta property="article:tag" content="@foreach ($post->tags as $tag) {{$tag->tag->descricao}} @endforeach">
+        <meta property="article:published_time" content="{{$post->datapostagem}}">
         <meta property="og:description" content="{{$post->conteudoresumido}}" />
         <meta property="og:image" content="{{$blog->url}}/arquivo/download/posts/{{date_format(date_create($post->datapostagem), "Y")}}/{{date_format(date_create($post->datapostagem), "m")}}/{{$post->imagem}}"/>
     @else
         <meta name="description" content="{{$blog->descricao}}">
-        <meta property="og:url" content="{{$blog->url}}" />
-        <meta property="og:type" content="website"/>
         <meta property="og:title" content="{{$blog->titulo}}" />
+        <meta property="og:url" content="{{$blog->url}}" />
+        <meta property="og:type" content="blog"/>
         <meta property="og:description" content="{{$blog->descricao}}" />
         <meta property="og:image" content="{{$blog->url}}/arquivo/download/blog/{{$blog->imagem}}"/>
     @endif

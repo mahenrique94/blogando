@@ -358,7 +358,10 @@
 .bg-aside__link {
     color: var(--cor);
     display: block;
-    line-height: 2;
+    line-height: 2rem;
+    max-height: 4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
     transition: all .2s ease-in-out;
 }
 .bg-aside__link:hover {
