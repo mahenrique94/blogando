@@ -63,6 +63,13 @@
     .bg-pagina__titulo {
         font-size: 1.7rem;
     }
+    .bg-paginacao {
+        margin-bottom: 2rem;
+    }
+    .bg-paginacao__link {
+        font-size: 1rem;
+        padding: .5rem .75rem;
+    }
     .bg-footer {
         padding: 1rem 2rem;
     }
@@ -121,6 +128,13 @@
     }
     .bg-pagina__titulo {
         font-size: 2rem;
+    }
+    .bg-paginacao {
+        margin-bottom: 0;
+    }
+    .bg-paginacao__link {
+        font-size: 1.125rem;
+        padding: .5rem 1rem;
     }
     .bg-footer {
         padding: 1rem 5rem;

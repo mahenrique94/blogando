@@ -5,7 +5,7 @@
             @foreach ($postsrecentes as $post)
                 <li class="bg-aside__item">
                     <span class="bg-aside__indice">{{$loop->index + 1}}</span>
-                    <a class="bg-aside__link" href="/{{$post->slug}}">{{$post->titulo}}</a>
+                    <a class="bg-aside__link js-bg-aside__link" href="/{{$post->slug}}">{{$post->titulo}}</a>
                 </li>
             @endforeach
         </ul>

@@ -12,3 +12,11 @@ function toggleNav(event) {
             esconderNav(nav);
     }
 }
+
+const postsRecentes = document.querySelectorAll(".js-bg-aside__link");
+if (postsRecentes.length > 0) {
+    postsRecentes.forEach(postRecente => {
+       if (postRecente.textContent.length > 85)
+           postRecente.textContent = postRecente.textContent.toString().substring(0, 85).trim() + "...";
+    });
+}

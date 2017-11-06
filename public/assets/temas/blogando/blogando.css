@@ -382,8 +382,6 @@
 .bg-paginacao__link {
     border: 1px solid var(--cor);
     color: var(--cor);
-    font-size: 1.125rem;
-    padding: .5rem 1rem;
     transition: all .2s linear;
 }
 .bg-paginacao__link--primeira::before {

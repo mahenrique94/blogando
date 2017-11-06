@@ -5,7 +5,7 @@
                 <li class="bg-paginacao__pagina"><a class="bg-paginacao__link bg-paginacao__link--primeira" href="{{$link}}/pagina/1{{$metodo === "procurar" ? "?filtro=" . $filtro : ""}}"></a></li>
                 <li class="bg-paginacao__pagina"><a class="bg-paginacao__link bg-paginacao__link--anterior" href="{{$link}}/pagina/{{($paginaAtual - 1) >= 1 ? $paginaAtual - 1 : 1}}{{$metodo === "procurar" ? "?filtro=" . $filtro : ""}}"></a></li>
             @endif
-            @for ($i = ($paginaAtual > 1 ? ($paginaAtual + 5 > $paginas ? ($paginas - 4 < 0 ? $paginaAtual : $paginas - 4) : $paginaAtual) : 1), $j = 1; $i <= $paginas && $j <= 5; $i++, $j++)
+            @for ($i = ($paginaAtual > 1 ? ($paginaAtual + 5 > $paginas ? ($paginas - 4 < 0 ? $paginaAtual : ($paginas - 4 == 0 ? 1 : $paginas - 4)) : $paginaAtual) : $paginaAtual), $j = 1; $i <= $paginas && $j <= 5; $i++, $j++)
                 <li class="bg-paginacao__pagina"><a class="bg-paginacao__link {{$paginaAtual == $i ? "is-ativo" : ""}}" href="{{$link}}/pagina/{{$i}}{{$metodo === "procurar" ? "?filtro=" . $filtro : ""}}">{{$i}}</a></li>
             @endfor
             @if ($paginaAtual < $paginas)
