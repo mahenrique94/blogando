@@ -163,5 +163,21 @@ class PopulandoTabelaCadRedeSocial extends Seeder
             "created_at" => DB::raw('current_timestamp'),
             "updated_at" => DB::raw('current_timestamp'),
         ]);
+        DB::table("bg_cad_redesocial")->insert([
+            "id" => 20,
+            "descricao" => "Medium",
+            "icone" => "icon-medium",
+            "slug" => "medium",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
+        ]);
+        DB::table("bg_cad_redesocial")->insert([
+            "id" => 21,
+            "descricao" => "Meetup",
+            "icone" => "icon-meetup",
+            "slug" => "meetup",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
+        ]);
     }
 }
