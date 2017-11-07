@@ -5,6 +5,7 @@
     <section class="bg-conteudo--visualizar u-content">
         <section class="bg-visualizar">
             <article class="bg-post">
+                @yield("disqus")
                 <input id="url" name="url" type="hidden" value="{{$blog->url}}">
                 <input id="post" name="post" type="hidden" value="{{$post->slug}}">
                 @unless (Auth::guest())

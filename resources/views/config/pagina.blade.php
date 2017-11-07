@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="/assets/temas/{{$blog->aparencia->temablog}}/{{$blog->aparencia->temablog}}.css">
     <link rel="icon" href="/assets/temas/{{$blog->aparencia->temablog}}/favicon.ico">
     @include("temas." . $blog->aparencia->temablog . ".google-console")
-    {{-- OPEN GRAPH -> FACEBOOK --}}
     <meta property="og:locale" content="pt_BR">
     <meta property=”og:site_name” content=”{{$blog->titulo}}“/>
     <meta property="og:image:type" content="image/jpeg">
