@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/assets/temas/blogando/media-querie.css">
     <link rel="stylesheet" href="/assets/temas/{{$blog->aparencia->temablog}}/{{$blog->aparencia->temablog}}.css">
     <link rel="icon" href="/assets/temas/{{$blog->aparencia->temablog}}/favicon.ico">
-    @include("temas." . $blog->aparencia->temablog . ".google-console")
+    @includeIf("temas." . $blog->aparencia->temablog . ".google-console")
     <meta property="og:locale" content="pt_BR">
     <meta property=”og:site_name” content=”{{$blog->titulo}}“/>
     <meta property="og:image:type" content="image/jpeg">
@@ -26,7 +26,7 @@
         <meta property="og:url" content="{{$blog->url}}/{{$post->slug}}" />
         <meta property="og:type" content="article"/>
         <meta property="article:author" content="{{$post->autor->nome}}">
-        <meta property="article:section" content="{{$post->categorias[0]->categoria->descricao}}">
+        <meta property="article:section" content="{{count($post->categorias) > 0 ? $post->categorias[0]->categoria->descricao : ""}}">
         <meta property="article:tag" content="@foreach ($post->tags as $tag) {{$tag->tag->descricao}} @endforeach">
         <meta property="article:published_time" content="{{$post->datapostagem}}">
         <meta property="og:description" content="{{$post->conteudoresumido}}" />
@@ -56,7 +56,10 @@
         <script src="/assets/temas/blogando/blogando.js"></script>
     @endunless
     <script src="/assets/temas/{{$blog->aparencia->temablog}}/{{$blog->aparencia->temablog}}.js"></script>
-    @include("temas." . $blog->aparencia->temablog . ".google-analytics")
+    @includeIf("temas." . $blog->aparencia->temablog . ".google-analytics")
+    @if (isset($pagina) && $pagina === "visualizar")
+        @includeIf("temas." . $blog->aparencia->temablog . ".disqus-config")
+    @endif
     @yield("rodape")
 </body>
 </html>

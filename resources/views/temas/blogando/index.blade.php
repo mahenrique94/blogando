@@ -26,7 +26,7 @@
                             @endforeach
                         </p>
                     </header>
-                    <a href="/{{$post->slug}}"><div class="bg-post__imagem" style="background-image: url(/arquivo/download/posts/{{date_format(date_create($post->datapostagem), "Y")}}/{{date_format(date_create($post->datapostagem), "m")}}/{{$post->imagem}});"></div></a>
+                    <a href="/{{$post->slug}}"><div class="bg-post__imagem" style="background-image: url({{$blog->url}}/arquivo/download/posts/{{date_format(date_create($post->datapostagem), "Y")}}/{{date_format(date_create($post->datapostagem), "m")}}/{{$post->imagem}});"></div></a>
                     <section class="bg-post__conteudo">{{$post->conteudoresumido}}...</section>
                     <footer class="bg-post__rodape">
                         <a class="bg-post__continuarLendo" href="/{{$post->slug}}">Continuar lendo</a>
