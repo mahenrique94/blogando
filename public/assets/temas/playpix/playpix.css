@@ -497,13 +497,6 @@
     .bg-posts {
         padding: 2rem;
     }
-    .bg-post__wrap {
-        width: calc(100% - 321px);
-    }
-    .bg-post__imagem {
-        margin-bottom: 0;
-        width: 300px;
-    }
     .bg-conteudo--visualizar {
         padding: 2rem 10rem;
     }
@@ -527,5 +520,14 @@
     }
     .bg-contato {
         padding: 0 10rem;
+    }
+}
+@media screen and (min-width: 992px) {
+    .bg-post__wrap {
+        width: calc(100% - 321px);
+    }
+    .bg-post__imagem {
+        margin-bottom: 0;
+        width: 300px;
     }
 }
