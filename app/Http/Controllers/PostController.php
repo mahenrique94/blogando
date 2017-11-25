@@ -56,6 +56,10 @@ class PostController extends Controller implements GenericoController
     public function json() {
         return response()->json(Post::all());
     }
+
+    public function jsonRecentes() {
+        return response()->json(Post::where("datapostagem", "<=", date("Y-m-d H:i"))->orderBy("datapostagem", "desc")->take(5)->get());
+    }
     
     public function listar(Request $request) {
         $posts = Post::orderBy("id", "desc")->get();
