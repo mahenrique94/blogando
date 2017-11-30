@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\TblPerfil;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Auth;
@@ -47,7 +48,7 @@ class ComposerServiceProvider extends ServiceProvider
                 $view->with("notificacoesnaolidas", BlogNotificacao::all()->first());
             }
 
-            $view->with("blog", $blog);         
+            $view->with("blog", $blog);
             $view->with("notificacoes", $this->buscarNotificacoesLidas());
             $view->with("categorias", CadCategoria::orderBy("descricao")->get());
             $view->with("tags", CadTag::orderBy("descricao")->get());            
@@ -72,18 +73,18 @@ class ComposerServiceProvider extends ServiceProvider
     private function buscarNotificacoesNaoLidas() {
         return BlogNotificacao::whereNotExists(function($query) {
             $query->select(DB::raw(1))
-                ->from("bg_blog_notificacaoautor")
+                ->from("bg_blog_notificacaousuario")
                 ->whereRaw("idnotificacao = bg_blog_notificacao.id")
-                ->where("idautor", Auth::id());
+                ->where("idperfil", Auth::id());
         })->orderBy("id", "desc")->get();
     }
 
     private function buscarNotificacoesLidas() {
         return BlogNotificacao::whereExists(function($query) {
             $query->select(DB::raw(1))
-                ->from("bg_blog_notificacaoautor")
+                ->from("bg_blog_notificacaousuario")
                 ->whereRaw("idnotificacao = bg_blog_notificacao.id")
-                ->where("idautor", Auth::id());
+                ->where("idperfil", Auth::id());
         })->orderBy("id", "desc")->get();
     }
 }

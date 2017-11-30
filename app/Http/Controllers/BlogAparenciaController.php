@@ -23,6 +23,7 @@ class BlogAparenciaController extends Controller implements GenericoController
                 "mostrartags" => $request->mostrartags,
                 "mostrararquivos" => $request->mostrararquivos,
                 "mostrarnewsletter" => $request->mostrarnewsletter,
+                "mostrarsobre" => $request->mostrarsobre,
                 "updated_at" => date("Y-m-d H:i:s"),
             ]);
         return redirect()->action("BlogAparenciaController@formulario")->withInput(["sucesso" => "Configurações atualizadas com sucesso"]);

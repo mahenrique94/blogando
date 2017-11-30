@@ -9,7 +9,7 @@
                 @endif
                 <input aria-hidden="true" name="_token" type="hidden" value="{{csrf_token()}}"/>
                 <input aria-hidden="true" name="id" type="hidden" value="{{$post->id}}"/>
-                <input aria-hidden="true" name="idautor" type="hidden" value="{{$post->idautor}}"/>
+                <input aria-hidden="true" name="idperfil" type="hidden" value="{{$post->idperfil}}"/>
                 <input aria-hidden="true" name="idsituacao" type="hidden" value="{{$post->idsituacao}}"/>
                 <input aria-hidden="true" name="slug" type="hidden" value="{{$post->slug}}"/>
                 <input aria-hidden="true" name="datapostagem" type="hidden" value="{{$post->datapostagem}}"/>

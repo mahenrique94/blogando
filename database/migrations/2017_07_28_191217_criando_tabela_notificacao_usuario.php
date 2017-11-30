@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriandoTabelaNotificacaoAutor extends Migration
+class CriandoTabelaNotificacaoUsuario extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CriandoTabelaNotificacaoAutor extends Migration
      */
     public function up()
     {
-        Schema::create('bg_blog_notificacaoautor', function (Blueprint $table) {
+        Schema::create('bg_blog_notificacaousuario', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer("idautor")->unsigned();
+            $table->integer("idperfil")->unsigned();
             $table->bigInteger("idnotificacao")->unsigned();
-            $table->foreign("idautor")->references("id")->on("bg_post_autor");
+            $table->foreign("idperfil")->references("id")->on("bg_tbl_perfil");
             $table->foreign("idnotificacao")->references("id")->on("bg_blog_notificacao");
-            $table->unique(["idautor", "idnotificacao"]);
+            $table->unique(["idperfil", "idnotificacao"]);
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CriandoTabelaNotificacaoAutor extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bg_blog_notificacaoautor');
+        Schema::dropIfExists('bg_blog_notificacaousuario');
     }
 }

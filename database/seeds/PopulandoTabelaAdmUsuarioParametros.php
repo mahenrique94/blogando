@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class PopulandoTabelaPostAutorParametros extends Seeder
+class PopulandoTabelaAdmUsuarioParametros extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,9 +11,9 @@ class PopulandoTabelaPostAutorParametros extends Seeder
      */
     public function run()
     {
-        DB::table("bg_post_autorparametros")->insert([
+        DB::table("bg_adm_usuarioparametros")->insert([
             "id" => 1,
-            "idautor" => 1,
+            "idusuario" => 1,
             "created_at" => DB::raw('current_timestamp'),
             "updated_at" => DB::raw('current_timestamp'),
         ]);

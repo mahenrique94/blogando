@@ -51,5 +51,21 @@ class PopulandoTabelaAdmGrupo extends Seeder
             "created_at" => DB::raw('current_timestamp'),
             "updated_at" => DB::raw('current_timestamp'),
         ]);
+        DB::table("bg_adm_grupo")->insert([
+            "id" => 6,
+            "idtipoacesso" => 3,
+            "descricao" => "Escritor",
+            "slug" => "escritor",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
+        ]);
+        DB::table("bg_adm_grupo")->insert([
+            "id" => 7,
+            "idtipoacesso" => 5,
+            "descricao" => "Leitor",
+            "slug" => "leitor",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
+        ]);
     }
 }

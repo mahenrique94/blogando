@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriandoTabelaPostAutorredesocial extends Migration
+class CriandoTabelaAdmUsuarioredesocial extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CriandoTabelaPostAutorredesocial extends Migration
      */
     public function up()
     {
-        Schema::create('bg_post_autorredesocial', function (Blueprint $table) {
+        Schema::create('bg_adm_usuarioredesocial', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("idautor")->unsigned();
+            $table->integer("idusuario")->unsigned();
             $table->integer("idredesocial")->unsigned()->unique();
             $table->string("link", 255)->unique();
-            $table->foreign("idautor")->references("id")->on("bg_post_autor");
+            $table->foreign("idusuario")->references("id")->on("bg_adm_usuario");
             $table->foreign("idredesocial")->references("id")->on("bg_cad_redesocial");
             $table->timestamps();
         });
@@ -31,6 +31,6 @@ class CriandoTabelaPostAutorredesocial extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bg_post_autorredesocial');
+        Schema::dropIfExists('bg_adm_usuarioredesocial');
     }
 }

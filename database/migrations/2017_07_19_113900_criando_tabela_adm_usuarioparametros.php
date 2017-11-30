@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CriandoTabelaPostAutorparametros extends Migration
+class CriandoTabelaAdmUsuarioparametros extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CriandoTabelaPostAutorparametros extends Migration
      */
     public function up()
     {
-        Schema::create('bg_post_autorparametros', function (Blueprint $table) {
+        Schema::create('bg_adm_usuarioparametros', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("idautor")->unsigned()->unique();
+            $table->integer("idusuario")->unsigned()->unique();
             $table->boolean("revisarconteudoprimeiravez")->default(false);
             $table->boolean("revisarconteudoatualizado")->default(false);
-            $table->foreign("idautor")->references("id")->on("bg_post_autor");
+            $table->foreign("idusuario")->references("id")->on("bg_adm_usuario");
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CriandoTabelaPostAutorparametros extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bg_post_autorparametros');
+        Schema::dropIfExists('bg_adm_usuarioparametros');
     }
 }

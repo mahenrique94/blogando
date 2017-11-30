@@ -227,6 +227,9 @@
 .bg-visualizar .bg-post__categoria {
     color: var(--secondaria);
 }
+.bg-visualizar .bg-post__conteudo img {
+    max-height: initial;
+}
 
 .bg-aside {
     padding: 3rem 2rem 2rem 0;

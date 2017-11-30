@@ -67,12 +67,12 @@ return [
     'providers' => [
         // 'users' => [
         //     'driver' => 'eloquent',
-        //     'model' => \App\PostAutor::class,
+        //     'model' => \App\TblPerfil::class,
         // ],
 
         'users' => [
             'driver' => 'database',
-            'table' => 'bg_post_autor',
+            'table' => 'bg_vie_usuario',
         ],
     ],
 

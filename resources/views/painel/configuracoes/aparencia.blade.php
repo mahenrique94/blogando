@@ -113,6 +113,11 @@
 					<label class="o-mark__text"><span class="o-mark__element" data-marked="1" data-unmarked="0" onclick="MarkController.mark(this);"></span></label>
                 </div>
                 <div class="u-grid--3" role="grid">
+                    <label class="o-form__text" for="mostrarsobre">@lang("messages.label.mostrarsobre")</label>
+                    <input {{$aparencia->mostrarsobre ? "checked" : ""}} class="o-mark__data--checkbox" id="mostrartags" name="mostrarsobre" type="hidden" value="{{$aparencia->mostrarsobre}}">
+					<label class="o-mark__text"><span class="o-mark__element" data-marked="1" data-unmarked="0" onclick="MarkController.mark(this);"></span></label>
+                </div>
+                <div class="u-grid--3" role="grid">
                     <label class="o-form__text" for="mostrartags">@lang("messages.label.mostrartags")</label>
                     <input {{$aparencia->mostrartags ? "checked" : ""}} class="o-mark__data--checkbox" id="mostrartags" name="mostrartags" type="hidden" value="{{$aparencia->mostrartags}}">
 					<label class="o-mark__text"><span class="o-mark__element" data-marked="1" data-unmarked="0" onclick="MarkController.mark(this);"></span></label>

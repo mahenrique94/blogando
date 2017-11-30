@@ -16,7 +16,7 @@ class CriandoTabelaPostComentario extends Migration
         Schema::create('bg_post_comentario', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger("idpost")->unsigned();
-            $table->integer("idautor")->unsigned()->nullable();
+            $table->integer("idperfil")->unsigned()->nullable();
             $table->bigInteger("idcomentario")->unsigned()->nullable();
             $table->string("nome", 120);
             $table->string("email", 255);
@@ -25,7 +25,7 @@ class CriandoTabelaPostComentario extends Migration
             $table->boolean("avisarrespostas")->default(false);
             $table->boolean("aprovado")->default(true);
             $table->foreign("idpost")->references("id")->on("bg_post");
-            $table->foreign("idautor")->references("id")->on("bg_post_autor");
+            $table->foreign("idperfil")->references("id")->on("bg_tbl_perfil");
             $table->foreign("idcomentario")->references("id")->on("bg_post_comentario");
             $table->timestamps();
         });

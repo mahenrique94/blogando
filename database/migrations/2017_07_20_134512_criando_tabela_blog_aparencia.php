@@ -29,6 +29,7 @@ class CriandoTabelaBlogAparencia extends Migration
             $table->boolean("mostrartags")->default(true);
             $table->boolean("mostrararquivos")->default(true);
             $table->boolean("mostrarnewsletter")->default(true);
+            $table->boolean("mostrarsobre")->default(false);
             $table->foreign("idblog")->references("id")->on("bg_blog");
             $table->foreign("idtemamenu")->references("id")->on("bg_blog_tema");
             $table->foreign("idtemaaside")->references("id")->on("bg_blog_tema");

@@ -13,9 +13,7 @@
                     <select class="o-form__data" name="campo">
                         <option value="">Selecione um filtro</option>
                         <option value="id">Id</option>
-                        <option value="nome">Nome</option>
                         <option value="email">Email</option>
-                        <option value="apelido">Apelido</option>
                     </select>
                 </div>
                 <div class="u-grid--10" role="grid" style="margin-top: 1rem;">
@@ -30,19 +28,25 @@
     <table class="c-table--tie c-table--hovered c-table--zebrered c-table--bordered">
         <thead>
         <tr>
-            <th>@lang("messages.label.nome")</th>
             <th>@lang("messages.label.email")</th>
+            <th>@lang("messages.label.inativo")</th>
             <th></th>
             <th></th>
         </tr>
         </thead>
         <tbody>
-        @forelse ($autores as $autor)
+        @forelse ($usuarios as $usuario)
             <tr>
-                <td>{{$autor->nome}}</td>
-                <td>{{$autor->email}}</td>
-                <td style="font-size: 1.1rem;text-align: center;width: 50px;"><a href="/painel/usuarios/{{$autor->id}}" role="link" title="@lang("messages.botao.editar")"><i class="icon-pencil"></i></a></td>
-                <td style="font-size: 1.1rem;text-align: center;width: 50px;"><button formaction="/painel/usuarios/{{$autor->id}}" onclick="DialogController.build(event, this, requestDelete, 'Deseja confirmar a exclusao', 'icon-trash');" role="button" type="button" style="background: transparent;border: none;" title="@lang("messages.botao.deletar")"><i class="icon-trash"></i></button></td>
+                <td>{{$usuario->email}}</td>
+                <td style="font-size: 1.1rem;text-align: center;width: 70px;">
+                    @if ($usuario->inativo)
+                        <i class="icon-ok"></i>
+                    @else
+                        <i class="icon-cancel"></i>
+                    @endif
+                </td>
+                <td style="font-size: 1.1rem;text-align: center;width: 50px;"><a href="/painel/usuarios/{{$usuario->id}}" role="link" title="@lang("messages.botao.editar")"><i class="icon-pencil"></i></a></td>
+                <td style="font-size: 1.1rem;text-align: center;width: 50px;"><button formaction="/painel/usuarios/{{$usuario->id}}" onclick="DialogController.build(event, this, requestDelete, 'Deseja confirmar a exclusao', 'icon-trash');" role="button" type="button" style="background: transparent;border: none;" title="@lang("messages.botao.deletar")"><i class="icon-trash"></i></button></td>
             </tr>
         @empty
             <tr>

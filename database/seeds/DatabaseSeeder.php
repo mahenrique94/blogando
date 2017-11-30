@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PopulandoTabelaAdmPermissao::class);
         $this->call(PopulandoTabelaAdmTipoacesso::class);
         $this->call(PopulandoTabelaAdmGrupo::class);
+        $this->call(PopulandoTabelaAdmUsuario::class);
+        $this->call(PopulandoTabelaAdmUsuarioParametros::class);
         $this->call(PopulandoTabelaBlog::class);
         $this->call(PopulandoTabelaBlogNewsletterparametros::class);
         $this->call(PopulandoTabelaBlogTipoNotificacao::class);
@@ -28,7 +30,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PopulandoTabelaPostTipoCompartilhamento::class);
         $this->call(PopulandoTabelaPostTipoVisualizacao::class);
         $this->call(PopulandoTabelaBlogParametros::class);
-        $this->call(PopulandoTabelaPostAutor::class);
-        $this->call(PopulandoTabelaPostAutorParametros::class);        
+        $this->call(PopulandoTabelaTblPerfil::class);
     }
 }

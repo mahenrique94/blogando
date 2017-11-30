@@ -18,7 +18,7 @@
     </div>
     <div class="bg-p-aside__opcoes">
         <a class="bg-p-aside__link" href="/painel/post/formulario"><i class="icon-pencil"></i>&nbsp;@lang("messages.botao.escrever")</a>
-        <a class="bg-p-aside__perfil" href="#perfilUsuario" onclick="toggleElemento(this, event);"><img alt="{{Auth::user()->nome}}" class="bg-p-aside__foto" src="/arquivo/download/usuarios/{{Auth::user()->imagem}}"></a> 
+        <a class="bg-p-aside__perfil" href="#perfilUsuario" onclick="toggleElemento(this, event);"><img alt="{{Auth::user()->nome}}" class="bg-p-aside__foto" src="/arquivo/download/usuarios/{{Auth::user()->imagem}}"></a>
         <a class="bg-p-aside__navegacao" href="#navegacaoOpcoes" onclick="toggleNavegacao(this, event);"><i class="icon-th"></i></a>
         <a class="bg-p-aside__navegacao" href="#notificacoes" onclick="toggleElemento(this, event);">
             <i class="icon-bell-alt"></i>
@@ -63,7 +63,7 @@
         {{--
         <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="#"><i class="icon-th-list bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.minhasatividades")</a></li>  --}}
     </ul>
-</aside> 
+</aside>
     <aside class="bg-p-notificacao--{{$blog->aparencia->temanotificacao->slug}} bg-p-slide" data-animacao-situacao="desanimado" id="notificacoes">
     <div class="bg-p-notificacao__opcoes">
         <a href="#tab1" class="bg-p-notificacao__acao is-ativo" onclick="tab(this);">
@@ -80,7 +80,7 @@
                 <div class="bg-p-notificacao__caixa" data-id="{{$notificacao->id}}">
                     <button class="bg-p-notificacao__ler" formaction="/painel/notificacao/ler/{{$notificacao->id}}" formmethod="post" onclick="lerNotificacao(this);" type="button"><i class="icon-cancel"></i></button>
                     <a class="bg-p-notificacao__link" href="{{$notificacao->link}}">
-                        <img alt="" class="bg-p-notificacao__imagem" src="/arquivo/download/sistema/{{$notificacao->imagem}}">            
+                        <img alt="" class="bg-p-notificacao__imagem" src="/arquivo/download/sistema/{{$notificacao->imagem}}">
                         <h3 class="bg-p-notificacao__titulo">{{$notificacao->nome}}</h3>
                         <p class="bg-p-notificacao__descricao">{{$notificacao->descricao}}</p>
                     </a>
@@ -88,19 +88,19 @@
             @endforeach
         </div>
         <div class="bg-p-notificacao__tab is-hide" data-tab="2" id="tab2">
-            @foreach ($notificacoesnaolidas as $notificacao)                
+            @foreach ($notificacoesnaolidas as $notificacao)
                 <div class="bg-p-notificacao__caixa" data-notificacao="{{$notificacao->id}}">
                     <a class="bg-p-notificacao__link" href="{{$notificacao->link}}">
-                        <img alt="" class="bg-p-notificacao__imagem" src="/arquivo/download/sistema/{{$notificacao->imagem}}">            
+                        <img alt="" class="bg-p-notificacao__imagem" src="/arquivo/download/sistema/{{$notificacao->imagem}}">
                         <h3 class="bg-p-notificacao__titulo">{{$notificacao->nome}}</h3>
                         <p class="bg-p-notificacao__descricao">{{$notificacao->descricao}}</p>
                     </a>
                 </div>
             @endforeach
-            @foreach ($notificacoes as $notificacao)                
+            @foreach ($notificacoes as $notificacao)
                 <div class="bg-p-notificacao__caixa bg-p-notificacao__caixa--lida" data-notificacao="{{$notificacao->id}}">
                     <a class="bg-p-notificacao__link" href="{{$notificacao->link}}">
-                        <img alt="" class="bg-p-notificacao__imagem" src="/arquivo/download/sistema/{{$notificacao->imagem}}">            
+                        <img alt="" class="bg-p-notificacao__imagem" src="/arquivo/download/sistema/{{$notificacao->imagem}}">
                         <h3 class="bg-p-notificacao__titulo">{{$notificacao->nome}}</h3>
                         <p class="bg-p-notificacao__descricao">{{$notificacao->descricao}}</p>
                     </a>
@@ -108,4 +108,4 @@
             @endforeach
         </div>
     </div>
-</aside> 
+</aside>

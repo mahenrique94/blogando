@@ -3,29 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\PostAutorParametros;
+use App\AdmUsuarioParametros;
 
-class PostAutorParametrosController extends Controller implements GenericoController
+class AdmUsuarioParametrosController extends Controller implements GenericoController
 {
     public function atualizar(Request $request) {
-        $parametros = PostAutorParametros::where("id", $request->id)
+        $parametros = AdmUsuarioParametros::where("id", $request->id)
             ->update([
                 "revisarconteudoprimeiravez" => $request->revisarconteudoprimeiravez,
                 "revisarconteudoatualizado" => $request->revisarconteudoatualizado,
                 "updated_at" => date("Y-m-d H:i:s"),
             ]);
-        return redirect()->action("PostAutorParametrosController@editar", ["id" => $parametros])->withInput(["sucesso" => "Configurações atualizadas com sucesso"]);
+        return redirect()->action("AdmUsuarioParametrosController@editar", ["id" => $parametros])->withInput(["sucesso" => "Configurações atualizadas com sucesso"]);
     }
 
-    public function criarNovo($idAutor) {
-        $estatistica = PostAutorParametros::create([
-            "idautor" => $idAutor,
+    public function criarNovo($idUsuario) {
+        AdmUsuarioParametros::create([
+            "idusuario" => $idUsuario->id,
             "revisarconteudoprimeiravez" => 0,
             "revisarconteudoatualizado" => 0,
             "created_at" => date("Y-m-d H:i:s"),
             "updated_at" => date("Y-m-d H:i:s"),
         ]);
-        return redirect()->action("PostAutorController@editar", ["id" => $idAutor])->withInput(["sucesso" => "Autor salvo com sucesso"]);
+        return redirect()->action("AdmUsuarioController@editar", ["id" => $idUsuario->id])->withInput(["sucesso" => "Configurações criadas com sucesso"]);
     }
 
     public function deletar($id) {
@@ -33,7 +33,7 @@ class PostAutorParametrosController extends Controller implements GenericoContro
     }
 
     public function editar($id) {
-        return view("painel.postAutorParametros.formulario", ["pagina" => "usuarios", "subpagina" => "configuracoes"])->with("parametros", PostAutorParametros::find($id));
+        return view("painel.admUsuarioParametros.formulario", ["pagina" => "usuarios", "subpagina" => "configuracoes"])->with("parametros", AdmUsuarioParametros::find($id));
     }
 
     public function formulario() {
@@ -41,7 +41,7 @@ class PostAutorParametrosController extends Controller implements GenericoContro
     }
 
     public function json() {
-        return response()->json(PostAutorParametros::all());
+        return response()->json(AdmUsuarioParametros::all());
     }
 
     public function listar(Request $request) {

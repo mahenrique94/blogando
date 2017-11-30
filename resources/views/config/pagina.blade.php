@@ -25,7 +25,7 @@
         <meta property="og:title" content="{{$post->titulo}}" />
         <meta property="og:url" content="{{$blog->url}}/{{$post->slug}}" />
         <meta property="og:type" content="article"/>
-        <meta property="article:author" content="{{$post->autor->nome}}">
+        <meta property="article:author" content="{{$post->perfil->nome}}">
         <meta property="article:section" content="{{count($post->categorias) > 0 ? $post->categorias[0]->categoria->descricao : ""}}">
         <meta property="article:tag" content="@foreach ($post->tags as $tag) {{$tag->tag->descricao}} @endforeach">
         <meta property="article:published_time" content="{{$post->datapostagem}}">

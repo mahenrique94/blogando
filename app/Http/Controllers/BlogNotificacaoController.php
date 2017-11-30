@@ -10,7 +10,7 @@ class BlogNotificacaoController extends Controller
 {
     public function ler($id) {
         BlogNotificacaoAutor::create([
-                "idautor" => Auth::id(),
+                "idperfil" => Auth::id(),
                 "idnotificacao" => $id,
                 "created_at" => date("Y-m-d H:i:s"),
                 "updated_at" => date("Y-m-d H:i:s"),

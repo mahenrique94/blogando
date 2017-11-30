@@ -29,6 +29,8 @@ class CriandoTabelaBlogParametros extends Migration
             $table->boolean("notificarnovoscomentarios")->default(true);
             $table->boolean("comentariosdevemseraprovados")->default(false);
             $table->boolean("permitircompartilhamentos")->default(true);
+            $table->boolean("utilizarcomentariosdisqus")->default(false);
+            $table->string("identificacaodisqus", 120)->nullable();
             $table->foreign("idblog")->references("id")->on("bg_blog");
             $table->foreign("idformatodata")->references("id")->on("bg_cad_formato");
             $table->foreign("idformatohora")->references("id")->on("bg_cad_formato");

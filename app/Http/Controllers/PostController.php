@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Post;
-use App\PostAutor;
+use App\TblPerfil;
 use App\PostEstatisticas;
 use App\Blog;
 use Parsedown;
@@ -46,11 +46,11 @@ class PostController extends Controller implements GenericoController
     }
 
     public function editar($id) {
-        return view("painel.post.formulario", ["pagina" => "posts", "subpagina" => "novo"])->with("post", Post::find($id));
+        return view("painel.post.formulario", ["pagina" => "posts", "subpagina" => "novopost"])->with("post", Post::find($id));
     }
 
     public function formulario() {
-        return view("painel.post.formulario", ["pagina" => "posts", "subpagina" => "novo"])->with("post", new Post());
+        return view("painel.post.formulario", ["pagina" => "posts", "subpagina" => "novopost"])->with("post", new Post());
     }
 
     public function json() {
@@ -87,7 +87,7 @@ class PostController extends Controller implements GenericoController
 
     public function salvar(Request $request) {
         $post = Post::create([
-            "idautor" => Auth::id(),
+            "idperfil" => Auth::id(),
             "idsituacao" => 1,
             "titulo" => $request->titulo, 
             "slug" => str_slug($request->titulo), 

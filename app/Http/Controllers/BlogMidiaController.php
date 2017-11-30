@@ -40,13 +40,12 @@ class BlogMidiaController extends Controller
 
     public function deletar($id) {
         $midia = BlogMidia::find($id);
-        $arquivo = "public/arquivos/imagens/" . date_format(date_create($midia->created_at), "Y") . "/" . date_format(date_create($midia->created_at), "m") . "/" . $midia->slug;
-        Storage::delete($arquivo);
+        $this->arquivoController->delete("public/arquivos/imagens/", date_format(date_create($midia->created_at), "Y"), date_format(date_create($midia->created_at), $midia->slug));
         BlogMidia::destroy($id);
-        return response($arquivo, 200);
+        return response($midia->slug, 200);
     }
 
     public function formulario(Request $request) {
-        return view("painel.midia.formulario", ["pagina" => "midia", "subpagina" => "nova"]);
+        return view("painel.midia.formulario", ["pagina" => "midia", "subpagina" => "novamidia"]);
     }
 }

@@ -13,14 +13,19 @@
         </div>
         <section class="o-form__body o-form__body--padding">
             <div class="l-row" role="row">
-                <div class="u-grid--6" role="grid">
+                <div class="u-grid--4" role="grid">
                     <label class="o-form__text" for="permitircomentarios">@lang("messages.label.permitircomentarios")</label>
                     <input {{$parametros->permitircomentarios ? "checked" : ""}} class="o-mark__data--checkbox" id="permitircomentarios" name="permitircomentarios" type="hidden" value="{{$parametros->permitircomentarios}}">
 					<label class="o-mark__text"><span class="o-mark__element" data-marked="1" data-unmarked="0" onclick="MarkController.mark(this);"></span></label>
                 </div>
-                <div class="u-grid--6" role="grid">
+                <div class="u-grid--4" role="grid">
                     <label class="o-form__text" for="permitircomentariosanonimos">@lang("messages.label.permitircomentariosanonimos")</label>
                     <input {{$parametros->permitircomentariosanonimos ? "checked" : ""}} class="o-mark__data--checkbox" id="permitircomentariosanonimos" name="permitircomentariosanonimos" type="hidden" value="{{$parametros->permitircomentariosanonimos}}">
+					<label class="o-mark__text"><span class="o-mark__element" data-marked="1" data-unmarked="0" onclick="MarkController.mark(this);"></span></label>
+                </div>
+                <div class="u-grid--4" role="grid">
+                    <label class="o-form__text" for="utilizarcomentariosdisqus">@lang("messages.label.utilizarcomentariosdisqus")</label>
+                    <input {{$parametros->utilizarcomentariosdisqus ? "checked" : ""}} class="o-mark__data--checkbox" id="utilizarcomentariosdisqus" name="utilizarcomentariosdisqus" type="hidden" value="{{$parametros->utilizarcomentariosdisqus}}">
 					<label class="o-mark__text"><span class="o-mark__element" data-marked="1" data-unmarked="0" onclick="MarkController.mark(this);"></span></label>
                 </div>
             </div> 
@@ -35,7 +40,13 @@
                     <input {{$parametros->comentariosdevemseraprovados ? "checked" : ""}} class="o-mark__data--checkbox" id="comentariosdevemseraprovados" name="comentariosdevemseraprovados" type="hidden" value="{{$parametros->comentariosdevemseraprovados}}">
 					<label class="o-mark__text"><span class="o-mark__element" data-marked="1" data-unmarked="0" onclick="MarkController.mark(this);"></span></label>
                 </div>
-            </div> 
+            </div>
+            <div class="l-row" role="row">
+                <div class="u-grid--12" role="grid">
+                    <label class="o-form__text" for="identificacaodisqus">@lang("messages.label.identificacaodisqus")</label>
+                    <input class="o-form__data" id="identificacaodisqus" maxlength="120" name="identificacaodisqus" type="text" value="{{$parametros->identificacaodisqus}}">
+                </div>
+            </div>
             <div class="l-row is-right" role="row">
                 <div class="u-grid--12" role="grid">
                     <button class="o-button--tie o-button--medium" type="submit"><i class="icon-arrows-cw"></i>@lang("messages.botao.atualizarconfiguracoes")</button>

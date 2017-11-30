@@ -31,6 +31,6 @@ class CriandoTabelaPostTipovisualizacao extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bg_post_tipovisualizacao');
+        Schema::dropIfExists('bg_post_tipovisualizacaocompartilhamento');
     }
 }

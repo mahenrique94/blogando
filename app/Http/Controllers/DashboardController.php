@@ -14,25 +14,25 @@ class DashboardController extends Controller
     }
 
     public function meuscomentarios(Request $request) {
-        $comentarios = PostComentario::where("idautor", Auth::id())->get();
+        $comentarios = PostComentario::where("idperfil", Auth::id())->get();
         if ($request->has("campo") && $request->has("filtro")) {
-            $comentarios = PostComentario::where($request->campo, "like", $request->filtro)->where("idautor", Auth::id())->get();
+            $comentarios = PostComentario::where($request->campo, "like", $request->filtro)->where("idperfil", Auth::id())->get();
         }
         return view("painel.dashboard.meuscomentarios", ["pagina" => "dashboard"], ["subpagina" => "meuscomentarios"])->with("comentarios", $comentarios);
     }
 
     public function meusposts(Request $request) {
-        $posts = Post::where("idautor", Auth::id())->get();
+        $posts = Post::where("idperfil", Auth::id())->get();
         if ($request->has("campo") && $request->has("filtro")) {
-            $posts = Post::where($request->campo, "like", $request->filtro)->where("idautor", Auth::id())->get();
+            $posts = Post::where($request->campo, "like", $request->filtro)->where("idperfil", Auth::id())->get();
         }
         return view("painel.dashboard.meusposts", ["pagina" => "dashboard"], ["subpagina" => "meusposts"])->with("posts", $posts);
     }
 
     public function meusrascunhos(Request $request) {
-        $posts = Post::where("idautor", Auth::id())->where("idsituacao", 8)->get();
+        $posts = Post::where("idperfil", Auth::id())->where("idsituacao", 8)->get();
         if ($request->has("campo") && $request->has("filtro")) {
-            $posts = Post::where($request->campo, "like", $request->filtro)->where("idautor", Auth::id())->where("idsituacao", 8)->get();
+            $posts = Post::where($request->campo, "like", $request->filtro)->where("idperfil", Auth::id())->where("idsituacao", 8)->get();
         }
         return view("painel.dashboard.meusrascunhos", ["pagina" => "dashboard"], ["subpagina" => "meusrascunhos"])->with("posts", $posts);
     }

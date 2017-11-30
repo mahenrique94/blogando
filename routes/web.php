@@ -44,7 +44,7 @@ Route::group(["prefix" => "api"], function() {
 
     Route::get("tag/json", "CadTagController@json");
 
-    Route::get("usuarios/json", "PostAutorController@json");
+    Route::get("usuarios/json", "TblPerfilController@json");
 });
 
 Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() {
@@ -148,24 +148,29 @@ Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() 
     Route::post("tag", "CadTagController@salvar")->middleware(["csrf"]);
     Route::put("tag", "CadTagController@atualizar")->middleware(["csrf"]);
 
-    Route::delete("usuarios/rede-social/{id}", "PostAutorRedeSocialController@deletar");
-    Route::get("usuarios/rede-social", "PostAutorRedeSocialController@listar");
-    Route::get("usuarios/rede-social/formulario", "PostAutorRedeSocialController@formulario");
-    Route::get("usuarios/rede-social/json", "PostAutorRedeSocialController@json");
-    Route::get("usuarios/rede-social/{id}", "PostAutorRedeSocialController@editar");
-    Route::post("usuarios/rede-social", "PostAutorRedeSocialController@salvar")->middleware(["csrf"]);
-    Route::put("usuarios/rede-social", "PostAutorRedeSocialController@atualizar")->middleware(["csrf"]);
+    Route::delete("usuarios/rede-social/{id}", "AdmUsuarioRedeSocialController@deletar");
+    Route::get("usuarios/rede-social", "AdmUsuarioRedeSocialController@listar");
+    Route::get("usuarios/rede-social/formulario", "AdmUsuarioRedeSocialController@formulario");
+    Route::get("usuarios/rede-social/json", "AdmUsuarioRedeSocialController@json");
+    Route::get("usuarios/rede-social/{id}", "AdmUsuarioRedeSocialController@editar");
+    Route::post("usuarios/rede-social", "AdmUsuarioRedeSocialController@salvar")->middleware(["csrf"]);
+    Route::put("usuarios/rede-social", "AdmUsuarioRedeSocialController@atualizar")->middleware(["csrf"]);
 
-    Route::get("usuarios/configuracoes/{id}", "PostAutorParametrosController@editar");
-    Route::put("usuarios/configuracoes", "PostAutorParametrosController@atualizar")->middleware(["csrf"]);
+    Route::get("usuarios/configuracoes/{id}", "AdmUsuarioParametrosController@editar");
+    Route::put("usuarios/configuracoes", "AdmUsuarioParametrosController@atualizar")->middleware(["csrf"]);
 
-    Route::delete("usuarios/{id}", "PostAutorController@deletar");
-    Route::get("usuarios", "PostAutorController@listar");
-    Route::get("usuarios/formulario", "PostAutorController@formulario");
-    Route::get("usuarios/{id}", "PostAutorController@editar");
-    Route::post("usuarios", "PostAutorController@salvar")->middleware(["csrf"]);
-    Route::put("usuarios", "PostAutorController@atualizar")->middleware(["csrf"]);
+    Route::delete("usuarios/{id}", "AdmUsuarioController@deletar");
+    Route::get("usuarios", "AdmUsuarioController@listar");
+    Route::get("usuarios/formulario", "AdmUsuarioController@formulario");
+    Route::get("usuarios/{id}", "AdmUsuarioController@editar");
+    Route::post("usuarios", "AdmUsuarioController@salvar")->middleware(["csrf"]);
+    Route::put("usuarios", "AdmUsuarioController@atualizar")->middleware(["csrf"]);
 
+    Route::delete("usuarios/perfil/{id}", "TblPerfilController@deletar");
+    Route::get("usuarios/perfil/formulario", "TblPerfilController@formulario");
+    Route::get("usuarios/perfil/{id}", "TblPerfilController@editar");
+    Route::post("usuarios/perfil", "TblPerfilController@salvar")->middleware(["csrf"]);
+    Route::put("usuarios/perfil", "TblPerfilController@atualizar")->middleware(["csrf"]);
 });
 
 Route::get("", "BlogandoController@index");

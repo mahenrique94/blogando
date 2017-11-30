@@ -10,8 +10,8 @@ class Post extends Model
     protected $guarded = ["id", "created_at"];
     protected $hidden = ["id", "created_at"];
 
-    public function autor() {
-        return $this->belongsTo("\App\PostAutor", "idautor");
+    public function perfil() {
+        return $this->belongsTo("\App\TblPerfil", "idperfil");
     }
 
     public function categorias() {

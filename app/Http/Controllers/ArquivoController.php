@@ -20,6 +20,10 @@ class ArquivoController extends Controller
         $this->blog = $blog = Blog::first();
     }
 
+    public function delete($pasta, $ano, $mes, $arquivo) {
+        Storage::delete($pasta . $ano . "/" . $mes . "/" . $arquivo);
+    }
+
     public function download($pasta = "", $ano = "", $mes = "", $arquivo = "") {                
         return response()->download($this->criandoPath($pasta, $ano, $mes, $arquivo));
     }

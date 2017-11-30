@@ -15,7 +15,7 @@ class CriandoTabelaPost extends Migration
     {
         Schema::create('bg_post', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer("idautor")->unsigned();
+            $table->integer("idperfil")->unsigned();
             $table->integer("idsituacao")->unsigned();
             $table->string("titulo", 120)->unique();
             $table->string("slug", 255)->unique();
@@ -25,7 +25,7 @@ class CriandoTabelaPost extends Migration
             $table->text("conteudomarkdown");
             $table->string("conteudoresumido", 255);
             $table->timestamp("datapostagem")->nullable();
-            $table->foreign("idautor")->references("id")->on("bg_post_autor");
+            $table->foreign("idperfil")->references("id")->on("bg_tbl_perfil");
             $table->foreign("idsituacao")->references("id")->on("bg_post_situacao");
             $table->timestamps();
         });

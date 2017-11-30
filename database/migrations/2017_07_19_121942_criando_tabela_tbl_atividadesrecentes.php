@@ -15,9 +15,9 @@ class CriandoTabelaTblAtividadesrecentes extends Migration
     {
         Schema::create('bg_tbl_atividadesrecentes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("idautor")->unsigned();
+            $table->integer("idperfil")->unsigned();
             $table->string("descricao", 255);
-            $table->foreign("idautor")->references("id")->on("bg_post_autor");
+            $table->foreign("idperfil")->references("id")->on("bg_tbl_perfil");
             $table->timestamps();
         });
     }

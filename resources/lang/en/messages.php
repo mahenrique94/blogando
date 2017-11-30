@@ -8,6 +8,8 @@ return [
     "botao.blog"                                                => "Blog",
     "botao.carregar"                                            => "Carregar",
     "botao.comentar"                                            => "Comentar",
+    "botao.cancelar"                                            => "Cancelar",
+    "botao.configuracoes"                                       => "Configurações",
     "botao.copiar"                                              => "Copiar",
     "botao.deletar"                                             => "Deletar",
     "botao.editar"                                              => "Editar",
@@ -24,6 +26,7 @@ return [
     "botao.sugerirfuncionalidade"                               => "Sugerir uma funcionalidade",
     "botao.todas"                                               => "Todas",
     "botao.visualizar"                                          => "Visualizar",
+    "botao.voltar"                                              => "Voltar",
 
     ######################################## BOTAO ########################################
     "caixa.arquivos"                                            => "Arquivos",
@@ -71,6 +74,7 @@ return [
     "label.formatodatahora"                                     => "Formato de data e hora",
     "label.formatohora"                                         => "Formato de hora",
     "label.grupo"                                               => "Grupo",
+    "label.identificacaodisqus"                                 => "Identificação do Disqus",
     "label.inativo"                                             => "Inativo",
     "label.keywords"                                            => "Keywords",
     "label.link"                                                => "Link",
@@ -83,6 +87,7 @@ return [
     "label.mostrarpostsrecentes"                                => "Mostrar posts recentes",
     "label.mostrarpostsrelacionados"                            => "Mostrar posts relacionados",
     "label.mostrarredessociais"                                 => "Mostrar redes sociais",
+    "label.mostrarsobre"                                        => "Mostrar sobre",
     "label.mostrartags"                                         => "Mostrar tags",
     "label.nome"                                                => "Nome",
     "label.notificarnovoscomentarios"                           => "Notificar via email por novos comentários",
@@ -119,6 +124,7 @@ return [
     "label.titulo"                                              => "Título",
     "label.url"                                                 => "URL",
     "label.usarmarkdown"                                        => "Editor Markdown",
+    "label.utilizarcomentariosdisqus"                           => "Utilizar comentários do Disqus",
     "label.visualizar"                                          => "Visualizar",
 
     ######################################## MENSAGEM ########################################
@@ -177,8 +183,9 @@ return [
     "menu.usuarios"                                             => "Usuários",
     "menu.usuarios.configuracoes"                               => "Minhas configurações",
     "menu.usuarios.convidar"                                    => "Convidar novo",
+    "menu.usuarios.novo"                                        => "Adicionar novo",
     "menu.usuarios.perfil"                                      => "Meu perfil",
-    "menu.usuarios.redesocial"                                  => "Rede social",
+    "menu.usuarios.redesocial"                                  => "Minhas redes sociais",
     "menu.usuarios.todos"                                       => "Listar todos",
 
     ######################################## PLACEHOLDER ########################################
@@ -190,4 +197,5 @@ return [
 
     ######################################## TITULO ########################################
     "titulo.pagina"                                             => "Blogando",
+    "titulo.perfil"                                             => "Perfil",
 ];

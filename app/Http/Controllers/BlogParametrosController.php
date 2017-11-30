@@ -35,6 +35,8 @@ class BlogParametrosController extends Controller
                 "permitircomentariosanonimos" => $request->permitircomentariosanonimos,
                 "notificarnovoscomentarios" => $request->notificarnovoscomentarios,
                 "comentariosdevemseraprovados" => $request->comentariosdevemseraprovados,
+                "utilizarcomentariosdisqus" => $request->utilizarcomentariosdisqus,
+                "identificacaodisqus" => $request->identificacaodisqus,
                 "updated_at" => date("Y-m-d H:i:s"),
             ]);
         return redirect()->action("BlogParametrosController@discussao")->withInput(["sucesso" => "Configurações atualizadas com sucesso"]);

@@ -179,5 +179,101 @@ class PopulandoTabelaCadRedeSocial extends Seeder
             "created_at" => DB::raw('current_timestamp'),
             "updated_at" => DB::raw('current_timestamp'),
         ]);
+        DB::table("bg_cad_redesocial")->insert([
+            "id" => 22,
+            "descricao" => "Site",
+            "icone" => "icon-globe",
+            "slug" => "site",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
+        ]);
+        DB::table("bg_cad_redesocial")->insert([
+            "id" => 23,
+            "descricao" => "Code Open",
+            "icone" => "icon-codeopen",
+            "slug" => "codeopen",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
+        ]);
+        DB::table("bg_cad_redesocial")->insert([
+            "id" => 24,
+            "descricao" => "Dribbble",
+            "icone" => "icon-dribbble",
+            "slug" => "dribbble",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
+        ]);
+        DB::table("bg_cad_redesocial")->insert([
+            "id" => 25,
+            "descricao" => "Drupal",
+            "icone" => "icon-drupal",
+            "slug" => "drupal",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
+        ]);
+        DB::table("bg_cad_redesocial")->insert([
+            "id" => 26,
+            "descricao" => "Flickr",
+            "icone" => "icon-flickr",
+            "slug" => "flickr",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
+        ]);
+        DB::table("bg_cad_redesocial")->insert([
+            "id" => 27,
+            "descricao" => "Joomla",
+            "icone" => "icon-joomla",
+            "slug" => "joomla",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
+        ]);
+        DB::table("bg_cad_redesocial")->insert([
+            "id" => 28,
+            "descricao" => "JSFiddle",
+            "icone" => "icon-jsfiddle",
+            "slug" => "jsfiddle",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
+        ]);
+        DB::table("bg_cad_redesocial")->insert([
+            "id" => 29,
+            "descricao" => "Paypal",
+            "icone" => "icon-paypal",
+            "slug" => "paypal",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
+        ]);
+        DB::table("bg_cad_redesocial")->insert([
+            "id" => 30,
+            "descricao" => "Soudcloud",
+            "icone" => "icon-soudcloud",
+            "slug" => "soudcloud",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
+        ]);
+        DB::table("bg_cad_redesocial")->insert([
+            "id" => 31,
+            "descricao" => "Spotify",
+            "icone" => "icon-spotify",
+            "slug" => "spotify",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
+        ]);
+        DB::table("bg_cad_redesocial")->insert([
+            "id" => 32,
+            "descricao" => "Stack Overflow",
+            "icone" => "icon-stackoverflow",
+            "slug" => "stackoverflow",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
+        ]);
+        DB::table("bg_cad_redesocial")->insert([
+            "id" => 33,
+            "descricao" => "Twitch",
+            "icone" => "icon-twitch",
+            "slug" => "twitch",
+            "created_at" => DB::raw('current_timestamp'),
+            "updated_at" => DB::raw('current_timestamp'),
+        ]);
     }
 }

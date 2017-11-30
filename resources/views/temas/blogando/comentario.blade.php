@@ -14,7 +14,7 @@
                 @unless (Auth::guest())
                     <a class="bg-post__editar o-button--tie o-button--medium" href="/painel/comentario/{{$comentario->id}}"><i class="icon-pencil"></i>@lang("messages.botao.editar")</a>
                 @endunless
-                <img alt="{{$comentario->nome}}" class="bg-comentarios__comentario___foto" src="/arquivo/download/usuarios/{{$comentario->autor->imagem}}">
+                <img alt="{{$comentario->nome}}" class="bg-comentarios__comentario___foto" src="/arquivo/download/usuarios/{{$comentario->perfil->imagem}}">
                 <div class="bg-comentarios__comentario___corpo">
                     <h4 class="bg-comentarios__comentario___nome">{{$comentario->nome}}</h4>
                     <small class="bg-comentarios__comentario___email">{{$comentario->email}}</small>
@@ -28,7 +28,7 @@
                                 @unless (Auth::guest())
                                     <a class="bg-post__editar o-button--tie o-button--medium" href="/painel/comentario/{{$resposta->id}}"><i class="icon-pencil"></i>@lang("messages.botao.editar")</a>
                                 @endunless
-                                <img alt="{{$resposta->nome}}" class="bg-comentarios__comentario___foto" src="/arquivo/download/usuarios/{{$resposta->autor->imagem}}">
+                                <img alt="{{$resposta->nome}}" class="bg-comentarios__comentario___foto" src="/arquivo/download/usuarios/{{$resposta->perfil->imagem}}">
                                 <div class="bg-comentarios__comentario___corpo">
                                     <h4 class="bg-comentarios__comentario___nome">{{$resposta->nome}}</h4>
                                     <small class="bg-comentarios__comentario___email">{{$resposta->email}}</small>
@@ -46,7 +46,7 @@
     <form action="/comentario" class="bg-comentarios__formulario o-form" id="formpostcomentario" name="formpostcomentario" method="post">
         <input aria-hidden="true" name="_token" type="hidden" value="{{csrf_token()}}"/>
         <input aria-hidden="true" name="idpost" type="hidden" value="{{$post->id}}"/>
-        <input aria-hidden="true" name="idautor" type="hidden" value="{{Auth::guest() ? null : Auth::id()}}"/>
+        <input aria-hidden="true" name="idperfil" type="hidden" value="{{Auth::guest() ? null : Auth::id()}}"/>
         <input aria-hidden="true" name="idcomentario" type="hidden" value=""/>
         <h3 class="bg-comentarios__formulario___titulo">
             @if (count($postcomentarios) > 0)
