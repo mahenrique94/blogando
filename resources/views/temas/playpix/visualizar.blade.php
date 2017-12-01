@@ -17,7 +17,7 @@
                 <header class="bg-post__cabecalho">
                     <h2 class="bg-post__titulo"><a href="/{{$post->slug}}">{{$post->titulo}}</a></h2>
                     <p class="bg-post__informacoes">
-                        Postado em <time class="bg-post__data">{{date_format(date_create($post->datapostagem), $blog->parametros->formatodatahora->formato)}}</time> por <a class="bg-post__autor" href="/autor/{{$post->autor->slug}}">{{$post->autor->nome}}</a>
+                        Postado em <time class="bg-post__data">{{date_format(date_create($post->datapostagem), $blog->parametros->formatodatahora->formato)}}</time> por <a class="bg-post__autor" href="/autor/{{$post->perfil->slug}}">{{$post->perfil->nome}}</a>
                         @if (count($post->categorias) > 0)
                             em
                         @endif

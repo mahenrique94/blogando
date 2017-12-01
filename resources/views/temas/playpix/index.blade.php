@@ -44,7 +44,7 @@
                         <section class="bg-post__conteudo">{{$post->conteudoresumido}}.</section>
                         <footer class="bg-post__rodape">
                             <p class="bg-post__informacoes">
-                                <time class="bg-post__data">{{date_format(date_create($post->datapostagem), $blog->parametros->formatodatahora->formato)}}</time> por <a class="bg-post__autor" href="/autor/{{$post->autor->slug}}">{{$post->autor->nome}}</a>
+                                <time class="bg-post__data">{{date_format(date_create($post->datapostagem), $blog->parametros->formatodatahora->formato)}}</time> por <a class="bg-post__autor" href="/autor/{{$post->perfil->slug}}">{{$post->perfil->nome}}</a>
                             </p>
                             <p class="bg-post__categorias">
                                 <span style="color: #BFBFBF;">- Em</span>
