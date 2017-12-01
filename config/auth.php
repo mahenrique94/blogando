@@ -65,14 +65,9 @@ return [
     */
 
     'providers' => [
-//         'users' => [
-//             'driver' => 'eloquent',
-//             'model' => \App\User::class,
-//         ],
-
         'users' => [
             'driver' => 'database',
-            'table' => 'bg_adm_usuario',
+            'table' => 'bg_tbl_perfil',
         ],
     ],
 

@@ -23,6 +23,8 @@ class CriandoTabelaTblPerfil extends Migration
             $table->string("apelido", 60)->nullable();
             $table->text("descricao")->nullable();
             $table->boolean("inativo")->default(false);
+            $table->string("token", 255)->nullable()->unique();
+            $table->string("remember_token", 255)->nullable()->unique();
             $table->unique(["idusuario", "idgrupo"]);
             $table->foreign("idgrupo")->references("id")->on("bg_adm_grupo");
             $table->foreign("idusuario")->references("id")->on("bg_adm_usuario");

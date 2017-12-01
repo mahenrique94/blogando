@@ -1,4 +1,3 @@
-{{--
 <aside class="bg-p-aside--{{$blog->aparencia->temaaside->slug}}">
     <h1 class="bg-p-aside__titulo">
         <svg class="bg-p-aside__logo" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 400" style="enable-background:new 0 0 500 400;" xml:space="preserve">
@@ -50,7 +49,7 @@
     <div class="bg-p-usuario__info">
         <img alt="" class="bg-p-usuario__foto" src="/arquivo/download/perfil/{{Auth::user()->imagem}}">
         <span class="bg-p-usuario__nome"><i class="icon-user"></i>&nbsp;{{Auth::user()->nome}}</span>
-        <span class="bg-p-usuario__usuario">{{Auth::user()->email}}</span>
+        <span class="bg-p-usuario__usuario">{{$usuarioLogado->email}}</span>
     </div>
     <a class="bg-p-usuario__sair" href="/painel/sair"><i class="icon-off"></i>&nbsp;@lang("messages.botao.sair")</a>
     <ul class="bg-p-usuario__opcoes">
@@ -109,4 +108,4 @@
             @endforeach
         </div>
     </div>
-</aside>--}}
+</aside>

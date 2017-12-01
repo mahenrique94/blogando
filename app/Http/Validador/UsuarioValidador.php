@@ -16,9 +16,8 @@ class UsuarioValidador {
         return count($usuario->perfils) > 0;
     }
 
-    public static function validar($usuario) {
-        return !is_null($usuario) && !is_null($usuario->id) && UsuarioValidador::estaAtivo($usuario) && UsuarioValidador::temPerfil($usuario)
-            && UsuarioValidador::validarEmail($usuario->email) && UsuarioValidador::validarSenha($usuario->senha);
+    public static function validarBusca($usuario) {
+        return !is_null($usuario) && count($usuario) > 0;
     }
 
     public static function validarEmail($email) {

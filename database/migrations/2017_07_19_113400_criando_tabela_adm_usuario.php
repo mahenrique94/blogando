@@ -17,8 +17,6 @@ class CriandoTabelaAdmUsuario extends Migration
             $table->increments('id');
             $table->string("email", 255)->unique();
             $table->string("senha", 255);
-            $table->string("token", 255)->nullable()->unique();
-            $table->string("remember_token", 255)->nullable()->unique();
             $table->boolean("inativo")->default(false);
             $table->timestamps();
         });

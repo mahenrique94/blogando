@@ -8,5 +8,3 @@
         </div>
     </div>
 @stop
-
-<?php dd(Auth::user()) ?>

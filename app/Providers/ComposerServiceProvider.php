@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\AdmUsuario;
 use App\TblPerfil;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
@@ -49,6 +50,8 @@ class ComposerServiceProvider extends ServiceProvider
                 $view->with("notificacoesnaolidas", BlogNotificacao::all()->first());
             }
 
+            if (!Auth::guest())
+                $view->with("usuarioLogado", AdmUsuario::find(Auth::user()->idusuario));
             $view->with("blog", $blog);
             $view->with("notificacoes", $this->buscarNotificacoesLidas());
             $view->with("categorias", CadCategoria::orderBy("descricao")->get());

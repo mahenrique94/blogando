@@ -38,9 +38,9 @@ class AdmUsuarioRedeSocialController extends Controller implements GenericoContr
     }
 
     public function listar(Request $request) {
-        $redessociais = AdmUsuarioRedeSocial::where("idusuario", Auth::id())->get();
+        $redessociais = AdmUsuarioRedeSocial::where("idusuario", Auth::user()->idusuario)->get();
         if ($request->has("campo") && $request->has("filtro")) {
-            $redessociais = AdmUsuarioRedeSocial::where($request->campo, "like", $request->filtro)->where("idusuario", Auth::id())->get();
+            $redessociais = AdmUsuarioRedeSocial::where($request->campo, "like", $request->filtro)->where("idusuario", Auth::user()->idusuario)->get();
         }
         return view("painel.admUsuarioRedeSocial.lista", ["pagina" => "usuarios", "subpagina" => "usuariosredesocial"])->with("redessociais", $redessociais);
     }
