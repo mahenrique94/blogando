@@ -1,5 +1,5 @@
 <div class="bg-autor">
-    <img alt="{{$post->perfil->nome}}" class="bg-autor__imagem" src="/arquivo/download/usuarios/{{$post->perfil->imagem}}">
+    <img alt="{{$post->perfil->nome}}" class="bg-autor__imagem" src="/arquivo/download/perfil/{{$post->perfil->imagem}}">
     <div class="bg-autor__informacoes">
         <h3 class="bg-autor__nome">{{$post->perfil->nome}}</h3>
         <p class="bg-autor__perfil">{{$post->perfil->descricao}}</p>

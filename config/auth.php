@@ -65,14 +65,14 @@ return [
     */
 
     'providers' => [
-        // 'users' => [
-        //     'driver' => 'eloquent',
-        //     'model' => \App\TblPerfil::class,
-        // ],
+//         'users' => [
+//             'driver' => 'eloquent',
+//             'model' => \App\User::class,
+//         ],
 
         'users' => [
             'driver' => 'database',
-            'table' => 'bg_vie_usuario',
+            'table' => 'bg_adm_usuario',
         ],
     ],
 

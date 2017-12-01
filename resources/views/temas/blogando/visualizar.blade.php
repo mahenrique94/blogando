@@ -34,7 +34,7 @@
         @if ($blog->parametros->permitircomentarios && $blog->parametros->permitircomentariosanonimos)
             @include("temas.blogando.comentario")
         @endif
-        @if ($blog->parametros->permitircomentarios && !$blog->parametros->permitircomentariosanonimos)
+        @if ($blog->parametros->permitircomentarios && $blog->parametros->utilizarcomentariosdisqus)
             @include("temas.blogando.disqus")
         @endif
     </section>

@@ -1,3 +1,4 @@
+{{--
 <aside class="bg-p-aside--{{$blog->aparencia->temaaside->slug}}">
     <h1 class="bg-p-aside__titulo">
         <svg class="bg-p-aside__logo" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 500 400" style="enable-background:new 0 0 500 400;" xml:space="preserve">
@@ -18,7 +19,7 @@
     </div>
     <div class="bg-p-aside__opcoes">
         <a class="bg-p-aside__link" href="/painel/post/formulario"><i class="icon-pencil"></i>&nbsp;@lang("messages.botao.escrever")</a>
-        <a class="bg-p-aside__perfil" href="#perfilUsuario" onclick="toggleElemento(this, event);"><img alt="{{Auth::user()->nome}}" class="bg-p-aside__foto" src="/arquivo/download/usuarios/{{Auth::user()->imagem}}"></a>
+        <a class="bg-p-aside__perfil" href="#perfilUsuario" onclick="toggleElemento(this, event);"><img alt="{{Auth::user()->nome}}" class="bg-p-aside__foto" src="/arquivo/download/perfil/{{Auth::user()->imagem}}"></a>
         <a class="bg-p-aside__navegacao" href="#navegacaoOpcoes" onclick="toggleNavegacao(this, event);"><i class="icon-th"></i></a>
         <a class="bg-p-aside__navegacao" href="#notificacoes" onclick="toggleElemento(this, event);">
             <i class="icon-bell-alt"></i>
@@ -40,14 +41,14 @@
         <li class="bg-p-navegacao__item" role="menuitem"><a class="bg-p-navegacao__link" href="/painel/newsletter"><i class="icon-mail bg-p-navegacao__icone"></i>&nbsp;@lang("messages.menu.newsletter")</a></li>
         <li class="bg-p-navegacao__item" role="menuitem"><a class="bg-p-navegacao__link" href="/painel/administrador/grupos"><i class="icon-male bg-p-navegacao__icone"></i>&nbsp;@lang("messages.menu.administrador")</a></li>
         <li class="bg-p-navegacao__item" role="menuitem"><a class="bg-p-navegacao__link" href="/painel/configuracoes/geral"><i class="icon-cog-alt bg-p-navegacao__icone"></i>&nbsp;@lang("messages.menu.configuracoes")</a></li>
-        {{--
+
         <li class="bg-p-navegacao__item" role="menuitem"><a class="bg-p-navegacao__link" href="#"><i class="icon-wrench bg-p-navegacao__icone"></i>&nbsp;@lang("messages.menu.ferramentas")</a></li>
-         --}}
+
     </ul>
 </aside>
  <aside class="bg-p-usuario--{{$blog->aparencia->temaperfil->slug}} bg-p-slide" data-animacao-situacao="desanimado" id="perfilUsuario">
     <div class="bg-p-usuario__info">
-        <img alt="" class="bg-p-usuario__foto" src="/arquivo/download/usuarios/{{Auth::user()->imagem}}">
+        <img alt="" class="bg-p-usuario__foto" src="/arquivo/download/perfil/{{Auth::user()->imagem}}">
         <span class="bg-p-usuario__nome"><i class="icon-user"></i>&nbsp;{{Auth::user()->nome}}</span>
         <span class="bg-p-usuario__usuario">{{Auth::user()->email}}</span>
     </div>
@@ -60,8 +61,8 @@
         <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="/painel/dashboard/meus-comentarios"><i class="icon-chat bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.meuscomentarios")</a></li>
         <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="/painel/usuarios/rede-social"><i class="icon-globe bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.minhasredessociais")</a></li>
         <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="/painel/usuarios/configuracoes/{{Auth::id()}}"><i class="icon-cog bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.conta")</a></li>
-        {{--
-        <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="#"><i class="icon-th-list bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.minhasatividades")</a></li>  --}}
+
+        <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="#"><i class="icon-th-list bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.minhasatividades")</a></li>
     </ul>
 </aside>
     <aside class="bg-p-notificacao--{{$blog->aparencia->temanotificacao->slug}} bg-p-slide" data-animacao-situacao="desanimado" id="notificacoes">
@@ -108,4 +109,4 @@
             @endforeach
         </div>
     </div>
-</aside>
+</aside>--}}
