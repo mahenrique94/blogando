@@ -1,0 +1,34 @@
+$padding: 1rem
+$white: #FDFDFD
+
+.#{$prefix}-perfils
+  @include calc(width, "100% - 225px")
+  &__titulo
+    color: $text
+    font-weight: 500
+    margin-bottom: $padding
+  &__lista
+    @include display-flex
+    flex-wrap: wrap
+    &___item
+      @include calc(width, "25% - #{$padding}")
+      margin-bottom: $padding
+      margin-right: $padding
+      &:last-child
+        margin-right: 0
+    &___link
+      display: block
+      color: $white
+      padding: 3rem $padding
+      text-align: center
+      transition: all .2s linear
+      @each $perfil in $perfils
+        &.is-#{$perfil}
+          background: map_get($perfil-colors, $perfil)
+          border: map_get($perfil-borders, $perfil)
+          &:hover
+            background: $white
+            color: map_get($perfil-colors-darken, $perfil)
+    &___icone
+      display: block
+      font-size: 1.5rem

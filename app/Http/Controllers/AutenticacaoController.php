@@ -21,7 +21,7 @@ class AutenticacaoController extends Controller
                 ->where("bg_adm_usuario.inativo", false)->select("bg_tbl_perfil.*")->get();
             if (UsuarioValidador::validarBusca($usuario)) {
                 if ($this->usuarioTemMaisDeUmPerfil($usuario)) {
-                    return redirect()->action("AutenticacaoController@perfil")->withInput(["perfils" => $usuario]);
+                    return redirect()->action("AutenticacaoController@escolherPerfil", ["idUsuario" => $usuario[0]->idusuario]);
                 } else {
                     Auth::loginUsingId($usuario[0]->id, true);
                     return redirect()->action("DashboardController@index");
@@ -34,17 +34,17 @@ class AutenticacaoController extends Controller
         }
     }
 
+    public function autenticarPerfil($idPerfil) {
+        Auth::loginUsingId($idPerfil);
+        return redirect()->action("DashboardController@index");
+    }
+
     public function formulario() {
         return view("painel.autenticacao.formulario");
     }
 
-    public function perfil($id = 0) {
-        if ($this->selecionouUmPerfil($id)) {
-            Auth::loginUsingId($id);
-            return redirect()->action("DashboardController@index");
-        } else {
-            return view("painel.autenticacao.perfil");
-        }
+    public function escolherPerfil($idUsuario) {
+        return view ("painel.autenticacao.perfils")->with("perfils", TblPerfil::where("idusuario", $idUsuario)->get());
     }
 
     public function sair() {

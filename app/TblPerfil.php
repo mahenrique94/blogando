@@ -23,4 +23,23 @@ class TblPerfil extends Model
         return $this->belongsTo("\App\AdmGrupo", "idgrupo");
     }
 
+    public function icone() {
+        $icone = null;
+        if ($this->grupo->descricao === "Administrador")
+            $icone = "icon-street-view";
+        elseif ($this->grupo->descricao === "Colaborador")
+            $icone = "icon-users";
+        elseif ($this->grupo->descricao === "Revisor")
+            $icone = "icon-user-secret";
+        elseif ($this->grupo->descricao === "Escritor")
+            $icone = "icon-keyboard";
+        elseif ($this->grupo->descricao === "Autor")
+            $icone = "icon-font";
+        elseif ($this->grupo->descricao === "Editor")
+            $icone = "icon-pencil";
+        else
+            $icone = "icon-newspaper";
+        return $icone;
+    }
+
 }

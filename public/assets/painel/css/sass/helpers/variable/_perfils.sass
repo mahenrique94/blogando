@@ -1,0 +1,31 @@
+$perfils: administrador, editor, autor, colaborador, revisor, escritor, leitor
+$border: 1px solid
+$fator-darken: 20%
+
+$color-administrador: #FF9933
+$color-editor: #CC99FF
+$color-autor: #00CC99
+$color-colaborador: #FF99CC
+$color-revisor: #FFCC00
+$color-escritor: #3399FF
+$color-leitor: #A6A6A6
+
+$color-administrador-darken: darken($color-administrador, $fator-darken)
+$color-editor-darken: darken($color-editor, $fator-darken)
+$color-autor-darken: darken($color-autor, $fator-darken)
+$color-colaborador-darken: darken($color-colaborador, $fator-darken)
+$color-revisor-darken: darken($color-revisor, $fator-darken)
+$color-escritor-darken: darken($color-escritor, $fator-darken)
+$color-leitor-darken: darken($color-leitor, $fator-darken)
+
+$border-administrador: $border $color-administrador-darken
+$border-editor: $border $color-editor-darken
+$border-autor: $border $color-autor-darken
+$border-colaborador: $border $color-colaborador-darken
+$border-revisor: $border $color-revisor-darken
+$border-escritor: $border $color-escritor-darken
+$border-leitor: $border $color-leitor-darken
+
+$perfil-borders: (administrador : $border-administrador, editor : $border-editor, autor : $border-autor, colaborador : $border-colaborador, revisor : $border-revisor, escritor : $border-escritor, leitor : $border-leitor)
+$perfil-colors: (administrador : $color-administrador, editor : $color-editor, autor : $color-autor, colaborador : $color-colaborador, revisor : $color-revisor, escritor : $color-escritor, leitor : $color-leitor)
+$perfil-colors-darken: (administrador : $color-administrador-darken, editor : $color-editor-darken, autor : $color-autor-darken, colaborador : $color-colaborador-darken, revisor : $color-revisor-darken, escritor : $color-escritor-darken, leitor : $color-leitor-darken)

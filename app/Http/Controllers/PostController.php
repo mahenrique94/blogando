@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Helpers\PerfilHelper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Post;
@@ -62,25 +63,53 @@ class PostController extends Controller implements GenericoController
     }
     
     public function listar(Request $request) {
-        $posts = Post::orderBy("id", "desc")->get();
+        $posts = null;
+
+        if (PerfilHelper::ehAdministrador(Auth::user()->idgrupo))
+            $posts = Post::orderBy("id", "desc")->get();
+        else
+            $posts = Post::where("idperfil", Auth::id())->orderBy("id", "desc")->get();
+
         if ($request->has("campo") && $request->has("filtro")) {
-            $posts = Post::where($request->campo, "like", "%" . $request->filtro . "%")->orderBy("id", "desc")->get();
+            if (PerfilHelper::ehAdministrador(Auth::user()->idgrupo))
+                $posts = Post::where($request->campo, "like", "%" . $request->filtro . "%")->orderBy("id", "desc")->get();
+            else
+                $posts = Post::where($request->campo, "like", "%" . $request->filtro . "%")->where("idperfil", Auth::id())->orderBy("id", "desc")->get();
         }
         return view("painel.post.lista", ["pagina" => "posts"], ["subpagina" => "todos"])->with("posts", $posts);
     }
 
     public function listarAgendados(Request $request) {
-        $posts = Post::where("idsituacao", 3)->get();
+        $posts = null;
+
+        if (PerfilHelper::ehAdministrador(Auth::user()->idgrupo))
+            $posts = Post::where("idsituacao", 3)->get();
+        else
+            $posts = Post::where("idsituacao", 3)->where("idperfil", Auth::id())->get();
+
         if ($request->has("campo") && $request->has("filtro")) {
-            $posts = Post::where($request->campo, "like", $request->filtro)->where("idsituacao", 3)->get();
+            if (PerfilHelper::ehAdministrador(Auth::user()->idgrupo))
+                $posts = Post::where($request->campo, "like", $request->filtro)->where("idsituacao", 3)->get();
+            else
+                $posts = Post::where($request->campo, "like", $request->filtro)->where("idsituacao", 3)->where("idperfil", Auth::id())->get();
         }
         return view("painel.post.agendados", ["pagina" => "posts"], ["subpagina" => "agendados"])->with("posts", $posts);
     }
 
     public function listarRascunhos(Request $request) {
-        $posts = Post::where("idsituacao", 8)->get();
+        $posts = null;
+
+        if (PerfilHelper::ehAdministrador(Auth::user()->idgrupo))
+            $posts = Post::where("idsituacao", 8)->get();
+        else
+            $posts = Post::where("idsituacao", 8)->where("idperfil", Auth::id())->get();
+
+
         if ($request->has("campo") && $request->has("filtro")) {
-            $posts = Post::where($request->campo, "like", $request->filtro)->where("idsituacao", 8)->get();
+            if (PerfilHelper::ehAdministrador(Auth::user()->idgrupo))
+                $posts = Post::where($request->campo, "like", $request->filtro)->where("idsituacao", 8)->get();
+            else
+                $posts = Post::where($request->campo, "like", $request->filtro)->where("idsituacao", 8)->where("idperfil", Auth::id())->get();
         }
         return view("painel.post.rascunhos", ["pagina" => "posts"], ["subpagina" => "rascunhos"])->with("posts", $posts);
     }
