@@ -20,17 +20,17 @@ class AutenticacaoController extends Controller
                 ->where("bg_adm_usuario.senha", $senha)
                 ->where("bg_adm_usuario.inativo", false)->select("bg_tbl_perfil.*")->get();
             if (UsuarioValidador::validarBusca($usuario)) {
-                if (count($usuario) > 1) {
-                    // Implementar login com perfis diferentes
+                if ($this->usuarioTemMaisDeUmPerfil($usuario)) {
+                    return redirect()->action("AutenticacaoController@perfil")->withInput(["perfils" => $usuario]);
                 } else {
                     Auth::loginUsingId($usuario[0]->id, true);
                     return redirect()->action("DashboardController@index");
                 }
             } else {
-                return redirect()->action("AutenticacaoController@formulario")->withInput(["erro" => "Email ou senha esta inválido."]);
+                return back()->withInput(["erro" => "Email ou senha esta inválido."]);
             }
         } else {
-            return redirect()->action("AutenticacaoController@formulario")->withInput(["erro" => "Email ou senha esta inválido."]);
+            return back()->withInput(["erro" => "Email ou senha esta inválido."]);
         }
     }
 
@@ -38,8 +38,26 @@ class AutenticacaoController extends Controller
         return view("painel.autenticacao.formulario");
     }
 
+    public function perfil($id = 0) {
+        if ($this->selecionouUmPerfil($id)) {
+            Auth::loginUsingId($id);
+            return redirect()->action("DashboardController@index");
+        } else {
+            return view("painel.autenticacao.perfil");
+        }
+    }
+
     public function sair() {
         Auth::logout();
         return redirect()->action("AutenticacaoController@formulario");
     }
+
+    public function selecionouUmPerfil($id) {
+        return $id > 0;
+    }
+
+    private function usuarioTemMaisDeUmPerfil($usuarios) {
+        return count($usuarios) > 1;
+    }
+
 }

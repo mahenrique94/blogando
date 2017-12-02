@@ -198,4 +198,5 @@ return [
     ######################################## TITULO ########################################
     "titulo.pagina"                                             => "Blogando",
     "titulo.perfil"                                             => "Perfil",
+    "titulo.perfilescolher"                                     => "Selecione o perfil que deseja entrar",
 ];
