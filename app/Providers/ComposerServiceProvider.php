@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use DB;
 use App\Blog;
 use App\BlogNotificacao;
-use App\BlogNotificacaoAutor;
+use App\BlogNotificacaoUsuario;
 use App\BlogRedeSocial;
 use App\CadCategoria;
 use App\CadTag;
