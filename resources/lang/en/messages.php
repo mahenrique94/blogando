@@ -145,6 +145,7 @@ return [
     "menu.dashboard.atividades"                                 => "Atividades",
     "menu.dashboard.comentarios"                                => "Comentários",
     "menu.dashboard.inicio"                                     => "Início",
+    "menu.dashboard.meusagendamentos"                           => "Meus agendamentos",
     "menu.dashboard.meuscomentarios"                            => "Meus comentários",
     "menu.dashboard.meusposts"                                  => "Meus posts",
     "menu.dashboard.meusrascunhos"                              => "Meus rascunhos",

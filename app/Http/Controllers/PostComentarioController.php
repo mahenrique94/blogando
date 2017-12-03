@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\HTTP;
 use Illuminate\Http\Request;
 use App\PostComentario;
 use App\Post;
@@ -22,7 +23,7 @@ class PostComentarioController extends Controller implements GenericoController
 
     public function deletar($id) {
         PostComentario::destroy($id);
-        return response($id, 200);
+        return response($id, HTTP::OK);
     }
 
     public function editar($id) {

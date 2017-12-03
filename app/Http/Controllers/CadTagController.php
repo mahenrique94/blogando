@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\HTTP;
 use Illuminate\Http\Request;
 use App\CadTag;
 
@@ -19,7 +20,7 @@ class CadTagController extends Controller implements GenericoController
 
     public function deletar($id) {
         CadTag::destroy($id);
-        return response($id, 200);
+        return response($id, HTTP::OK);
     }
 
     public function editar($id) {

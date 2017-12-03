@@ -15,6 +15,6 @@ class BlogNotificacaoController extends Controller
                 "created_at" => date("Y-m-d H:i:s"),
                 "updated_at" => date("Y-m-d H:i:s"),
             ]);
-        return response("Notificação lida com sucesso", 200);
+        return response("Notificação lida com sucesso", HTTP::OK);
     }
 }

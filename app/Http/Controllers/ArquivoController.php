@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\HTTP;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Blog;
@@ -47,7 +48,7 @@ class ArquivoController extends Controller
             $file->move($path, $arquivo);
         else
             $file->storeAs("public" . "/" . $pasta . "/" . $ano . "/" . $mes, $arquivo);
-        return response("Arquivo carregado e salvo com sucesso", 200);
+        return response("Arquivo carregado e salvo com sucesso", HTTP::OK);
     }
 
     public function uploadToDirectory($file, $arquivo = "", $pasta = "") {
@@ -56,11 +57,11 @@ class ArquivoController extends Controller
             $file->move($path, $arquivo);
         else
             $file->storeAs("public" . "/" . $pasta, $arquivo);
-        return response("Arquivo carregado e salvo com sucesso", 200);
+        return response("Arquivo carregado e salvo com sucesso", HTTP::OK);
     }
 
     public function visualizar($pasta = "", $ano = "", $mes = "", $arquivo = "") {
-        return response()->make(file_get_contents($this->criandoPath($pasta, $ano, $mes, $arquivo)), 200, ['content-type' => mime_content_type($this->criandoPath($pasta, $ano, $mes, $arquivo))]);
+        return response()->make(file_get_contents($this->criandoPath($pasta, $ano, $mes, $arquivo)), HTTP::OK, ['content-type' => mime_content_type($this->criandoPath($pasta, $ano, $mes, $arquivo))]);
     }
 
     private function criandoPath($pasta = "", $ano = "", $mes = "", $arquivo = "") {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\AdmUsuario;
+use App\Http\HTTP;
 use Illuminate\Http\Request;
 
 class AdmUsuarioController extends Controller implements GenericoController
@@ -27,7 +28,7 @@ class AdmUsuarioController extends Controller implements GenericoController
 
     public function deletar($id) {
         AdmUsuario::destroy($id);
-        return response($id, 200);
+        return response($id, HTTP::OK);
     }
 
     public function editar($id) {

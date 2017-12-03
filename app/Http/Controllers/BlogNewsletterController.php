@@ -13,7 +13,7 @@ class BlogNewsletterController extends Controller implements GenericoController
             "created_at" => date("Y-m-d H:i:s"),
             "updated_at" => date("Y-m-d H:i:s"),
         ]);
-        return response("Obrigado por assinar nossa newsletter", 200);
+        return response("Obrigado por assinar nossa newsletter", HTTP::OK);
     }
 
     public function atualizar(Request $request) {
@@ -32,7 +32,7 @@ class BlogNewsletterController extends Controller implements GenericoController
 
     public function deletar($id) {
         BlogNewsletter::destroy($id);
-        return response($id, 200);
+        return response($id, HTTP::OK);
     }
 
     public function editar($id) {

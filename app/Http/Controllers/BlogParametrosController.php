@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Parametros;
 use Illuminate\Http\Request;
 use App\BlogParametros;
 use App\CadFormato;
@@ -57,9 +58,9 @@ class BlogParametrosController extends Controller
     
     public function leitura() {
         return view("painel.configuracoes.leitura", ["pagina" => "configuracoes"], ["subpagina" => "leitura"])
-            ->with("formatosdata", CadFormato::where("idtipoformato", 1)->get())
-            ->with("formatoshora", CadFormato::where("idtipoformato", 2)->get())
-            ->with("formatosdatahora", CadFormato::where("idtipoformato", 3)->get())
+            ->with("formatosdata", CadFormato::where("idtipoformato", Parametros::TIPOFORMATO_FORMATODATA)->get())
+            ->with("formatoshora", CadFormato::where("idtipoformato", Parametros::TIPOFORMATO_FORMATOHORA)->get())
+            ->with("formatosdatahora", CadFormato::where("idtipoformato", Parametros::TIPOFORMATO_FORMATODATAHORA)->get())
             ->with("tiposvisualizacao", PostTipoVisualizacao::all());
     }
 

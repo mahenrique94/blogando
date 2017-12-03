@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Helpers\PerfilHelper;
+use App\Http\HTTP;
+use App\Http\Parametros;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Post;
@@ -43,7 +45,7 @@ class PostController extends Controller implements GenericoController
     public function deletar($id) {
         PostEstatisticas::where("idpost", $id)->delete();
         Post::destroy($id);
-        return response($id, 200);
+        return response($id, HTTP::OK);
     }
 
     public function editar($id) {
@@ -83,15 +85,15 @@ class PostController extends Controller implements GenericoController
         $posts = null;
 
         if (PerfilHelper::ehAdministrador(Auth::user()->idgrupo))
-            $posts = Post::where("idsituacao", 3)->get();
+            $posts = Post::where("idsituacao", Parametros::SITUACAOPOST_AGENDADOS)->get();
         else
-            $posts = Post::where("idsituacao", 3)->where("idperfil", Auth::id())->get();
+            $posts = Post::where("idsituacao", Parametros::SITUACAOPOST_AGENDADOS)->where("idperfil", Auth::id())->get();
 
         if ($request->has("campo") && $request->has("filtro")) {
             if (PerfilHelper::ehAdministrador(Auth::user()->idgrupo))
-                $posts = Post::where($request->campo, "like", $request->filtro)->where("idsituacao", 3)->get();
+                $posts = Post::where($request->campo, "like", $request->filtro)->where("idsituacao", Parametros::SITUACAOPOST_AGENDADOS)->get();
             else
-                $posts = Post::where($request->campo, "like", $request->filtro)->where("idsituacao", 3)->where("idperfil", Auth::id())->get();
+                $posts = Post::where($request->campo, "like", $request->filtro)->where("idsituacao", Parametros::SITUACAOPOST_AGENDADOS)->where("idperfil", Auth::id())->get();
         }
         return view("painel.post.agendados", ["pagina" => "posts"], ["subpagina" => "agendados"])->with("posts", $posts);
     }
@@ -100,16 +102,16 @@ class PostController extends Controller implements GenericoController
         $posts = null;
 
         if (PerfilHelper::ehAdministrador(Auth::user()->idgrupo))
-            $posts = Post::where("idsituacao", 8)->get();
+            $posts = Post::where("idsituacao", Parametros::SITUACAOPOST_RASCUNHO)->get();
         else
-            $posts = Post::where("idsituacao", 8)->where("idperfil", Auth::id())->get();
+            $posts = Post::where("idsituacao", Parametros::SITUACAOPOST_RASCUNHO)->where("idperfil", Auth::id())->get();
 
 
         if ($request->has("campo") && $request->has("filtro")) {
             if (PerfilHelper::ehAdministrador(Auth::user()->idgrupo))
-                $posts = Post::where($request->campo, "like", $request->filtro)->where("idsituacao", 8)->get();
+                $posts = Post::where($request->campo, "like", $request->filtro)->where("idsituacao", Parametros::SITUACAOPOST_RASCUNHO)->get();
             else
-                $posts = Post::where($request->campo, "like", $request->filtro)->where("idsituacao", 8)->where("idperfil", Auth::id())->get();
+                $posts = Post::where($request->campo, "like", $request->filtro)->where("idsituacao", Parametros::SITUACAOPOST_RASCUNHO)->where("idperfil", Auth::id())->get();
         }
         return view("painel.post.rascunhos", ["pagina" => "posts"], ["subpagina" => "rascunhos"])->with("posts", $posts);
     }

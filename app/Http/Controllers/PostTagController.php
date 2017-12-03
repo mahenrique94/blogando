@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\HTTP;
 use Illuminate\Http\Request;
 use DB;
 use App\PostTag;
@@ -14,7 +15,7 @@ class PostTagController extends Controller implements GenericoController
 
     public function deletar($id) {
         PostTag::destroy($id);
-        return response($id, 200);
+        return response($id, HTTP::OK);
     }
 
     public function editar($id) {

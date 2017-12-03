@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\HTTP;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,7 +23,7 @@ class AdmUsuarioRedeSocialController extends Controller implements GenericoContr
 
     public function deletar($id) {
         AdmUsuarioRedeSocial::destroy($id);
-        return response($id, 200);
+        return response($id, HTTP::OK);
     }
 
     public function editar($id) {

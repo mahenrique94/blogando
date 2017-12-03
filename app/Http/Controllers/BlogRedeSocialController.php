@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\HTTP;
 use Illuminate\Http\Request;
 use App\BlogRedeSocial;
 use App\CadRedeSocial;
@@ -20,7 +21,7 @@ class BlogRedeSocialController extends Controller implements GenericoController
 
     public function deletar($id) {
         BlogRedeSocial::destroy($id);
-        return response($id, 200);
+        return response($id, HTTP::OK);
     }
 
     public function editar($id) {
