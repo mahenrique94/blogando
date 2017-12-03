@@ -36,11 +36,11 @@ class TblPerfilController extends Controller implements GenericoController
     }
 
     public function editar($id) {
-        return view("painel.tblPerfil.formulario", ["pagina" => "usuarios", "subpagina" => "perfil"])->with("perfil", TblPerfil::find($id))->with("grupos", AdmGrupo::all());
+        return view("painel.tblPerfil.formulario", ["pagina" => "usuarios", "subpagina" => "perfil"])->with("perfil", TblPerfil::find($id))->with("grupos", AdmGrupo::orderBy("descricao")->get());
     }
 
     public function formulario() {
-        return view("painel.tblPerfil.formulario", ["pagina" => "usuarios", "subpagina" => "perfil"])->with("perfil", new TblPerfil())->with("grupos", AdmGrupo::all());
+        return view("painel.tblPerfil.formulario", ["pagina" => "usuarios", "subpagina" => "perfil"])->with("perfil", new TblPerfil())->with("grupos", AdmGrupo::orderBy("descricao")->get());
     }
 
     public function json() {
