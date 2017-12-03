@@ -1,5 +1,6 @@
 <script src="/assets/painel/css/stilize/stilize.min.js"></script>
-<script src="/assets/painel/js/jlib/autocomplete.js"></script>
+<script src="/assets/painel/js/jlib/autoCompleteOff.js"></script>
+<script src="/assets/painel/js/jlib/http.js"></script>
 <script src="/assets/painel/js/jlib/jlib.js"></script>
 <script src="/assets/painel/js/tinymce/tinymce.min.js"></script>
 <script src="/assets/painel/js/simplemde/simplemde.min.js"></script>

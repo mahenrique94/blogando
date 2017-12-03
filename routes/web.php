@@ -18,8 +18,8 @@ Route::get("/arquivo/visualizar/{pasta}/{arquivo}", "ArquivoController@visualiza
 Route::get("/arquivo/visualizar/{arquivo}", "ArquivoController@visualizar");
 
 Route::get("painel/acessar", "AutenticacaoController@formulario");
-Route::get("painel/acessar/perfil/{idPerfil}", "AutenticacaoController@autenticarPerfil");
-Route::get("painel/acessar/perfil/escolher/{idUsuario}", "AutenticacaoController@escolherPerfil");
+Route::get("painel/acessar/perfil/{idPerfil}/{relembrar}", "AutenticacaoController@autenticarPerfil");
+Route::get("painel/acessar/perfil/escolher/{idUsuario}/{relembrar}", "AutenticacaoController@escolherPerfil");
 Route::post("painel/autenticar", "AutenticacaoController@autenticar");
 
 Route::group(["prefix" => "api"], function() {

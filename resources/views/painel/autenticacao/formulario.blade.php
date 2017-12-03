@@ -43,13 +43,19 @@
                         </div>
                     </div>
                     <div class="l-row" role="row">
-                        <div class="u-grid--12 no-margin" role="grid">
+                        <div class="u-grid--12" role="grid">
                             <button class="bg-p-autenticacao__botao" role="button" title="@lang("messages.botao.acessar")" type="submit">@lang("messages.botao.acessar")</button>
+                        </div>
+                    </div>
+                    <div class="l-row" role="row">
+                        <div class="u-grid--12 no-margin" role="separator">
+                            <input class="o-mark__data--checkbox" id="relembrar" name="relembrar" type="hidden" value="false">
+                            <label class="o-mark__text"><span class="o-mark__element" data-marked="true" data-unmarked="false" onclick="MarkController.mark(this);"></span>@lang("messages.label.lembraracesso")</label>
                         </div>
                     </div>
                 </form>
                 <div class="bg-p-autenticacao__marca">
-                    &copy;@lang("messages.titulo.pagina") Todos os direitos reservados
+                    &copy;@lang("messages.titulo.pagina")&nbsp;@lang("messages.label.direitosreservados")
                 </div>
             </fieldset>
         </section>

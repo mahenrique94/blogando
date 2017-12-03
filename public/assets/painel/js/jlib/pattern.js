@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		{name : "ano", pattern : "^([\\d]{4})$", message : "O campo deve ser preenchido com um ano válido entre: 1900 á 2100 no formato ####"},
 		{name : "cep", pattern : "^(([\\d]){5}([\\-])([\\d]{3}))$", message : "O campo deve ser preenchido com um CEP no formato: #####-###."},
 		{name : "celular", pattern : "^(([\\d]{5})([\\-])([\\d]{4}))$", message : "O campo deve ser preenchido com um CELULAR no formato: ######-####."},
+		{name : "cfop", pattern : "^(([1256]{1})([\\d]){3})$", message : "O campo deve ser preenchido com um CFOP numerico contendo apenas 4 digitos e iniciado com 1, 2, 5 ou 6."},
 		{name : "chave", pattern : "^([\\d]){44}$", message : "O campo deve ser preenchido com uma CHAVE numerica contendo 44 digitos."},
 		{name : "cnh", pattern : "^([\\d]{11})$", message : "O campo deve ser preenchido com uma CNH no formato: ###########."},
 		{name : "cnpj", pattern : "^(([\\d]{2})([\\.])([\\d]{3})([\\.])([\\d]{3})([\\/])([\\d]{4})([\\-])([\\d]{2}))$", message : "O campo deve ser preenchido com um CNPJ no formato: ##.###.###/####-##"},
@@ -19,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		{name : "dataHoraOpcional", pattern : "^(([0][1-9]|[1][\\d]|[2][\\d]|[3][0-1])([\\/])([0][1-9]|[1][0-2])([\\/])([1][9][\\d]{2}|[2][0][\\d]{2})(\\s([0][\\d]|[1][\\d]|[2][\\d])([:])([0-5][\\d]))?)$", message : "O campo deve ser preenchido com uma data no formato: DD/MM/AAAA ou DD/MM/AAAA HH:MM onde o ano deve ser maior que 1900"},
 		{name : "ddd", pattern : "^([\\d]{2})$", message : "O campo deve ser preenchido com um DDD contendo dois digitos."},
 		{name : "desdobramento", pattern : "^(([\\d]+)([\\/])([\\d]+))$", message : "O campo deve ser preenchido com um desdobramento no formato: 0-9/0-9."},
-		{name : "email", pattern : "^(([aA-zZ\\d\\w\\.]+)([@])([\\daA-zZ]+)([\\.])([aA-zZ]+)(([\\.])([aA-zZ])+)*)$", message : "O campo deve ser preenchido com um email válido aceitando apenas letras MAIUSCULAS, NUMEROS, PONTOS E UNDERLINES."},
+		{name : "email", pattern : "^(([aA-zZ\\d\\w\\.\\-]+)([@])([\\daA-zZ]+)([\\.])([aA-zZ]+)(([\\.])([aA-zZ])+)*)$", message : "O campo deve ser preenchido com um email válido aceitando apenas letras MAIUSCULAS, NUMEROS, PONTOS E UNDERLINES."},
 		{name : "entradaSaida", pattern : "^([E|S])$", message : "O campo deve ser preenchido com uma letra MAIUSCULA informando E para entrada ou S para saida."},
 		{name : "espacoLetra", pattern : "^(([A-Z])+(\\s[A-Z]+)*)$", message : "O campo deve ser preenchido com letras MAIUSCULAS."},
 		{name : "espacoLetraBarraPonto", pattern : "^(([A-Z\\.\\/])+(\\s[A-Z\\.\\/]+)*)$", message : "O campo deve ser preenchido com letras MAIUSCULAS ou numeros e aceita os seguintes caracteres especiais: (. /)."},
@@ -71,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		{name : "numeric3-2", pattern : "^(([\\d]{1,3})(\\,([\\d]{1,2}))?)$", message : "O campo deve ser preenchido com numeros ou ponto, a parte inteira aceita no maximo 3 digitos e a decimal no maximo 2."},
 		{name : "numeric5-2", pattern : "^(([\\d]{1,5})(\\,([\\d]{1,2}))?)$", message : "O campo deve ser preenchido com numeros ou ponto, a parte inteira aceita no maximo 5 digitos e a decimal no maximo 2."},
 		{name : "numeric10-2", pattern : "^(([\\d]{1,10})(\\,([\\d]{1,2}))?)$", message : "O campo deve ser preenchido com numeros ou ponto, a parte inteira aceita no maximo 18 digitos e a decimal no maximo 2."},
+		{name : "numeric18-1", pattern : "^(([\\d]{1,18})(\\,([\\d]{1,1}))?)$", message : "O campo deve ser preenchido com numeros ou ponto, a parte inteira aceita no maximo 18 digitos e um decimal."},
 		{name : "numeric18-2", pattern : "^(([\\d]{1,18})(\\,([\\d]{1,2}))?)$", message : "O campo deve ser preenchido com numeros ou ponto, a parte inteira aceita no maximo 18 digitos e a decimal no maximo 2."},
 		{name : "numeric18-3", pattern : "^(([\\d]{1,18})(\\,([\\d]{1,3}))?)$", message : "O campo deve ser preenchido com numeros ou ponto, a parte inteira aceita no maximo 18 digitos e a decimal no maximo 3."},
 		{name : "numeric18-4", pattern : "^(([\\d]{1,18})(\\,([\\d]{1,4}))?)$", message : "O campo deve ser preenchido com numeros ou ponto, a parte inteira aceita no maximo 18 digitos e a decimal no maximo 4."},
@@ -78,10 +80,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		{name : "numeroEndereco", pattern : "^(([A-Z\\d])*([S\\/N])*)$", message : "O campo deve ser preenchido com numeros ou letras referente a um endereço, caso não possua numero informar S/N(Sem Numero)."},
 		{name : "numeroPontoTraco", pattern : "^([\\d\\.\\-]*)$", message : "O campo deve ser preenchido com numeros, pontos ou tracos."},
 		{name : "numeroTraco", pattern : "^([\\d\\-]*)$", message : "O campo deve ser preenchido com numeros ou tracos."},
+		{name : "pagarreceber", pattern : "[PR]", message : "O campo deve ser preenchido com P(À Pagar) ou R(À Receber)."},
 		{name : "password", pattern : "^([A-Z\\d@-_\\.]{8})$", message : "O campo deve ser preenchido com letras MAIUSCULAS ou numeros sem espacos e aceita os seguintes caracteres especiais: (@ - _ .) contendo 8 caracteres."},
 		{name : "path", pattern : "^((([aA-zZ][:][\\/])|([\\/]))([0-9aA-zZ]+)([\\-\\/0-9aA-zZ]*))", message : "O campo deve ser preenchido com um caminho de pasta e aceita os seguintes caracteres especiais: (- _)."},
 		{name : "pis", pattern : "^(([\\d]{3})([\\.])([\\d]{5})([\\.])([\\d]{2})([\\-])([\\d]))$", message : "O campo deve ser preenchido com PIS no formato: ###.#####.##-#."},
-		{name : "site", pattern : "^((([hH][tY][tY][pP])([:])([\\/]{2}))([wW]{3}|[aA-zZ]*)([\\.])([aA-zZ]*)([\\.])([aA-zZ]+)([\\.aA-zZ]*))$", message : "O campo deve ser preenchido com um site valido em MAISCULO, o site deve comecar com HTTP:// seguido por www ou subdominio e o restante do site."},
+		{name : "site", pattern : "^((([hH][tT][tT][pP])([:])([\\/]{2}))([wW]{3}|[aA-zZ]*)([\\.])([aA-zZ]*)([\\.])([aA-zZ]+)([\\.aA-zZ]*))$", message : "O campo deve ser preenchido com um site valido em MAISCULO, o site deve comecar com HTTP:// seguido por www ou subdominio e o restante do site."},
 		{name : "telefone", pattern : "^(([\\d]{4})([\\-])([\\d]{4}))$", message : "O campo deve ser preenchido com um telefone no formato: ####-####."},
 		{name : "textarea", pattern : "^([A-Z\\d\\s\\.\\/\\-\\,]+)$", message : "O campo deve ser preenchido com letras MAIUSCULAS ou numeros sem espacos e aceita os seguintes caracteres especiais: (@ - _ .)."},
 		{name : "textareaEspacoLetraNumeroBarraPontoTracoVirgula", pattern : "^([A-Z\\d\\s\\.\\/\\-\\,]+)$", message : "O campo deve ser preenchido com letras MAIUSCULAS ou numeros sem espacos e aceita os seguintes caracteres especiais: (@ - _ .)."},
@@ -95,6 +98,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	patterns.forEach(pattern => setPattern(pattern));
 	
 });
+
+/** @auth Matheus Castiglioni
+ *  Pegando intervalos de preenchimento de acordo definido nos elementos
+ *  Strings: maxlength e minlength
+ *  Numbers e Date: min e max
+ */
+function buildMessageFromInput(input) {
+    if (input.type === "number")
+        return `Intervalo: ${input.getAttribute("min")} a ${input.getAttribute("max")}.`;
+    return `Intervalo: ${input.getAttribute("minlength")} a ${input.getAttribute("maxlength")} caracteres.`;
+}
 
 /** @auth Matheus Castiglioni
  *  Setando o pattern para cada input de acordo com o seu nome 
@@ -122,15 +136,4 @@ const hasTooltip = element => element.parentNode.classList.contains("o-form__too
 function setMessageTooltip(pattern, input) {
 	const tooltip = input.parentNode.querySelector("[class*=o-tooltip]");
 	tooltip.innerHTML = `${pattern.message}<br/>${buildMessageFromInput(input)}`;
-}
-
-/** @auth Matheus Castiglioni
- *  Pegando intervalos de preenchimento de acordo definido nos elementos
- *  Strings: maxlength e minlength
- *  Numbers e Date: min e max 
- */
-function buildMessageFromInput(input) {
-	if (input.type === "number")
-		return `Intervalo: ${input.getAttribute("min")} a ${input.getAttribute("max")}.`;
-	return `Intervalo: ${input.getAttribute("minlength")} a ${input.getAttribute("maxlength")} caracteres.`;
 }

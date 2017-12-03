@@ -48,12 +48,16 @@ $logo-size: 100px
     &__botao
         @include border-radius(5px)
         background: $text
-        border: none
+        border: 1px solid $text
         color: $text-alt
         display: block
         padding: .75rem
         text-align: center
+        transition: all .15s ease-out
         width: 100%
+        &:hover
+            background: transparent
+            color: $text
     &__marca
         background: #FEFEFE
         border-top: $border
