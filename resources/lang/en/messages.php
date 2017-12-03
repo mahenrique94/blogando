@@ -25,6 +25,7 @@ return [
     "botao.salvar"                                              => "Salvar",
     "botao.sugerirfuncionalidade"                               => "Sugerir uma funcionalidade",
     "botao.todas"                                               => "Todas",
+    "botao.trocarperfil"                                        => "Trocar perfil",
     "botao.visualizar"                                          => "Visualizar",
     "botao.voltar"                                              => "Voltar",
 

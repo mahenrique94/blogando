@@ -44,6 +44,7 @@ class AutenticacaoController extends Controller
     }
 
     public function escolherPerfil($idUsuario) {
+        Auth::logout();
         return view ("painel.autenticacao.perfils")->with("perfils", TblPerfil::where("idusuario", $idUsuario)->get());
     }
 
