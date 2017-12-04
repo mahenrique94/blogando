@@ -49,15 +49,20 @@ class AdmUsuarioController extends Controller implements GenericoController
         return view("painel.admUsuario.lista", ["pagina" => "usuarios", "subpagina" => "todosusuarios"])->with("usuarios", $usuarios);
     }
 
-    public function salvar(Request $request) {
-        $usuario = AdmUsuario::create([
+    public function novo(Request $request) {
+        return AdmUsuario::create([
             "email" => $request->email,
             "senha" => $request->senha,
-            "inativo" => $request->inativo,
+            "inativo" => $request->has("inativo") ? $request->inativo : false,
             "created_at" => date("Y-m-d H:i:s"),
             "updated_at" => date("Y-m-d H:i:s"),
         ]);
-        $this->usuariosParametrosController->criarNovo($usuario);
+    }
+
+    public function salvar(Request $request) {
+        $usuario = $this->novo($request);
+        $this->usuariosParametrosController->novo($usuario);
         return redirect()->action("AdmUsuarioController@editar", ["id" => $usuario])->withInput(["sucesso" => "Usuário salvo com sucesso"]);
     }
+
 }

@@ -11,6 +11,7 @@ return [
     "botao.cancelar"                                            => "Cancelar",
     "botao.configuracoes"                                       => "Configurações",
     "botao.copiar"                                              => "Copiar",
+    "botao.criarconta"                                          => "Criar conta",
     "botao.deletar"                                             => "Deletar",
     "botao.editar"                                              => "Editar",
     "botao.enviar"                                              => "Enviar",
@@ -75,6 +76,7 @@ return [
     "label.formatodata"                                         => "Formato de data",
     "label.formatodatahora"                                     => "Formato de data e hora",
     "label.formatohora"                                         => "Formato de hora",
+    "label.foto"                                                => "Foto",
     "label.grupo"                                               => "Grupo",
     "label.identificacaodisqus"                                 => "Identificação do Disqus",
     "label.inativo"                                             => "Inativo",
@@ -200,6 +202,7 @@ return [
     "placeholder.senha"                                         => "Senha",
 
     ######################################## TITULO ########################################
+    "titulo.novaconta"                                          => "Nova conta",
     "titulo.pagina"                                             => "Blogando",
     "titulo.perfil"                                             => "Perfil",
     "titulo.perfilescolher"                                     => "Selecione o perfil que deseja entrar",

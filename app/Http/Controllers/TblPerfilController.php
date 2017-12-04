@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\AdmUsuario;
+use App\Blog;
 use App\Http\HTTP;
+use App\Http\Parametros;
 use Illuminate\Http\Request;
 use App\TblPerfil;
 use App\AdmGrupo;
@@ -49,18 +52,23 @@ class TblPerfilController extends Controller implements GenericoController
 
     public function listar(Request $request) { }
 
-    public function salvar(Request $request) {
+    public function novo($request, $usuario = null) {
         TblPerfil::create([
             "nome" => $request->nome,
             "apelido" => $request->apelido,
-            "idgrupo" => $request->grupo,
-            "idusuario" => $request->idusuario,
+            "idgrupo" => $request->has("grupo") ? $request->grupo : Parametros::GRUPO_LEITOR,
+            "idusuario" => $request->has("idusuario") ? $request->idusuario : $usuario->id,
             "descricao" => $request->descricao,
             "slug" => str_slug($request->nome),
             "imagem" => $this->subindoImagem($request),
+            "inativo" => $request->has("inativo") ? $request->inativo : false,
             "created_at" => date("Y-m-d H:i:s"),
             "updated_at" => date("Y-m-d H:i:s"),
         ]);
+    }
+
+    public function salvar(Request $request) {
+        $this->novo($request);
         return redirect()->action("AdmUsuarioController@editar", ["id" => $request->idusuario])->withInput(["sucesso" => "Perfil salvo com sucesso"]);
     }
 
@@ -74,4 +82,5 @@ class TblPerfilController extends Controller implements GenericoController
             return $request->imagem;
         return null;
     }
+
 }

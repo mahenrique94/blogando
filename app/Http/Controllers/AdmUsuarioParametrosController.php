@@ -17,15 +17,15 @@ class AdmUsuarioParametrosController extends Controller implements GenericoContr
         return redirect()->action("AdmUsuarioParametrosController@editar", ["id" => $parametros])->withInput(["sucesso" => "Configurações atualizadas com sucesso"]);
     }
 
-    public function criarNovo($idUsuario) {
+    public function novo($usuario) {
         AdmUsuarioParametros::create([
-            "idusuario" => $idUsuario->id,
+            "idusuario" => $usuario->id,
             "revisarconteudoprimeiravez" => 0,
             "revisarconteudoatualizado" => 0,
             "created_at" => date("Y-m-d H:i:s"),
             "updated_at" => date("Y-m-d H:i:s"),
         ]);
-        return redirect()->action("AdmUsuarioController@editar", ["id" => $idUsuario->id])->withInput(["sucesso" => "Configurações criadas com sucesso"]);
+        return redirect()->action("AdmUsuarioController@editar", ["id" => $usuario->id])->withInput(["sucesso" => "Configurações criadas com sucesso"]);
     }
 
     public function deletar($id) {

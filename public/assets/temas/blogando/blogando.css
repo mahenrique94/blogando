@@ -598,6 +598,17 @@
 }
 
 /***
+** Conta
+***/
+.bg-conta {
+    width: 100%;
+}
+.bg-conta__titulo {
+    border-bottom: 1px solid #DCDCDC;
+    font-weight: 500;
+}
+
+/***
 ** Footer
 ***/
 .bg-footer {

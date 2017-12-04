@@ -28,7 +28,7 @@
                         </div>
                         <div class="u-grid--6" role="grid">
                             <label class="o-form__text" for="apelido">@lang("messages.label.apelido")</label>
-                            <input class="o-form__data" id="nome" maxlength="60" name="apelido" type="text" value="{{$perfil->apelido}}">
+                            <input class="o-form__data" id="apelido" maxlength="60" name="apelido" type="text" value="{{$perfil->apelido}}">
                         </div>
                     </div>
                     <div class="l-row" role="row">
