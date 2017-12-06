@@ -18,8 +18,8 @@ class TblPerfilController extends Controller implements GenericoController
         $this->arquivoController = $arquivoController;
     }
 
-    public function atualizar(Request $request) {
-        TblPerfil::where("id", $request->id)
+    public function atualizarDados($idPerfil, $request) {
+        return TblPerfil::where("id", $idPerfil)
             ->update([
                 "nome" => $request->nome,
                 "apelido" => $request->apelido,
@@ -30,6 +30,10 @@ class TblPerfilController extends Controller implements GenericoController
                 "imagem" => $this->subindoImagem($request),
                 "updated_at" => date("Y-m-d H:i:s"),
             ]);
+    }
+
+    public function atualizar(Request $request) {
+        $this->atualizarDados($request->id, $request);
         return redirect()->action("AdmUsuarioController@editar", ["id" => $request->idusuario])->withInput(["sucesso" => "Perfil atualizado com sucesso"]);
     }
 

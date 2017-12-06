@@ -4,7 +4,7 @@
     <div class="bg-p-dashboard__header">
         <div class="o-breadcrumb--arrow">
             <span class="o-breadcrumb__link"><a href="/painel/dashboard" role="link" title="@lang("messages.menu.dashboard")">@lang("messages.menu.dashboard")</a></span>
-            <span class="o-breadcrumb__link"><a class="is-inactive" href="/painel/dashboard/meus-posts" role="link" title="@lang("messages.menu.dashboard.meusposts")">@lang("messages.menu.dashboard.meusposts")</a></span>
+            <span class="o-breadcrumb__link"><a class="is-inactive" href="/painel/dashboard/meus/posts" role="link" title="@lang("messages.menu.dashboard.meusposts")">@lang("messages.menu.dashboard.meusposts")</a></span>
         </div>
         <a class="o-button--tie o-button--medium" href="/painel/post/formulario"><i class="icon-plus"></i>@lang("messages.botao.novo")</a>
         <form action="/painel/dashboard/meus-posts" class="o-form" id="formmeusposts" method="get" name="formmeusposts" role="search">

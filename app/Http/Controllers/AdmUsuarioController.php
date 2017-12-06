@@ -15,14 +15,18 @@ class AdmUsuarioController extends Controller implements GenericoController
         $this->usuariosParametrosController = $usuariosParametrosController;
     }
 
-    public function atualizar(Request $request) {
-        $usuario = AdmUsuario::where("id", $request->id)
+    public function atualizarDados($idUsuario, $request) {
+        return AdmUsuario::where("id", $idUsuario)
             ->update([
                 "email" => $request->email,
                 "senha" => $request->senha,
-                "inativo" => $request->inativo,
+                "inativo" => $request->has("inativo") ? $request->inativo : false,
                 "updated_at" => date("Y-m-d H:i:s"),
             ]);
+    }
+
+    public function atualizar(Request $request) {
+        $usuario = $this->atualizarDados($request->id, $request);
         return redirect()->action("AdmUsuarioController@editar", ["id" => $request->id])->withInput(["sucesso" => "Usuário atualizado com sucesso"]);
     }
 

@@ -2,8 +2,10 @@
 
 namespace App;
 
+use App\Http\Parametros;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Support\Facades\Auth;
 
 class TblPerfil extends Model
 {
@@ -40,6 +42,14 @@ class TblPerfil extends Model
         else
             $icone = "icon-newspaper";
         return $icone;
+    }
+
+    public static function ehLeitor() {
+        return Auth::user()->idgrupo === Parametros::GRUPO_LEITOR;
+    }
+
+    public static function naoEhLeitor() {
+        return Auth::user()->idgrupo < Parametros::GRUPO_LEITOR;
     }
 
 }

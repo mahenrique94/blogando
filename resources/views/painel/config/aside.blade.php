@@ -18,7 +18,9 @@
             <a class="bg-p-aside__link bg-p-aside__link--quiet" href="https://feedback.userreport.com/bc4f9ef9-720a-487e-a73f-00af8f498780/#submit/bug" target="_blank"><i class="icon-attention"></i>&nbsp;@lang("messages.botao.relatarerro")</a>
         </div>
         <div class="bg-p-aside__opcoes">
-            <a class="bg-p-aside__link" href="/painel/post/formulario"><i class="icon-pencil"></i>&nbsp;@lang("messages.botao.escrever")</a>
+            @if(\App\TblPerfil::naoEhLeitor())
+                <a class="bg-p-aside__link" href="/painel/post/formulario"><i class="icon-pencil"></i>&nbsp;@lang("messages.botao.escrever")</a>
+            @endif
             <a class="bg-p-aside__perfil" href="#perfilUsuario" onclick="toggleElemento(this, event);"><img alt="{{Auth::user()->nome}}" class="bg-p-aside__foto" src="/arquivo/download/perfil/{{Auth::user()->imagem}}"></a>
             <a class="bg-p-aside__navegacao" href="#navegacaoOpcoes" onclick="toggleNavegacao(this, event);"><i class="icon-th"></i></a>
             <a class="bg-p-aside__navegacao" href="#notificacoes" onclick="toggleElemento(this, event);">
@@ -34,14 +36,16 @@
     <aside class="bg-p-navegacao--{{$blog->aparencia->temanavegacao->slug}}" id="navegacaoOpcoes">
         <ul class="bg-p-navegacao__lista" role="menubar">
             <li class="bg-p-navegacao__item" role="menuitem"><a class="bg-p-navegacao__link" href="/painel/dashboard"><i class="icon-th-large bg-p-navegacao__icone"></i>&nbsp;@lang("messages.menu.dashboard")</a></li>
-            <li class="bg-p-navegacao__item" role="menuitem"><a class="bg-p-navegacao__link" href="/painel/post"><i class="icon-newspaper bg-p-navegacao__icone"></i>&nbsp;@lang("messages.menu.post")</a></li>
-            <li class="bg-p-navegacao__item" role="menuitem"><a class="bg-p-navegacao__link" href="/painel/midia/biblioteca"><i class="icon-picture bg-p-navegacao__icone"></i>&nbsp;@lang("messages.menu.midia")</a></li>
-            <li class="bg-p-navegacao__item" role="menuitem"><a class="bg-p-navegacao__link" href="/painel/comentario"><i class="icon-chat bg-p-navegacao__icone"></i>&nbsp;@lang("messages.menu.comentarios")</a></li>
-            <li class="bg-p-navegacao__item" role="menuitem"><a class="bg-p-navegacao__link" href="/painel/usuarios"><i class="icon-users bg-p-navegacao__icone"></i>&nbsp;@lang("messages.menu.usuarios")</a></li>
-            <li class="bg-p-navegacao__item" role="menuitem"><a class="bg-p-navegacao__link" href="/painel/newsletter"><i class="icon-mail bg-p-navegacao__icone"></i>&nbsp;@lang("messages.menu.newsletter")</a></li>
-            <li class="bg-p-navegacao__item" role="menuitem"><a class="bg-p-navegacao__link" href="/painel/administrador/grupos"><i class="icon-male bg-p-navegacao__icone"></i>&nbsp;@lang("messages.menu.administrador")</a></li>
-            <li class="bg-p-navegacao__item" role="menuitem"><a class="bg-p-navegacao__link" href="/painel/configuracoes/geral"><i class="icon-cog-alt bg-p-navegacao__icone"></i>&nbsp;@lang("messages.menu.configuracoes")</a></li>
-            <li class="bg-p-navegacao__item" role="menuitem"><a class="bg-p-navegacao__link" href="#"><i class="icon-wrench bg-p-navegacao__icone"></i>&nbsp;@lang("messages.menu.ferramentas")</a></li>
+            @if(\App\TblPerfil::naoEhLeitor())
+                <li class="bg-p-navegacao__item" role="menuitem"><a class="bg-p-navegacao__link" href="/painel/post"><i class="icon-newspaper bg-p-navegacao__icone"></i>&nbsp;@lang("messages.menu.post")</a></li>
+                <li class="bg-p-navegacao__item" role="menuitem"><a class="bg-p-navegacao__link" href="/painel/midia/biblioteca"><i class="icon-picture bg-p-navegacao__icone"></i>&nbsp;@lang("messages.menu.midia")</a></li>
+                <li class="bg-p-navegacao__item" role="menuitem"><a class="bg-p-navegacao__link" href="/painel/comentario"><i class="icon-chat bg-p-navegacao__icone"></i>&nbsp;@lang("messages.menu.comentarios")</a></li>
+                <li class="bg-p-navegacao__item" role="menuitem"><a class="bg-p-navegacao__link" href="/painel/usuarios"><i class="icon-users bg-p-navegacao__icone"></i>&nbsp;@lang("messages.menu.usuarios")</a></li>
+                <li class="bg-p-navegacao__item" role="menuitem"><a class="bg-p-navegacao__link" href="/painel/newsletter"><i class="icon-mail bg-p-navegacao__icone"></i>&nbsp;@lang("messages.menu.newsletter")</a></li>
+                <li class="bg-p-navegacao__item" role="menuitem"><a class="bg-p-navegacao__link" href="/painel/administrador/grupos"><i class="icon-male bg-p-navegacao__icone"></i>&nbsp;@lang("messages.menu.administrador")</a></li>
+                <li class="bg-p-navegacao__item" role="menuitem"><a class="bg-p-navegacao__link" href="/painel/configuracoes/geral"><i class="icon-cog-alt bg-p-navegacao__icone"></i>&nbsp;@lang("messages.menu.configuracoes")</a></li>
+                <li class="bg-p-navegacao__item" role="menuitem"><a class="bg-p-navegacao__link" href="#"><i class="icon-wrench bg-p-navegacao__icone"></i>&nbsp;@lang("messages.menu.ferramentas")</a></li>
+            @endif
         </ul>
     </aside>
      <aside class="bg-p-usuario--{{$blog->aparencia->temaperfil->slug}} bg-p-slide" data-animacao-situacao="desanimado" id="perfilUsuario">
@@ -50,17 +54,28 @@
             <span class="bg-p-usuario__nome"><i class="icon-user"></i>&nbsp;{{Auth::user()->nome}}</span>
             <span class="bg-p-usuario__usuario">{{$usuarioLogado->email}}</span>
         </div>
-        <a class="bg-p-usuario__link" href="/painel/acessar/perfil/escolher/{{Auth::user()->idusuario}}/{{is_null(Auth::user()->remember_token)}}"><i class="icon-retweet"></i>&nbsp;@lang("messages.botao.trocarperfil")</a>
-        <a class="bg-p-usuario__link" href="/painel/sair"><i class="icon-off"></i>&nbsp;@lang("messages.botao.sair")</a>
+         @if(\App\TblPerfil::naoEhLeitor())
+            <a class="bg-p-usuario__link" href="/painel/acessar/perfil/escolher/{{Auth::user()->idusuario}}/{{is_null(Auth::user()->remember_token)}}"><i class="icon-retweet"></i>&nbsp;@lang("messages.botao.trocarperfil")</a>
+         @endif
+         <a class="bg-p-usuario__link" href="/painel/sair"><i class="icon-off"></i>&nbsp;@lang("messages.botao.sair")</a>
         <ul class="bg-p-usuario__opcoes">
-            <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link bg-p-usuario__opcoes___link--primeiro" href="#">@lang("messages.menu.perfil")</a></li>
-            <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="/painel/usuarios/{{Auth::id()}}"><i class="icon-user bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.meuperfil")</a></li>
-            <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="/painel/dashboard/meus-posts"><i class="icon-newspaper bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.meusposts")</a></li>
-            <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="/painel/dashboard/meus-rascunhos"><i class="icon-pin bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.meusrascunhos")</a></li>
-            <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="/painel/dashboard/meus-comentarios"><i class="icon-chat bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.meuscomentarios")</a></li>
-            <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="/painel/usuarios/rede-social"><i class="icon-globe bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.minhasredessociais")</a></li>
-            <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="/painel/usuarios/configuracoes/{{Auth::id()}}"><i class="icon-cog bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.conta")</a></li>
-            <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="#"><i class="icon-th-list bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.minhasatividades")</a></li>
+            @if(\App\TblPerfil::ehLeitor())
+                <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="/painel/dashboard/meu/perfil"><i class="icon-user bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.meuperfil")</a></li>
+                <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="/painel/dashboard/meus/posts/curtidos"><i class="icon-heart bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.meuspostscurtidos")</a></li>
+                <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="/painel/dashboard/meus/posts/favoritos"><i class="icon-star bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.meuspostsfavoritos")</a></li>
+            @endif
+            @if(\App\TblPerfil::naoEhLeitor())
+                <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link bg-p-usuario__opcoes___link--primeiro" href="#">@lang("messages.menu.perfil")</a></li>
+                <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="/painel/usuarios/{{Auth::id()}}"><i class="icon-user bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.meuperfil")</a></li>
+                <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="/painel/dashboard/meus/posts"><i class="icon-newspaper bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.meusposts")</a></li>
+                <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="/painel/dashboard/meus/rascunhos"><i class="icon-pin bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.meusrascunhos")</a></li>
+            @endif
+            <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="/painel/dashboard/meus/comentarios"><i class="icon-chat bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.meuscomentarios")</a></li>
+            @if(\App\TblPerfil::naoEhLeitor())
+                <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="/painel/usuarios/rede/social"><i class="icon-globe bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.minhasredessociais")</a></li>
+                <li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="/painel/usuarios/configuracoes/{{Auth::id()}}"><i class="icon-cog bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.conta")</a></li>
+            @endif
+            {{--<li class="bg-p-usuario__opcoes___opcao"><a class="bg-p-usuario__opcoes___link" href="#"><i class="icon-th-list bg-p-usuario__opcoes___icone"></i>&nbsp;@lang("messages.menu.perfil.minhasatividades")</a></li>--}}
         </ul>
     </aside>
         <aside class="bg-p-notificacao--{{$blog->aparencia->temanotificacao->slug}} bg-p-slide" data-animacao-situacao="desanimado" id="notificacoes">

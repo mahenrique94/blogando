@@ -18,12 +18,10 @@ class PostController extends Controller implements GenericoController
 {
 
     private $arquivoController;
-    private $estatisticasController;
     private $blog;
 
-    public function __construct(ArquivoController $arquivoController, PostEstatisticasController $estatisticasController) {
+    public function __construct(ArquivoController $arquivoController) {
         $this->arquivoController = $arquivoController;
-        $this->estatisticasController = $estatisticasController;
         $this->blog = Blog::first();
     }
 
@@ -131,7 +129,6 @@ class PostController extends Controller implements GenericoController
             "created_at" => date("Y-m-d H:i:s"), 
             "updated_at" => date("Y-m-d H:i:s"),
         ]);
-        $this->estatisticasController->criarNova($post->id);
         return redirect()->action("PostController@editar", ["id" => $post])->withInput(["sucesso" => "Post salvo com sucesso"]);
     }
 

@@ -14,12 +14,13 @@ class CriandoTabelaPostEstatisticas extends Migration
     public function up()
     {
         Schema::create('bg_post_estatisticas', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->bigInteger("idpost")->unsigned()->unique();
-            $table->integer("curtidas")->default(0);
-            $table->integer("visualizacoes")->default(0);;
-            $table->integer("compartilhamentos")->default(0);;
+            $table->integer("idtipoestatistica")->unsigned()->unique();
+            $table->integer("idperfil")->unsigned()->unique();
             $table->foreign("idpost")->references("id")->on("bg_post");
+            $table->foreign("idtipoestatistica")->references("id")->on("bg_post_tipoestatistica");
+            $table->foreign("idperfil")->references("id")->on("bg_tbl_perfil");
             $table->timestamps();
         });
     }

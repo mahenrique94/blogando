@@ -110,10 +110,14 @@ Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() 
     Route::put("configuracoes/rede-social", "BlogRedeSocialController@atualizar")->middleware(["csrf"]);
 
     Route::get("dashboard", "DashboardController@index");
-    Route::get("dashboard/meus-agendamentos", "DashboardController@meusagendamentos");
-    Route::get("dashboard/meus-comentarios", "DashboardController@meuscomentarios");
-    Route::get("dashboard/meus-posts", "DashboardController@meusposts");
-    Route::get("dashboard/meus-rascunhos", "DashboardController@meusrascunhos");
+    Route::get("dashboard/meu/perfil", "DashboardController@meuPerfil");
+    Route::get("dashboard/meus/agendamentos", "DashboardController@meusAgendamentos");
+    Route::get("dashboard/meus/comentarios", "DashboardController@meusComentarios");
+    Route::get("dashboard/meus/posts", "DashboardController@meusPosts");
+    Route::get("dashboard/meus/posts/curtidos", "DashboardController@meuspostsCurtidos");
+    Route::get("dashboard/meus/posts/favoritos", "DashboardController@meusPostsFavoritos");
+    Route::get("dashboard/meus/rascunhos", "DashboardController@meusRascunhos");
+    Route::put("dashboard/meu/perfil/atualizar", "DashboardController@meuPerfilSalvar");
 
     Route::delete("newsletter/{id}", "BlogNewsletterController@deletar");
     Route::get("newsletter", "BlogNewsletterController@listar");

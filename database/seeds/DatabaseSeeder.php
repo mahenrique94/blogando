@@ -31,5 +31,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PopulandoTabelaPostTipoVisualizacao::class);
         $this->call(PopulandoTabelaBlogParametros::class);
         $this->call(PopulandoTabelaTblPerfil::class);
+        $this->call(PopulandoTabelaPostTipoEstatistica::class);
     }
 }
