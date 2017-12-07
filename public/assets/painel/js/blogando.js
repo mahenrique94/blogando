@@ -209,3 +209,39 @@ function requestDeleteMidia(obj) {
         console.error(error);
     });
 };
+
+/** @auth Matheus Castiglioni
+ *  Criar o input do id do post
+ */
+function criarInputIdPost(acao) {
+    const idPost = document.createElement("input");
+    idPost.name = "idpost";
+    idPost.value = acao.dataset.post;
+    return idPost;
+}
+
+/** @auth Matheus Castiglioni
+ *  Configurar parâmetros da requisição
+ */
+function configurarParametrosDaEstatistica(acao) {
+    const data = [criarInputIdPost(acao)];
+    return data;
+}
+
+/** @auth Matheus Castiglioni
+ *  Curtir um post
+ */
+function curtirPost(acao) {
+    HttpService.request("/post/curtir", "POST", configurarParametrosDaEstatistica(acao), true)
+        .then(resposta => acao.classList.toggle("is-curtido"))
+        .catch(erro => console.error(erro));
+}
+
+/** @auth Matheus Castiglioni
+ *  Curtir um post
+ */
+function favoritarPost(acao) {
+    HttpService.request("/post/favoritar", "POST", configurarParametrosDaEstatistica(acao), true)
+        .then(resposta => acao.classList.toggle("is-favoritado"))
+        .catch(erro => console.error(erro));
+}

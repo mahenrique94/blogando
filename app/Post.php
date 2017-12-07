@@ -22,6 +22,10 @@ class Post extends Model
         return $this->hasMany("\App\PostComentario", "idpost", "id");
     }
 
+    public function estatisticas() {
+        return $this->hasMany("\App\PostEstatisticas", "idpost", "id");
+    }
+
     public function situacao() {
         return $this->belongsTo("\App\PostSituacao", "idsituacao");
     }

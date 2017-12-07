@@ -12,6 +12,9 @@
 /***
 ** Configurações
 ***/
+.bg-body {
+    overflow-x: hidden;
+}
 .bg-conteudo {
     background: #F2F2F2;
     display: flex;
@@ -606,6 +609,36 @@
 .bg-conta__titulo {
     border-bottom: 1px solid #DCDCDC;
     font-weight: 500;
+}
+
+/***
+** Estatisticas
+***/
+.bg-estatisticas {
+    margin: 1rem 0;
+}
+.bg-estatisticas__lista, .bg-estatisticas__item {
+    display: inline-block;
+}
+.bg-estatisticas__acao {
+    background: none;
+    border: none;
+    color: #DCDCDC;
+    display: inline-block;
+    font-size: 2rem;
+    transition: all .25s linear;
+}
+.bg-estatisticas__acao .bg-estatisticas__icone {
+    transition: all .25s linear;
+}
+.bg-estatisticas__acao.is-curtido {
+    color: #FF8080;
+}
+.bg-estatisticas__acao.is-favoritado {
+    color: #FFFF66;
+}
+.bg-estatisticas__acao.is-curtido .bg-estatisticas__icone, .bg-estatisticas__acao.is-favoritado .bg-estatisticas__icone {
+    text-shadow: 2px 2px 7px rgba(0, 0, 0, .3);
 }
 
 /***

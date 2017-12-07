@@ -10,7 +10,7 @@
                 @foreach ($postsdestaque as $post)
                     <div class="bg-banner__wrap bg-banner__wrap--{{$loop->index + 1}}">
                         <div class="bg-banner__post">
-                            <a href="/{{$post->slug}}"><div class="bg-banner__post___imagem" style="background-image: url(/arquivo/download/posts/{{date_format(date_create($post->datapostagem), "Y")}}/{{date_format(date_create($post->datapostagem), "m")}}/{{$post->imagem}});"></div></a>
+                            <a href="/{{$post->slug}}"><div class="bg-banner__post___imagem" style="background-image: url({{$blog->url}}/arquivo/download/posts/{{date_format(date_create($post->datapostagem), "Y")}}/{{date_format(date_create($post->datapostagem), "m")}}/{{$post->imagem}});"></div></a>
                             <div class="bg-banner__post___info">
                                 @foreach ($post->categorias as $categoria)
                                     <a class="bg-banner__post___categoria" href="/categoria/{{$categoria->categoria->slug}}">{{$categoria->categoria->descricao}}</a>

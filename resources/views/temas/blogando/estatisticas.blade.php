@@ -1,0 +1,6 @@
+<div class="bg-estatisticas">
+    <ul class="bg-estatisticas__lista">
+        <li class="bg-estatisticas__item"><button class="bg-estatisticas__acao @foreach($post->estatisticas as $estatistica) @if ($estatistica->idpost === $post->id && $estatistica->idtipoestatistica === \App\Http\Parametros::TIPOESTATISTICA_CURTIDA) is-curtido @endif @endforeach" data-post="{{$post->id}}" onclick="curtirPost(this);" title="@lang("messages.botao.curtir")" type="button"><i class="icon-heart bg-estatisticas__icone"></i></button></li>
+        <li class="bg-estatisticas__item"><button class="bg-estatisticas__acao @foreach($post->estatisticas as $estatistica) @if ($estatistica->idpost === $post->id && $estatistica->idtipoestatistica === \App\Http\Parametros::TIPOESTATISTICA_FAVORITO) is-favoritado @endif @endforeach" data-post="{{$post->id}}" onclick="favoritarPost(this);" title="@lang("messages.botao.favoritar")" type="button"><i class="icon-star bg-estatisticas__icone"></i></button></li>
+    </ul>
+</div>

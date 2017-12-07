@@ -23,7 +23,7 @@ class BlogandoController extends Controller
     }
 
     public function anuncie() {
-        return view("temas." . $this->blog->aparencia->temablog .  ".anuncie");
+        return view("temas." . $this->blog->aparencia->temablog .  ".anuncie")->with("pagina", "index");
     }
 
     public function arquivo($ano, $mes, $pagina = 1) {
@@ -37,7 +37,8 @@ class BlogandoController extends Controller
 
         $posts = $query->skip($skip)->take($this->quantidadeDePostsPorPagina)->get();
         return view("temas." . $this->blog->aparencia->temablog .  ".index")
-            ->with("pagina", "index")->with("metodo", "arquivo")
+            ->with("pagina", "index")
+            ->with("metodo", "arquivo")
             ->with("paginas", $quantidadeDePaginas)
             ->with("paginaAtual", $pagina)
             ->with("resultado", $quantidadeDePosts)
@@ -79,7 +80,8 @@ class BlogandoController extends Controller
 
         $posts = $query->skip($skip)->take($this->quantidadeDePostsPorPagina)->select("bg_post.*")->get();
         return view("temas." . $this->blog->aparencia->temablog .  ".index")
-            ->with("pagina", "index")->with("metodo", "categoria")
+            ->with("pagina", "index")
+            ->with("metodo", "categoria")
             ->with("paginas", $quantidadeDePaginas)
             ->with("paginaAtual", $pagina)
             ->with("resultado", $quantidadeDePosts)
@@ -108,7 +110,7 @@ class BlogandoController extends Controller
     }
 
     public function contato() {
-        return view("temas." . $this->blog->aparencia->temablog .  ".contato");
+        return view("temas." . $this->blog->aparencia->temablog .  ".contato")->with("pagina", "index");
     }
 
     public function index($pagina = 1) {
@@ -116,7 +118,8 @@ class BlogandoController extends Controller
         $quantidadeDePaginas = intval(round($quantidadeDePosts / $this->quantidadeDePostsPorPagina));
         $skip = ($pagina * $this->quantidadeDePostsPorPagina) - $this->quantidadeDePostsPorPagina;
         return view("temas." . $this->blog->aparencia->temablog .  ".index")
-            ->with("pagina", "index")->with("metodo", "index")
+            ->with("pagina", "index")
+            ->with("metodo", "index")
             ->with("paginas", $quantidadeDePaginas)
             ->with("paginaAtual", $pagina)
             ->with("resultado", $quantidadeDePosts)
@@ -126,7 +129,10 @@ class BlogandoController extends Controller
     }
 
     public function post($slug) {
-        return view("temas." . $this->blog->aparencia->temablog .  ".visualizar")->with("pagina", "visualizar")->with("metodo", "visualizar")->with("post", Post::where("slug", $slug)->first());
+        return view("temas." . $this->blog->aparencia->temablog .  ".visualizar")
+            ->with("pagina", "visualizar")
+            ->with("metodo", "visualizar")
+            ->with("post", Post::where("slug", $slug)->first());
     }
 
     public function procurar(Request $request, $pagina = 1) {

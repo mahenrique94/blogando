@@ -15,9 +15,10 @@ class CriandoTabelaPostEstatisticas extends Migration
     {
         Schema::create('bg_post_estatisticas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger("idpost")->unsigned()->unique();
-            $table->integer("idtipoestatistica")->unsigned()->unique();
-            $table->integer("idperfil")->unsigned()->unique();
+            $table->bigInteger("idpost")->unsigned();
+            $table->integer("idtipoestatistica")->unsigned();;
+            $table->integer("idperfil")->unsigned();
+            $table->unique(["idpost", "idtipoestatistica", "idperfil"]);
             $table->foreign("idpost")->references("id")->on("bg_post");
             $table->foreign("idtipoestatistica")->references("id")->on("bg_post_tipoestatistica");
             $table->foreign("idperfil")->references("id")->on("bg_tbl_perfil");

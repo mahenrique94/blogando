@@ -17,6 +17,7 @@
 
 .bg-conteudo--visualizar {
     background: var(--aux);
+    padding: 0;
 }
 
 .bg-header {
@@ -44,6 +45,9 @@
     width: 175px;
 }
 
+.bg-nav {
+    align-items: center;
+}
 .bg-nav__lista {
     margin-left: -.5rem;
     margin-top: .2rem;
@@ -62,6 +66,52 @@
 .bg-nav__link:hover, .bg-nav__link.is-ativo {
     background: var(--primaria);
     color: var(--aux);
+}
+
+.bg-nav__item--conta {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: .5rem;
+    position: relative;
+    text-align: center;
+}
+.bg-nav__item--conta:hover:not(.bg-nav__item--conta---segundoNivel) {
+    background: rgba(0, 0, 0, .05);
+}
+.bg-nav__item--conta:hover > .bg-nav__lista--segundoNivel {
+    opacity: 1;
+    transform: translateX(0);
+}
+.bg-nav__link--conta {
+    color: var(--primaria);
+}
+.bg-nav__icone--conta {
+    font-size: 1.2rem;
+}
+
+.bg-nav__lista--segundoNivel {
+    background: var(--aux);
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 38px;
+    transition: all .3s ease-in-out;
+    transform: translateX(270px);
+    width: 100%;
+    z-index: 1;
+}
+.bg-nav__item--conta---segundoNivel {
+    padding: 0;
+    text-align: initial;
+}
+.bg-nav__link--conta---segundoNivel {
+    display: block;
+    padding: .5rem;
+}
+.bg-nav__link--conta---segundoNivel:hover {
+    background: rgba(0, 0, 0, .05);
 }
 
 .bg-animes::before {
@@ -179,7 +229,7 @@
 }
 .bg-post__imagem {
     background-position: center;
-    background-size: cover;
+    background-size: cover !important;
     float: left;
     height: 200px;
     margin: 0;
@@ -449,6 +499,9 @@
     .bg-posts {
         padding: 0 1rem;
     }
+    .bg-post__cabecalho, .bg-post__conteudo, .bg-post__rodape, .bg-estatisticas, .bg-autor, .bg-comentarios {
+        padding: 0 1rem 2rem;
+    }
     .bg-post__wrap {
         width: 100%;
     }
@@ -500,8 +553,8 @@
     .bg-posts {
         padding: 2rem;
     }
-    .bg-conteudo--visualizar {
-        padding: 2rem 10rem;
+    .bg-post__cabecalho, .bg-post__conteudo, .bg-post__rodape, .bg-estatisticas, .bg-autor, .bg-comentarios {
+        padding: 0 10rem 2rem;
     }
     .bg-rodape {
         flex-direction: row;

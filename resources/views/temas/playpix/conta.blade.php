@@ -1,5 +1,5 @@
 @extends("config.pagina")
-@section("titulo") Fale conosco @stop
+@section("titulo") Registrar @stop
 @include("temas.playpix.header")
 @section("conteudo")
     <section class="u-content">

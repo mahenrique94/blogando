@@ -199,6 +199,8 @@ Route::get("/{slug}", "BlogandoController@post");
 Route::get("/tag/{slug}", "BlogandoController@tag");
 Route::get("/tag/{slug}/pagina/{pagina}", "BlogandoController@tag");
 Route::post("/comentario", "BlogandoController@comentar");
+Route::post("/post/curtir", "PostEstatisticasController@curtirPost");
+Route::post("/post/favoritar", "PostEstatisticasController@favoritarPost");
 
 Route::get("/email/enviar", "EmailController@enviar");
 Route::get("/email/template", "EmailController@template");

@@ -11,6 +11,10 @@ class PostEstatisticas extends Model
     protected $hidden = ["id", "created_at"];
 
     public function perfil() {
+        return $this->belongsTo("\App\TblPerfil", "idperfil");
+    }
+
+    public function post() {
         return $this->belongsTo("\App\Post", "idpost");
     }
 

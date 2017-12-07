@@ -45,11 +45,15 @@ class TblPerfil extends Model
     }
 
     public static function ehLeitor() {
-        return Auth::user()->idgrupo === Parametros::GRUPO_LEITOR;
+        if (!Auth::guest())
+            return Auth::user()->idgrupo === Parametros::GRUPO_LEITOR;
+        return true;
     }
 
     public static function naoEhLeitor() {
-        return Auth::user()->idgrupo < Parametros::GRUPO_LEITOR;
+        if (!Auth::guest())
+            return Auth::user()->idgrupo < Parametros::GRUPO_LEITOR;
+        return true;
     }
 
 }

@@ -41,7 +41,7 @@
     @endif
     {{-- //OPEN GRAPH -> FACEBOOK --}}
 </head>
-<body class="bg-body" style="{{Auth::guest() ? "" : "padding-top: 50px;"}}">
+<body class="bg-body" style="{{Auth::guest() || \App\TblPerfil::ehLeitor() ? "" : "padding-top: 50px;"}}">
     @if (!Auth::guest())
         @include("painel.config.aside")
     @endif
