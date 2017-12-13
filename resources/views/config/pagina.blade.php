@@ -21,6 +21,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="400">
     @if (isset($pagina) && $pagina === "visualizar")
+        <link rel="canonical" href="{{$blog->url}}/{{$post->slug}}">
         <meta name="description" content="{{$post->conteudoresumido}}">
         <meta property="og:title" content="{{$post->titulo}}" />
         <meta property="og:url" content="{{$blog->url}}/{{$post->slug}}" />
@@ -32,6 +33,7 @@
         <meta property="og:description" content="{{$post->conteudoresumido}}" />
         <meta property="og:image" content="{{$blog->url}}/arquivo/download/posts/{{date_format(date_create($post->datapostagem), "Y")}}/{{date_format(date_create($post->datapostagem), "m")}}/{{$post->imagem}}"/>
     @else
+        <link rel="canonical" href="{{$blog->url}}">
         <meta name="description" content="{{$blog->descricao}}">
         <meta property="og:title" content="{{$blog->titulo}}" />
         <meta property="og:url" content="{{$blog->url}}" />
