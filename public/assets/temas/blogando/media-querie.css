@@ -74,7 +74,6 @@
         padding: 1rem 2rem;
     }
     .bg-footer__lista {
-        margin-right: 0;
         margin-bottom: 1rem;
     }
 }
@@ -140,7 +139,6 @@
         padding: 1rem 5rem;
     }
     .bg-footer__lista {
-        margin-right: 5rem;
         margin-bottom: 0;
     }
 }

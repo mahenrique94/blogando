@@ -115,8 +115,9 @@ class BlogandoController extends Controller
 
     public function index($pagina = 1) {
         $quantidadeDePosts = Post::count();
-        $quantidadeDePaginas = intval(round($quantidadeDePosts / $this->quantidadeDePostsPorPagina));
+        $quantidadeDePaginas = intval(ceil($quantidadeDePosts / $this->quantidadeDePostsPorPagina));
         $skip = ($pagina * $this->quantidadeDePostsPorPagina) - $this->quantidadeDePostsPorPagina;
+
         return view("temas." . $this->blog->aparencia->temablog .  ".index")
             ->with("pagina", "index")
             ->with("metodo", "index")
