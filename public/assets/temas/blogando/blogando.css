@@ -318,6 +318,7 @@
 }
 .bg-visualizar .bg-post__conteudo iframe {
     margin-bottom: 1rem;
+    width: 100% !important;
 }
 
 /***
