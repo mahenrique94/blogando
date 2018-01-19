@@ -27,7 +27,7 @@ class BlogNewsletterParametrosController extends Controller implements GenericoC
     }
 
     public function formulario() {
-        return view("painel.configuracoes.newsletter", ["pagina" => "configuracoes"], ["subpagina" => "newsletter"])->with("newsletterparametros", BlogNewsletterParametros::first());
+        return view("painel.configuracoes.newsletter", ["pagina" => "configuracoes"], ["subpagina" => "newsletterconf"])->with("newsletterparametros", BlogNewsletterParametros::first());
     }
 
     public function json() {

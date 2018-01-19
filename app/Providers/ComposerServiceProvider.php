@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\AdmUsuario;
+use App\Http\Parametros;
 use App\TblPerfil;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
@@ -57,7 +58,7 @@ class ComposerServiceProvider extends ServiceProvider
             $view->with("categorias", CadCategoria::orderBy("descricao")->get());
             $view->with("tags", CadTag::orderBy("descricao")->get());            
             $view->with("postsdestaque", Post::where("datapostagem", "<=", date("Y-m-d H:i"))->orderBy("datapostagem", "desc")->take(3)->get());
-            $view->with("postsrecentes", Post::where("datapostagem", "<=", date("Y-m-d H:i"))->orderBy("datapostagem", "desc")->take(5)->get());
+            $view->with("postsrecentes", Post::where("datapostagem", "<=", date("Y-m-d H:i"))->where("idsituacao", Parametros::SITUACAOPOST_PUBLICADO)->orderBy("datapostagem", "desc")->take(5)->get());
             $view->with("blogredessociais", BlogRedeSocial::all());
             $view->with("arquivos", $arquivos);
             $view->with("postcomentarios", PostComentario::where("aprovado", true)->get());

@@ -13,6 +13,7 @@ use App\PostEstatisticas;
 use App\Blog;
 use Parsedown;
 use League\HTMLToMarkdown\HtmlConverter;
+use PhpParser\Node\Param;
 
 class PostController extends Controller implements GenericoController
 {
@@ -26,18 +27,13 @@ class PostController extends Controller implements GenericoController
     }
 
     public function atualizar(Request $request) {
-        Post::where("id", $request->id)
-            ->update([
-                "titulo" => $request->titulo, 
-                "slug" => str_slug($request->titulo), 
-                "imagem" => $this->subindoImagem($request),
-                "conteudo" => $request->conteudo, 
-                "conteudohtml" => $this->blog->parametros->usarmarkdown ? $this->markdownParaHtml($request->conteudo) : $request->conteudo,
-                "conteudomarkdown" => $this->blog->parametros->usarmarkdown ? $request->conteudo : $this->htmlParaMarkdown($request->conteudo),
-                "conteudoresumido" => $this->blog->parametros->usarmarkdown ? substr(strip_tags($this->markdownParaHtml($request->conteudo)), 0, 255) : substr(strip_tags($request->conteudo), 0, 255),
-                "updated_at" => date("Y-m-d H:i:s"),
-            ]);
+        $this->atualizarPost($request, $request->idsituacao, true);
         return redirect()->action("PostController@editar", ["id" => $request->id])->withInput(["sucesso" => "Post atualizado com sucesso"]);
+    }
+
+    public function atualizarRascunho(Request $request) {
+        $this->atualizarPost($request, Parametros::SITUACAOPOST_RASCUNHO, false);
+        return redirect()->action("PostController@editar", ["id" => $request->id])->withInput(["sucesso" => "Post atualizado e salvo como rascunho com sucesso"]);
     }
 
     public function deletar($id) {
@@ -114,10 +110,25 @@ class PostController extends Controller implements GenericoController
         return view("painel.post.rascunhos", ["pagina" => "posts"], ["subpagina" => "rascunhos"])->with("posts", $posts);
     }
 
+    public function publicar(Request $request) {
+        $this->atualizarPost($request, Parametros::SITUACAOPOST_PUBLICADO, false);
+        return redirect()->action("PostController@editar", ["id" => $request->id])->withInput(["sucesso" => "Post publicado com sucesso"]);
+    }
+
     public function salvar(Request $request) {
+        $post = $this->criarPost($request, Parametros::SITUACAOPOST_EMANDAMENTO);
+        return redirect()->action("PostController@editar", ["id" => $post])->withInput(["sucesso" => "Post salvo com sucesso"]);
+    }
+
+    public function salvarRascunho(Request $request) {
+        $post = $this->criarPost($request, Parametros::SITUACAOPOST_RASCUNHO);
+        return redirect()->action("PostController@editar", ["id" => $post])->withInput(["sucesso" => "Post salvo como rascunho com sucesso"]);
+    }
+
+    private function criarPost($request, $situacao) {
         $post = Post::create([
             "idperfil" => Auth::id(),
-            "idsituacao" => 1,
+            "idsituacao" => $situacao,
             "titulo" => $request->titulo, 
             "slug" => str_slug($request->titulo), 
             "imagem" => $this->subindoImagem($request),
@@ -129,7 +140,22 @@ class PostController extends Controller implements GenericoController
             "created_at" => date("Y-m-d H:i:s"), 
             "updated_at" => date("Y-m-d H:i:s"),
         ]);
-        return redirect()->action("PostController@editar", ["id" => $post])->withInput(["sucesso" => "Post salvo com sucesso"]);
+        return $post;
+    }
+
+    private function atualizarPost($request, $situacao, $verificarSituacao) {
+        Post::where("id", $request->id)
+            ->update([
+                "idsituacao" => $this->verificarSituacao($situacao, $verificarSituacao),
+                "titulo" => $request->titulo,
+                "slug" => str_slug($request->titulo),
+                "imagem" => $this->subindoImagem($request),
+                "conteudo" => $request->conteudo,
+                "conteudohtml" => $this->blog->parametros->usarmarkdown ? $this->markdownParaHtml($request->conteudo) : $request->conteudo,
+                "conteudomarkdown" => $this->blog->parametros->usarmarkdown ? $request->conteudo : $this->htmlParaMarkdown($request->conteudo),
+                "conteudoresumido" => $this->blog->parametros->usarmarkdown ? substr(strip_tags($this->markdownParaHtml($request->conteudo)), 0, 255) : substr(strip_tags($request->conteudo), 0, 255),
+                "updated_at" => date("Y-m-d H:i:s"),
+            ]);
     }
 
     private function htmlParaMarkdown($string) {
@@ -140,6 +166,14 @@ class PostController extends Controller implements GenericoController
     private function markdownParaHtml($string) {
         $parsedown = new Parsedown();
         return $parsedown->text($string);
+    }
+
+    private function verificarSituacao($situacao, $ehParaVerificar) {
+        if ($ehParaVerificar) {
+            if ($situacao == Parametros::SITUACAOPOST_RASCUNHO)
+                return Parametros::SITUACAOPOST_EMANDAMENTO;
+        }
+        return $situacao;
     }
 
     private function subindoImagem($request) {

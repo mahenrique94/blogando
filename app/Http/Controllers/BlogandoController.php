@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Parametros;
 use Illuminate\Http\Request;
 use App\Post;
 use App\PostComentario;
@@ -29,6 +30,7 @@ class BlogandoController extends Controller
     public function arquivo($ano, $mes, $pagina = 1) {
         $query = Post::where(DB::raw("extract(year from datapostagem)"), $ano)
             ->where(DB::raw("extract(month from datapostagem)"), $mes)
+            ->where("idsituacao", Parametros::SITUACAOPOST_PUBLICADO)
             ->orderBy("bg_post.datapostagem", "desc");
 
         $quantidadeDePosts = $query->count();
@@ -50,6 +52,7 @@ class BlogandoController extends Controller
     public function autor($slug, $pagina = 1) {
         $query = Post::join("bg_tbl_perfil", "bg_post.idperfil", "bg_tbl_perfil.id")
             ->where("bg_tbl_perfil.slug", $slug)
+            ->where("bg_post.idsituacao", Parametros::SITUACAOPOST_PUBLICADO)
             ->orderBy("bg_post.datapostagem", "desc");
 
         $quantidadeDePosts = $query->count();
@@ -72,6 +75,7 @@ class BlogandoController extends Controller
         $query = Post::join("bg_post_categoria", "bg_post_categoria.idpost", "bg_post.id")
             ->join("bg_cad_categoria", "bg_post_categoria.idcategoria", "bg_cad_categoria.id")
             ->where("bg_cad_categoria.slug", "=", $slug)
+            ->where("bg_post.idsituacao", Parametros::SITUACAOPOST_PUBLICADO)
             ->orderBy("bg_post.datapostagem", "desc");
 
         $quantidadeDePosts = $query->count();
@@ -125,7 +129,7 @@ class BlogandoController extends Controller
             ->with("paginaAtual", $pagina)
             ->with("resultado", $quantidadeDePosts)
             ->with("link", "")
-            ->with("posts", Post::where("datapostagem", "<=", date("Y-m-d H:i"))->orderBy("datapostagem", "desc")->skip($skip)->take($this->quantidadeDePostsPorPagina)->get())
+            ->with("posts", Post::where("datapostagem", "<=", date("Y-m-d H:i"))->where("idsituacao", Parametros::SITUACAOPOST_PUBLICADO)->orderBy("datapostagem", "desc")->skip($skip)->take($this->quantidadeDePostsPorPagina)->get())
             ->with("postssemdestaque", Post::where("datapostagem", "<=", date("Y-m-d H:i"))->orderBy("datapostagem", "desc")->skip(3)->take($this->blog->parametros->quantidadepostsporpagina)->get());
     }
 
@@ -133,11 +137,11 @@ class BlogandoController extends Controller
         return view("temas." . $this->blog->aparencia->temablog .  ".visualizar")
             ->with("pagina", "visualizar")
             ->with("metodo", "visualizar")
-            ->with("post", Post::where("slug", $slug)->first());
+            ->with("post", Post::where("slug", $slug)->where("idsituacao", Parametros::SITUACAOPOST_PUBLICADO)->first());
     }
 
     public function procurar(Request $request, $pagina = 1) {
-        $query = Post::where(DB::raw("lower(titulo)"), "like", "%" . $request->filtro . "%")->orderBy("datapostagem", "desc");
+        $query = Post::where(DB::raw("lower(titulo)"), "like", "%" . $request->filtro . "%")->where("idsituacao", Parametros::SITUACAOPOST_PUBLICADO)->orderBy("datapostagem", "desc");
 
         $quantidadeDePosts = $query->count();
         $quantidadeDePaginas = intval(round($quantidadeDePosts / $this->quantidadeDePostsPorPagina));
@@ -163,6 +167,7 @@ class BlogandoController extends Controller
         $query = Post::join("bg_post_tag", "bg_post_tag.idpost", "bg_post.id")
             ->join("bg_cad_tag", "bg_post_tag.idtag", "bg_cad_tag.id")
             ->where("bg_cad_tag.slug", "=", $slug)
+            ->where("bg_post.idsituacao", Parametros::SITUACAOPOST_PUBLICADO)
             ->orderBy("bg_post.datapostagem", "desc");
 
         $quantidadeDePosts = $query->count();

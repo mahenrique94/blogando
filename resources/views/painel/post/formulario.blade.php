@@ -22,10 +22,16 @@
                     </div>
                     <a class="o-button--tie o-button--medium" href="/painel/post/formulario"><i class="icon-plus"></i>@lang("messages.botao.novo")</a>
                     <button class="o-button--tie o-button--medium" type="submit"><i class="icon-floppy"></i>@lang("messages.botao.salvar")</button>
-                    <a class="o-button--tie o-button--medium" href="/painel/post"><i class="icon-search"></i>@lang("messages.botao.pesquisar")</a>
+                    @if (is_null($post->id))
+                        <button formaction="/painel/post/rascunho" class="o-button--tie o-button--medium" type="submit"><i class="icon-pencil"></i>@lang("messages.botao.salvar.rascunho")</button>
+                    @endif
                     @unless (is_null($post->id))
-                        <a class="o-button--tie o-button--medium" href="/{{$post->slug}}"><i class="icon-eye"></i>@lang("messages.botao.visualizar")</a>
+                        <button formaction="/painel/post/publicar" class="o-button--tie o-button--medium" type="submit"><i class="icon-globe"></i>@lang("messages.botao.publicar")</button>
                     @endunless
+                    <a class="o-button--tie o-button--medium" href="/painel/post"><i class="icon-search"></i>@lang("messages.botao.pesquisar")</a>
+                    @if ($post->idsituacao == \App\Http\Parametros::SITUACAOPOST_PUBLICADO)
+                        <a class="o-button--tie o-button--medium" href="/{{$post->slug}}"><i class="icon-eye"></i>@lang("messages.botao.visualizar")</a>
+                    @endif
                 </div>
                 <section class="o-form__body o-form__body--padding">
                     <div class="l-row" role="row">
