@@ -1,2 +1,11 @@
 User-agent: *
-Disallow:
+Disallow: /api
+Disallow: /api/*
+Disallow: /arquivo
+Disallow: /arquivo/*
+Disallow: /email
+Disallow: /email/*
+Disallow: /newsletter
+Disallow: /newsletter/*
+Disallow: /painel
+Disallow: /painel/*

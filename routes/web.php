@@ -145,6 +145,7 @@ Route::group(["prefix" => "painel", "middleware" => "autenticacao"], function() 
     Route::get("post/rascunhos", "PostController@listarRascunhos");
     Route::get("post/formulario", "PostController@formulario");
     Route::get("post/{id}", "PostController@editar");
+    Route::get("post/pre-visualizar/{situacao}/{slug}", "PostController@preVisualizar");
     Route::post("post", "PostController@salvar")->middleware(["csrf"]);
     Route::post("post/rascunho", "PostController@salvarRascunho")->middleware(["csrf"]);
     Route::put("post", "PostController@atualizar")->middleware(["csrf"]);

@@ -19,15 +19,17 @@ class PostController extends Controller implements GenericoController
 {
 
     private $arquivoController;
+    private $blogandoController;
     private $blog;
 
-    public function __construct(ArquivoController $arquivoController) {
+    public function __construct(ArquivoController $arquivoController, BlogandoController $blogandoController) {
         $this->arquivoController = $arquivoController;
+        $this->blogandoController = $blogandoController;
         $this->blog = Blog::first();
     }
 
     public function atualizar(Request $request) {
-        $this->atualizarPost($request, $request->idsituacao, true);
+        $this->atualizarPost($request, $request->idsituacao);
         return redirect()->action("PostController@editar", ["id" => $request->id])->withInput(["sucesso" => "Post atualizado com sucesso"]);
     }
 
@@ -79,15 +81,15 @@ class PostController extends Controller implements GenericoController
         $posts = null;
 
         if (PerfilHelper::ehAdministrador(Auth::user()->idgrupo))
-            $posts = Post::where("idsituacao", Parametros::SITUACAOPOST_AGENDADOS)->get();
+            $posts = Post::where("idsituacao", Parametros::SITUACAOPOST_AGENDADO)->get();
         else
-            $posts = Post::where("idsituacao", Parametros::SITUACAOPOST_AGENDADOS)->where("idperfil", Auth::id())->get();
+            $posts = Post::where("idsituacao", Parametros::SITUACAOPOST_AGENDADO)->where("idperfil", Auth::id())->get();
 
         if ($request->has("campo") && $request->has("filtro")) {
             if (PerfilHelper::ehAdministrador(Auth::user()->idgrupo))
-                $posts = Post::where($request->campo, "like", $request->filtro)->where("idsituacao", Parametros::SITUACAOPOST_AGENDADOS)->get();
+                $posts = Post::where($request->campo, "like", $request->filtro)->where("idsituacao", Parametros::SITUACAOPOST_AGENDADO)->get();
             else
-                $posts = Post::where($request->campo, "like", $request->filtro)->where("idsituacao", Parametros::SITUACAOPOST_AGENDADOS)->where("idperfil", Auth::id())->get();
+                $posts = Post::where($request->campo, "like", $request->filtro)->where("idsituacao", Parametros::SITUACAOPOST_AGENDADO)->where("idperfil", Auth::id())->get();
         }
         return view("painel.post.agendados", ["pagina" => "posts"], ["subpagina" => "agendados"])->with("posts", $posts);
     }
@@ -108,6 +110,10 @@ class PostController extends Controller implements GenericoController
                 $posts = Post::where($request->campo, "like", $request->filtro)->where("idsituacao", Parametros::SITUACAOPOST_RASCUNHO)->where("idperfil", Auth::id())->get();
         }
         return view("painel.post.rascunhos", ["pagina" => "posts"], ["subpagina" => "rascunhos"])->with("posts", $posts);
+    }
+
+    public function preVisualizar($situacao, $slug) {
+        return $this->blogandoController->visualizarPost($slug, $situacao);
     }
 
     public function publicar(Request $request) {
@@ -168,7 +174,7 @@ class PostController extends Controller implements GenericoController
         return $parsedown->text($string);
     }
 
-    private function verificarSituacao($situacao, $ehParaVerificar) {
+    private function verificarSituacao($situacao, $ehParaVerificar = true) {
         if ($ehParaVerificar) {
             if ($situacao == Parametros::SITUACAOPOST_RASCUNHO)
                 return Parametros::SITUACAOPOST_EMANDAMENTO;

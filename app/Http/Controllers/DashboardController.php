@@ -36,7 +36,7 @@ class DashboardController extends Controller
     }
 
     public function meusAgendamentos(Request $request) {
-        $posts = Post::where("idperfil", Auth::id())->where("idsituacao", Parametros::SITUACAOPOST_AGENDADOS)->get();
+        $posts = Post::where("idperfil", Auth::id())->where("idsituacao", Parametros::SITUACAOPOST_AGENDADO)->get();
         if ($request->has("campo") && $request->has("filtro")) {
             $posts = Post::where($request->campo, "like", $request->filtro)->where("idperfil", Auth::id())->where("idsituacao", Parametros::SITUACAOPOST_AGENDADOS)->get();
         }
@@ -70,8 +70,7 @@ class DashboardController extends Controller
         $estatisticas = PostEstatisticas::where("idtipoestatistica", Parametros::TIPOESTATISTICA_FAVORITO)
             ->where("idperfil", Auth::id())
             ->get();
-        return view("painel.dashboard.meuspostsfavoritos", ["pagina" => "dashboard"], ["subpagina" => "meuspostsfavoritos"])->with("estatisticas", $estatisticas);
-    }
+        return view("painel.dashboard.meuspostsfavoritos", ["pagina" => "dashboard"], ["subpagina" => "meuspostsfavoritos"])->with("estatisticas", $estatisticas);}
 
     public function meusRascunhos(Request $request) {
         $posts = Post::where("idperfil", Auth::id())->where("idsituacao", Parametros::SITUACAOPOST_RASCUNHO)->get();

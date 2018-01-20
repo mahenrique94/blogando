@@ -25,10 +25,13 @@
                     @if (is_null($post->id))
                         <button formaction="/painel/post/rascunho" class="o-button--tie o-button--medium" type="submit"><i class="icon-pencil"></i>@lang("messages.botao.salvar.rascunho")</button>
                     @endif
-                    @unless (is_null($post->id))
+                    @if (!is_null($post->id) && $post->idsituacao != \App\Http\Parametros::SITUACAOPOST_PUBLICADO)
                         <button formaction="/painel/post/publicar" class="o-button--tie o-button--medium" type="submit"><i class="icon-globe"></i>@lang("messages.botao.publicar")</button>
-                    @endunless
+                    @endif
                     <a class="o-button--tie o-button--medium" href="/painel/post"><i class="icon-search"></i>@lang("messages.botao.pesquisar")</a>
+                    @if (!is_null($post->id) && $post->idsituacao != \App\Http\Parametros::SITUACAOPOST_PUBLICADO)
+                        <a class="o-button--tie o-button--medium" href="/painel/post/pre-visualizar/{{$post->idsituacao}}/{{$post->slug}}"><i class="icon-eye"></i>@lang("messages.botao.previsualizar")</a>
+                    @endif
                     @if ($post->idsituacao == \App\Http\Parametros::SITUACAOPOST_PUBLICADO)
                         <a class="o-button--tie o-button--medium" href="/{{$post->slug}}"><i class="icon-eye"></i>@lang("messages.botao.visualizar")</a>
                     @endif

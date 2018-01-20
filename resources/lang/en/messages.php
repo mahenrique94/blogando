@@ -24,6 +24,7 @@ return [
     "botao.novo"                                                => "Adicionar novo",
     "botao.painel"                                              => "Painel",
     "botao.pesquisar"                                           => "Pesquisar",
+    "botao.previsualizar"                                       => "Pré visualizar",
     "botao.publicar"                                            => "Publicar",
     "botao.relatarerro"                                         => "Relatar um erro",
     "botao.sair"                                                => "Sair",

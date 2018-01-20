@@ -134,10 +134,7 @@ class BlogandoController extends Controller
     }
 
     public function post($slug) {
-        return view("temas." . $this->blog->aparencia->temablog .  ".visualizar")
-            ->with("pagina", "visualizar")
-            ->with("metodo", "visualizar")
-            ->with("post", Post::where("slug", $slug)->where("idsituacao", Parametros::SITUACAOPOST_PUBLICADO)->first());
+        return $this->visualizarPost($slug);
     }
 
     public function procurar(Request $request, $pagina = 1) {
@@ -185,5 +182,16 @@ class BlogandoController extends Controller
             ->with("posts", $posts)
             ->with("tag", CadTag::where("slug", $slug)->first());
     }
-    
+
+    public function visualizarPost($slug, $situacao = null) {
+        return view("temas." . $this->blog->aparencia->temablog .  ".visualizar")
+            ->with("pagina", "visualizar")
+            ->with("metodo", "visualizar")
+            ->with("post", $this->buscarPost($slug, $situacao));
+    }
+
+    private function buscarPost($slug, $situacao) {
+        return Post::where("slug", $slug)->where("idsituacao", is_null($situacao) ? Parametros::SITUACAOPOST_PUBLICADO : $situacao)->first();
+    }
+
 }
