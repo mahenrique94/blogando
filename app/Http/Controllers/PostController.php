@@ -149,7 +149,7 @@ class PostController extends Controller implements GenericoController
         return $post;
     }
 
-    private function atualizarPost($request, $situacao, $verificarSituacao) {
+    private function atualizarPost($request, $situacao, $verificarSituacao = true) {
         Post::where("id", $request->id)
             ->update([
                 "idsituacao" => $this->verificarSituacao($situacao, $verificarSituacao),

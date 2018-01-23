@@ -59,6 +59,7 @@
     @endunless
     <script src="/assets/temas/{{$blog->aparencia->temablog}}/{{$blog->aparencia->temablog}}.js"></script>
     @includeIf("temas." . $blog->aparencia->temablog . ".google-analytics")
+    @includeIf("temas." . $blog->aparencia->temablog . ".google-adsense")
     @if (isset($pagina) && $pagina === "visualizar")
         @includeIf("temas." . $blog->aparencia->temablog . ".disqus-config")
     @endif
