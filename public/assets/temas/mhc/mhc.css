@@ -143,6 +143,11 @@
 .bg-footer__link--titulo {
     color: #0099FF;
 }
+.bg-footer__sponsorship {
+    margin: 0 auto;
+    margin-top: 2rem;
+    width: 250px;
+}
 
 .bg-visualizar .bg-post__conteudo h1,
 .bg-visualizar .bg-post__conteudo h2,
