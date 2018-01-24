@@ -113,7 +113,7 @@ class PostController extends Controller implements GenericoController
     }
 
     public function preVisualizar($situacao, $slug) {
-        return $this->blogandoController->visualizarPost($slug, $situacao);
+        return $this->blogandoController->visualizarPost($slug, $situacao, "pre-visualizar", "preVisualizar");
     }
 
     public function publicar(Request $request) {

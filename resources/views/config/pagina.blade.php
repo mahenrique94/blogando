@@ -14,7 +14,9 @@
     <link rel="stylesheet" href="/assets/temas/blogando/media-querie.css">
     <link rel="stylesheet" href="/assets/temas/{{$blog->aparencia->temablog}}/{{$blog->aparencia->temablog}}.css">
     <link rel="icon" href="/assets/temas/{{$blog->aparencia->temablog}}/favicon.ico">
-    @includeIf("temas." . $blog->aparencia->temablog . ".google-console")
+    @unless($pagina === "pre-visualizar")
+        @includeIf("temas." . $blog->aparencia->temablog . ".google-console")
+    @endunless
     <meta property="og:locale" content="pt_BR">
     <meta property=”og:site_name” content=”{{$blog->titulo}}“/>
     <meta property="og:image:type" content="image/jpeg">
@@ -58,8 +60,10 @@
         <script src="/assets/temas/blogando/blogando.js"></script>
     @endunless
     <script src="/assets/temas/{{$blog->aparencia->temablog}}/{{$blog->aparencia->temablog}}.js"></script>
-    @includeIf("temas." . $blog->aparencia->temablog . ".google-analytics")
-    @includeIf("temas." . $blog->aparencia->temablog . ".google-adsense")
+    @unless($pagina === "pre-visualizar")
+        @includeIf("temas." . $blog->aparencia->temablog . ".google-analytics")
+        @includeIf("temas." . $blog->aparencia->temablog . ".google-adsense")
+    @endunless
     @if (isset($pagina) && $pagina === "visualizar")
         @includeIf("temas." . $blog->aparencia->temablog . ".disqus-config")
     @endif

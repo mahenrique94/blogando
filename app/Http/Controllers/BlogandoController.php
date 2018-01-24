@@ -183,10 +183,10 @@ class BlogandoController extends Controller
             ->with("tag", CadTag::where("slug", $slug)->first());
     }
 
-    public function visualizarPost($slug, $situacao = null) {
+    public function visualizarPost($slug, $situacao = null, $pagina = "visualizar", $metodo = "visualizar") {
         return view("temas." . $this->blog->aparencia->temablog .  ".visualizar")
-            ->with("pagina", "visualizar")
-            ->with("metodo", "visualizar")
+            ->with("pagina", $pagina)
+            ->with("metodo", $metodo)
             ->with("post", $this->buscarPost($slug, $situacao));
     }
 
