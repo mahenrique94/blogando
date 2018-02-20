@@ -160,6 +160,7 @@ class PostController extends Controller implements GenericoController
                 "conteudohtml" => $this->blog->parametros->usarmarkdown ? $this->markdownParaHtml($request->conteudo) : $request->conteudo,
                 "conteudomarkdown" => $this->blog->parametros->usarmarkdown ? $request->conteudo : $this->htmlParaMarkdown($request->conteudo),
                 "conteudoresumido" => $this->blog->parametros->usarmarkdown ? substr(strip_tags($this->markdownParaHtml($request->conteudo)), 0, 255) : substr(strip_tags($request->conteudo), 0, 255),
+                "datapostagem" => $situacao === Parametros::SITUACAOPOST_PUBLICADO ? date("Y-m-d H:i:s") : $request->datapostagem,
                 "updated_at" => date("Y-m-d H:i:s"),
             ]);
     }
