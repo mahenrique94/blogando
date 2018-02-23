@@ -146,6 +146,10 @@
 .bg-footer__sponsorship {
     margin: 0 auto;
     margin-top: 2rem;
+    text-align: center;
+    width: 100%;
+}
+.bg-footer__sponsorship___image {
     width: 250px;
 }
 

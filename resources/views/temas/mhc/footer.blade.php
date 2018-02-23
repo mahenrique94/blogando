@@ -19,6 +19,6 @@
     </ul>
     @include("temas.blogando.newsletter")
     <div class="bg-footer__sponsorship">
-        <a href="https://m.do.co/c/f34f73a7da3e" target="_blank"><img alt="Powered by Digital Ocean" src="/assets/temas/mhc/sponsorship/do-powered-by-badge-blue.svg"></a>
+        <a class="bg-footer__sponsorship___link" href="https://m.do.co/c/f34f73a7da3e" target="_blank"><img alt="Powered by Digital Ocean" class="bg-footer__sponsorship___image" src="/assets/temas/mhc/sponsorship/do-powered-by-badge-blue.svg"></a>
     </div>
 @stop
