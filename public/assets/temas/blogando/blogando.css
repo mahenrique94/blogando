@@ -216,6 +216,9 @@
     background-position: center;
     background-repeat: no-repeat;
     height: 300px;
+    margin-bottom: var(--separador);
+}
+.bg-post__imagem.bg-post__imagem--padding {
     margin: 1rem 0;
 }
 .bg-post__conteudo {
@@ -416,6 +419,10 @@
 /***
 ** Comentários
 ***/
+.bg-comentarios {
+    margin-bottom: var(--separador);
+    margin-top: var(--separador);
+}
 .bg-comentarios__titulo, .bg-comentarios__formulario___titulo {
     border-bottom: 1px solid var(--cor);
     color: var(--cor);
@@ -477,9 +484,6 @@
 .bg-comentarios__respostas {
     padding: 1rem 0;
 }
-.bg-comentarios--disqus {
-    padding-top: var(--separador);
-}
 
 /***
 ** Autor
@@ -488,6 +492,7 @@
     background: var(--texto);
     color: var(--cor);
     display: inline-block;
+    margin-bottom: var(--separador);
     padding-top: var(--separador);
     width: 100%;
 }

@@ -26,7 +26,7 @@
                             @endforeach
                         </p>
                     </header>
-                    <a href="/{{$post->slug}}"><div class="bg-post__imagem" style="background-image: url({{$blog->url}}/arquivo/download/posts/{{date_format(date_create($post->datapostagem), "Y")}}/{{date_format(date_create($post->datapostagem), "m")}}/{{$post->imagem}});"></div></a>
+                    <a href="/{{$post->slug}}"><div class="bg-post__imagem bg-post__imagem--padding" style="background-image: url({{$blog->url}}/arquivo/download/posts/{{date_format(date_create($post->datapostagem), "Y")}}/{{date_format(date_create($post->datapostagem), "m")}}/{{$post->imagem}});"></div></a>
                     <section class="bg-post__conteudo">{{$post->conteudoresumido}}...</section>
                     <footer class="bg-post__rodape">
                         <a class="bg-post__continuarLendo" href="/{{$post->slug}}">Continuar lendo</a>
@@ -41,6 +41,9 @@
             @include("temas.blogando.paginacao")
         </section>
         <aside class="bg-aside">
+            @if ($blog->aparencia->mostrarnewsletter)
+                @include("temas.blogando.newsletter")
+            @endif
             @if ($blog->aparencia->mostrarpesquisa)
                 @include("temas.blogando.pesquisar")
             @endif
@@ -58,9 +61,6 @@
             @endif
             @if ($blog->aparencia->mostrararquivos)
                 @include("temas.blogando.arquivos")
-            @endif
-            @if ($blog->aparencia->mostrarnewsletter)
-                @include("temas.blogando.newsletter")
             @endif
         </aside>
     </section>

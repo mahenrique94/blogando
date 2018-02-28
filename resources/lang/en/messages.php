@@ -52,7 +52,7 @@ return [
 
     ######################################## DESCRICAO ########################################
     "descricao.midia"                                           => "Clique no botão abaixo para carregar as imagens á serem enviadas ao servidor",
-    "descricao.newsletter"                                      => "Assina nossa newsletter e fique por dentro das novidades",
+    "descricao.newsletter"                                      => "Assine nossa newsletter e fique por dentro das novidades",
 
     ######################################## LABEL ########################################
     "label.acompanharcomentarios"                               => "Enviar email para novos comentários",

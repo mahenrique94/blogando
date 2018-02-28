@@ -44,7 +44,6 @@
     }
     .bg-visualizar .bg-post__imagem {
         height: 200px;
-        margin-bottom: 0;
     }
     .bg-visualizar iframe {
         max-width: 100%;
@@ -108,8 +107,7 @@
         font-size: 2.5rem;
     }
     .bg-visualizar .bg-post__imagem {
-        height: 400px;
-        margin-bottom: 2rem;
+        height: 500px;
     }
     .bg-visualizar iframe {
         max-width: initial;

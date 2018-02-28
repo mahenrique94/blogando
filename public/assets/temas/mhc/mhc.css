@@ -2,6 +2,9 @@
     background: url(/assets/temas/mhc/background.jpg);
     background-size: 50px;
 }
+.bg-conteudo--visualizar {
+    padding: 0;
+}
 
 .bg-header {
     background: #FFFFFF;
@@ -197,4 +200,19 @@
 }
 .bg-resultado strong {
     color: #0099FF;
+}
+
+
+
+@media screen and (min-width: 0) {
+    .bg-container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+@media screen and (min-width: 768px) {
+    .bg-container {
+        padding-left: 10rem;
+        padding-right: 10rem;
+    }
 }
