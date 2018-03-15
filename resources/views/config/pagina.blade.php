@@ -6,7 +6,6 @@
     <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <meta name="keywords" content="{{$blog->keywords}}">
-    <title>@yield("titulo")</title>
     <link rel="stylesheet" href="/assets/lib/prism/prism.css">
     @unless ($blog->aparencia->temablog === "blogando")
         <link rel="stylesheet" href="/assets/temas/blogando/blogando.css">
@@ -19,10 +18,11 @@
     @endunless
     <meta property="og:locale" content="pt_BR">
     <meta property=”og:site_name” content=”{{$blog->titulo}}“/>
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="400">
-    @if (isset($pagina) && $pagina === "visualizar")
+    {{--<meta property="og:image:type" content="image/jpeg">--}}
+    {{--<meta property="og:image:width" content="1200">--}}
+    {{--<meta property="og:image:height" content="400">--}}
+    @if (isset($pagina) && ($pagina === "visualizar" || $pagina === "pre-visualizar"))
+        <title>{{$blog->titulo}}&nbsp;|&nbsp;@yield("titulo")</title>
         <link rel="canonical" href="{{$blog->url}}/{{$post->slug}}">
         <meta name="description" content="{{$post->conteudoresumido}}">
         <meta property="og:title" content="{{$post->titulo}}" />
@@ -35,6 +35,7 @@
         <meta property="og:description" content="{{$post->conteudoresumido}}" />
         <meta property="og:image" content="{{$blog->url}}/arquivo/download/posts/{{date_format(date_create($post->datapostagem), "Y")}}/{{date_format(date_create($post->datapostagem), "m")}}/{{$post->imagem}}"/>
     @else
+        <title>@yield("titulo")</title>
         <link rel="canonical" href="{{$blog->url}}">
         <meta name="description" content="{{$blog->descricao}}">
         <meta property="og:title" content="{{$blog->titulo}}" />
