@@ -20,7 +20,7 @@
     @endunless
     <meta property="og:locale" content="pt_BR">
     <meta property=”og:site_name” content=”{{$blog->titulo}}“/>
-    <meta content="summary" name="twitter:card"/>
+    <meta content="summary_large_image" name="twitter:card"/>
     <meta content="{{$blog->url}}" property="article:publisher">
     <meta content="{{$blog->titulo}}" property="og:site_name">
     <meta content="143110269653288" property="fb:app_id">
