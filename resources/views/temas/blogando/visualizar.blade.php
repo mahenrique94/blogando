@@ -30,6 +30,9 @@
                 </footer>
             </article>
         </section>
+        @if ($blog->parametros->permitircompartilhamentos && ($blog->parametros->idtipocompartilhamento === 1 || $blog->parametros->idtipocompartilhamento === 3))
+            @include("temas.blogando.compartilhamento-post")
+        @endif
         @include("temas.blogando.autor")
         @if ($blog->parametros->permitircomentarios && $blog->parametros->permitircomentariosanonimos)
             @include("temas.blogando.comentario")

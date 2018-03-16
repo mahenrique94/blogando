@@ -20,3 +20,8 @@ if (postsRecentes.length > 0) {
            postRecente.textContent = postRecente.textContent.toString().substring(0, 85).trim() + "...";
     });
 }
+
+function compartilhar(event, link) {
+    event.preventDefault();
+    window.open(link.href, "_blank", "location=yes, height=520, width=520");
+}

@@ -202,7 +202,30 @@
     color: #0099FF;
 }
 
-
+.bg-compartilhamento__link {
+    color: #FDFDFD;
+}
+.bg-compartilhamento__link--email {
+    background: #595959;
+}
+.bg-compartilhamento__link--facebook {
+    background: #6699FF;
+}
+.bg-compartilhamento__link--googleplus {
+    background: #FF4D4D;
+}
+.bg-compartilhamento__link--linkedin {
+    background: #0066CC;
+}
+.bg-compartilhamento__link--telegram {
+    background: #33CCFF;
+}
+.bg-compartilhamento__link--twitter {
+    background: #66CCFF;
+}
+.bg-compartilhamento__link--whatsapp {
+    background: #00CC00;
+}
 
 @media screen and (min-width: 0) {
     .bg-container {

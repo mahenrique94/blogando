@@ -31,6 +31,9 @@
             </article>
         </section>
         <div class="bg-container">
+            @if ($blog->parametros->permitircompartilhamentos && ($blog->parametros->idtipocompartilhamento === 1 || $blog->parametros->idtipocompartilhamento === 3))
+                @include("temas.blogando.compartilhamento-post")
+            @endif
             <div class="bg-aside__caixa bg-aside__caixa--newsletter">
                 <h3 class="bg-aside__titulo">Deseja receber novidades por email?</h3>
                 <div class="bg-aside__corpo">

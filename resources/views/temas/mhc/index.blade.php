@@ -62,6 +62,9 @@
             @if ($blog->aparencia->mostrararquivos)
                 @include("temas.blogando.arquivos")
             @endif
+            @if ($blog->parametros->permitircompartilhamentos && ($blog->parametros->idtipocompartilhamento === 1 || $blog->parametros->idtipocompartilhamento === 2))
+                @include("temas.blogando.compartilhamento-blog")
+            @endif
         </aside>
     </section>
 @stop
