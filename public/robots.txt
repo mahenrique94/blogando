@@ -1,8 +1,6 @@
 User-agent: *
 Disallow: /api
 Disallow: /api/*
-Disallow: /arquivo
-Disallow: /arquivo/*
 Disallow: /email
 Disallow: /email/*
 Disallow: /newsletter
