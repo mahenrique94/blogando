@@ -21,12 +21,7 @@
                     </p>
                 </header>
                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <ins class="adsbygoogle"
-                     style="display:block; text-align:center;"
-                     data-ad-layout="in-article"
-                     data-ad-format="fluid"
-                     data-ad-client="ca-pub-5664132862898238"
-                     data-ad-slot="1491366296"></ins>
+                <ins class="adsbygoogle" data-ad-client="ca-pub-5664132862898238" data-ad-format="fluid" data-ad-layout="in-article" data-ad-slot="1491366296" style="display : block; margin-top: 2rem; text-align : center;"></ins>
                 <script>
                     (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
@@ -68,12 +63,7 @@
                 </div>
             </div>
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <ins class="adsbygoogle"
-                 style="display:block; text-align:center;"
-                 data-ad-layout="in-article"
-                 data-ad-format="fluid"
-                 data-ad-client="ca-pub-5664132862898238"
-                 data-ad-slot="5354713398"></ins>
+            <ins class="adsbygoogle" data-ad-client="ca-pub-5664132862898238" data-ad-format="fluid" data-ad-layout="in-article" data-ad-slot="5354713398" style="display : block; text-align : center;"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
