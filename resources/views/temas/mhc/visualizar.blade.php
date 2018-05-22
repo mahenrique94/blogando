@@ -20,6 +20,16 @@
                         @endforeach
                     </p>
                 </header>
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle"
+                     style="display:block; text-align:center;"
+                     data-ad-layout="in-article"
+                     data-ad-format="fluid"
+                     data-ad-client="ca-pub-5664132862898238"
+                     data-ad-slot="1491366296"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
                 <section class="bg-container bg-post__conteudo">{!!$post->conteudohtml!!}</section>
                 <footer class="bg-container bg-post__rodape">
                     <p class="bg-post__tags">
@@ -57,6 +67,16 @@
                     </form>
                 </div>
             </div>
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle"
+                 style="display:block; text-align:center;"
+                 data-ad-layout="in-article"
+                 data-ad-format="fluid"
+                 data-ad-client="ca-pub-5664132862898238"
+                 data-ad-slot="5354713398"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
             @include("temas.blogando.autor")
             @if ($blog->parametros->permitircomentarios && $blog->parametros->permitircomentariosanonimos)
                 @include("temas.blogando.comentario")

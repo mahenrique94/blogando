@@ -17,6 +17,7 @@
     <link href="/assets/temas/{{$blog->aparencia->temablog}}/favicon.ico" rel="icon">
     @unless($pagina === "pre-visualizar")
         @includeIf("temas." . $blog->aparencia->temablog . ".google-console")
+        @includeIf("temas." . $blog->aparencia->temablog . ".google-adsense")
     @endunless
     <meta property="og:locale" content="pt_BR">
     <meta property=”og:site_name” content=”{{$blog->titulo}}“/>
@@ -98,7 +99,6 @@
     <script src="/assets/temas/{{$blog->aparencia->temablog}}/{{$blog->aparencia->temablog}}.js"></script>
     @unless($pagina === "pre-visualizar")
         @includeIf("temas." . $blog->aparencia->temablog . ".google-analytics")
-        @includeIf("temas." . $blog->aparencia->temablog . ".google-adsense")
     @endunless
     @if (isset($pagina) && $pagina === "visualizar")
         @includeIf("temas." . $blog->aparencia->temablog . ".disqus-config")
