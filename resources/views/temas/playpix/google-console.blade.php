@@ -1,1 +1,0 @@
-<meta content="oPl4TtuySLqWmFXLBAcSUQP4U0894iHmNZtBx2xjXkY" name="google-site-verification"/>

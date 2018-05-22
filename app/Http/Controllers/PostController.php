@@ -21,11 +21,13 @@ class PostController extends Controller implements GenericoController
     private $arquivoController;
     private $blogandoController;
     private $blog;
+    private $emailController;
 
-    public function __construct(ArquivoController $arquivoController, BlogandoController $blogandoController) {
+    public function __construct(ArquivoController $arquivoController, BlogandoController $blogandoController, EmailController $emailController) {
         $this->arquivoController = $arquivoController;
         $this->blogandoController = $blogandoController;
         $this->blog = Blog::first();
+        $this->emailController = $emailController;
     }
 
     public function atualizar(Request $request) {
@@ -117,7 +119,8 @@ class PostController extends Controller implements GenericoController
     }
 
     public function publicar(Request $request) {
-        $this->atualizarPost($request, Parametros::SITUACAOPOST_PUBLICADO, false);
+//        $this->atualizarPost($request, Parametros::SITUACAOPOST_PUBLICADO, false);
+        $this->emailController->newPostToNewsletter(Post::find($request->id));
         return redirect()->action("PostController@editar", ["id" => $request->id])->withInput(["sucesso" => "Post publicado com sucesso"]);
     }
 
