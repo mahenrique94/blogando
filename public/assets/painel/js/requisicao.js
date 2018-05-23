@@ -128,9 +128,17 @@ function enviarImagens(form, event) {
  */
 function assinarNewsletter(form, event) {
     cancelarEvento(event);
+    const button = form.querySelector(".bg-aside__button");
+    button.disabled = true;
+
+    const icon = form.querySelector(".bg-newsletter__botao").children[0];
+    icon.className = "icon-spin4 animate-spin";
+
     HttpService.request(form.action, form.method, form.elements, true)
         .then(resposta => {
             form.style.color = "#00CC99";
+            button.disabled = false;
+            icon.className = "icon-mail";
             form.innerHTML = resposta;
         }).catch(error => {
             form.style.color = "#FF8080";

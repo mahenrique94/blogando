@@ -38,23 +38,12 @@
                     </footer>
                 </article>
             @endforeach
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <ins class="adsbygoogle" data-ad-client="ca-pub-5664132862898238" data-ad-format="fluid" data-ad-layout-key="-47+cx+u-m6+z4" data-ad-slot="4955258141" style="display:block"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
             @include("temas.blogando.paginacao")
         </section>
         <aside class="bg-aside">
             @if ($blog->aparencia->mostrarnewsletter)
                 @include("temas.blogando.newsletter")
             @endif
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- adsense-block-01 -->
-            <ins class="adsbygoogle" data-ad-client="ca-pub-5664132862898238" data-ad-format="auto" data-ad-slot="1028331867" style="display:block;margin-bottom: 3rem;"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
             @if ($blog->aparencia->mostrarpesquisa)
                 @include("temas.blogando.pesquisar")
             @endif
@@ -70,12 +59,6 @@
             @if ($blog->aparencia->mostrartags)
                 @include("temas.blogando.tags")
             @endif
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- adsense-block-02 -->
-            <ins class="adsbygoogle" data-ad-client="ca-pub-5664132862898238" data-ad-format="auto" data-ad-slot="2069950790" style="display:block;margin-bottom: 3rem;"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
             @if ($blog->aparencia->mostrararquivos)
                 @include("temas.blogando.arquivos")
             @endif

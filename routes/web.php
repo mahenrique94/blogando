@@ -209,4 +209,5 @@ Route::post("/post/favoritar", "PostEstatisticasController@favoritarPost");
 Route::get("/email/enviar", "EmailController@enviar");
 Route::get("/email/template", "EmailController@template");
 
-Route::post("newsletter/assinar", "BlogNewsletterController@assinar");
+Route::post("/newsletter/assinar", "BlogNewsletterController@assinar");
+Route::get("/newsletter/confirmar/{hash}", "BlogNewsletterController@confirmar");
