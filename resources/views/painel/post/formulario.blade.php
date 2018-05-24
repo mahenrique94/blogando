@@ -3,7 +3,7 @@
 @section("conteudo")
     <div class="l-row" role="row">
         <div class="u-grid--9" role="grid">
-            <form action="/painel/post" class="o-form" enctype="multipart/form-data" id="formpost" method="POST" name="formpost" role="form">                
+            <form action="/painel/post" class="o-form" enctype="multipart/form-data" id="formpost" method="POST" name="formpost" onsubmit="LoadingController.insertInBody()" role="form">
                 @if ($post->id != null)
                     {{method_field("PUT")}}
                 @endif

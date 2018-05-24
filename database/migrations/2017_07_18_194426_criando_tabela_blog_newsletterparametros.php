@@ -18,6 +18,7 @@ class CriandoTabelaBlogNewsletterparametros extends Migration
             $table->text("textoacompanharposts");
             $table->text("textoacompanharcomentarios");
             $table->text("textoacompanharrespostas");
+            $table->text("textoacompanharnewsletter");
             $table->timestamps();
         });
     }

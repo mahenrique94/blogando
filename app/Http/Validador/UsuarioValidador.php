@@ -28,4 +28,12 @@ class UsuarioValidador {
         return !is_null($senha) && strlen($senha) > 0 && !empty($senha);
     }
 
+    public static function validarSenhaCriptografada($perfils, $senha) {
+        $isValid = false;
+        foreach ($perfils as $perfil) {
+            $isValid = decrypt($perfil->usuario->senha) === $senha;
+        }
+        return $isValid;
+    }
+
 }

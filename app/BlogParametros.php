@@ -25,4 +25,8 @@ class BlogParametros extends Model
     public function formatodatahora() {
         return $this->belongsTo("\App\CadFormato", "idformatodatahora");
     }
+
+    public function tipovisualizacaopostsrelacionados() {
+        return $this->belongsTo("\App\PostTipoVisualizacao", "idtipovisualizacaopostsrelacionados");
+    }
 }

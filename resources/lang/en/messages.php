@@ -128,6 +128,7 @@ return [
     "label.temanotificacao"                                     => "Tema das notificações",
     "label.temaperfil"                                          => "Tema do perfil(usuário)",
     "label.textoacompanharcomentarios"                          => "Texto para envio de email de acompanhamento de novos comentários",
+    "label.textoacompanharnewsletter"                           => "Texto para envio de email de acompanhamento da newsletter",
     "label.textoacompanharposts"                                => "Texto para envio de email de acompanhamento de novos posts",
     "label.textoacompanharrespostas"                            => "Texto para envio de email de acompanhamento de novas respostas em comentários",
     "label.tipovisualizacaopostsrelacionados"                   => "Exibição dos posts relacionados",

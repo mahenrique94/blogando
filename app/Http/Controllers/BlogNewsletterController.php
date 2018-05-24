@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use App\Http\HTTP;
+use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
 use App\BlogNewsletter;
+use App\BlogNewsletterParametros;
 
 class BlogNewsletterController extends Controller implements GenericoController
 {
@@ -44,11 +46,19 @@ class BlogNewsletterController extends Controller implements GenericoController
     }
 
     public function confirmar($hash) {
-        $email = decrypt($hash);
-        BlogNewsletter::where("email", $email)
-            ->update([ "inativo" => false ]);
-        $this->emailController->confirmedNewsletter($email);
-        return view("temas." . $this->blog->aparencia->temablog .  ".email-confirmado");
+        try {
+            $email = decrypt($hash);
+            $newsletter = BlogNewsletter::where("email", $email)->where("inativo", true)->first();
+            if (isset($newsletter) && isset($newsletter->id)) {
+                $newsletter->update([ "inativo" => false ]);
+                $this->emailController->confirmedNewsletter($email);
+                return view("temas." . $this->blog->aparencia->temablog .  ".email-confirmado")->with("parametros", BlogNewsletterParametros::first());
+            } else {
+                return response("Email não cadastrado ou já foi confirmado.", 404);
+            }
+        } catch (DecryptException $e) {
+            return response("Hash enviado para confirmação está inválido", 400);
+        }
     }
 
     public function deletar($id) {

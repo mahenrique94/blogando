@@ -19,7 +19,7 @@ class AdmUsuarioController extends Controller implements GenericoController
         return AdmUsuario::where("id", $idUsuario)
             ->update([
                 "email" => $request->email,
-                "senha" => $request->senha,
+                "senha" => encrypt($request->senha),
                 "inativo" => $request->has("inativo") ? $request->inativo : false,
                 "updated_at" => date("Y-m-d H:i:s"),
             ]);
@@ -56,7 +56,7 @@ class AdmUsuarioController extends Controller implements GenericoController
     public function novo(Request $request) {
         return AdmUsuario::create([
             "email" => $request->email,
-            "senha" => $request->senha,
+            "senha" => encrypt($request->senha),
             "inativo" => $request->has("inativo") ? $request->inativo : false,
             "created_at" => date("Y-m-d H:i:s"),
             "updated_at" => date("Y-m-d H:i:s"),

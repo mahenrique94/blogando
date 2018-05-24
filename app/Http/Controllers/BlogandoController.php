@@ -184,14 +184,25 @@ class BlogandoController extends Controller
     }
 
     public function visualizarPost($slug, $situacao = null, $pagina = "visualizar", $metodo = "visualizar") {
+        $post = $this->buscarPost($slug, $situacao);
         return view("temas." . $this->blog->aparencia->temablog .  ".visualizar")
             ->with("pagina", $pagina)
             ->with("metodo", $metodo)
-            ->with("post", $this->buscarPost($slug, $situacao));
+            ->with("post", $post)
+            ->with("postsRelacionados", $this->buscarPostsRelacionados($post));
     }
 
     private function buscarPost($slug, $situacao) {
         return Post::where("slug", $slug)->where("idsituacao", is_null($situacao) ? Parametros::SITUACAOPOST_PUBLICADO : $situacao)->first();
+    }
+
+    private function buscarPostsRelacionados($post) {
+        return Post::join("bg_post_categoria", "bg_post_categoria.idpost", "bg_post.id")
+            ->join("bg_cad_categoria", "bg_post_categoria.idcategoria", "bg_cad_categoria.id")
+            ->where("bg_cad_categoria.id", "=", $post->categorias[0]->idcategoria)
+            ->where("bg_post.id", "<>", $post->id)
+            ->where("bg_post.idsituacao", Parametros::SITUACAOPOST_PUBLICADO)
+            ->orderBy("bg_post.datapostagem", "desc")->take(5)->select("bg_post.*")->get();
     }
 
 }

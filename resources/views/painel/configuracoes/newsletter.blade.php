@@ -14,10 +14,16 @@
         <section class="o-form__body o-form__body--padding">
             <div class="l-row" role="row">
                 <div class="u-grid--12" role="grid">
+                    <label class="o-form__text" for="textoacompanharnewsletter">@lang("messages.label.textoacompanharnewsletter")</label>
+                    <textarea aria-required="true" class="o-form__data" id="textoacompanharnewsletter" maxlength="255" name="textoacompanharnewsletter" required>{{$newsletterparametros->textoacompanharnewsletter}}</textarea>
+                </div>
+            </div>
+            <div class="l-row" role="row">
+                <div class="u-grid--12" role="grid">
                     <label class="o-form__text" for="textoacompanharposts">@lang("messages.label.textoacompanharposts")</label>
                     <textarea aria-required="true" class="o-form__data" id="textoacompanharposts" maxlength="255" name="textoacompanharposts" required>{{$newsletterparametros->textoacompanharposts}}</textarea>
                 </div>
-            </div> 
+            </div>
             <div class="l-row" role="row">
                 <div class="u-grid--12" role="grid">
                     <label class="o-form__text" for="textoacompanharcomentarios">@lang("messages.label.textoacompanharcomentarios")</label>

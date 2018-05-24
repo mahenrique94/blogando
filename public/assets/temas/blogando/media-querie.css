@@ -69,6 +69,12 @@
         font-size: 1rem;
         padding: .5rem .75rem;
     }
+    .bg-postsRelacionados__post___imagem {
+        display: none;
+    }
+    .bg-postsRelacionados__post___conteudo {
+        width: 100%;
+    }
     .bg-footer {
         padding: 1rem 2rem;
     }
@@ -132,6 +138,12 @@
     .bg-paginacao__link {
         font-size: 1.125rem;
         padding: .5rem 1rem;
+    }
+    .bg-postsRelacionados__post___imagem {
+        display: inline-block;
+    }
+    .bg-postsRelacionados__post___conteudo {
+        width: calc(100% - (var(--imagem-post) + 5px + 8px));
     }
     .bg-footer {
         padding: 1rem 5rem;

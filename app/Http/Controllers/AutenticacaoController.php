@@ -17,14 +17,21 @@ class AutenticacaoController extends Controller
             $senha = $request->senha;
             $usuario = TblPerfil::join("bg_adm_usuario", "bg_tbl_perfil.idusuario", "bg_adm_usuario.id")
                 ->where("bg_adm_usuario.email", $email)
-                ->where("bg_adm_usuario.senha", $senha)
                 ->where("bg_adm_usuario.inativo", false)->select("bg_tbl_perfil.*")->get();
             if (UsuarioValidador::validarBusca($usuario)) {
                 if ($this->usuarioTemMaisDeUmPerfil($usuario)) {
-                    return redirect()->action("AutenticacaoController@escolherPerfil", ["idUsuario" => $usuario[0]->idusuario, "relembrar" => $request->relembrar]);
+                    if (UsuarioValidador::validarSenhaCriptografada($usuario, $senha)) {
+                        return redirect()->action("AutenticacaoController@escolherPerfil", ["idUsuario" => $usuario[0]->idusuario, "relembrar" => $request->relembrar]);
+                    } else {
+                        return back()->withInput(["erro" => "Email ou senha esta inválido."]);
+                    }
                 } else {
-                    Auth::loginUsingId($usuario[0]->id, $request->relembrar);
-                    return redirect()->action("DashboardController@index");
+                    if (UsuarioValidador::validarSenhaCriptografada($usuario, $senha)) {
+                        Auth::loginUsingId($usuario[0]->id, $request->relembrar);
+                        return redirect()->action("DashboardController@index");
+                    } else {
+                        return back()->withInput(["erro" => "Email ou senha esta inválido."]);
+                    }
                 }
             } else {
                 return back()->withInput(["erro" => "Email ou senha esta inválido."]);

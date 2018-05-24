@@ -58,7 +58,10 @@
                 </div>
             </div>
             @include("temas.blogando.autor")
-            @if ($blog->parametros->permitircomentarios && $blog->parametros->permitircomentariosanonimos)
+            @if ($blog->parametros->mostrarpostsrelacionados)
+                @include("temas.blogando.postsrelacionados")
+            @endif
+                @if ($blog->parametros->permitircomentarios && $blog->parametros->permitircomentariosanonimos)
                 @include("temas.blogando.comentario")
             @endif
             @if ($blog->parametros->permitircomentarios && $blog->parametros->utilizarcomentariosdisqus)

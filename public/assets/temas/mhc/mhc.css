@@ -116,6 +116,9 @@
 .bg-twitter {
     color: #66CCFF;
 }
+.bg-youtube {
+    color: #FF6666;
+}
 
 .bg-post__titulo, .bg-post__autor, .bg-post__data {
     color: #0099FF;
@@ -225,6 +228,10 @@
 }
 .bg-compartilhamento__link--whatsapp {
     background: #00CC00;
+}
+
+.bg-postsRelacionados__titulo, .bg-postsRelacionados__post___titulo {
+    color: #0099FF;
 }
 
 @media screen and (min-width: 0) {
