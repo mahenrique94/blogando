@@ -119,7 +119,7 @@ class PostController extends Controller implements GenericoController
     }
 
     public function publicar(Request $request) {
-//        $this->atualizarPost($request, Parametros::SITUACAOPOST_PUBLICADO, false);
+        $this->atualizarPost($request, Parametros::SITUACAOPOST_PUBLICADO, false);
         $this->emailController->newPostToNewsletter(Post::find($request->id));
         return redirect()->action("PostController@editar", ["id" => $request->id])->withInput(["sucesso" => "Post publicado com sucesso"]);
     }
