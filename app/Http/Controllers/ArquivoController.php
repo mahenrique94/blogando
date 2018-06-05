@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Helpers\ArquivoHelper;
 use App\Http\HTTP;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,7 +32,7 @@ class ArquivoController extends Controller
 
     public function save($request, $name, $directory) {
         if ($request->hasFile("file") && $request->file->isValid()) {
-            $imagem = str_slug($name) . ".jpg";
+            $imagem = ArquivoHelper::hash($name) . ".jpg";
             $this->uploadToDirectory($request->file, $imagem, $directory);
             return $imagem;
         }

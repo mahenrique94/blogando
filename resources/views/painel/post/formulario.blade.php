@@ -80,10 +80,9 @@
                     <div class="l-row" role="row">
                         <div class="u-grid--12 no-margin" role="grid">
                             <label class="o-form__text o-form__text--inline" for="publicadopor">@lang("messages.label.por"):</label>
-                            @if (!is_null($post->autor))
-                                <span>{{$post->autor->nome}}</span>
+                            @if (!is_null($post->perfil))
+                                <span>{{$post->perfil->nome}}</span>
                             @else
-                                
                             @endif
                         </div>
                     </div>

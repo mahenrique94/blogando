@@ -15,10 +15,10 @@
     <link href="/assets/temas/blogando/media-querie.css" rel="stylesheet">
     <link href="/assets/temas/{{$blog->aparencia->temablog}}/{{$blog->aparencia->temablog}}.css" rel="stylesheet">
     <link href="/assets/temas/{{$blog->aparencia->temablog}}/favicon.ico" rel="icon">
-    @unless($pagina === "pre-visualizar")
+    @if($pagina !== "pre-visualizar" && !str_contains(url()->full(), "localhost"))
         @includeIf("temas." . $blog->aparencia->temablog . ".google-console")
         @includeIf("temas." . $blog->aparencia->temablog . ".google-adsense")
-    @endunless
+    @endif
     <meta property="og:locale" content="pt_BR">
     <meta property=”og:site_name” content=”{{$blog->titulo}}“/>
     <meta content="summary_large_image" name="twitter:card"/>
@@ -97,9 +97,9 @@
         <script src="/assets/temas/blogando/blogando.js"></script>
     @endunless
     <script src="/assets/temas/{{$blog->aparencia->temablog}}/{{$blog->aparencia->temablog}}.js"></script>
-    @unless($pagina === "pre-visualizar")
+    @if($pagina !== "pre-visualizar" && !str_contains(url()->full(), "localhost"))
         @includeIf("temas." . $blog->aparencia->temablog . ".google-analytics")
-    @endunless
+    @endif
     @if (isset($pagina) && $pagina === "visualizar")
         @includeIf("temas." . $blog->aparencia->temablog . ".disqus-config")
     @endif

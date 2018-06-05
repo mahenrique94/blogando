@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\AdmUsuario;
 use App\Blog;
+use App\Http\Helpers\ArquivoHelper;
 use App\Http\HTTP;
 use App\Http\Parametros;
 use Illuminate\Http\Request;
@@ -78,7 +79,7 @@ class TblPerfilController extends Controller implements GenericoController
 
     private function subindoImagem($request) {
         if ($request->hasFile("file") && $request->file->isValid()) {
-            $imagem = str_slug($request->nome) . ".jpg";
+            $imagem = ArquivoHelper::hash($request->nome) . ".jpg";
             $this->arquivoController->uploadToDirectory($request->file, $imagem, "perfil");
             return $imagem;
         }

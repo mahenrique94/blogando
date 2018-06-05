@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Helpers\ArquivoHelper;
 use App\Http\Helpers\PerfilHelper;
 use App\Http\HTTP;
 use App\Http\Parametros;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Post;
-use App\TblPerfil;
 use App\PostEstatisticas;
 use App\Blog;
 use Parsedown;
 use League\HTMLToMarkdown\HtmlConverter;
-use PhpParser\Node\Param;
 
 class PostController extends Controller implements GenericoController
 {
@@ -188,7 +187,7 @@ class PostController extends Controller implements GenericoController
 
     private function subindoImagem($request) {
         if ($request->hasFile("file") && $request->file->isValid()) {
-            $imagem = str_slug($request->titulo) . ".jpg";
+            $imagem = ArquivoHelper::hash($request->titulo) . ".jpg";
             $this->arquivoController->upload($request->file, $imagem, "posts", date_format(date_create($request->datapostagem), "Y"), date_format(date_create($request->datapostagem), "m"));
             return $imagem;
         }
